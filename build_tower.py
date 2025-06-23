@@ -18,12 +18,29 @@ import zmq
 from kortex_driver.srv import *
 from kortex_driver.msg import *
 
+print("✅ sys.argv =", sys.argv)
+
 context = zmq.Context()
 
-#  Socket to talk to server
-print("Connecting to OpenPose server...")
+# Create socket outside the try loop
 socket = context.socket(zmq.REQ)
-socket.connect("tcp://localhost:5555")
+
+# Try to connect to OpenPose server
+connected = False
+for i in range(10):
+    try:
+        socket.connect("tcp://localhost:5555")
+        print("✅ Connected to OpenPose server")
+        
+        connected = True
+        break
+    except Exception as e:
+        print(f"❌ Connection attempt {i+1} failed: {e}")
+        time.sleep(1)
+
+if not connected:
+    print("❌ Failed to connect to OpenPose ZMQ server. Exiting.")
+    sys.exit(1)
 
 block_1_start = ConstrainedPose()
 block_1_target = ConstrainedPose()
@@ -78,7 +95,8 @@ class BuildTower:
             
             send_gripper_command_full_name = '/' + self.robot_name + '/base/send_gripper_command'
             rospy.wait_for_service(send_gripper_command_full_name)
-            self.send_gripper_command = rospy.ServiceProxy(send_gripper_command_full_name, SendGripperCommand)
+            self.send_gripper_service = rospy.ServiceProxy(send_gripper_command_full_name, SendGripperCommand)
+            #self.send_gripper_command = rospy.ServiceProxy(send_gripper_command_full_name, SendGripperCommand)
         except:
             self.is_init_success = False
         else:
@@ -184,7 +202,9 @@ class BuildTower:
 
         # Call the service 
         try:
-            self.send_gripper_command(req)
+            #self.send_gripper_command(req)
+            self.send_gripper_service(req)
+
         except rospy.ServiceException:
             rospy.logerr("Failed to call SendGripperCommand")
             return False
@@ -193,7 +213,15 @@ class BuildTower:
             return True
         
     def parse_information(self, argv_n):
-        f = open(sys.argv[argv_n], 'r')
+
+
+        print(f"🧪 Opening config file from argv[{argv_n}] = {sys.argv[argv_n]}")
+        try:
+            f = open(sys.argv[argv_n], 'r')
+        except FileNotFoundError:
+            print(f"❌ File not found: {sys.argv[argv_n]}")
+            sys.exit(1)
+
 
         # y = robot; p = left; b = blue
         turn_order = f.readline()
@@ -319,6 +347,7 @@ class BuildTower:
         pos2.target_pose.z += 0.045
         self.go_to_position(pos2)
 
+
         return True
 
 
@@ -396,7 +425,7 @@ class BuildTower:
                 self.look_at_person_1()
             else:
                 self.look_at_ground()
-
+                #self.home_the_robot()
             # Wait until person 1 starts doing his action
             print("Sending P1 Arm Extended request...")
             socket.send_string("P1: Arm Extended Check")
@@ -428,6 +457,7 @@ class BuildTower:
                 self.look_at_person_2()
             else:
                 self.look_at_ground()
+                #self.home_the_robot()
 
             # Wait until person 2 starts doing his action
             print("Sending P2 Arm Extended request...")
@@ -457,6 +487,7 @@ class BuildTower:
     
     def main(self):
         # For testing purposes
+      
         success = self.is_init_success
         try:
             rospy.delete_param("/kortex_examples_test_results/cartesian_poses_with_notifications_python")
@@ -489,7 +520,12 @@ class BuildTower:
 
             while config_n <= argc:
 
-                input("Press Enter to start configuration " + str(config_n))
+                sys.stdout.write("⏸ Press Enter to start configuration " + str(config_n) + "\n")
+                sys.stdout.flush()
+                input()
+                print("▶️  Continuing with configuration", config_n)
+
+
 
                 # Get all the objects starting and target positions
                 info = self.parse_information(config_n + 1)
@@ -498,7 +534,10 @@ class BuildTower:
                 turn_n = 0
                 robot_turn_n = 0
 
+                print("📤 About to send turn_order:", turn_order)
                 self.send_turn_order(turn_order)
+                print("📬 Sent turn_order and waiting for response...")
+
 
                 while turn_n < len(turn_order)-1:
                     if self.turn(turn_order, object_order, turn_n, robot_turn_n, config_n, condition_n) == 1:
@@ -510,7 +549,7 @@ class BuildTower:
                 message = socket.recv()
 
                 config_n += 1
-            
+            #Connected to OpenPose server
             # Movement finished, send to home position
             success &= self.home_the_robot()
             

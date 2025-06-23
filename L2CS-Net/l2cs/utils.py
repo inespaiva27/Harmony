@@ -67,25 +67,24 @@ def angular(gaze, label):
     return np.arccos(min(total/(np.linalg.norm(gaze)* np.linalg.norm(label)), 0.9999999))*180/np.pi
 
 def select_device(device='', batch_size=None):
-    # device = 'cpu' or '0' or '0,1,2,3'
-    s = f'YOLOv3 🚀 {git_describe() or date_modified()} torch {torch.__version__} '  # string
+    s = f'L2CSNet 🚀 torch {torch.__version__} '
     cpu = device.lower() == 'cpu'
     if cpu:
-        os.environ['CUDA_VISIBLE_DEVICES'] = '-1'  # force torch.cuda.is_available() = False
-    elif device:  # non-cpu device requested
-        os.environ['CUDA_VISIBLE_DEVICES'] = device  # set environment variable
-        # assert torch.cuda.is_available(), f'CUDA unavailable, invalid device {device} requested'  # check availability
+        os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
+    elif device:  # GPU device(s) specified
+        os.environ['CUDA_VISIBLE_DEVICES'] = device if device.isdigit() or ',' in device else '0'
 
     cuda = not cpu and torch.cuda.is_available()
+
     if cuda:
-        devices = device.split(',') if device else range(torch.cuda.device_count())  # i.e. 0,1,6,7
-        n = len(devices)  # device count
-        if n > 1 and batch_size:  # check batch_size is divisible by device_count
-            assert batch_size % n == 0, f'batch-size {batch_size} not multiple of GPU count {n}'
-        space = ' ' * len(s)
-        for i, d in enumerate(devices):
-            p = torch.cuda.get_device_properties(i)
-            s += f"{'' if i == 0 else space}CUDA:{d} ({p.name}, {p.total_memory / 1024 ** 2}MB)\n"  # bytes to MB
+        visible_devices = os.environ['CUDA_VISIBLE_DEVICES'].split(',')
+        n = len(visible_devices)
+        if batch_size and n > 1:
+            assert batch_size % n == 0, f"Batch size {batch_size} not divisible by {n} GPUs"
+        for d in visible_devices:
+            idx = int(d)
+            p = torch.cuda.get_device_properties(idx)
+            s += f'CUDA:{idx} ({p.name}, {p.total_memory / 1e9:.1f}GB)\n'
     else:
         s += 'CPU\n'
 

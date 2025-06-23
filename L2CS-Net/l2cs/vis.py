@@ -1,6 +1,26 @@
 import cv2
 import numpy as np
 from .results import GazeResultContainer
+from collections import deque
+
+#class GazeHistory:
+#    def __init__(self, maxlen=3):
+#        self.pitch_buffer = deque(maxlen=maxlen)
+#        self.yaw_buffer = deque(maxlen=maxlen)
+#
+#    def update(self, pitch, yaw):
+#        self.pitch_buffer.append(pitch)
+#        self.yaw_buffer.append(yaw)
+#
+#    def get_smoothed(self):
+#        if len(self.pitch_buffer) == 0:
+#            return None, None
+#        smoothed_pitch = np.mean(self.pitch_buffer)
+#        smoothed_yaw = np.mean(self.yaw_buffer)
+#        return smoothed_pitch, smoothed_yaw
+#    
+#gaze_histories = {}
+
 
 def draw_gaze(a,b,c,d,image_in, pitchyaw, thickness=2, color=(255, 255, 0),sclae=2.0):
     """Draw gaze angle on given image with a given eye positions."""
@@ -32,33 +52,62 @@ def draw_bbox(frame: np.ndarray, bbox: np.ndarray):
 
     return frame
 
+def is_mutual_gaze(pitch, yaw, angle_threshold):
+    gaze = np.array([
+        -np.cos(pitch) * np.sin(yaw),
+        -0.5 * np.sin(pitch),  # weight pitch less
+         np.cos(pitch) * np.cos(yaw)
+    ])
+    forward = np.array([0, 0, 1])
+    cos_angle = np.dot(gaze, forward)
+    angle_rad = np.arccos(np.clip(cos_angle, -1.0, 1.0))
+    return angle_rad < angle_threshold
+
+
+
 def render(frame: np.ndarray, results: GazeResultContainer):
+    #global gaze_histories
+    ANGLE_THRESHOLD = 0.2
 
-    # Draw bounding boxes
-    for bbox in results.bboxes:
-        frame = draw_bbox(frame, bbox)
-
-    # Draw Gaze
     for i in range(results.pitch.shape[0]):
-
         bbox = results.bboxes[i]
         pitch = results.pitch[i]
         yaw = results.yaw[i]
-        
-        # Extract safe min and max of x,y
-        x_min=int(bbox[0])
-        if x_min < 0:
-            x_min = 0
-        y_min=int(bbox[1])
-        if y_min < 0:
-            y_min = 0
-        x_max=int(bbox[2])
-        y_max=int(bbox[3])
 
-        # Compute sizes
+        x_min = max(int(bbox[0]), 0)
+        y_min = max(int(bbox[1]), 0)
+        x_max = int(bbox[2])
+        y_max = int(bbox[3])
         bbox_width = x_max - x_min
         bbox_height = y_max - y_min
 
-        draw_gaze(x_min,y_min,bbox_width, bbox_height,frame,(pitch,yaw),color=(0,0,255))
+        draw_bbox(frame, bbox)
+
+        # Draw mutual gaze detection region as a circle
+        center_x = int(x_min + bbox_width / 2)
+        center_y = int(y_min + bbox_height / 2)
+
+        # Radius based on ANGLE_THRESHOLD and bbox size (tweak scale as needed)
+        # Empirically scale to image: more threshold → bigger radius
+        radius = int((bbox_width / 2) * np.tan(ANGLE_THRESHOLD))
+ 
+
+        cv2.circle(frame, (center_x, center_y), radius, (100, 255, 100), 1, cv2.LINE_AA)
+
+
+        # Get or create history buffer
+        #if i not in gaze_histories:
+        #    gaze_histories[i] = GazeHistory(maxlen=5)
+        #gaze_histories[i].update(pitch, yaw)
+        #smooth_pitch, smooth_yaw = gaze_histories[i].get_smoothed()
+
+        # Compute mutual gaze using smoothed values
+        if is_mutual_gaze(pitch, yaw, angle_threshold=ANGLE_THRESHOLD):
+            arrow_color = (0, 255, 0)
+        else:
+            arrow_color = (0, 0, 255)
+
+        draw_gaze(x_min, y_min, bbox_width, bbox_height, frame, (pitch, yaw), color=arrow_color)
 
     return frame
+

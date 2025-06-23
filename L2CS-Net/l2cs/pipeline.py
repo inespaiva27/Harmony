@@ -8,9 +8,10 @@ import torch.nn as nn
 from dataclasses import dataclass
 from face_detection import RetinaFace
 
+
 from .utils import prep_input_numpy, getArch
 from .results import GazeResultContainer
-
+from .student_model import SlimStudentL2CS
 
 class Pipeline:
 
@@ -30,8 +31,10 @@ class Pipeline:
         self.confidence_threshold = confidence_threshold
 
         # Create L2CS model
-        self.model = getArch(arch, 90)
+        
+        self.model = SlimStudentL2CS(num_bins = 90)
         self.model.load_state_dict(torch.load(self.weights, map_location=device))
+
         self.model.to(self.device)
         self.model.eval()
 
