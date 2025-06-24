@@ -214,12 +214,10 @@ class BuildTower:
         
     def parse_information(self, argv_n):
 
-
-        print(f"🧪 Opening config file from argv[{argv_n}] = {sys.argv[argv_n]}")
         try:
             f = open(sys.argv[argv_n], 'r')
         except FileNotFoundError:
-            print(f"❌ File not found: {sys.argv[argv_n]}")
+            print(f"File not found: {sys.argv[argv_n]}")
             sys.exit(1)
 
 
@@ -520,10 +518,10 @@ class BuildTower:
 
             while config_n <= argc:
 
-                sys.stdout.write("⏸ Press Enter to start configuration " + str(config_n) + "\n")
+                sys.stdout.write(" Press Enter to start configuration " + str(config_n) + "\n")
                 sys.stdout.flush()
                 input()
-                print("▶️  Continuing with configuration", config_n)
+                print(" Continuing with configuration", config_n)
 
 
 
@@ -534,9 +532,9 @@ class BuildTower:
                 turn_n = 0
                 robot_turn_n = 0
 
-                print("📤 About to send turn_order:", turn_order)
+                print(" About to send turn_order:", turn_order)
                 self.send_turn_order(turn_order)
-                print("📬 Sent turn_order and waiting for response...")
+                print("Sent turn_order and waiting for response...")
 
 
                 while turn_n < len(turn_order)-1:

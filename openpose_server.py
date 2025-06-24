@@ -16,13 +16,7 @@ context = zmq.Context()
 socket = context.socket(zmq.REP)
 socket.bind("tcp://*:5555")
 
-#def display(datums):
-#    datum = datums[0]
-#    cv2.imshow("OpenPose 1.7.0 - Python API", datum.cvOutputData)
-#    key = cv2.waitKey(1)
-#    return (key == 27)
-
-def display(datumProcessed):
+'''def display(datumProcessed):
    
     output = datumProcessed[0].cvOutputData
     if output is None:
@@ -35,7 +29,67 @@ def display(datumProcessed):
         return key == 27
     except Exception as e:
         print(f"❌ Exception during imshow/waitKey: {e}")
+        return False'''
+
+def display(datumProcessed, idPos=None):
+
+    datum = datumProcessed[0]
+    output = datum.cvOutputData
+    keypoints = datum.poseKeypoints
+
+    if output is None or keypoints is None:
         return False
+
+    output = output.copy()
+
+    frame_height, frame_width = output.shape[:2]
+
+    for i, person in enumerate(keypoints):
+        right_shoulder = person[2]
+        left_shoulder = person[5]
+    
+        rx, ry, rc = right_shoulder
+        lx, ly, lc = left_shoulder
+
+        if rx > 0 and ry > 0 and rc > 0.7 and \
+           lx > 0 and ly > 0 and lc > 0.7:
+
+            x = int(((rx + lx) / 2) * frame_width)
+            y = int(((ry + ly) / 2) * frame_height)
+            y = max(20, y)
+
+            # Use attributed ID if available
+            if idPos is not None:
+                if i == idPos[0]:
+                    label = "Left"
+                elif i == idPos[1]:
+                    label = "Right"
+                else:
+                    label = f"Untracked {i}"
+            else:
+                label = f"ID {i}"
+
+            cv2.circle(output, (x, y), 5, (255, 0, 0), -1)
+            cv2.putText(output, label, (x, y - 10),
+                        cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2, cv2.LINE_AA)
+            cv2.putText(output, f"Cl {lc:.2f}", (x, y - 30),
+                        cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2, cv2.LINE_AA)
+            cv2.putText(output, f"Cr {rc:.2f}", (x, y - 50),
+                        cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2, cv2.LINE_AA)
+        else:
+            print(f"🔴 Person {i} shoulders invalid:")
+
+
+
+    try:
+        cv2.imshow("OpenPose Result", output)
+        key = cv2.waitKey(1)
+        return key == 27
+    except Exception as e:
+        print(f"❌ Exception during imshow/waitKey: {e}")
+        return False
+
+
 
 
 
@@ -55,53 +109,6 @@ def verifyCheckStart(datums):
                 return False
     return True
 
-def is_valid_person(person, min_height=50, max_height=300,
-                    min_arm=30, max_arm=300,
-                    min_shoulder_width=30, max_shoulder_width=300):
-    # Extract keypoints
-    neck = person[1]
-    mid_hip = person[8]
-    left_shoulder = person[5]
-    right_shoulder = person[2]
-    left_wrist = person[7]
-    right_wrist = person[4]
-
-    # Torso height (neck to mid-hip)
-    if np.any(neck[:2] == 0) or np.any(mid_hip[:2] == 0):
-        return False
-    torso_height = np.linalg.norm(neck[:2] - mid_hip[:2])
-    if not (min_height < torso_height < max_height):
-        return False
-
-    # Left arm
-    if np.any(left_shoulder[:2] == 0) or np.any(left_wrist[:2] == 0):
-        return False
-    left_arm_len = np.linalg.norm(left_shoulder[:2] - left_wrist[:2])
-    if not (min_arm < left_arm_len < max_arm):
-        return False
-
-    # Right arm
-    if np.any(right_shoulder[:2] == 0) or np.any(right_wrist[:2] == 0):
-        return False
-    right_arm_len = np.linalg.norm(right_shoulder[:2] - right_wrist[:2])
-    if not (min_arm < right_arm_len < max_arm):
-        return False
-
-    # Shoulder width
-    if np.any(left_shoulder[:2] == 0) or np.any(right_shoulder[:2] == 0):
-        return False
-    shoulder_width = abs(left_shoulder[0] - right_shoulder[0])
-    if not (min_shoulder_width < shoulder_width < max_shoulder_width):
-        return False
-
-    return True
-
-
-def get_first_visible_x(person):
-    for keypoint in person:
-        if keypoint[0] != 0:
-            return keypoint[0]
-    return float('inf')
 
 
 def get_shoulder_width(person):
@@ -152,203 +159,57 @@ def checkRightArmRetracted(person, ratio=0.5):
     return abs(wrist_x - shoulder_x) < (shoulder_width * ratio)
 
 
-'''def get_shoulder_width(person):
-    left_shoulder = person[5]
-    right_shoulder = person[2]
-    if left_shoulder[0] == 0 or right_shoulder[0] == 0:
-        return None
-    return abs(right_shoulder[0] - left_shoulder[0])
-
-def checkArmExtendedLeft(datums, left_id, ratio=0.8):
+def defineIdPos(datums, image_width):
     datum = datums[0]
-    if datum.poseKeypoints is None:
-        return False
-    person = datum.poseKeypoints[left_id]
 
-    shoulder_x = person[5][0]
-    wrist_x = person[7][0]
-    if wrist_x == 0 or shoulder_x == 0:
-        return False
-
-    shoulder_width = get_shoulder_width(person)
-    if shoulder_width is None:
-        return False
-
-    return abs(wrist_x - shoulder_x) > (shoulder_width * ratio)
-
-def checkArmRetractedLeft(datums, left_id, ratio=0.5):
-    datum = datums[0]
-    if datum.poseKeypoints is None:
-        return False
-    person = datum.poseKeypoints[left_id]
-
-    shoulder_x = person[5][0]
-    wrist_x = person[7][0]
-    if wrist_x == 0 or shoulder_x == 0:
-        return False
-
-    shoulder_width = get_shoulder_width(person)
-    if shoulder_width is None:
-        return False
-
-    return abs(wrist_x - shoulder_x) < (shoulder_width * ratio)
-
-def checkArmExtendedRight(datums, right_id, ratio=0.8):
-    datum = datums[0]
-    if datum.poseKeypoints is None:
-        return False
-    person = datum.poseKeypoints[right_id]
-
-    shoulder_x = person[2][0]
-    wrist_x = person[4][0]
-    if wrist_x == 0 or shoulder_x == 0:
-        return False
-
-    shoulder_width = get_shoulder_width(person)
-    if shoulder_width is None:
-        return False
-
-    return abs(wrist_x - shoulder_x) > (shoulder_width * ratio)
-
-def checkArmRetractedRight(datums, right_id, ratio=0.5):
-    datum = datums[0]
-    if datum.poseKeypoints is None:
-        return False
-    person = datum.poseKeypoints[right_id]
-
-    shoulder_x = person[2][0]
-    wrist_x = person[4][0]
-    if wrist_x == 0 or shoulder_x == 0:
-        return False
-
-    shoulder_width = get_shoulder_width(person)
-    if shoulder_width is None:
-        return False
-
-    return abs(wrist_x - shoulder_x) < (shoulder_width * ratio)
-'''
-
-'''def checkArmExtendedLeft(datums, left_id):
-    datum = datums[0]
     if datum.poseKeypoints is None:
         return
-    person = datum.poseKeypoints[left_id]
-    for keypoint in person:
-        keypointX = keypoint[0]
-        if keypointX != 0 and keypointX >= 0.40:
-            return True
-    return False
 
-def checkArmRetractedLeft(datums, left_id):
-    datum = datums[0]
-    if datum.poseKeypoints is None:
-        return
-    person = datum.poseKeypoints[left_id]
-    for keypoint in person:
-        keypointX = keypoint[0]
-        if keypointX != 0 and keypointX >= 0.40:
-            return False
-    return True
+    num_people = len(datum.poseKeypoints)
+    if num_people == 1:
+        return (0, -1)
+    if num_people > 2:
+        return (0, -2)
 
-def checkArmExtendedRight(datums, right_id):
-    datum = datums[0]
-    if datum.poseKeypoints is None:
-        return
-    person = datum.poseKeypoints[right_id]
-    for keypoint in person:
-        keypointX = keypoint[0]
-        if keypointX != 0 and keypointX <= 0.60:
-            return True
-    return False
+    # OpenPose keypoint indices
+    RIGHT_SHOULDER = 2
+    LEFT_SHOULDER = 5
 
-def checkArmRetractedRight(datums, right_id):
-    datum = datums[0]
-    if datum.poseKeypoints is None:
-        return
-    person = datum.poseKeypoints[right_id]
-    for keypoint in person:
-        keypointX = keypoint[0]
-        if keypointX != 0 and keypointX <= 0.60:
-            return False
-    return True'''
+    def get_avg_shoulder_x(person):
+        rs = person[RIGHT_SHOULDER]
+        ls = person[LEFT_SHOULDER]
 
+        rs_valid = rs[2] > 0.7
+        ls_valid = ls[2] > 0.7
 
-#def defineIdPos(datums):
-#    datum = datums[0]
-#    keypoints = datum.poseKeypoints
-#    if keypoints is None:
-#        return
-#
-#    valid_people = []
-#    for idx, person in enumerate(keypoints):
-#        if is_valid_person(person):
-#            valid_people.append((idx, person))
-#
-#    if len(valid_people) == 1:
-#        return (valid_people[0][0], -1)
-#    if len(valid_people) < 1:
-#        return
-#    if len(valid_people) > 2:
-#        return (0, -2)
-#
-#    # Exactly 2 valid people — now assign left/right
-#    idx0, p0 = valid_people[0]
-#    idx1, p1 = valid_people[1]
-#
-#
-#    p0X = get_first_visible_x(p0)
-#    p1X = get_first_visible_x(p1)
-#
-#    if p0X < p1X:
-#        return (idx0, idx1)
-#    else:
-#        return (idx1, idx0)
-#
-def defineIdPos(datums): 
-    datum = datums[0]
-    if datum.poseKeypoints is None:
-        return
-    if len(datum.poseKeypoints) == 1:
-        return (0,-1)
-    if len(datum.poseKeypoints) > 2:
-        return (0,-2)
+        coords = []
+        if rs_valid:
+            coords.append(rs[0] * image_width)
+        if ls_valid:
+            coords.append(ls[0] * image_width)
+
+        if coords:
+            return sum(coords) / len(coords)
+        else:
+            return None
+
     p0 = datum.poseKeypoints[1]
     p1 = datum.poseKeypoints[0]
-    for keypointP0 in p0:
-        if keypointP0[0] != 0:
-            p0X = keypointP0[0]
-            break
-    for keypointP1 in p1:
-        if keypointP1[0] != 0:
-            p1X = keypointP1[0]
-            break
+
+    p0X = get_avg_shoulder_x(p0)
+    p1X = get_avg_shoulder_x(p1)
+
+    if p0X is None or p1X is None:
+        return
+
     if p0X < p1X:
         return (0, 1)
     else:
         return (1, 0)
 
-#def defineIdPos(datums):
-#    datum = datums[0]
-#    if datum.poseKeypoints is None:
-#        return
-#    if len(datum.poseKeypoints) == 1:
-#        return (0, 0)  # pretend person 0 is both left and right
-#    if len(datum.poseKeypoints) > 2:
-#        return (0, -2)  # just pick first two
-#    p0 = datum.poseKeypoints[0]
-#    p1 = datum.poseKeypoints[1]
-#    for keypointP0 in p0:
-#        if keypointP0[0] != 0:
-#            p0X = keypointP0[0]
-#            break
-#    for keypointP1 in p1:
-#        if keypointP1[0] != 0:
-#            p1X = keypointP1[0]
-#            break
-#    if p0X < p1X:
-#        return (0, 1)
-#    else:
-#        return (1, 0)
+
+
+
 
 
 def connect_kinova_camera(ws_url):
@@ -412,9 +273,6 @@ try:
             key = curr_item.replace('-','')
             if key not in params: params[key] = next_item
 
-    # Construct it from system arguments
-    # op.init_argv(args[1])
-    # oppython = op.OpenposePython()
 
     # Starting OpenPose
     print(" Starting OpenPose...")
@@ -467,15 +325,17 @@ try:
                 current_count = 0
             
             if current_count != last_detected_count:
-                print(f"👥 Detected people: {current_count}")
                 last_detected_count = current_count
+
+            frame_height, frame_width = frame.shape[:2]
+
+             # Analyze keypoints
+            idPos = defineIdPos(datumProcessed, frame_width)
 
             if not args[0].no_display:
                  # Display image
-                 userWantsToExit = display(datumProcessed)
+                 userWantsToExit = display(datumProcessed, idPos)
 
-             # Analyze keypoints
-            idPos = defineIdPos(datumProcessed)
 
             if idPos is None:
                  #print("0 people detected")
@@ -543,16 +403,16 @@ try:
                 try:
                     message = socket.recv(flags=zmq.NOBLOCK)
                     print("Message received:", message)
-#  
+  
                     if message.decode() == "Configuration finished":
                         print("Configuration finished. Waiting for next configuration...")
                         socket.send_string("Received")
                         break
-#  
+  
                     socket.send_string(buffer[buffer_it])
                     buffer_it += 1
                     action_flag = False
-#  
+  
                 except zmq.Again:
                     pass
 
