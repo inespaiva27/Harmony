@@ -10,6 +10,11 @@ import websocket
 import av  # PyAV library for decoding H264
 import numpy as np
 
+import pathlib
+import torch
+import torch.backends.cudnn as cudnn
+from L2CS_Net.l2cs import select_device, draw_gaze, getArch, Pipeline, render
+
 
 context = zmq.Context()
 
@@ -17,21 +22,12 @@ context = zmq.Context()
 socket = context.socket(zmq.REP)
 socket.bind("tcp://*:5555")
 
-# New PUSH socket for sending video frames
-frame_socket = context.socket(zmq.PUSH)
-frame_socket.setsockopt(zmq.SNDHWM, 1)  # High Water Mark: only 1 frame in buffer
-frame_socket.setsockopt(zmq.LINGER, 0)  # No waiting if can't send
-frame_socket.bind("tcp://*:5556") 
-
-
-
 def display(datumProcessed, idPos=None):
     datum = datumProcessed[0]
-    raw_frame = datum.cvInputData  # original camera image
-    output = datum.cvOutputData    # image with OpenPose drawings
+    output = datum.cvOutputData    
     keypoints = datum.poseKeypoints
 
-    if raw_frame is None or output is None or keypoints is None:
+    if output is None or keypoints is None:
         return False
 
     output = output.copy()
@@ -70,17 +66,13 @@ def display(datumProcessed, idPos=None):
                         cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2, cv2.LINE_AA)
 
     try:
-        # ✅ Send the raw (undrawn) frame instead of OpenPose output
-        resized_frame = cv2.resize(raw_frame, (640, 360))  # or 320x240
-        _, jpeg = cv2.imencode('.jpg', resized_frame, [int(cv2.IMWRITE_JPEG_QUALITY), 80])
-        frame_socket.send(jpeg.tobytes())
 
         # Show OpenPose result locally (optional)
         cv2.imshow("OpenPose Result", output)
         key = cv2.waitKey(1)
         return key == 27
     except Exception as e:
-        print(f"❌ Exception during imshow/waitKey: {e}")
+        print(f"Exception during imshow/waitKey: {e}")
         return False
 
 
@@ -240,7 +232,12 @@ try:
     # Flags
     parser = argparse.ArgumentParser()
     parser.add_argument("--no-display", action="store_true", help="Disable display.")
-    args = parser.parse_known_args()
+    parser.add_argument('--device', help='Device to run model: cpu or gpu:0', default="cpu", type=str)
+    parser.add_argument('--snapshot', help='Path of model snapshot.',
+                        default='/home/ines/Desktop/Harmony/L2CS_Net/models/student_combined_epoch_148.pkl', type=str)
+    parser.add_argument('--arch', help='Network architecture',
+                        default='ResNet50', type=str)
+    args, unknown = parser.parse_known_args()
 
     # Custom Params (refer to include/openpose/flags.hpp for more parameters)
     params = dict()
@@ -251,17 +248,18 @@ try:
 
     
 
-    # Add others in path?
-    for i in range(0, len(args[1])):
-        curr_item = args[1][i]
-        if i != len(args[1])-1: next_item = args[1][i+1]
-        else: next_item = "1"
+    for i in range(len(unknown)):
+        curr_item = unknown[i]
+        next_item = unknown[i + 1] if i + 1 < len(unknown) else "1"
         if "--" in curr_item and "--" in next_item:
-            key = curr_item.replace('-','')
-            if key not in params:  params[key] = "1"
+            key = curr_item.replace('-', '')
+            if key not in params:
+                params[key] = "1"
         elif "--" in curr_item and "--" not in next_item:
-            key = curr_item.replace('-','')
-            if key not in params: params[key] = next_item
+            key = curr_item.replace('-', '')
+            if key not in params:
+                params[key] = next_item
+
 
 
     # Starting OpenPose
@@ -269,6 +267,15 @@ try:
     opWrapper = op.WrapperPython(op.ThreadManagerMode.Asynchronous)
     opWrapper.configure(params)
     opWrapper.start()
+
+    CWD = pathlib.Path.cwd()
+    cudnn.enabled = True
+
+    gaze_pipeline = Pipeline(
+        weights=CWD / 'L2CS_Net' /'models' / 'student_combined_epoch_148.pkl',
+        arch=args.arch,
+        device=select_device(args.device, batch_size=1)
+    )
     
 
     cap = cv2.VideoCapture("/dev/video4")
@@ -307,6 +314,12 @@ try:
             opWrapper.emplaceAndPop(op.VectorDatum([datum]))
             datumProcessed = [datum]  # wrap in list for compatibility
 
+            # Get gaze estimation results from L2CS
+            gaze_results = gaze_pipeline.step(frame)
+
+            # Overlay gaze vectors on a copy of the original frame
+            gaze_frame = render(frame.copy(), gaze_results)
+
 
             # Print number of people detected if it changes
             if datum.poseKeypoints is not None:
@@ -322,9 +335,22 @@ try:
              # Analyze keypoints
             idPos = defineIdPos(datumProcessed, frame_width)
 
-            if not args[0].no_display:
-                 # Display image
-                 userWantsToExit = display(datumProcessed, idPos)
+            if not args.no_display:
+                try:
+                    # Get OpenPose output
+                    frame_with_openpose = datum.cvOutputData
+
+                    # Blend OpenPose + Gaze output for visualization
+                    combined_display = cv2.addWeighted(frame_with_openpose, 0.6, gaze_frame, 0.4, 0)
+
+                    # Show the result
+                    cv2.imshow("OpenPose + Gaze", combined_display)
+
+                    # Exit on 'q'
+                    if cv2.waitKey(1) & 0xFF == ord('q'):
+                        userWantsToExit = True
+                except Exception as e:
+                    print(f"Display exception: {e}")
 
 
             if idPos is None:
