@@ -10,44 +10,37 @@ import websocket
 import av  # PyAV library for decoding H264
 import numpy as np
 
+
 context = zmq.Context()
 
 # Turn on Server
 socket = context.socket(zmq.REP)
 socket.bind("tcp://*:5555")
 
-'''def display(datumProcessed):
-   
-    output = datumProcessed[0].cvOutputData
-    if output is None:
-        print("❌ cvOutputData is None")
-        return False
+# New PUSH socket for sending video frames
+frame_socket = context.socket(zmq.PUSH)
+frame_socket.setsockopt(zmq.SNDHWM, 1)  # High Water Mark: only 1 frame in buffer
+frame_socket.setsockopt(zmq.LINGER, 0)  # No waiting if can't send
+frame_socket.bind("tcp://*:5556") 
 
-    try:
-        cv2.imshow("OpenPose Result", output)
-        key = cv2.waitKey(1)
-        return key == 27
-    except Exception as e:
-        print(f"❌ Exception during imshow/waitKey: {e}")
-        return False'''
+
 
 def display(datumProcessed, idPos=None):
-
     datum = datumProcessed[0]
-    output = datum.cvOutputData
+    raw_frame = datum.cvInputData  # original camera image
+    output = datum.cvOutputData    # image with OpenPose drawings
     keypoints = datum.poseKeypoints
 
-    if output is None or keypoints is None:
+    if raw_frame is None or output is None or keypoints is None:
         return False
 
     output = output.copy()
-
     frame_height, frame_width = output.shape[:2]
 
     for i, person in enumerate(keypoints):
         right_shoulder = person[2]
         left_shoulder = person[5]
-    
+
         rx, ry, rc = right_shoulder
         lx, ly, lc = left_shoulder
 
@@ -58,7 +51,6 @@ def display(datumProcessed, idPos=None):
             y = int(((ry + ly) / 2) * frame_height)
             y = max(20, y)
 
-            # Use attributed ID if available
             if idPos is not None:
                 if i == idPos[0]:
                     label = "Left"
@@ -76,19 +68,20 @@ def display(datumProcessed, idPos=None):
                         cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2, cv2.LINE_AA)
             cv2.putText(output, f"Cr {rc:.2f}", (x, y - 50),
                         cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2, cv2.LINE_AA)
-        else:
-            print(f"🔴 Person {i} shoulders invalid:")
-
-
 
     try:
+        # ✅ Send the raw (undrawn) frame instead of OpenPose output
+        resized_frame = cv2.resize(raw_frame, (640, 360))  # or 320x240
+        _, jpeg = cv2.imencode('.jpg', resized_frame, [int(cv2.IMWRITE_JPEG_QUALITY), 80])
+        frame_socket.send(jpeg.tobytes())
+
+        # Show OpenPose result locally (optional)
         cv2.imshow("OpenPose Result", output)
         key = cv2.waitKey(1)
         return key == 27
     except Exception as e:
         print(f"❌ Exception during imshow/waitKey: {e}")
         return False
-
 
 
 
@@ -209,9 +202,6 @@ def defineIdPos(datums, image_width):
 
 
 
-
-
-
 def connect_kinova_camera(ws_url):
     ws = websocket.create_connection(ws_url)
     container = av.open(ws.makefile('rb'), format='h264')
@@ -258,8 +248,8 @@ try:
     params["net_resolution"] = "192x144"
     params["keypoint_scale"] = "3"
     params["camera"] = -1
-    
 
+    
 
     # Add others in path?
     for i in range(0, len(args[1])):
@@ -283,7 +273,7 @@ try:
 
     cap = cv2.VideoCapture("/dev/video4")
     if not cap.isOpened():
-        print("❌ Failed to open camera /dev/video4")
+        print("Failed to open camera /dev/video4")
         sys.exit(1)
     else:
         print("Camera opened")

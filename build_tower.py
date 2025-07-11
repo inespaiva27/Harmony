@@ -18,8 +18,6 @@ import zmq
 from kortex_driver.srv import *
 from kortex_driver.msg import *
 
-print("✅ sys.argv =", sys.argv)
-
 context = zmq.Context()
 
 # Create socket outside the try loop
@@ -30,16 +28,16 @@ connected = False
 for i in range(10):
     try:
         socket.connect("tcp://localhost:5555")
-        print("✅ Connected to OpenPose server")
+        print("Connected to OpenPose server")
         
         connected = True
         break
     except Exception as e:
-        print(f"❌ Connection attempt {i+1} failed: {e}")
+        print(f"Connection attempt {i+1} failed: {e}")
         time.sleep(1)
 
 if not connected:
-    print("❌ Failed to connect to OpenPose ZMQ server. Exiting.")
+    print("Failed to connect to OpenPose ZMQ server. Exiting.")
     sys.exit(1)
 
 block_1_start = ConstrainedPose()
@@ -425,8 +423,8 @@ class BuildTower:
                 self.look_at_ground()
                 #self.home_the_robot()
             # Wait until person 1 starts doing his action
-            print("Sending P1 Arm Extended request...")
-            socket.send_string("P1: Arm Extended Check")
+            print("Sending PR Arm Extended request...")
+            socket.send_string("PR: Arm Extended Check")
                 
             #  Get the reply.
             message = socket.recv()
@@ -438,8 +436,8 @@ class BuildTower:
                 self.look_at_tower()
 
             # Wait until person 1 finishes his action
-            print("Sending P1 Arm Retracted request...")
-            socket.send_string("P1: Arm Retracted Check")
+            print("Sending PR Arm Retracted request...")
+            socket.send_string("PR: Arm Retracted Check")
             
             #  Get the reply.
             message = socket.recv()
@@ -458,8 +456,8 @@ class BuildTower:
                 #self.home_the_robot()
 
             # Wait until person 2 starts doing his action
-            print("Sending P2 Arm Extended request...")
-            socket.send_string("P2: Arm Extended Check")
+            print("Sending PL Arm Extended request...")
+            socket.send_string("PL: Arm Extended Check")
                 
             #  Get the reply.
             message = socket.recv()
@@ -471,8 +469,8 @@ class BuildTower:
                 self.look_at_tower()
 
             # Wait until person 2 finishes his action
-            print("Sending P2 Arm Retracted request...")
-            socket.send_string("P2: Arm Retracted Check")
+            print("Sending PL Arm Retracted request...")
+            socket.send_string("PL: Arm Retracted Check")
                 
             #  Get the reply.
             message = socket.recv()
