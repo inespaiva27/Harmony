@@ -15,12 +15,25 @@ import torch
 import torch.backends.cudnn as cudnn
 from L2CS_Net.l2cs import select_device, draw_gaze, getArch, Pipeline, render
 
+import logging 
+from datetime import datetime
+
+
+# --- Logging Setup ---
+log_filename = f"kinova_log_{datetime.now().strftime('%Y%m%d_%H%M')}.log"
+logging.basicConfig(filename=log_filename, level=logging.INFO,
+                    format='%(asctime)s - %(levelname)s - %(name)s - %(message)s') # Added %(name)s to differentiate sources
+# Get a specific logger for this module
+logger = logging.getLogger('OpenPoseServer')
+
 
 context = zmq.Context()
 
 # Turn on Server
 socket = context.socket(zmq.REP)
 socket.bind("tcp://*:5555")
+logger.info("OpenPose server started and bound to tcp://*:5555")
+
 
 def display(datumProcessed, idPos=None):
     datum = datumProcessed[0]
@@ -72,6 +85,7 @@ def display(datumProcessed, idPos=None):
         key = cv2.waitKey(1)
         return key == 27
     except Exception as e:
+        logger.error(f"Exception during imshow/waitKey: {e}")
         print(f"Exception during imshow/waitKey: {e}")
         return False
 
@@ -80,6 +94,7 @@ def display(datumProcessed, idPos=None):
 
 def printKeypoints(datums):
     datum = datums[0]
+    logger.info(f"Body keypoints: {datum.poseKeypoints}")
     print("Body keypoints: \n" + str(datum.poseKeypoints))
 
 def verifyCheckStart(datums):
@@ -225,6 +240,7 @@ try:
             # sys.path.append('/usr/local/python')
             from openpose import pyopenpose as op
     except ImportError as e:
+        logger.error(f'Error: OpenPose library could not be found. Did you enable `BUILD_PYTHON` in CMake and have this Python script in the right folder? {e}')
         print('Error: OpenPose library could not be found. Did you enable `BUILD_PYTHON` in CMake and have this Python script in the right folder?')
         raise e
 
@@ -263,6 +279,7 @@ try:
 
 
     # Starting OpenPose
+    logger.info("Starting OpenPose")
     print(" Starting OpenPose...")
     opWrapper = op.WrapperPython(op.ThreadManagerMode.Asynchronous)
     opWrapper.configure(params)
@@ -280,15 +297,19 @@ try:
 
     cap = cv2.VideoCapture("/dev/video4")
     if not cap.isOpened():
+        logger.error("Failed to open camera /dev/video4")
         print("Failed to open camera /dev/video4")
         sys.exit(1)
     else:
+        logger.info("Camera opened successfully")
         print("Camera opened")
 
     while True:
 
+        logger.info("OpenPose initialized - waiting for turn_order")
         print(" OpenPose initialized — waiting for turn_order...")
         turn_order_aux = socket.recv()
+        logger.info(f"Message received: {turn_order_aux.decode()}") 
         print("Message received:", turn_order_aux)
         socket.send_string("Order Received")
         turn_order = turn_order_aux.decode()
@@ -309,6 +330,10 @@ try:
         while not userWantsToExit:
             # Get frame from Kinova camera
             frame = get_next_frame(cap)
+            if frame is None:
+                logger.warning("Failed to get frame from camera.")
+                continue
+
             datum = op.Datum()
             datum.cvInputData = frame
             opWrapper.emplaceAndPop(op.VectorDatum([datum]))
@@ -328,6 +353,7 @@ try:
                 current_count = 0
             
             if current_count != last_detected_count:
+                #logger.info(f"Number of people detected changed: {current_count}") 
                 last_detected_count = current_count
 
             frame_height, frame_width = frame.shape[:2]
@@ -350,6 +376,7 @@ try:
                     if cv2.waitKey(1) & 0xFF == ord('q'):
                         userWantsToExit = True
                 except Exception as e:
+                    logger.error(f"Display exception: {e}")
                     print(f"Display exception: {e}")
 
 
@@ -380,6 +407,7 @@ try:
                         buffer.append("Left: Arm Extended")
                         buffer_len += 1
                         checkStatus = 1
+                        logger.info("Left Person: Arm Extended detected")
                         print("Left: Arm Extended")
                 elif checkStatus == 1:
                     if checkLeftArmRetracted(person):
@@ -388,6 +416,7 @@ try:
                         buffer_len += 1
                         checkStatus = 0
                         turn_n += 1
+                        logger.info("Left Person: Arm Retracted detected")
                         print("Left: Arm Retracted")
 
             elif turn_order[turn_n] == 'p':
@@ -398,6 +427,7 @@ try:
                         buffer.append("Right: Arm Extended")
                         buffer_len += 1
                         checkStatus = 1
+                        logger.info("Right Person: Arm Extended detected")
                         print("Right: Arm Extended")
                 elif checkStatus == 1:
                     if checkRightArmRetracted(person):
@@ -406,10 +436,12 @@ try:
                         buffer_len += 1
                         checkStatus = 0
                         turn_n += 1
+                        logger.info("Right Person: Arm Retracted detected")
                         print("Right: Arm Retracted")
 
 
             elif turn_order[turn_n] == 'y':
+                logger.info("Robot's turn detected")
                 turn_n += 1
 
 
@@ -418,21 +450,26 @@ try:
             if buffer_it < buffer_len or config_finished:
                 try:
                     message = socket.recv(flags=zmq.NOBLOCK)
+                    logger.info(f"ZMQ Message received (non-blocking): {message.decode()}")
                     print("Message received:", message)
   
                     if message.decode() == "Configuration finished":
+                        logger.info("Configuration finished. Waiting for next configuration")
                         print("Configuration finished. Waiting for next configuration...")
                         socket.send_string("Received")
                         break
   
                     socket.send_string(buffer[buffer_it])
+                    logger.info(f"ZMQ Sending: {buffer[buffer_it]}")
                     buffer_it += 1
                     action_flag = False
   
                 except zmq.Again:
+                    logger.debug("No ZMQ message received yet")
                     pass
 
         
 except Exception as e:
+    logger.critical(f"Critical error in openpose_server: {e}", exc_info=True)
     print(e)
     sys.exit(-1)

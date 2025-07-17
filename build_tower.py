@@ -15,8 +15,19 @@ import sys
 import rospy
 import time
 import zmq
+import logging 
+from datetime import datetime 
 from kortex_driver.srv import *
 from kortex_driver.msg import *
+
+# --- Logging Setup ---
+
+log_filename = f"kinova_log_{datetime.now().strftime('%Y%m%d_%H%M')}.log"
+logging.basicConfig(filename=log_filename, level=logging.INFO,
+                    format='%(asctime)s - %(levelname)s - %(name)s - %(message)s') # Added %(name)s to differentiate sources
+# Get a specific logger for this module
+logger = logging.getLogger('BuildTower')
+
 
 context = zmq.Context()
 
@@ -28,15 +39,18 @@ connected = False
 for i in range(10):
     try:
         socket.connect("tcp://localhost:5555")
+        logger.info("Connected to OpenPose server")
         print("Connected to OpenPose server")
         
         connected = True
         break
     except Exception as e:
+        logger.warning(f"Connection attempt {i+1} failed: {e}")
         print(f"Connection attempt {i+1} failed: {e}")
         time.sleep(1)
 
 if not connected:
+    logger.critical("Failed to connect to OpenPose ZMQ server. Exiting.")
     print("Failed to connect to OpenPose ZMQ server. Exiting.")
     sys.exit(1)
 
@@ -65,6 +79,7 @@ class BuildTower:
             self.is_gripper_present = rospy.get_param("/" + self.robot_name + "/is_gripper_present", False)
 
             rospy.loginfo("Using robot_name " + self.robot_name + " , robot has " + str(self.degrees_of_freedom) + " degrees of freedom and is_gripper_present is " + str(self.is_gripper_present))
+            logger.info(f"Robot parameters: robot_name={self.robot_name}, dof={self.degrees_of_freedom}, gripper_present={self.is_gripper_present}")
 
             # Init the action topic subscriber
             self.action_topic_sub = rospy.Subscriber("/" + self.robot_name + "/action_topic", ActionNotification, self.cb_action_topic)
@@ -74,42 +89,53 @@ class BuildTower:
             clear_faults_full_name = '/' + self.robot_name + '/base/clear_faults'
             rospy.wait_for_service(clear_faults_full_name)
             self.clear_faults = rospy.ServiceProxy(clear_faults_full_name, Base_ClearFaults)
+            logger.info(f"Service initialized: {clear_faults_full_name}")
 
             read_action_full_name = '/' + self.robot_name + '/base/read_action'
             rospy.wait_for_service(read_action_full_name)
             self.read_action = rospy.ServiceProxy(read_action_full_name, ReadAction)
+            logger.info(f"Service initialized: {read_action_full_name}")
 
             execute_action_full_name = '/' + self.robot_name + '/base/execute_action'
             rospy.wait_for_service(execute_action_full_name)
             self.execute_action = rospy.ServiceProxy(execute_action_full_name, ExecuteAction)
+            logger.info(f"Service initialized: {execute_action_full_name}")
 
             set_cartesian_reference_frame_full_name = '/' + self.robot_name + '/control_config/set_cartesian_reference_frame'
             rospy.wait_for_service(set_cartesian_reference_frame_full_name)
             self.set_cartesian_reference_frame = rospy.ServiceProxy(set_cartesian_reference_frame_full_name, SetCartesianReferenceFrame)
+            logger.info(f"Service initialized: {set_cartesian_reference_frame_full_name}")
 
             activate_publishing_of_action_notification_full_name = '/' + self.robot_name + '/base/activate_publishing_of_action_topic'
             rospy.wait_for_service(activate_publishing_of_action_notification_full_name)
             self.activate_publishing_of_action_notification = rospy.ServiceProxy(activate_publishing_of_action_notification_full_name, OnNotificationActionTopic)
-            
+            logger.info(f"Service initialized: {activate_publishing_of_action_notification_full_name}")
+
             send_gripper_command_full_name = '/' + self.robot_name + '/base/send_gripper_command'
             rospy.wait_for_service(send_gripper_command_full_name)
             self.send_gripper_service = rospy.ServiceProxy(send_gripper_command_full_name, SendGripperCommand)
+            logger.info(f"Service initialized: {send_gripper_command_full_name}")
             #self.send_gripper_command = rospy.ServiceProxy(send_gripper_command_full_name, SendGripperCommand)
         except:
             self.is_init_success = False
+            logger.error(f"Initialization failed: {e}", exc_info=True)
         else:
             self.is_init_success = True
+            logger.info("BuildTower class initialized successfully.")
 
     def cb_action_topic(self, notif):
         self.last_action_notif_type = notif.action_event
+        logger.debug(f"Action notification received: {self.last_action_notif_type}")
 
     def wait_for_action_end_or_abort(self):
         while not rospy.is_shutdown():
             if (self.last_action_notif_type == ActionEvent.ACTION_END):
                 rospy.loginfo("Received ACTION_END notification")
+                logger.info("Robot action ended.")
                 return True
             elif (self.last_action_notif_type == ActionEvent.ACTION_ABORT):
                 rospy.loginfo("Received ACTION_ABORT notification")
+                logger.warning("Robot action aborted.")
                 self.all_notifs_succeeded = False
                 return False
             else:
@@ -120,9 +146,11 @@ class BuildTower:
             self.clear_faults()
         except rospy.ServiceException:
             rospy.logerr("Failed to call ClearFaults")
+            logger.error(f"Failed to call ClearFaults: {e}")
             return False
         else:
             rospy.loginfo("Cleared the faults successfully")
+            logger.info("Robot faults cleared successfully.")
             rospy.sleep(2.5)
             return True
 
@@ -135,6 +163,7 @@ class BuildTower:
             res = self.read_action(req)
         except rospy.ServiceException:
             rospy.logerr("Failed to call ReadAction")
+            logger.error(f"Failed to call ReadAction for home: {e}")
             return False
         # Execute the HOME action if we could read it
         else:
@@ -142,10 +171,12 @@ class BuildTower:
             req = ExecuteActionRequest()
             req.input = res.output
             rospy.loginfo("Sending the robot home...")
+            logger.info("Sending robot to home position.")
             try:
                 self.execute_action(req)
             except rospy.ServiceException:
                 rospy.logerr("Failed to call ExecuteAction")
+                logger.error(f"Failed to call ExecuteAction for home: {e}")
                 return False
             else:
                 time.sleep(0.6)
@@ -161,9 +192,11 @@ class BuildTower:
             self.set_cartesian_reference_frame()
         except rospy.ServiceException:
             rospy.logerr("Failed to call SetCartesianReferenceFrame")
+            logger.error(f"Failed to call SetCartesianReferenceFrame: {e}")
             return False
         else:
             rospy.loginfo("Set the cartesian reference frame successfully")
+            logger.info("Cartesian reference frame set successfully.")
             return True
 
         # Wait a bit
@@ -173,13 +206,16 @@ class BuildTower:
         # Activate the publishing of the ActionNotification
         req = OnNotificationActionTopicRequest()
         rospy.loginfo("Activating the action notifications...")
+        logger.info("Activating action notifications.")
         try:
             self.activate_publishing_of_action_notification(req)
         except rospy.ServiceException:
             rospy.logerr("Failed to call OnNotificationActionTopic")
+            logger.error(f"Failed to call OnNotificationActionTopic: {e}")
             return False
         else:
             rospy.loginfo("Successfully activated the Action Notifications!")
+            logger.info("Action Notifications successfully activated.")
 
         rospy.sleep(1.0)
 
@@ -197,6 +233,7 @@ class BuildTower:
         req.input.mode = GripperMode.GRIPPER_POSITION
 
         rospy.loginfo("Sending the gripper command...")
+        logger.info(f"Sending gripper command: value={value}")
 
         # Call the service 
         try:
@@ -205,16 +242,19 @@ class BuildTower:
 
         except rospy.ServiceException:
             rospy.logerr("Failed to call SendGripperCommand")
+            logger.error(f"Failed to call SendGripperCommand: {e}")
             return False
         else:
             time.sleep(0.5)
+            logger.info(f"Gripper command {value} sent successfully.")
             return True
         
     def parse_information(self, argv_n):
-
+        logger.info(f"Parsing information from file: {sys.argv[argv_n]}")
         try:
             f = open(sys.argv[argv_n], 'r')
         except FileNotFoundError:
+            logger.error(f"File not found: {sys.argv[argv_n]}")
             print(f"File not found: {sys.argv[argv_n]}")
             sys.exit(1)
 
@@ -225,48 +265,29 @@ class BuildTower:
         # 1 = square; 2 = rectangle; 3 = semicircle; 4 = bridge
         object_order = f.readline()
 
-        if f.readline() == "B1 start\n":
-            block_1_start.target_pose.x = float(f.readline())
-            block_1_start.target_pose.y = float(f.readline())
-            block_1_start.target_pose.z = float(f.readline())
-            block_1_start.target_pose.theta_x = float(f.readline())
-            block_1_start.target_pose.theta_y = float(f.readline())
-            block_1_start.target_pose.theta_z = float(f.readline())
-        if f.readline() == "B1 target\n":
-            block_1_target.target_pose.x = float(f.readline())
-            block_1_target.target_pose.y = float(f.readline())
-            block_1_target.target_pose.z = float(f.readline())
-            block_1_target.target_pose.theta_x = float(f.readline())
-            block_1_target.target_pose.theta_y = float(f.readline())
-            block_1_target.target_pose.theta_z = float(f.readline())
-        if f.readline() == "B2 start\n":
-            block_2_start.target_pose.x = float(f.readline())
-            block_2_start.target_pose.y = float(f.readline())
-            block_2_start.target_pose.z = float(f.readline())
-            block_2_start.target_pose.theta_x = float(f.readline())
-            block_2_start.target_pose.theta_y = float(f.readline())
-            block_2_start.target_pose.theta_z = float(f.readline())
-        if f.readline() == "B2 target\n":
-            block_2_target.target_pose.x = float(f.readline())
-            block_2_target.target_pose.y = float(f.readline())
-            block_2_target.target_pose.z = float(f.readline())
-            block_2_target.target_pose.theta_x = float(f.readline())
-            block_2_target.target_pose.theta_y = float(f.readline())
-            block_2_target.target_pose.theta_z = float(f.readline())
-        if f.readline() == "B3 start\n":
-            block_3_start.target_pose.x = float(f.readline())
-            block_3_start.target_pose.y = float(f.readline())
-            block_3_start.target_pose.z = float(f.readline())
-            block_3_start.target_pose.theta_x = float(f.readline())
-            block_3_start.target_pose.theta_y = float(f.readline())
-            block_3_start.target_pose.theta_z = float(f.readline())
-        if f.readline() == "B3 target\n":
-            block_3_target.target_pose.x = float(f.readline())
-            block_3_target.target_pose.y = float(f.readline())
-            block_3_target.target_pose.z = float(f.readline())
-            block_3_target.target_pose.theta_x = float(f.readline())
-            block_3_target.target_pose.theta_y = float(f.readline())
-            block_3_target.target_pose.theta_z = float(f.readline())
+        logger.info(f"Parsed turn_order: {turn_order}")
+        logger.info(f"Parsed object_order: {object_order}")
+
+        # Helper function to read pose
+        def read_pose(file_handle, pose_obj, block_name):
+            line = file_handle.readline().strip()
+            if line == block_name:
+                pose_obj.target_pose.x = float(file_handle.readline())
+                pose_obj.target_pose.y = float(file_handle.readline())
+                pose_obj.target_pose.z = float(file_handle.readline())
+                pose_obj.target_pose.theta_x = float(file_handle.readline())
+                pose_obj.target_pose.theta_y = float(file_handle.readline())
+                pose_obj.target_pose.theta_z = float(file_handle.readline())
+                logger.info(f"Parsed {block_name} pose: {pose_obj.target_pose}")
+                return True
+            return False
+
+        read_pose(f, block_1_start, "B1 start")
+        read_pose(f, block_1_target, "B1 target")
+        read_pose(f, block_2_start, "B2 start")
+        read_pose(f, block_2_target, "B2 target")
+        read_pose(f, block_3_start, "B3 start")
+        read_pose(f, block_3_target, "B3 target")
 
         return (turn_order, object_order)
     
@@ -276,9 +297,11 @@ class BuildTower:
         my_cartesian_speed.translation = translation # m/s
         my_cartesian_speed.orientation = orientation # deg/s
         cons_pose.constraint.oneof_type.speed.append(my_cartesian_speed)
+        logger.debug(f"Set speed for pose: translation={translation}, orientation={orientation}")
 
     def go_to_position(self, pos):
 
+        logger.info(f"Attempting to go to position: x={pos.target_pose.x}, y={pos.target_pose.y}, z={pos.target_pose.z}, theta_x={pos.target_pose.theta_x}, theta_y={pos.target_pose.theta_y}, theta_z={pos.target_pose.theta_z}")
         self.set_speed(pos, 1, 100)
 
         req = ExecuteActionRequest()
@@ -292,9 +315,11 @@ class BuildTower:
             self.execute_action(req)
         except rospy.ServiceException:
             rospy.logerr("Failed to send pose")
+            logger.error(f"Failed to send pose: {e}")
             return False
         else:
             rospy.loginfo("Waiting for pose to finish...")
+            logger.info("Pose action initiated, waiting for completion.")
 
         self.wait_for_action_end_or_abort()
 
@@ -307,10 +332,13 @@ class BuildTower:
             return True
         else:
             rospy.logwarn("No gripper is present on the arm.")
+            logger.warning("No gripper present, cannot control.")
             return False
     
 
     def move_block(self, pos1, pos2, turn_n, block_shape):
+
+        logger.info(f"Moving block from start {pos1.target_pose.z} to target {pos2.target_pose.z}. Turn: {turn_n}, Block Shape: {block_shape}")
 
         self.control_gripper(0)
 
@@ -356,6 +384,7 @@ class BuildTower:
         tower_pos.target_pose.theta_y = 0
         tower_pos.target_pose.theta_z = 90
         # Look at tower
+        logger.info("Robot moving to look at tower.")
         self.go_to_position(tower_pos)
 
 
@@ -368,6 +397,7 @@ class BuildTower:
         person_1_pos.target_pose.theta_y = 0
         person_1_pos.target_pose.theta_z = 105
         # Look at person 1
+        logger.info("Robot moving to look at person in the right.")
         self.go_to_position(person_1_pos)
     
 
@@ -380,6 +410,7 @@ class BuildTower:
         person_2_pos.target_pose.theta_y = 0
         person_2_pos.target_pose.theta_z = 75
         # Look at person 2
+        logger.info("Robot moving to look at person in the left.")
         self.go_to_position(person_2_pos)
 
     def look_at_ground(self):
@@ -391,14 +422,17 @@ class BuildTower:
         ground_pose.target_pose.theta_y = 0
         ground_pose.target_pose.theta_z = 90
         # Look at ground
+        logger.info("Robot moving to look at ground.")
         self.go_to_position(ground_pose)
 
     def send_turn_order(self, turn_order):
+        logger.info(f"Sending turn order to OpenPose server: {turn_order}")
         print("Sending turn order...")
         socket.send_string(turn_order)
             
         #  Get the reply.
         message = socket.recv()
+        logger.info(f"Received reply from OpenPose server: {message.decode()}")
         print(f"Received reply [ {message} ]")
 
     def turn(self, turn_order, object_order, turn_n, robot_turn_n, config_n, condition_n):
@@ -425,10 +459,12 @@ class BuildTower:
             # Wait until person 1 starts doing his action
             print("Sending PR Arm Extended request...")
             socket.send_string("PR: Arm Extended Check")
+            logger.info("Sent 'PR: Arm Extended Check' to OpenPose server.")
                 
             #  Get the reply.
             message = socket.recv()
             print(f"Received reply [ {message} ]")
+            logger.info(f"Received reply from OpenPose: {message.decode()}")
 
             if (condition_n == 1 and (config_n == 1 or config_n == 2)) or (condition_n == 2 and (config_n == 3 or config_n == 4)):
                 self.home_the_robot()
@@ -438,10 +474,13 @@ class BuildTower:
             # Wait until person 1 finishes his action
             print("Sending PR Arm Retracted request...")
             socket.send_string("PR: Arm Retracted Check")
+            logger.info("Sent 'PR: Arm Retracted Check' to OpenPose server.")
             
             #  Get the reply.
             message = socket.recv()
             print(f"Received reply [ {message} ]")
+            logger.info(f"Received reply from OpenPose: {message.decode()}")
+
             if (condition_n == 1 and (config_n == 1 or config_n == 2)) or (condition_n == 2 and (config_n == 3 or config_n == 4)):
                 self.home_the_robot()
 
@@ -458,10 +497,12 @@ class BuildTower:
             # Wait until person 2 starts doing his action
             print("Sending PL Arm Extended request...")
             socket.send_string("PL: Arm Extended Check")
-                
+            logger.info("Sent 'PL: Arm Extended Check' to OpenPose server.")
+
             #  Get the reply.
             message = socket.recv()
             print(f"Received reply [ {message} ]")
+            logger.info(f"Received reply from OpenPose: {message.decode()}")
 
             if (condition_n == 1 and (config_n == 1 or config_n == 2)) or (condition_n == 2 and (config_n == 3 or config_n == 4)):
                 self.home_the_robot()
@@ -471,10 +512,13 @@ class BuildTower:
             # Wait until person 2 finishes his action
             print("Sending PL Arm Retracted request...")
             socket.send_string("PL: Arm Retracted Check")
+            logger.info("Sent 'PL: Arm Retracted Check' to OpenPose server.")
                 
             #  Get the reply.
             message = socket.recv()
             print(f"Received reply [ {message} ]")
+            logger.info(f"Received reply from OpenPose: {message.decode()}")
+
             if (condition_n == 1 and (config_n == 1 or config_n == 2)) or (condition_n == 2 and (config_n == 3 or config_n == 4)):
                 self.home_the_robot()
 
@@ -487,10 +531,14 @@ class BuildTower:
         success = self.is_init_success
         try:
             rospy.delete_param("/kortex_examples_test_results/cartesian_poses_with_notifications_python")
+            logger.info("Deleted ROS parameter /kortex_examples_test_results/cartesian_poses_with_notifications_python (if it existed).")
         except:
+            logger.info("ROS parameter /kortex_examples_test_results/cartesian_poses_with_notifications_python did not exist or could not be deleted.")
             pass
 
         if success:
+
+            logger.info("Starting main robot control loop.")
 
             #*******************************************************************************
             # Make sure to clear the robot's faults else it won't move if it's already in fault
@@ -511,6 +559,8 @@ class BuildTower:
 
             condition_n = int(sys.argv[1])
 
+            logger.info(f"Condition number: {condition_n}")
+
             argc = len(sys.argv)
             config_n = 1
 
@@ -519,6 +569,7 @@ class BuildTower:
                 sys.stdout.write(" Press Enter to start configuration " + str(config_n) + "\n")
                 sys.stdout.flush()
                 input()
+                logger.info(f"User pressed Enter. Continuing with configuration {config_n}")
                 print(" Continuing with configuration", config_n)
 
 
@@ -530,19 +581,26 @@ class BuildTower:
                 turn_n = 0
                 robot_turn_n = 0
 
+                logger.info(f"About to send turn_order: {turn_order}")
                 print(" About to send turn_order:", turn_order)
                 self.send_turn_order(turn_order)
+                logger.info("Sent turn_order and waiting for response from OpenPose server.")
                 print("Sent turn_order and waiting for response...")
 
 
                 while turn_n < len(turn_order)-1:
+                    logger.info(f"Executing turn {turn_n} out of {len(turn_order)-1}.")
                     if self.turn(turn_order, object_order, turn_n, robot_turn_n, config_n, condition_n) == 1:
                         robot_turn_n += 1
+                        logger.info(f"Robot completed its turn. Robot turn count: {robot_turn_n}")
                     turn_n += 1
 
+                logger.info(f"Configuration number {config_n} finished.")
                 print("Configuration number " + str(config_n) +" finished")
                 socket.send_string("Configuration finished")
+                logger.info("Sent 'Configuration finished' to OpenPose server.")
                 message = socket.recv()
+                logger.info(f"Received reply from OpenPose server: {message.decode()}")
 
                 config_n += 1
             #Connected to OpenPose server
@@ -557,9 +615,11 @@ class BuildTower:
         
         # For testing purposes
         rospy.set_param("/kortex_examples_test_results/cartesian_poses_with_notifications_python", success)
+        logger.info(f"Setting ROS parameter /kortex_examples_test_results/cartesian_poses_with_notifications_python to {success}.")
 
         if not success:
             rospy.logerr("The example encountered an error.")
+            logger.error("The build_tower example encountered an error during execution.")
 
 if __name__ == "__main__":
     ex = BuildTower()
