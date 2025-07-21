@@ -22,11 +22,17 @@ from kortex_driver.msg import *
 
 # --- Logging Setup ---
 
-log_filename = f"kinova_log_{datetime.now().strftime('%Y%m%d_%H%M')}.log"
-logging.basicConfig(filename=log_filename, level=logging.INFO,
-                    format='%(asctime)s - %(levelname)s - %(name)s - %(message)s') # Added %(name)s to differentiate sources
-# Get a specific logger for this module
+log_filename = f"kinova_log_buildtower_{datetime.now().strftime('%Y%m%d_%H%M%S')}.log"
 logger = logging.getLogger('BuildTower')
+logger.setLevel(logging.DEBUG)  # or INFO
+
+# Avoid adding multiple handlers if re-running the script
+if not logger.hasHandlers():
+    file_handler = logging.FileHandler(log_filename)
+    formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(name)s - %(message)s')
+    file_handler.setFormatter(formatter)
+    logger.addHandler(file_handler)
+
 
 
 context = zmq.Context()
@@ -125,7 +131,6 @@ class BuildTower:
 
     def cb_action_topic(self, notif):
         self.last_action_notif_type = notif.action_event
-        logger.debug(f"Action notification received: {self.last_action_notif_type}")
 
     def wait_for_action_end_or_abort(self):
         while not rospy.is_shutdown():
@@ -278,7 +283,6 @@ class BuildTower:
                 pose_obj.target_pose.theta_x = float(file_handle.readline())
                 pose_obj.target_pose.theta_y = float(file_handle.readline())
                 pose_obj.target_pose.theta_z = float(file_handle.readline())
-                logger.info(f"Parsed {block_name} pose: {pose_obj.target_pose}")
                 return True
             return False
 
@@ -559,8 +563,6 @@ class BuildTower:
 
             condition_n = int(sys.argv[1])
 
-            logger.info(f"Condition number: {condition_n}")
-
             argc = len(sys.argv)
             config_n = 1
 
@@ -581,10 +583,9 @@ class BuildTower:
                 turn_n = 0
                 robot_turn_n = 0
 
-                logger.info(f"About to send turn_order: {turn_order}")
                 print(" About to send turn_order:", turn_order)
-                self.send_turn_order(turn_order)
                 logger.info("Sent turn_order and waiting for response from OpenPose server.")
+                self.send_turn_order(turn_order)
                 print("Sent turn_order and waiting for response...")
 
 

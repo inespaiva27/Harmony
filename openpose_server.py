@@ -20,11 +20,17 @@ from datetime import datetime
 
 
 # --- Logging Setup ---
-log_filename = f"kinova_log_{datetime.now().strftime('%Y%m%d_%H%M')}.log"
-logging.basicConfig(filename=log_filename, level=logging.INFO,
-                    format='%(asctime)s - %(levelname)s - %(name)s - %(message)s') # Added %(name)s to differentiate sources
-# Get a specific logger for this module
-logger = logging.getLogger('OpenPoseServer')
+log_filename = f"kinova_log_openpose_{datetime.now().strftime('%Y%m%d_%H%M%S')}.log"
+logger = logging.getLogger('openpose')
+logger.setLevel(logging.DEBUG)  # or INFO
+
+# Avoid adding multiple handlers if re-running the script
+if not logger.hasHandlers():
+    file_handler = logging.FileHandler(log_filename)
+    formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(name)s - %(message)s')
+    file_handler.setFormatter(formatter)
+    logger.addHandler(file_handler)
+
 
 
 context = zmq.Context()
