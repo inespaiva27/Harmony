@@ -9,11 +9,12 @@ import argparse
 import websocket
 import av  # PyAV library for decoding H264
 import numpy as np
+import math
 
 import pathlib
-import torch
-import torch.backends.cudnn as cudnn
-from L2CS_Net.l2cs import select_device, draw_gaze, getArch, Pipeline, render
+#import torch
+#import torch.backends.cudnn as cudnn
+#from L2CS_Net.l2cs import select_device, draw_gaze, getArch, Pipeline, render
 
 import logging 
 from datetime import datetime
@@ -124,7 +125,7 @@ def get_shoulder_width(person):
         return None
     return abs(right_shoulder[0] - left_shoulder[0])
 
-def checkLeftArmExtended(person, ratio=0.8):
+'''def checkLeftArmExtended(person, ratio=0.8):
     shoulder_x = person[5][0]
     wrist_x = person[7][0]
     if wrist_x == 0 or shoulder_x == 0:
@@ -162,7 +163,126 @@ def checkRightArmRetracted(person, ratio=0.5):
     shoulder_width = get_shoulder_width(person)
     if shoulder_width is None:
         return False
-    return abs(wrist_x - shoulder_x) < (shoulder_width * ratio)
+    return abs(wrist_x - shoulder_x) < (shoulder_width * ratio)'''
+
+def get_2d_distance(p1, p2):
+    return math.sqrt((p1[0] - p2[0])**2 + (p1[1] - p2[1])**2)
+
+def get_vector(p1, p2):
+    dx, dy = p2[0] - p1[0], p2[1] - p1[1]
+    norm = math.hypot(dx, dy)
+    if norm == 0:
+        return None
+    return (dx / norm, dy / norm)
+
+def get_angle_between(v1, v2):
+    if v1 is None or v2 is None:
+        return None
+    dot = v1[0]*v2[0] + v1[1]*v2[1]
+    dot = max(min(dot, 1.0), -1.0)  # clamp to [-1, 1]
+    return math.acos(dot) * 180 / math.pi  # degrees
+
+def get_torso_length(person):
+    left_shoulder = person[5]
+    right_shoulder = person[2]
+    left_hip = person[11]
+    right_hip = person[8]
+
+    torso_top = None
+    if left_shoulder[2] > 0.7 and right_shoulder[2] > 0.7:
+        torso_top = [(left_shoulder[0] + right_shoulder[0]) / 2,
+                     (left_shoulder[1] + right_shoulder[1]) / 2]
+    elif left_shoulder[2] > 0.7:
+        torso_top = left_shoulder
+    elif right_shoulder[2] > 0.7:
+        torso_top = right_shoulder
+
+    torso_bottom = None
+    if left_hip[2] > 0.7 and right_hip[2] > 0.7:
+        torso_bottom = [(left_hip[0] + right_hip[0]) / 2,
+                        (left_hip[1] + right_hip[1]) / 2]
+    elif left_hip[2] > 0.7:
+        torso_bottom = left_hip
+    elif right_hip[2] > 0.7:
+        torso_bottom = right_hip
+
+    if torso_top is not None and torso_bottom is not None:
+        return get_2d_distance(torso_top, torso_bottom)
+    return None
+
+def is_any_arm_extended(person, ratio=0.6, angle_min=0, angle_max=40, label="Person"):
+    torso_len = get_torso_length(person)
+    if torso_len is None:
+        return False
+
+    left_shoulder = person[5]
+    right_shoulder = person[2]
+    left_wrist = person[7]
+    right_wrist = person[4]
+    left_hip = person[11]
+    right_hip = person[8]
+
+    for side, (shoulder, wrist) in zip(["Left", "Right"], [(left_shoulder, left_wrist), (right_shoulder, right_wrist)]):
+        if shoulder[2] > 0.7 and wrist[2] > 0.7:
+            dist = get_2d_distance(shoulder, wrist)
+            arm_vec = get_vector(shoulder, wrist)
+
+            # Torso vector = shoulder to hip
+            if side == "Left" and left_hip[2] > 0.7:
+                torso_vec = get_vector(shoulder, left_hip)
+            elif side == "Right" and right_hip[2] > 0.7:
+                torso_vec = get_vector(shoulder, right_hip)
+            else:
+                continue
+
+            angle = get_angle_between(arm_vec, torso_vec)
+
+            logger.debug(f"{label} - {side} arm → dist: {dist:.2f}, angle wrt torso: {angle:.2f}, range: {angle_min}–{angle_max}")
+            if angle is not None and angle_min <= angle <= angle_max and dist > torso_len * ratio:
+                logger.info(f"{label} - {side} arm detected as EXTENDED (placing)")
+                return True
+
+    return False
+
+
+
+def is_any_arm_retracted(person, ratio=0.5, angle_threshold=120, label="Person"):
+    torso_len = get_torso_length(person)
+    if torso_len is None:
+        return False
+
+    left_shoulder = person[5]
+    right_shoulder = person[2]
+    left_wrist = person[7]
+    right_wrist = person[4]
+    left_hip = person[11]
+    right_hip = person[8]
+
+    for side, (shoulder, wrist) in zip(["Left", "Right"], [(left_shoulder, left_wrist), (right_shoulder, right_wrist)]):
+        if shoulder[2] > 0.7 and wrist[2] > 0.7:
+            dist = get_2d_distance(shoulder, wrist)
+            arm_vec = get_vector(shoulder, wrist)
+
+            if side == "Left" and left_hip[2] > 0.7:
+                torso_vec = get_vector(shoulder, left_hip)
+            elif side == "Right" and right_hip[2] > 0.7:
+                torso_vec = get_vector(shoulder, right_hip)
+            else:
+                continue
+
+            angle = get_angle_between(arm_vec, torso_vec)
+
+            logger.debug(f"{label} - {side} arm → dist: {dist:.2f}, angle wrt torso: {angle:.2f}, retracted threshold: {angle_threshold}")
+            if angle is not None and angle < angle_threshold and dist < torso_len * ratio:
+                logger.info(f"{label} - {side} arm detected as RETRACTED (rest)")
+                return True
+
+    return False
+
+
+
+
+
 
 
 def defineIdPos(datums, image_width):
@@ -252,14 +372,14 @@ try:
 
 
     # Flags
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--no-display", action="store_true", help="Disable display.")
-    parser.add_argument('--device', help='Device to run model: cpu or gpu:0', default="cpu", type=str)
-    parser.add_argument('--snapshot', help='Path of model snapshot.',
-                        default='/home/ines/Desktop/Harmony/L2CS_Net/models/student_combined_epoch_148.pkl', type=str)
-    parser.add_argument('--arch', help='Network architecture',
-                        default='ResNet50', type=str)
-    args, unknown = parser.parse_known_args()
+    #parser = argparse.ArgumentParser()
+    #parser.add_argument("--no-display", action="store_true", help="Disable display.")
+    #parser.add_argument('--device', help='Device to run model: cpu or gpu:0', default="cpu", type=str)
+    #parser.add_argument('--snapshot', help='Path of model snapshot.',
+    #                    default='/home/ines/Desktop/Harmony/L2CS_Net/models/student_combined_epoch_148.pkl', type=str)
+    #parser.add_argument('--arch', help='Network architecture',
+    #                    default='ResNet50', type=str)
+    #args, unknown = parser.parse_known_args()
 
     # Custom Params (refer to include/openpose/flags.hpp for more parameters)
     params = dict()
@@ -270,17 +390,17 @@ try:
 
     
 
-    for i in range(len(unknown)):
-        curr_item = unknown[i]
-        next_item = unknown[i + 1] if i + 1 < len(unknown) else "1"
-        if "--" in curr_item and "--" in next_item:
-            key = curr_item.replace('-', '')
-            if key not in params:
-                params[key] = "1"
-        elif "--" in curr_item and "--" not in next_item:
-            key = curr_item.replace('-', '')
-            if key not in params:
-                params[key] = next_item
+    #for i in range(len(unknown)):
+    #    curr_item = unknown[i]
+    #    next_item = unknown[i + 1] if i + 1 < len(unknown) else "1"
+    #    if "--" in curr_item and "--" in next_item:
+    #        key = curr_item.replace('-', '')
+    #        if key not in params:
+    #            params[key] = "1"
+    #    elif "--" in curr_item and "--" not in next_item:
+    #        key = curr_item.replace('-', '')
+    #        if key not in params:
+    #            params[key] = next_item
 
 
 
@@ -292,13 +412,13 @@ try:
     opWrapper.start()
 
     CWD = pathlib.Path.cwd()
-    cudnn.enabled = True
+    #cudnn.enabled = True
 
-    gaze_pipeline = Pipeline(
-        weights=CWD / 'L2CS_Net' /'models' / 'student_combined_epoch_148.pkl',
-        arch=args.arch,
-        device=select_device(args.device, batch_size=1)
-    )
+    #gaze_pipeline = Pipeline(
+    #    weights=CWD / 'L2CS_Net' /'models' / 'student_combined_epoch_148.pkl',
+    #    arch=args.arch,
+    #    device=select_device(args.device, batch_size=1)
+    #)
     
 
     cap = cv2.VideoCapture("/dev/video4")
@@ -346,10 +466,10 @@ try:
             datumProcessed = [datum]  # wrap in list for compatibility
 
             # Get gaze estimation results from L2CS
-            gaze_results = gaze_pipeline.step(frame)
+            #gaze_results = gaze_pipeline.step(frame)
 
             # Overlay gaze vectors on a copy of the original frame
-            gaze_frame = render(frame.copy(), gaze_results)
+            #gaze_frame = render(frame.copy(), gaze_results)
 
 
             # Print number of people detected if it changes
@@ -367,23 +487,28 @@ try:
              # Analyze keypoints
             idPos = defineIdPos(datumProcessed, frame_width)
 
-            if not args.no_display:
-                try:
-                    # Get OpenPose output
-                    frame_with_openpose = datum.cvOutputData
+            #if not args.no_display:
+            '''try:
+                # Get OpenPose output
+                frame_with_openpose = datum.cvOutputData
+                # Blend OpenPose + Gaze output for visualization
+                #combined_display = cv2.addWeighted(frame_with_openpose, 0.6, gaze_frame, 0.4, 0)
+                # Show the result
+                cv2.imshow("OpenPose", frame_with_openpose) #combined_display)
+                # Exit on 'q'
+                if cv2.waitKey(1) & 0xFF == ord('q'):
+                    userWantsToExit = True
+            except Exception as e:
+                logger.error(f"Display exception: {e}")
+                print(f"Display exception: {e}")'''
+            
+            try:
+                if display(datumProcessed, idPos):
+                    userWantsToExit = True
+            except Exception as e:
+                logger.error(f"Display exception: {e}")
+                print(f"Display exception: {e}")
 
-                    # Blend OpenPose + Gaze output for visualization
-                    combined_display = cv2.addWeighted(frame_with_openpose, 0.6, gaze_frame, 0.4, 0)
-
-                    # Show the result
-                    cv2.imshow("OpenPose + Gaze", combined_display)
-
-                    # Exit on 'q'
-                    if cv2.waitKey(1) & 0xFF == ord('q'):
-                        userWantsToExit = True
-                except Exception as e:
-                    logger.error(f"Display exception: {e}")
-                    print(f"Display exception: {e}")
 
 
             if idPos is None:
@@ -405,7 +530,7 @@ try:
             if turn_n >= len(turn_order) - 1:
                 config_finished = True
 
-            elif turn_order[turn_n] == 'b':
+            '''elif turn_order[turn_n] == 'b':
                 person = datumProcessed[0].poseKeypoints[left_id]  # <-- move here
                 if checkStatus == 0:
                     if checkLeftArmExtended(person):
@@ -443,8 +568,46 @@ try:
                         checkStatus = 0
                         turn_n += 1
                         logger.info("Right Person: Arm Retracted detected")
-                        print("Right: Arm Retracted")
+                        print("Right: Arm Retracted")'''
+            if turn_order[turn_n] == 'b':
+                person = datumProcessed[0].poseKeypoints[left_id]
+                if checkStatus == 0:
+                    if is_any_arm_extended(person):
+                        action_flag = True
+                        buffer.append("Left: Arm Extended")
+                        buffer_len += 1
+                        checkStatus = 1
+                        logger.info("Left Person: Arm Extended detected")
+                        print("Left: Arm Extended")
+                elif checkStatus == 1:
+                    if is_any_arm_retracted(person):
+                        action_flag = True
+                        buffer.append("Left: Arm Retracted")
+                        buffer_len += 1
+                        checkStatus = 0
+                        turn_n += 1
+                        logger.info("Left Person: Arm Retracted detected")
+                        print("Left: Arm Retracted")
 
+            elif turn_order[turn_n] == 'p':
+                person = datumProcessed[0].poseKeypoints[right_id]
+                if checkStatus == 0:
+                    if is_any_arm_extended(person):
+                        action_flag = True
+                        buffer.append("Right: Arm Extended")
+                        buffer_len += 1
+                        checkStatus = 1
+                        logger.info("Right Person: Arm Extended detected")
+                        print("Right: Arm Extended")
+                elif checkStatus == 1:
+                    if is_any_arm_retracted(person):
+                        action_flag = True
+                        buffer.append("Right: Arm Retracted")
+                        buffer_len += 1
+                        checkStatus = 0
+                        turn_n += 1
+                        logger.info("Right Person: Arm Retracted detected")
+                        print("Right: Arm Retracted")
 
             elif turn_order[turn_n] == 'y':
                 logger.info("Robot's turn detected")
@@ -471,7 +634,7 @@ try:
                     action_flag = False
   
                 except zmq.Again:
-                    logger.debug("No ZMQ message received yet")
+                    #logger.debug("No ZMQ message received yet")
                     pass
 
         
