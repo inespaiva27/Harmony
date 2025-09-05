@@ -73,6 +73,7 @@ class BuildTower:
             rospy.init_node('build_tower_python')
 
             self.HOME_ACTION_IDENTIFIER = 2
+            self.ZERO_ACTION_IDENTIFIER = 4
 
             self.action_topic_sub = None
             self.all_notifs_succeeded = True
@@ -186,7 +187,34 @@ class BuildTower:
             else:
                 time.sleep(0.6)
                 return 1
-
+            
+    def zero_the_robot(self):
+      # The Zero Action is used to zero the robot. It cannot be deleted and is always ID #4:
+      req = ReadActionRequest()
+      req.input.identifier = self.ZERO_ACTION_IDENTIFIER
+      self.last_action_notif_type = None
+      try:
+          res = self.read_action(req)
+      except rospy.ServiceException:
+          rospy.logerr("Failed to call ReadAction")
+          logger.error(f"Failed to call ReadAction for zero: {e}")
+          return False
+      # Execute the ZERO action if we could read it
+      else:
+          # What we just read is the input of the ExecuteAction service
+          req = ExecuteActionRequest()
+          req.input = res.output
+          rospy.loginfo("Sending the robot zero...")
+          logger.info("Sending robot to zero position.")
+          try:
+              self.execute_action(req)
+          except rospy.ServiceException:
+              rospy.logerr("Failed to call ExecuteAction")
+              logger.error(f"Failed to call ExecuteAction for zero: {e}")
+              return False
+          else:
+              time.sleep(0.6)
+              return 1
     def robot_set_cartesian_reference_frame(self):
         # Prepare the request with the frame we want to set
         req = SetCartesianReferenceFrameRequest()
@@ -353,7 +381,7 @@ class BuildTower:
         self.go_to_position(pos1)
 
         if block_shape == 1:
-            self.control_gripper(0.08)
+            self.control_gripper(0.07)
         elif block_shape == 2:
             self.control_gripper(0.7)
         elif block_shape == 3:
@@ -450,7 +478,7 @@ class BuildTower:
                 self.move_block(block_2_start, block_2_target, turn_n, block_shape)
             elif robot_turn_n == 2:
                 self.move_block(block_3_start, block_3_target, turn_n, block_shape)
-            self.home_the_robot()
+            #self.home_the_robot()
             return 1
 
         elif turn_order[turn_n] == 'p':
@@ -458,8 +486,8 @@ class BuildTower:
             if (condition_n == 1 and (config_n == 1 or config_n == 2)) or (condition_n == 2 and (config_n == 3 or config_n == 4)):
                 self.look_at_person_1()
             else:
-                self.look_at_ground()
-                #self.home_the_robot()
+                #self.look_at_ground() DISCOMENT
+                self.home_the_robot()
             # Wait until person 1 starts doing his action
             print("Sending PR Arm Extended request...")
             socket.send_string("PR: Arm Extended Check")
@@ -473,7 +501,7 @@ class BuildTower:
             if (condition_n == 1 and (config_n == 1 or config_n == 2)) or (condition_n == 2 and (config_n == 3 or config_n == 4)):
                 self.home_the_robot()
 
-                self.look_at_tower()
+                #self.look_at_tower() DISCOMENT
 
             # Wait until person 1 finishes his action
             print("Sending PR Arm Retracted request...")
@@ -495,8 +523,8 @@ class BuildTower:
             if (condition_n == 1 and (config_n == 1 or config_n == 2)) or (condition_n == 2 and (config_n == 3 or config_n == 4)):
                 self.look_at_person_2()
             else:
-                self.look_at_ground()
-                #self.home_the_robot()
+                #self.look_at_ground() DISCOMENT
+                self.home_the_robot()
 
             # Wait until person 2 starts doing his action
             print("Sending PL Arm Extended request...")
@@ -511,7 +539,7 @@ class BuildTower:
             if (condition_n == 1 and (config_n == 1 or config_n == 2)) or (condition_n == 2 and (config_n == 3 or config_n == 4)):
                 self.home_the_robot()
 
-                self.look_at_tower()
+                #self.look_at_tower() DISCOMENT
 
             # Wait until person 2 finishes his action
             print("Sending PL Arm Retracted request...")
@@ -606,7 +634,7 @@ class BuildTower:
                 config_n += 1
             #Connected to OpenPose server
             # Movement finished, send to home position
-            success &= self.home_the_robot()
+            success &= self.zero_the_robot()
             
 
             success &= self.all_notifs_succeeded

@@ -12,9 +12,9 @@ import numpy as np
 import math
 
 import pathlib
-#import torch
-#import torch.backends.cudnn as cudnn
-#from L2CS_Net.l2cs import select_device, draw_gaze, getArch, Pipeline, render
+import torch
+import torch.backends.cudnn as cudnn
+from L2CS_Net.l2cs import select_device, draw_gaze, getArch, Pipeline, render
 
 import logging 
 from datetime import datetime
@@ -97,189 +97,73 @@ def display(datumProcessed, idPos=None):
         return False
 
 
+# ---- Elbow-plane tunables ----
+SHOULDER_WIDTH_CM = 36.0   # for px/cm scaling (shoulder width is stable)
+PLANE_OFFSET_CM   = 23.0   # "plane" distance (cm) from ELBOW
+PLANE_HYST_CM     = 2.0    # hysteresis (cm) to reduce flicker
+CONF_THR          = 0.70   # keypoint confidence threshold
 
+def keypoint_ok(kp, conf=CONF_THR):
+    return kp[0] > 0 and kp[1] > 0 and kp[2] >= conf
 
-def printKeypoints(datums):
-    datum = datums[0]
-    logger.info(f"Body keypoints: {datum.poseKeypoints}")
-    print("Body keypoints: \n" + str(datum.poseKeypoints))
-
-def verifyCheckStart(datums):
-    datum = datums[0]
-    if datum.poseKeypoints is None:
-        return
-    for person in datum.poseKeypoints:
-        for keypoint in person:
-            keypointX = keypoint[0]
-            if keypointX != 0 and keypointX <= 0.5:
-                #print("Arm check not started")
-                return False
-    return True
-
-
-
-def get_shoulder_width(person):
-    left_shoulder = person[5]
-    right_shoulder = person[2]
-    if left_shoulder[0] == 0 or right_shoulder[0] == 0:
+def get_shoulder_width_px(person, frame_width):
+    # COCO-ish indexing used in your code: Right shoulder=2, Left shoulder=5
+    rs, ls = person[2], person[5]
+    if not (keypoint_ok(rs) and keypoint_ok(ls)):
         return None
-    return abs(right_shoulder[0] - left_shoulder[0])
+    return abs((rs[0] - ls[0]) * frame_width)
 
-'''def checkLeftArmExtended(person, ratio=0.8):
-    shoulder_x = person[5][0]
-    wrist_x = person[7][0]
-    if wrist_x == 0 or shoulder_x == 0:
-        return False
-    shoulder_width = get_shoulder_width(person)
-    if shoulder_width is None:
-        return False
-    return abs(wrist_x - shoulder_x) > (shoulder_width * ratio)
-
-def checkLeftArmRetracted(person, ratio=0.5):
-    shoulder_x = person[5][0]
-    wrist_x = person[7][0]
-    if wrist_x == 0 or shoulder_x == 0:
-        return False
-    shoulder_width = get_shoulder_width(person)
-    if shoulder_width is None:
-        return False
-    return abs(wrist_x - shoulder_x) < (shoulder_width * ratio)
-
-def checkRightArmExtended(person, ratio=0.8):
-    shoulder_x = person[2][0]
-    wrist_x = person[4][0]
-    if wrist_x == 0 or shoulder_x == 0:
-        return False
-    shoulder_width = get_shoulder_width(person)
-    if shoulder_width is None:
-        return False
-    return abs(wrist_x - shoulder_x) > (shoulder_width * ratio)
-
-def checkRightArmRetracted(person, ratio=0.5):
-    shoulder_x = person[2][0]
-    wrist_x = person[4][0]
-    if wrist_x == 0 or shoulder_x == 0:
-        return False
-    shoulder_width = get_shoulder_width(person)
-    if shoulder_width is None:
-        return False
-    return abs(wrist_x - shoulder_x) < (shoulder_width * ratio)'''
-
-def get_2d_distance(p1, p2):
-    return math.sqrt((p1[0] - p2[0])**2 + (p1[1] - p2[1])**2)
-
-def get_vector(p1, p2):
-    dx, dy = p2[0] - p1[0], p2[1] - p1[1]
-    norm = math.hypot(dx, dy)
-    if norm == 0:
+def cm_to_px(cm, person, frame_width, shoulder_width_cm=SHOULDER_WIDTH_CM):
+    sw_px = get_shoulder_width_px(person, frame_width)
+    if sw_px is None or shoulder_width_cm <= 0:
         return None
-    return (dx / norm, dy / norm)
+    return cm * (sw_px / shoulder_width_cm)
 
-def get_angle_between(v1, v2):
-    if v1 is None or v2 is None:
-        return None
-    dot = v1[0]*v2[0] + v1[1]*v2[1]
-    dot = max(min(dot, 1.0), -1.0)  # clamp to [-1, 1]
-    return math.acos(dot) * 180 / math.pi  # degrees
+def elbows_and_wrists_px(person, frame_width, frame_height):
+    """
+    Return elbow + wrist pixel coords for both arms:
+      { "Left": ((ex,ey),(wx,wy)) or None, "Right": ((ex,ey),(wx,wy)) or None }
+    COCO-style in your code: Right elbow=3, Right wrist=4 ; Left elbow=6, Left wrist=7
+    """
+    out = {"Left": None, "Right": None}
 
-def get_torso_length(person):
-    left_shoulder = person[5]
-    right_shoulder = person[2]
-    left_hip = person[11]
-    right_hip = person[8]
+    # Left arm
+    l_el, l_wr = person[6], person[7]
+    if keypoint_ok(l_el) and keypoint_ok(l_wr):
+        out["Left"] = ((l_el[0]*frame_width, l_el[1]*frame_height),
+                       (l_wr[0]*frame_width, l_wr[1]*frame_height))
 
-    torso_top = None
-    if left_shoulder[2] > 0.7 and right_shoulder[2] > 0.7:
-        torso_top = [(left_shoulder[0] + right_shoulder[0]) / 2,
-                     (left_shoulder[1] + right_shoulder[1]) / 2]
-    elif left_shoulder[2] > 0.7:
-        torso_top = left_shoulder
-    elif right_shoulder[2] > 0.7:
-        torso_top = right_shoulder
+    # Right arm
+    r_el, r_wr = person[3], person[4]
+    if keypoint_ok(r_el) and keypoint_ok(r_wr):
+        out["Right"] = ((r_el[0]*frame_width, r_el[1]*frame_height),
+                        (r_wr[0]*frame_width, r_wr[1]*frame_height))
+    return out
 
-    torso_bottom = None
-    if left_hip[2] > 0.7 and right_hip[2] > 0.7:
-        torso_bottom = [(left_hip[0] + right_hip[0]) / 2,
-                        (left_hip[1] + right_hip[1]) / 2]
-    elif left_hip[2] > 0.7:
-        torso_bottom = left_hip
-    elif right_hip[2] > 0.7:
-        torso_bottom = right_hip
+def wrists_vs_plane_elbow(person, frame_width, frame_height,
+                          plane_offset_cm=PLANE_OFFSET_CM,
+                          shoulder_width_cm=SHOULDER_WIDTH_CM):
+    """
+    Elbow-anchored plane rule, for both arms:
+      delta_px = (elbow->wrist distance in px) - (plane_offset_cm in px)
+        > 0  => beyond plane (EXTENDED)
+        <= 0 => behind plane (RETRACTED)
+    Returns dict: {"Left": delta_px or None, "Right": delta_px or None}
+    """
+    plane_px = cm_to_px(plane_offset_cm, person, frame_width, shoulder_width_cm)
+    if plane_px is None:
+        return {"Left": None, "Right": None}
 
-    if torso_top is not None and torso_bottom is not None:
-        return get_2d_distance(torso_top, torso_bottom)
-    return None
-
-def is_any_arm_extended(person, ratio=0.6, angle_min=0, angle_max=40, label="Person"):
-    torso_len = get_torso_length(person)
-    if torso_len is None:
-        return False
-
-    left_shoulder = person[5]
-    right_shoulder = person[2]
-    left_wrist = person[7]
-    right_wrist = person[4]
-    left_hip = person[11]
-    right_hip = person[8]
-
-    for side, (shoulder, wrist) in zip(["Left", "Right"], [(left_shoulder, left_wrist), (right_shoulder, right_wrist)]):
-        if shoulder[2] > 0.7 and wrist[2] > 0.7:
-            dist = get_2d_distance(shoulder, wrist)
-            arm_vec = get_vector(shoulder, wrist)
-
-            # Torso vector = shoulder to hip
-            if side == "Left" and left_hip[2] > 0.7:
-                torso_vec = get_vector(shoulder, left_hip)
-            elif side == "Right" and right_hip[2] > 0.7:
-                torso_vec = get_vector(shoulder, right_hip)
-            else:
-                continue
-
-            angle = get_angle_between(arm_vec, torso_vec)
-
-            logger.debug(f"{label} - {side} arm → dist: {dist:.2f}, angle wrt torso: {angle:.2f}, range: {angle_min}–{angle_max}")
-            if angle is not None and angle_min <= angle <= angle_max and dist > torso_len * ratio:
-                logger.info(f"{label} - {side} arm detected as EXTENDED (placing)")
-                return True
-
-    return False
-
-
-
-def is_any_arm_retracted(person, ratio=0.5, angle_threshold=120, label="Person"):
-    torso_len = get_torso_length(person)
-    if torso_len is None:
-        return False
-
-    left_shoulder = person[5]
-    right_shoulder = person[2]
-    left_wrist = person[7]
-    right_wrist = person[4]
-    left_hip = person[11]
-    right_hip = person[8]
-
-    for side, (shoulder, wrist) in zip(["Left", "Right"], [(left_shoulder, left_wrist), (right_shoulder, right_wrist)]):
-        if shoulder[2] > 0.7 and wrist[2] > 0.7:
-            dist = get_2d_distance(shoulder, wrist)
-            arm_vec = get_vector(shoulder, wrist)
-
-            if side == "Left" and left_hip[2] > 0.7:
-                torso_vec = get_vector(shoulder, left_hip)
-            elif side == "Right" and right_hip[2] > 0.7:
-                torso_vec = get_vector(shoulder, right_hip)
-            else:
-                continue
-
-            angle = get_angle_between(arm_vec, torso_vec)
-
-            logger.debug(f"{label} - {side} arm → dist: {dist:.2f}, angle wrt torso: {angle:.2f}, retracted threshold: {angle_threshold}")
-            if angle is not None and angle < angle_threshold and dist < torso_len * ratio:
-                logger.info(f"{label} - {side} arm detected as RETRACTED (rest)")
-                return True
-
-    return False
-
-
+    deltas = {}
+    arms = elbows_and_wrists_px(person, frame_width, frame_height)
+    for side in ("Left", "Right"):
+        if arms[side] is None:
+            deltas[side] = None
+            continue
+        (ex, ey), (wx, wy) = arms[side]
+        d_px = math.hypot(wx - ex, wy - ey)
+        deltas[side] = d_px - plane_px
+    return deltas
 
 
 
@@ -372,14 +256,14 @@ try:
 
 
     # Flags
-    #parser = argparse.ArgumentParser()
-    #parser.add_argument("--no-display", action="store_true", help="Disable display.")
-    #parser.add_argument('--device', help='Device to run model: cpu or gpu:0', default="cpu", type=str)
-    #parser.add_argument('--snapshot', help='Path of model snapshot.',
-    #                    default='/home/ines/Desktop/Harmony/L2CS_Net/models/student_combined_epoch_148.pkl', type=str)
-    #parser.add_argument('--arch', help='Network architecture',
-    #                    default='ResNet50', type=str)
-    #args, unknown = parser.parse_known_args()
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--no-display", action="store_true", help="Disable display.")
+    parser.add_argument('--device', help='Device to run model: cpu or gpu:0', default="cpu", type=str)
+    parser.add_argument('--snapshot', help='Path of model snapshot.',
+                        default='/home/ines/Desktop/Harmony/L2CS_Net/models/student_combined_epoch_148.pkl', type=str)
+    parser.add_argument('--arch', help='Network architecture',
+                        default='ResNet50', type=str)
+    args, unknown = parser.parse_known_args()
 
     # Custom Params (refer to include/openpose/flags.hpp for more parameters)
     params = dict()
@@ -390,17 +274,17 @@ try:
 
     
 
-    #for i in range(len(unknown)):
-    #    curr_item = unknown[i]
-    #    next_item = unknown[i + 1] if i + 1 < len(unknown) else "1"
-    #    if "--" in curr_item and "--" in next_item:
-    #        key = curr_item.replace('-', '')
-    #        if key not in params:
-    #            params[key] = "1"
-    #    elif "--" in curr_item and "--" not in next_item:
-    #        key = curr_item.replace('-', '')
-    #        if key not in params:
-    #            params[key] = next_item
+    for i in range(len(unknown)):
+        curr_item = unknown[i]
+        next_item = unknown[i + 1] if i + 1 < len(unknown) else "1"
+        if "--" in curr_item and "--" in next_item:
+            key = curr_item.replace('-', '')
+            if key not in params:
+                params[key] = "1"
+        elif "--" in curr_item and "--" not in next_item:
+            key = curr_item.replace('-', '')
+            if key not in params:
+                params[key] = next_item
 
 
 
@@ -412,19 +296,18 @@ try:
     opWrapper.start()
 
     CWD = pathlib.Path.cwd()
-    #cudnn.enabled = True
-
-    #gaze_pipeline = Pipeline(
-    #    weights=CWD / 'L2CS_Net' /'models' / 'student_combined_epoch_148.pkl',
-    #    arch=args.arch,
-    #    device=select_device(args.device, batch_size=1)
-    #)
+    cudnn.enabled = True
+    gaze_pipeline = Pipeline(
+        weights=CWD / 'L2CS_Net' /'models' / 'student_combined_epoch_148.pkl',
+        arch=args.arch,
+        device=select_device(args.device, batch_size=1)
+    )
     
 
-    cap = cv2.VideoCapture("/dev/video4")
+    cap = cv2.VideoCapture("/dev/video6")
     if not cap.isOpened():
-        logger.error("Failed to open camera /dev/video4")
-        print("Failed to open camera /dev/video4")
+        logger.error("Failed to open camera /dev/video6")
+        print("Failed to open camera /dev/video6")
         sys.exit(1)
     else:
         logger.info("Camera opened successfully")
@@ -466,10 +349,10 @@ try:
             datumProcessed = [datum]  # wrap in list for compatibility
 
             # Get gaze estimation results from L2CS
-            #gaze_results = gaze_pipeline.step(frame)
+            gaze_results = gaze_pipeline.step(frame)
 
             # Overlay gaze vectors on a copy of the original frame
-            #gaze_frame = render(frame.copy(), gaze_results)
+            gaze_frame = render(frame.copy(), gaze_results)
 
 
             # Print number of people detected if it changes
@@ -487,27 +370,24 @@ try:
              # Analyze keypoints
             idPos = defineIdPos(datumProcessed, frame_width)
 
-            #if not args.no_display:
-            '''try:
-                # Get OpenPose output
-                frame_with_openpose = datum.cvOutputData
-                # Blend OpenPose + Gaze output for visualization
-                #combined_display = cv2.addWeighted(frame_with_openpose, 0.6, gaze_frame, 0.4, 0)
-                # Show the result
-                cv2.imshow("OpenPose", frame_with_openpose) #combined_display)
-                # Exit on 'q'
-                if cv2.waitKey(1) & 0xFF == ord('q'):
-                    userWantsToExit = True
-            except Exception as e:
-                logger.error(f"Display exception: {e}")
-                print(f"Display exception: {e}")'''
-            
-            try:
-                if display(datumProcessed, idPos):
-                    userWantsToExit = True
-            except Exception as e:
-                logger.error(f"Display exception: {e}")
-                print(f"Display exception: {e}")
+            if not args.no_display:
+                try:
+                    # Get OpenPose output
+                    frame_with_openpose = datum.cvOutputData
+
+                    # Blend OpenPose + Gaze output for visualization
+                    combined_display = cv2.addWeighted(frame_with_openpose, 0.6, gaze_frame, 0.4, 0)
+
+                    # Show the result
+                    cv2.imshow("OpenPose + Gaze", combined_display)
+
+                    # Exit on 'q'
+                    if cv2.waitKey(1) & 0xFF == ord('q'):
+                        userWantsToExit = True
+                except Exception as e:
+                    logger.error(f"Display exception: {e}")
+                    print(f"Display exception: {e}")
+
 
 
 
@@ -530,88 +410,71 @@ try:
             if turn_n >= len(turn_order) - 1:
                 config_finished = True
 
-            '''elif turn_order[turn_n] == 'b':
-                person = datumProcessed[0].poseKeypoints[left_id]  # <-- move here
-                if checkStatus == 0:
-                    if checkLeftArmExtended(person):
-                        action_flag = True
-                        buffer.append("Left: Arm Extended")
-                        buffer_len += 1
-                        checkStatus = 1
-                        logger.info("Left Person: Arm Extended detected")
-                        print("Left: Arm Extended")
-                elif checkStatus == 1:
-                    if checkLeftArmRetracted(person):
-                        action_flag = True
-                        buffer.append("Left: Arm Retracted")
-                        buffer_len += 1
-                        checkStatus = 0
-                        turn_n += 1
-                        logger.info("Left Person: Arm Retracted detected")
-                        print("Left: Arm Retracted")
+            def decide_event_for_person(person, side_name_for_logs):
+                deltas = wrists_vs_plane_elbow(person, frame_width, frame_height)  # elbow-based
+                hyst_px = cm_to_px(PLANE_HYST_CM, person, frame_width) or 0.0
+                return deltas, hyst_px
 
-            elif turn_order[turn_n] == 'p':
-                person = datumProcessed[0].poseKeypoints[right_id]  # <-- move here
-                if checkStatus == 0:
-                    if checkRightArmExtended(person):
-                        action_flag = True
-                        buffer.append("Right: Arm Extended")
-                        buffer_len += 1
-                        checkStatus = 1
-                        logger.info("Right Person: Arm Extended detected")
-                        print("Right: Arm Extended")
-                elif checkStatus == 1:
-                    if checkRightArmRetracted(person):
-                        action_flag = True
-                        buffer.append("Right: Arm Retracted")
-                        buffer_len += 1
-                        checkStatus = 0
-                        turn_n += 1
-                        logger.info("Right Person: Arm Retracted detected")
-                        print("Right: Arm Retracted")'''
+
+
             if turn_order[turn_n] == 'b':
                 person = datumProcessed[0].poseKeypoints[left_id]
+                deltas, hyst_px = decide_event_for_person(person, "Left person")
+
                 if checkStatus == 0:
-                    if is_any_arm_extended(person):
-                        action_flag = True
-                        buffer.append("Left: Arm Extended")
-                        buffer_len += 1
-                        checkStatus = 1
-                        logger.info("Left Person: Arm Extended detected")
-                        print("Left: Arm Extended")
-                elif checkStatus == 1:
-                    if is_any_arm_retracted(person):
-                        action_flag = True
-                        buffer.append("Left: Arm Retracted")
-                        buffer_len += 1
-                        checkStatus = 0
-                        turn_n += 1
-                        logger.info("Left Person: Arm Retracted detected")
-                        print("Left: Arm Retracted")
+                    # look for EXTENDED: any arm in front of plane (+hyst)
+                    for arm_side in ("Left", "Right"):
+                        d = deltas.get(arm_side)
+                        if d is not None and d > +hyst_px:
+                            buffer.append(f"Left: {arm_side} Arm Extended")
+                            buffer_len += 1
+                            checkStatus = 1
+                            logger.info(f"Left person: {arm_side} Arm Extended (plane rule)")
+                            print(f"Left person: {arm_side} Arm Extended")
+                            break
+                else:
+                    # look for RETRACTED: any arm clearly behind plane (-hyst)
+                    for arm_side in ("Left", "Right"):
+                        d = deltas.get(arm_side)
+                        if d is not None and d < -hyst_px:
+                            buffer.append(f"Left: {arm_side} Arm Retracted")
+                            buffer_len += 1
+                            checkStatus = 0
+                            turn_n += 1
+                            logger.info(f"Left person: {arm_side} Arm Retracted (plane rule)")
+                            print(f"Left person: {arm_side} Arm Retracted")
+                            break
 
             elif turn_order[turn_n] == 'p':
                 person = datumProcessed[0].poseKeypoints[right_id]
+                deltas, hyst_px = decide_event_for_person(person, "Right person")
                 if checkStatus == 0:
-                    if is_any_arm_extended(person):
-                        action_flag = True
-                        buffer.append("Right: Arm Extended")
-                        buffer_len += 1
-                        checkStatus = 1
-                        logger.info("Right Person: Arm Extended detected")
-                        print("Right: Arm Extended")
-                elif checkStatus == 1:
-                    if is_any_arm_retracted(person):
-                        action_flag = True
-                        buffer.append("Right: Arm Retracted")
-                        buffer_len += 1
-                        checkStatus = 0
-                        turn_n += 1
-                        logger.info("Right Person: Arm Retracted detected")
-                        print("Right: Arm Retracted")
+                    for arm_side in ("Left", "Right"):
+                        d = deltas.get(arm_side)
+                        if d is not None and d > +hyst_px:
+                            buffer.append(f"Right: {arm_side} Arm Extended")
+                            buffer_len += 1
+                            checkStatus = 1
+                            logger.info(f"Right person: {arm_side} Arm Extended (plane rule)")
+                            print(f"Right person: {arm_side} Arm Extended")
+                            break
+                else:
+                    for arm_side in ("Left", "Right"):
+                        d = deltas.get(arm_side)
+                        if d is not None and d < -hyst_px:
+                            buffer.append(f"Right: {arm_side} Arm Retracted")
+                            buffer_len += 1
+                            checkStatus = 0
+                            turn_n += 1
+                            logger.info(f"Right person: {arm_side} Arm Retracted (plane rule)")
+                            print(f"Right person: {arm_side} Arm Retracted")
+                            break
+                        
 
             elif turn_order[turn_n] == 'y':
                 logger.info("Robot's turn detected")
                 turn_n += 1
+
 
 
 
