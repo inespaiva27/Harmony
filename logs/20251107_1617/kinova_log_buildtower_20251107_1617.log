@@ -1,0 +1,211 @@
+2025-11-07 16:17:16,548 - INFO - BuildTower - Connected to OpenPose server
+2025-11-07 16:17:16,548 - INFO - BuildTower - Connected to Gaze server
+2025-11-07 16:17:16,703 - INFO - BuildTower - Robot parameters: robot_name=my_gen3, dof=7, gripper_present=True
+2025-11-07 16:17:16,708 - INFO - BuildTower - Service initialized: /my_gen3/base/clear_faults
+2025-11-07 16:17:16,710 - INFO - BuildTower - Service initialized: /my_gen3/base/read_action
+2025-11-07 16:17:16,712 - INFO - BuildTower - Service initialized: /my_gen3/base/execute_action
+2025-11-07 16:17:16,714 - INFO - BuildTower - Service initialized: /my_gen3/control_config/set_cartesian_reference_frame
+2025-11-07 16:17:16,715 - INFO - BuildTower - Service initialized: /my_gen3/base/activate_publishing_of_action_topic
+2025-11-07 16:17:16,717 - INFO - BuildTower - Service initialized: /my_gen3/base/send_gripper_command
+2025-11-07 16:17:16,717 - INFO - BuildTower - BuildTower class initialized successfully.
+2025-11-07 16:17:16,718 - INFO - BuildTower - ROS parameter /kortex_examples_test_results/cartesian_poses_with_notifications_python did not exist or could not be deleted.
+2025-11-07 16:17:16,718 - INFO - BuildTower - Starting main robot control loop.
+2025-11-07 16:17:16,742 - INFO - BuildTower - Robot faults cleared successfully.
+2025-11-07 16:17:19,264 - INFO - BuildTower - Cartesian reference frame set successfully.
+2025-11-07 16:17:19,266 - INFO - BuildTower - Activating action notifications.
+2025-11-07 16:17:19,271 - INFO - BuildTower - Action Notifications successfully activated.
+2025-11-07 16:17:20,292 - INFO - BuildTower - Sending robot to home position.
+2025-11-07 16:17:34,958 - INFO - BuildTower - User pressed Enter. Continuing with configuration 1
+2025-11-07 16:17:34,959 - INFO - BuildTower - Parsing information from file: config2
+2025-11-07 16:17:34,959 - INFO - BuildTower - Parsed turn_order: ybypbpbpy
+
+2025-11-07 16:17:34,959 - INFO - BuildTower - Parsed object_order: 143
+
+2025-11-07 16:17:34,959 - INFO - BuildTower - Sent turn_order and waiting for response from OpenPose server.
+2025-11-07 16:17:34,960 - INFO - BuildTower - Sending turn order to OpenPose server: ybypbpbpy
+
+2025-11-07 16:17:34,960 - DEBUG - BuildTower - Gaze rx: (none available)
+2025-11-07 16:17:34,960 - DEBUG - BuildTower - Gaze rx: (none available)
+2025-11-07 16:17:34,961 - DEBUG - BuildTower - Gaze rx: (none available)
+2025-11-07 16:17:34,961 - INFO - BuildTower - Received reply from OpenPose server: Order Received
+2025-11-07 16:17:34,961 - INFO - BuildTower - Executing turn 0 out of 9.
+2025-11-07 16:17:34,971 - INFO - BuildTower - Sending robot to home position.
+2025-11-07 16:17:35,588 - INFO - BuildTower - Moving block from start 0.28 to target 0.307. Turn: 0, Block Shape: 1
+2025-11-07 16:17:35,590 - INFO - BuildTower - Sending gripper command: value=0
+2025-11-07 16:17:36,113 - INFO - BuildTower - Gripper command 0 sent successfully.
+2025-11-07 16:17:36,115 - INFO - BuildTower - Attempting to go to position: x=0.47, y=0.18, z=0.325, theta_x=100.0, theta_y=0.0, theta_z=90.0
+2025-11-07 16:17:36,115 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2025-11-07 16:17:36,141 - INFO - BuildTower - Pose action initiated, waiting for completion.
+2025-11-07 16:17:38,775 - INFO - BuildTower - Robot action ended.
+2025-11-07 16:17:38,775 - INFO - BuildTower - Attempting to go to position: x=0.47, y=0.18, z=0.28, theta_x=100.0, theta_y=0.0, theta_z=90.0
+2025-11-07 16:17:38,775 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2025-11-07 16:17:38,790 - INFO - BuildTower - Pose action initiated, waiting for completion.
+2025-11-07 16:17:39,498 - INFO - BuildTower - Robot action ended.
+2025-11-07 16:17:39,500 - INFO - BuildTower - Sending gripper command: value=0.075
+2025-11-07 16:17:40,013 - INFO - BuildTower - Gripper command 0.075 sent successfully.
+2025-11-07 16:17:40,015 - INFO - BuildTower - Attempting to go to position: x=0.47, y=0.18, z=0.325, theta_x=100.0, theta_y=0.0, theta_z=90.0
+2025-11-07 16:17:40,015 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2025-11-07 16:17:40,040 - INFO - BuildTower - Pose action initiated, waiting for completion.
+2025-11-07 16:17:40,768 - INFO - BuildTower - Robot action ended.
+2025-11-07 16:17:40,769 - INFO - BuildTower - Attempting to go to position: x=0.735, y=0.0, z=0.352, theta_x=100.0, theta_y=0.0, theta_z=90.0
+2025-11-07 16:17:40,769 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2025-11-07 16:17:40,793 - INFO - BuildTower - Pose action initiated, waiting for completion.
+2025-11-07 16:17:44,274 - INFO - BuildTower - Robot action ended.
+2025-11-07 16:17:44,274 - INFO - BuildTower - Attempting to go to position: x=0.735, y=0.0, z=0.307, theta_x=100.0, theta_y=0.0, theta_z=90.0
+2025-11-07 16:17:44,274 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2025-11-07 16:17:44,294 - INFO - BuildTower - Pose action initiated, waiting for completion.
+2025-11-07 16:17:45,022 - INFO - BuildTower - Robot action ended.
+2025-11-07 16:17:45,024 - INFO - BuildTower - Sending gripper command: value=0
+2025-11-07 16:17:45,538 - INFO - BuildTower - Gripper command 0 sent successfully.
+2025-11-07 16:17:45,540 - INFO - BuildTower - Attempting to go to position: x=0.735, y=0.0, z=0.352, theta_x=100.0, theta_y=0.0, theta_z=90.0
+2025-11-07 16:17:45,540 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2025-11-07 16:17:45,566 - INFO - BuildTower - Pose action initiated, waiting for completion.
+2025-11-07 16:17:46,295 - INFO - BuildTower - Robot action ended.
+2025-11-07 16:17:46,295 - INFO - BuildTower - Robot completed its turn. Robot turn count: 1
+2025-11-07 16:17:46,295 - INFO - BuildTower - Executing turn 1 out of 9.
+2025-11-07 16:17:46,320 - INFO - BuildTower - Sending robot to home position.
+2025-11-07 16:17:46,943 - DEBUG - BuildTower - Gaze rx: (none available)
+2025-11-07 16:17:46,944 - INFO - BuildTower - Sent 'PL: Arm Extended Check' to OpenPose server.
+2025-11-07 16:17:46,944 - DEBUG - BuildTower - Gaze rx: (none available)
+2025-11-07 16:17:48,962 - DEBUG - BuildTower - Gaze rx: (none available)
+2025-11-07 16:17:48,962 - INFO - BuildTower - Received reply from OpenPose: Left: Arm Extended
+2025-11-07 16:17:48,962 - DEBUG - BuildTower - Gaze rx: (none available)
+2025-11-07 16:17:48,962 - INFO - BuildTower - Sent 'PL: Arm Retracted Check' to OpenPose server.
+2025-11-07 16:17:48,963 - DEBUG - BuildTower - Gaze rx: (none available)
+2025-11-07 16:17:49,020 - DEBUG - BuildTower - Gaze rx: (none available)
+2025-11-07 16:17:49,020 - INFO - BuildTower - Received reply from OpenPose: Left: Arm Retracted
+2025-11-07 16:17:49,020 - INFO - BuildTower - Executing turn 2 out of 9.
+2025-11-07 16:17:49,045 - INFO - BuildTower - Sending robot to home position.
+2025-11-07 16:17:49,664 - INFO - BuildTower - Moving block from start 0.3 to target 0.387. Turn: 2, Block Shape: 4
+2025-11-07 16:17:49,666 - INFO - BuildTower - Sending gripper command: value=0
+2025-11-07 16:17:50,193 - INFO - BuildTower - Gripper command 0 sent successfully.
+2025-11-07 16:17:50,195 - INFO - BuildTower - Attempting to go to position: x=0.3, y=0.3, z=0.345, theta_x=100.0, theta_y=0.0, theta_z=90.0
+2025-11-07 16:17:50,196 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2025-11-07 16:17:50,216 - INFO - BuildTower - Pose action initiated, waiting for completion.
+2025-11-07 16:17:54,653 - INFO - BuildTower - Robot action ended.
+2025-11-07 16:17:54,654 - INFO - BuildTower - Attempting to go to position: x=0.3, y=0.3, z=0.3, theta_x=100.0, theta_y=0.0, theta_z=90.0
+2025-11-07 16:17:54,654 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2025-11-07 16:17:54,666 - INFO - BuildTower - Pose action initiated, waiting for completion.
+2025-11-07 16:17:55,394 - INFO - BuildTower - Robot action ended.
+2025-11-07 16:17:55,396 - INFO - BuildTower - Sending gripper command: value=0.7
+2025-11-07 16:17:55,915 - INFO - BuildTower - Gripper command 0.7 sent successfully.
+2025-11-07 16:17:55,916 - INFO - BuildTower - Attempting to go to position: x=0.3, y=0.3, z=0.435, theta_x=100.0, theta_y=0.0, theta_z=90.0
+2025-11-07 16:17:55,916 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2025-11-07 16:17:55,942 - INFO - BuildTower - Pose action initiated, waiting for completion.
+2025-11-07 16:17:57,577 - INFO - BuildTower - Robot action ended.
+2025-11-07 16:17:57,577 - INFO - BuildTower - Attempting to go to position: x=0.735, y=0.0, z=0.432, theta_x=100.0, theta_y=0.0, theta_z=90.0
+2025-11-07 16:17:57,577 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2025-11-07 16:17:57,617 - INFO - BuildTower - Pose action initiated, waiting for completion.
+2025-11-07 16:18:03,172 - INFO - BuildTower - Robot action ended.
+2025-11-07 16:18:03,173 - INFO - BuildTower - Attempting to go to position: x=0.735, y=0.0, z=0.387, theta_x=100.0, theta_y=0.0, theta_z=90.0
+2025-11-07 16:18:03,173 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2025-11-07 16:18:03,192 - INFO - BuildTower - Pose action initiated, waiting for completion.
+2025-11-07 16:18:03,919 - INFO - BuildTower - Robot action ended.
+2025-11-07 16:18:03,921 - INFO - BuildTower - Sending gripper command: value=0
+2025-11-07 16:18:04,441 - INFO - BuildTower - Gripper command 0 sent successfully.
+2025-11-07 16:18:04,444 - INFO - BuildTower - Attempting to go to position: x=0.735, y=0.0, z=0.432, theta_x=100.0, theta_y=0.0, theta_z=90.0
+2025-11-07 16:18:04,444 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2025-11-07 16:18:04,467 - INFO - BuildTower - Pose action initiated, waiting for completion.
+2025-11-07 16:18:05,195 - INFO - BuildTower - Robot action ended.
+2025-11-07 16:18:05,195 - INFO - BuildTower - Robot completed its turn. Robot turn count: 2
+2025-11-07 16:18:05,196 - INFO - BuildTower - Executing turn 3 out of 9.
+2025-11-07 16:18:05,220 - INFO - BuildTower - Sending robot to home position.
+2025-11-07 16:18:05,841 - DEBUG - BuildTower - Gaze rx: (none available)
+2025-11-07 16:18:05,841 - INFO - BuildTower - Sent 'PR: Arm Extended Check' to OpenPose server.
+2025-11-07 16:18:05,842 - DEBUG - BuildTower - Gaze rx: (none available)
+2025-11-07 16:18:14,252 - DEBUG - BuildTower - Gaze rx: (none available)
+2025-11-07 16:18:14,252 - INFO - BuildTower - Received reply from OpenPose: Right: Arm Extended
+2025-11-07 16:18:14,252 - DEBUG - BuildTower - Gaze rx: (none available)
+2025-11-07 16:18:14,252 - INFO - BuildTower - Sent 'PR: Arm Retracted Check' to OpenPose server.
+2025-11-07 16:18:14,253 - DEBUG - BuildTower - Gaze rx: (none available)
+2025-11-07 16:18:14,315 - DEBUG - BuildTower - Gaze rx: (none available)
+2025-11-07 16:18:14,315 - INFO - BuildTower - Received reply from OpenPose: Right: Arm Retracted
+2025-11-07 16:18:14,315 - INFO - BuildTower - Executing turn 4 out of 9.
+2025-11-07 16:18:14,349 - INFO - BuildTower - Sending robot to home position.
+2025-11-07 16:18:14,967 - DEBUG - BuildTower - Gaze rx: (none available)
+2025-11-07 16:18:14,967 - INFO - BuildTower - Sent 'PL: Arm Extended Check' to OpenPose server.
+2025-11-07 16:18:14,967 - DEBUG - BuildTower - Gaze rx: (none available)
+2025-11-07 16:18:21,007 - DEBUG - BuildTower - Gaze rx: (none available)
+2025-11-07 16:18:21,007 - INFO - BuildTower - Received reply from OpenPose: Left: Arm Extended
+2025-11-07 16:18:21,007 - DEBUG - BuildTower - Gaze rx: (none available)
+2025-11-07 16:18:21,007 - INFO - BuildTower - Sent 'PL: Arm Retracted Check' to OpenPose server.
+2025-11-07 16:18:21,007 - DEBUG - BuildTower - Gaze rx: (none available)
+2025-11-07 16:18:21,069 - DEBUG - BuildTower - Gaze rx: (none available)
+2025-11-07 16:18:21,070 - INFO - BuildTower - Received reply from OpenPose: Left: Arm Retracted
+2025-11-07 16:18:21,070 - INFO - BuildTower - Executing turn 5 out of 9.
+2025-11-07 16:18:21,096 - INFO - BuildTower - Sending robot to home position.
+2025-11-07 16:18:21,717 - DEBUG - BuildTower - Gaze rx: (none available)
+2025-11-07 16:18:21,718 - INFO - BuildTower - Sent 'PR: Arm Extended Check' to OpenPose server.
+2025-11-07 16:18:21,718 - DEBUG - BuildTower - Gaze rx: (none available)
+2025-11-07 16:18:28,301 - DEBUG - BuildTower - Gaze rx: (none available)
+2025-11-07 16:18:28,301 - INFO - BuildTower - Received reply from OpenPose: Right: Arm Extended
+2025-11-07 16:18:28,301 - DEBUG - BuildTower - Gaze rx: (none available)
+2025-11-07 16:18:28,301 - INFO - BuildTower - Sent 'PR: Arm Retracted Check' to OpenPose server.
+2025-11-07 16:18:28,301 - DEBUG - BuildTower - Gaze rx: (none available)
+2025-11-07 16:18:28,361 - DEBUG - BuildTower - Gaze rx: (none available)
+2025-11-07 16:18:28,361 - INFO - BuildTower - Received reply from OpenPose: Right: Arm Retracted
+2025-11-07 16:18:28,361 - INFO - BuildTower - Executing turn 6 out of 9.
+2025-11-07 16:18:28,373 - INFO - BuildTower - Sending robot to home position.
+2025-11-07 16:18:28,992 - DEBUG - BuildTower - Gaze rx: (none available)
+2025-11-07 16:18:28,993 - INFO - BuildTower - Sent 'PL: Arm Extended Check' to OpenPose server.
+2025-11-07 16:18:28,993 - DEBUG - BuildTower - Gaze rx: (none available)
+2025-11-07 16:18:33,617 - DEBUG - BuildTower - Gaze rx: (none available)
+2025-11-07 16:18:33,617 - INFO - BuildTower - Received reply from OpenPose: Left: Arm Extended
+2025-11-07 16:18:33,618 - DEBUG - BuildTower - Gaze rx: (none available)
+2025-11-07 16:18:33,618 - INFO - BuildTower - Sent 'PL: Arm Retracted Check' to OpenPose server.
+2025-11-07 16:18:33,618 - DEBUG - BuildTower - Gaze rx: (none available)
+2025-11-07 16:18:33,675 - DEBUG - BuildTower - Gaze rx: (none available)
+2025-11-07 16:18:33,675 - INFO - BuildTower - Received reply from OpenPose: Left: Arm Retracted
+2025-11-07 16:18:33,675 - INFO - BuildTower - Executing turn 7 out of 9.
+2025-11-07 16:18:33,698 - INFO - BuildTower - Sending robot to home position.
+2025-11-07 16:18:34,318 - DEBUG - BuildTower - Gaze rx: (none available)
+2025-11-07 16:18:34,319 - INFO - BuildTower - Sent 'PR: Arm Extended Check' to OpenPose server.
+2025-11-07 16:18:34,319 - DEBUG - BuildTower - Gaze rx: (none available)
+2025-11-07 16:18:38,494 - DEBUG - BuildTower - Gaze rx: (none available)
+2025-11-07 16:18:38,495 - INFO - BuildTower - Received reply from OpenPose: Right: Arm Extended
+2025-11-07 16:18:38,495 - DEBUG - BuildTower - Gaze rx: (none available)
+2025-11-07 16:18:38,495 - INFO - BuildTower - Sent 'PR: Arm Retracted Check' to OpenPose server.
+2025-11-07 16:18:38,495 - DEBUG - BuildTower - Gaze rx: (none available)
+2025-11-07 16:18:38,556 - DEBUG - BuildTower - Gaze rx: (none available)
+2025-11-07 16:18:38,556 - INFO - BuildTower - Received reply from OpenPose: Right: Arm Retracted
+2025-11-07 16:18:38,556 - INFO - BuildTower - Executing turn 8 out of 9.
+2025-11-07 16:18:38,572 - INFO - BuildTower - Sending robot to home position.
+2025-11-07 16:18:39,194 - INFO - BuildTower - Moving block from start 0.28 to target 0.643. Turn: 8, Block Shape: 3
+2025-11-07 16:18:39,197 - INFO - BuildTower - Sending gripper command: value=0
+2025-11-07 16:18:39,718 - INFO - BuildTower - Gripper command 0 sent successfully.
+2025-11-07 16:18:39,720 - INFO - BuildTower - Attempting to go to position: x=0.5, y=-0.2, z=0.325, theta_x=100.0, theta_y=0.0, theta_z=90.0
+2025-11-07 16:18:39,720 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2025-11-07 16:18:39,745 - INFO - BuildTower - Pose action initiated, waiting for completion.
+2025-11-07 16:18:42,428 - INFO - BuildTower - Robot action ended.
+2025-11-07 16:18:42,428 - INFO - BuildTower - Attempting to go to position: x=0.5, y=-0.2, z=0.28, theta_x=100.0, theta_y=0.0, theta_z=90.0
+2025-11-07 16:18:42,428 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2025-11-07 16:18:42,446 - INFO - BuildTower - Pose action initiated, waiting for completion.
+2025-11-07 16:18:43,173 - INFO - BuildTower - Robot action ended.
+2025-11-07 16:18:43,174 - INFO - BuildTower - Sending gripper command: value=0.2
+2025-11-07 16:18:43,694 - INFO - BuildTower - Gripper command 0.2 sent successfully.
+2025-11-07 16:18:43,695 - INFO - BuildTower - Attempting to go to position: x=0.5, y=-0.2, z=0.685, theta_x=100.0, theta_y=0.0, theta_z=90.0
+2025-11-07 16:18:43,696 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2025-11-07 16:18:43,720 - INFO - BuildTower - Pose action initiated, waiting for completion.
+2025-11-07 16:18:48,055 - INFO - BuildTower - Robot action ended.
+2025-11-07 16:18:48,056 - INFO - BuildTower - Attempting to go to position: x=0.737, y=0.0, z=0.6880000000000001, theta_x=100.0, theta_y=0.0, theta_z=90.0
+2025-11-07 16:18:48,056 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2025-11-07 16:18:48,096 - INFO - BuildTower - Pose action initiated, waiting for completion.
+2025-11-07 16:18:51,475 - INFO - BuildTower - Robot action ended.
+2025-11-07 16:18:51,475 - INFO - BuildTower - Attempting to go to position: x=0.737, y=0.0, z=0.643, theta_x=100.0, theta_y=0.0, theta_z=90.0
+2025-11-07 16:18:51,475 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2025-11-07 16:18:51,496 - INFO - BuildTower - Pose action initiated, waiting for completion.
+2025-11-07 16:18:52,224 - INFO - BuildTower - Robot action ended.
+2025-11-07 16:18:52,225 - INFO - BuildTower - Sending gripper command: value=0
+2025-11-07 16:18:52,744 - INFO - BuildTower - Gripper command 0 sent successfully.
+2025-11-07 16:18:52,746 - INFO - BuildTower - Attempting to go to position: x=0.737, y=0.0, z=0.6880000000000001, theta_x=100.0, theta_y=0.0, theta_z=90.0
+2025-11-07 16:18:52,746 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2025-11-07 16:18:52,771 - INFO - BuildTower - Pose action initiated, waiting for completion.
+2025-11-07 16:18:53,500 - INFO - BuildTower - Robot action ended.
+2025-11-07 16:18:53,500 - INFO - BuildTower - Robot completed its turn. Robot turn count: 3
+2025-11-07 16:18:53,500 - INFO - BuildTower - Configuration number 1 finished.
+2025-11-07 16:18:53,500 - DEBUG - BuildTower - Gaze rx: (none available)
+2025-11-07 16:18:53,500 - INFO - BuildTower - Sent 'Configuration finished' to OpenPose server.
+2025-11-07 16:18:53,500 - DEBUG - BuildTower - Gaze rx: (none available)
+2025-11-07 16:18:53,701 - DEBUG - BuildTower - Gaze rx: (none available)
+2025-11-07 16:18:53,701 - INFO - BuildTower - Received reply from OpenPose server: Received
+2025-11-07 16:19:16,277 - INFO - BuildTower - User pressed Enter. Continuing with configuration 2

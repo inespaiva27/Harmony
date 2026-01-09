@@ -1,0 +1,151 @@
+2025-12-04 14:12:52,056 - INFO - BuildTower - Connected to OpenPose server
+2025-12-04 14:12:52,057 - INFO - BuildTower - Connected to Gaze server
+2025-12-04 14:12:52,205 - INFO - BuildTower - Robot parameters: robot_name=my_gen3, dof=7, gripper_present=True
+2025-12-04 14:12:52,209 - INFO - BuildTower - Service initialized: /my_gen3/base/clear_faults
+2025-12-04 14:12:52,220 - INFO - BuildTower - Service initialized: /my_gen3/base/read_action
+2025-12-04 14:12:52,226 - INFO - BuildTower - Service initialized: /my_gen3/base/execute_action
+2025-12-04 14:12:52,229 - INFO - BuildTower - Service initialized: /my_gen3/control_config/set_cartesian_reference_frame
+2025-12-04 14:12:52,232 - INFO - BuildTower - Service initialized: /my_gen3/base/activate_publishing_of_action_topic
+2025-12-04 14:12:52,235 - INFO - BuildTower - Service initialized: /my_gen3/base/send_gripper_command
+2025-12-04 14:12:52,235 - INFO - BuildTower - BuildTower class initialized successfully.
+2025-12-04 14:12:52,236 - INFO - BuildTower - ROS parameter /kortex_examples_test_results/cartesian_poses_with_notifications_python did not exist or could not be deleted.
+2025-12-04 14:12:52,236 - INFO - BuildTower - Starting main robot control loop.
+2025-12-04 14:12:52,263 - INFO - BuildTower - Robot faults cleared successfully.
+2025-12-04 14:12:54,793 - INFO - BuildTower - Cartesian reference frame set successfully.
+2025-12-04 14:12:54,795 - INFO - BuildTower - Activating action notifications.
+2025-12-04 14:12:54,813 - INFO - BuildTower - Action Notifications successfully activated.
+2025-12-04 14:12:55,842 - INFO - BuildTower - Sending robot to home position.
+2025-12-04 14:13:01,716 - INFO - BuildTower - User pressed Enter. Continuing with configuration 1
+2025-12-04 14:13:01,716 - INFO - BuildTower - Parsing information from file: config2
+2025-12-04 14:13:01,717 - INFO - BuildTower - Parsed turn_order: ybypbpbpy
+
+2025-12-04 14:13:01,717 - INFO - BuildTower - Parsed object_order: 143
+
+2025-12-04 14:13:01,717 - INFO - BuildTower - Sent turn_order and waiting for response from OpenPose server.
+2025-12-04 14:13:01,717 - INFO - BuildTower - Sending turn order to OpenPose server: ybypbpbpy
+
+2025-12-04 14:13:01,718 - INFO - BuildTower - Received reply from OpenPose server: Order Received
+2025-12-04 14:13:01,719 - INFO - BuildTower - Starting mutual gaze calibration for 10.0 seconds
+2025-12-04 14:13:11,719 - INFO - BuildTower - Calibration done: yaw_bias=-13.498 deg, pitch_bias=10.410 deg
+2025-12-04 14:13:11,719 - INFO - BuildTower - Executing turn 0 out of 9.
+2025-12-04 14:13:11,743 - INFO - BuildTower - Sending robot to home position.
+2025-12-04 14:13:12,363 - INFO - BuildTower - Moving block from start 0.28 to target 0.307. Turn: 0, Block Shape: 1
+2025-12-04 14:13:12,365 - INFO - BuildTower - Sending gripper command: value=0
+2025-12-04 14:13:12,888 - INFO - BuildTower - Gripper command 0 sent successfully.
+2025-12-04 14:13:12,892 - INFO - BuildTower - Attempting to go to position: x=0.47, y=0.18, z=0.325, theta_x=100.0, theta_y=0.0, theta_z=90.0
+2025-12-04 14:13:12,892 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2025-12-04 14:13:12,915 - INFO - BuildTower - Pose action initiated, waiting for completion.
+2025-12-04 14:13:15,548 - INFO - BuildTower - Robot action ended.
+2025-12-04 14:13:15,548 - INFO - BuildTower - Attempting to go to position: x=0.47, y=0.18, z=0.28, theta_x=100.0, theta_y=0.0, theta_z=90.0
+2025-12-04 14:13:15,549 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2025-12-04 14:13:15,565 - INFO - BuildTower - Pose action initiated, waiting for completion.
+2025-12-04 14:13:16,293 - INFO - BuildTower - Robot action ended.
+2025-12-04 14:13:16,294 - INFO - BuildTower - Sending gripper command: value=0.075
+2025-12-04 14:13:16,814 - INFO - BuildTower - Gripper command 0.075 sent successfully.
+2025-12-04 14:13:16,817 - INFO - BuildTower - Attempting to go to position: x=0.47, y=0.18, z=0.325, theta_x=100.0, theta_y=0.0, theta_z=90.0
+2025-12-04 14:13:16,817 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2025-12-04 14:13:16,840 - INFO - BuildTower - Pose action initiated, waiting for completion.
+2025-12-04 14:13:17,547 - INFO - BuildTower - Robot action ended.
+2025-12-04 14:13:17,548 - INFO - BuildTower - Attempting to go to position: x=0.735, y=0.0, z=0.352, theta_x=100.0, theta_y=0.0, theta_z=90.0
+2025-12-04 14:13:17,548 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2025-12-04 14:13:17,565 - INFO - BuildTower - Pose action initiated, waiting for completion.
+2025-12-04 14:13:21,055 - INFO - BuildTower - Robot action ended.
+2025-12-04 14:13:21,055 - INFO - BuildTower - Attempting to go to position: x=0.735, y=0.0, z=0.307, theta_x=100.0, theta_y=0.0, theta_z=90.0
+2025-12-04 14:13:21,055 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2025-12-04 14:13:21,065 - INFO - BuildTower - Pose action initiated, waiting for completion.
+2025-12-04 14:13:21,773 - INFO - BuildTower - Robot action ended.
+2025-12-04 14:13:21,774 - INFO - BuildTower - Sending gripper command: value=0
+2025-12-04 14:13:22,289 - INFO - BuildTower - Gripper command 0 sent successfully.
+2025-12-04 14:13:22,291 - INFO - BuildTower - Attempting to go to position: x=0.735, y=0.0, z=0.352, theta_x=100.0, theta_y=0.0, theta_z=90.0
+2025-12-04 14:13:22,291 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2025-12-04 14:13:22,316 - INFO - BuildTower - Pose action initiated, waiting for completion.
+2025-12-04 14:13:23,044 - INFO - BuildTower - Robot action ended.
+2025-12-04 14:13:23,045 - INFO - BuildTower - Robot completed its turn. Robot turn count: 1
+2025-12-04 14:13:23,045 - INFO - BuildTower - Executing turn 1 out of 9.
+2025-12-04 14:13:23,045 - INFO - BuildTower - Gaze rx: frame_idx=216 ts=2025-12-04T14:13:22.645785Z people=2
+2025-12-04 14:13:23,045 - INFO - BuildTower - Gaze3D rx frame=216 id=left label=Left person v=[-0.315, -0.024, 0.949] yaw=-18.4 pitch=1.4
+2025-12-04 14:13:23,045 - INFO - BuildTower - Gaze3D rx frame=216 id=right label=Right person v=[-0.369, -0.112, 0.923] yaw=-21.8 pitch=6.4
+2025-12-04 14:13:23,046 - INFO - BuildTower - Sending to OpenPose with gaze tracking: PL: Arm Extended Check
+2025-12-04 14:13:26,100 - INFO - BuildTower - Robot moving to look at person in the left.
+2025-12-04 14:13:26,101 - INFO - BuildTower - Attempting to go to position: x=0.5, y=-0.08, z=0.5, theta_x=80, theta_y=0, theta_z=75
+2025-12-04 14:13:26,101 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2025-12-04 14:13:26,116 - INFO - BuildTower - Pose action initiated, waiting for completion.
+2025-12-04 14:13:30,746 - INFO - BuildTower - Robot action ended.
+2025-12-04 14:13:30,746 - INFO - BuildTower - Robot moving to look at person in the right.
+2025-12-04 14:13:30,747 - INFO - BuildTower - Attempting to go to position: x=0.5, y=0.08, z=0.5, theta_x=80, theta_y=0, theta_z=105
+2025-12-04 14:13:30,747 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2025-12-04 14:13:30,766 - INFO - BuildTower - Pose action initiated, waiting for completion.
+2025-12-04 14:13:36,272 - INFO - BuildTower - Robot action ended.
+2025-12-04 14:13:36,272 - INFO - BuildTower - Received reply from OpenPose (with gaze tracking): Left: Arm Extended
+2025-12-04 14:13:36,319 - INFO - BuildTower - Sending robot to home position.
+2025-12-04 14:13:36,941 - INFO - BuildTower - Sending to OpenPose with gaze tracking: PL: Arm Retracted Check
+2025-12-04 14:13:36,949 - INFO - BuildTower - Robot moving to look at person in the left.
+2025-12-04 14:13:36,949 - INFO - BuildTower - Attempting to go to position: x=0.5, y=-0.08, z=0.5, theta_x=80, theta_y=0, theta_z=75
+2025-12-04 14:13:36,949 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2025-12-04 14:13:36,968 - INFO - BuildTower - Pose action initiated, waiting for completion.
+2025-12-04 14:13:40,820 - INFO - BuildTower - Robot action ended.
+2025-12-04 14:13:40,821 - INFO - BuildTower - Received reply from OpenPose (with gaze tracking): Left: Arm Retracted
+2025-12-04 14:13:40,846 - INFO - BuildTower - Sending robot to home position.
+2025-12-04 14:13:41,470 - INFO - BuildTower - Executing turn 2 out of 9.
+2025-12-04 14:13:41,495 - INFO - BuildTower - Sending robot to home position.
+2025-12-04 14:13:42,116 - INFO - BuildTower - Moving block from start 0.3 to target 0.387. Turn: 2, Block Shape: 4
+2025-12-04 14:13:42,126 - INFO - BuildTower - Sending gripper command: value=0
+2025-12-04 14:13:42,641 - INFO - BuildTower - Gripper command 0 sent successfully.
+2025-12-04 14:13:42,644 - INFO - BuildTower - Attempting to go to position: x=0.3, y=0.3, z=0.345, theta_x=100.0, theta_y=0.0, theta_z=90.0
+2025-12-04 14:13:42,644 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2025-12-04 14:13:42,668 - INFO - BuildTower - Pose action initiated, waiting for completion.
+2025-12-04 14:13:46,772 - WARNING - BuildTower - Robot action aborted.
+2025-12-04 14:13:46,772 - INFO - BuildTower - Attempting to go to position: x=0.3, y=0.3, z=0.3, theta_x=100.0, theta_y=0.0, theta_z=90.0
+2025-12-04 14:13:46,772 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2025-12-04 14:13:46,794 - ERROR - BuildTower - Failed to send pose: service [/my_gen3/base/execute_action] responded with an error: b''
+2025-12-04 14:13:46,796 - INFO - BuildTower - Sending gripper command: value=0.7
+2025-12-04 14:13:46,818 - ERROR - BuildTower - Failed to call SendGripperCommand: service [/my_gen3/base/send_gripper_command] responded with an error: b''
+2025-12-04 14:13:46,819 - INFO - BuildTower - Attempting to go to position: x=0.3, y=0.3, z=0.435, theta_x=100.0, theta_y=0.0, theta_z=90.0
+2025-12-04 14:13:46,819 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2025-12-04 14:13:46,843 - ERROR - BuildTower - Failed to send pose: service [/my_gen3/base/execute_action] responded with an error: b''
+2025-12-04 14:13:46,843 - INFO - BuildTower - Attempting to go to position: x=0.735, y=0.0, z=0.432, theta_x=100.0, theta_y=0.0, theta_z=90.0
+2025-12-04 14:13:46,843 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2025-12-04 14:13:46,868 - ERROR - BuildTower - Failed to send pose: service [/my_gen3/base/execute_action] responded with an error: b''
+2025-12-04 14:13:46,868 - INFO - BuildTower - Attempting to go to position: x=0.735, y=0.0, z=0.387, theta_x=100.0, theta_y=0.0, theta_z=90.0
+2025-12-04 14:13:46,868 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2025-12-04 14:13:46,892 - ERROR - BuildTower - Failed to send pose: service [/my_gen3/base/execute_action] responded with an error: b''
+2025-12-04 14:13:46,894 - INFO - BuildTower - Sending gripper command: value=0
+2025-12-04 14:13:46,918 - ERROR - BuildTower - Failed to call SendGripperCommand: service [/my_gen3/base/send_gripper_command] responded with an error: b''
+2025-12-04 14:13:46,920 - INFO - BuildTower - Attempting to go to position: x=0.735, y=0.0, z=0.432, theta_x=100.0, theta_y=0.0, theta_z=90.0
+2025-12-04 14:13:46,920 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2025-12-04 14:13:46,943 - ERROR - BuildTower - Failed to send pose: service [/my_gen3/base/execute_action] responded with an error: b''
+2025-12-04 14:13:46,943 - INFO - BuildTower - Robot completed its turn. Robot turn count: 2
+2025-12-04 14:13:46,943 - INFO - BuildTower - Executing turn 3 out of 9.
+2025-12-04 14:13:46,943 - INFO - BuildTower - Gaze rx: frame_idx=496 ts=2025-12-04T14:13:46.826517Z people=2
+2025-12-04 14:13:46,943 - INFO - BuildTower - Gaze3D rx frame=496 id=left label=Left person v=[-0.339, -0.397, 0.853] yaw=-21.7 pitch=23.4
+2025-12-04 14:13:46,943 - INFO - BuildTower - Gaze3D rx frame=496 id=right label=Right person v=[-0.272, -0.263, 0.926] yaw=-16.4 pitch=15.2
+2025-12-04 14:13:46,944 - INFO - BuildTower - Sending to OpenPose with gaze tracking: PR: Arm Extended Check
+2025-12-04 14:13:46,965 - INFO - BuildTower - Received reply from OpenPose (with gaze tracking): Right: Arm Extended
+2025-12-04 14:13:47,000 - INFO - BuildTower - Sending robot to home position.
+2025-12-04 14:13:47,018 - ERROR - BuildTower - Failed to call ExecuteAction: service [/my_gen3/base/execute_action] responded with an error: b''
+2025-12-04 14:13:47,019 - INFO - BuildTower - Sending to OpenPose with gaze tracking: PR: Arm Retracted Check
+2025-12-04 14:13:47,021 - INFO - BuildTower - Received reply from OpenPose (with gaze tracking): Right: Arm Retracted
+2025-12-04 14:13:47,046 - INFO - BuildTower - Sending robot to home position.
+2025-12-04 14:13:47,069 - ERROR - BuildTower - Failed to call ExecuteAction: service [/my_gen3/base/execute_action] responded with an error: b''
+2025-12-04 14:13:47,069 - INFO - BuildTower - Executing turn 4 out of 9.
+2025-12-04 14:13:47,069 - INFO - BuildTower - Sending to OpenPose with gaze tracking: PL: Arm Extended Check
+2025-12-04 14:13:50,414 - INFO - BuildTower - Robot moving to look at person in the left.
+2025-12-04 14:13:50,414 - INFO - BuildTower - Attempting to go to position: x=0.5, y=-0.08, z=0.5, theta_x=80, theta_y=0, theta_z=75
+2025-12-04 14:13:50,415 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2025-12-04 14:13:50,443 - ERROR - BuildTower - Failed to send pose: service [/my_gen3/base/execute_action] responded with an error: b''
+2025-12-04 14:13:54,064 - INFO - BuildTower - Robot moving to look at tower.
+2025-12-04 14:13:54,065 - INFO - BuildTower - Attempting to go to position: x=0.5, y=0, z=0.3, theta_x=110, theta_y=0, theta_z=90
+2025-12-04 14:13:54,065 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2025-12-04 14:13:54,094 - ERROR - BuildTower - Failed to send pose: service [/my_gen3/base/execute_action] responded with an error: b''
+2025-12-04 14:13:57,717 - INFO - BuildTower - Robot moving to look at tower.
+2025-12-04 14:13:57,717 - INFO - BuildTower - Attempting to go to position: x=0.5, y=0, z=0.3, theta_x=110, theta_y=0, theta_z=90
+2025-12-04 14:13:57,717 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2025-12-04 14:13:57,745 - ERROR - BuildTower - Failed to send pose: service [/my_gen3/base/execute_action] responded with an error: b''
+2025-12-04 14:14:01,468 - INFO - BuildTower - Robot moving to look at tower.
+2025-12-04 14:14:01,468 - INFO - BuildTower - Attempting to go to position: x=0.5, y=0, z=0.3, theta_x=110, theta_y=0, theta_z=90
+2025-12-04 14:14:01,468 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2025-12-04 14:14:01,495 - ERROR - BuildTower - Failed to send pose: service [/my_gen3/base/execute_action] responded with an error: b''
+2025-12-04 14:14:04,750 - INFO - BuildTower - Robot moving to look at person in the right.
+2025-12-04 14:14:04,750 - INFO - BuildTower - Attempting to go to position: x=0.5, y=0.08, z=0.5, theta_x=80, theta_y=0, theta_z=105
+2025-12-04 14:14:04,750 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2025-12-04 14:14:04,756 - ERROR - BuildTower - Failed to send pose: service [/my_gen3/base/execute_action] returned no response

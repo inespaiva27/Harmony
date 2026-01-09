@@ -1,0 +1,26 @@
+2025-12-18 17:05:58,976 - INFO - PoseRunner - Pinned current thread to core 0
+2025-12-18 17:05:59,127 - INFO - PoseRunner - Robot parameters: robot_name=my_gen3, dof=7, gripper=True
+2025-12-18 17:05:59,136 - INFO - PoseRunner - All Kortex services initialized.
+2025-12-18 17:05:59,137 - INFO - PoseRunner - Running pose sequence from config: config2
+2025-12-18 17:06:01,645 - INFO - PoseRunner - Faults cleared.
+2025-12-18 17:06:01,918 - INFO - PoseRunner - Cartesian reference frame set.
+2025-12-18 17:06:02,923 - INFO - PoseRunner - Action notifications activated.
+2025-12-18 17:06:03,571 - INFO - PoseRunner - Going to B1 start: x=0.470 y=0.180 z=0.280 rx=100.0 ry=0.0 rz=90.0
+2025-12-18 17:06:08,576 - INFO - PoseRunner - Received ACTION_END
+2025-12-18 17:06:08,578 - INFO - PoseRunner - Reached B1 start. Dwell 10.0s.
+2025-12-18 17:06:18,589 - INFO - PoseRunner - Going to B1 target: x=0.735 y=0.000 z=0.307 rx=100.0 ry=0.0 rz=90.0
+2025-12-18 17:06:22,072 - INFO - PoseRunner - Received ACTION_END
+2025-12-18 17:06:22,075 - INFO - PoseRunner - Reached B1 target. Dwell 10.0s.
+2025-12-18 17:06:32,087 - INFO - PoseRunner - Going to B2 start: x=0.300 y=0.300 z=0.300 rx=100.0 ry=0.0 rz=90.0
+2025-12-18 17:06:37,648 - INFO - PoseRunner - Received ACTION_END
+2025-12-18 17:06:37,658 - INFO - PoseRunner - Reached B2 start. Dwell 10.0s.
+2025-12-18 17:06:47,668 - INFO - PoseRunner - Going to B2 target: x=0.735 y=0.000 z=0.387 rx=100.0 ry=0.0 rz=90.0
+2025-12-18 17:06:53,329 - INFO - PoseRunner - Received ACTION_END
+2025-12-18 17:06:53,332 - INFO - PoseRunner - Reached B2 target. Dwell 10.0s.
+2025-12-18 17:07:03,341 - INFO - PoseRunner - Going to B3 start: x=0.500 y=-0.200 z=0.280 rx=100.0 ry=0.0 rz=90.0
+2025-12-18 17:07:06,878 - INFO - PoseRunner - Received ACTION_END
+2025-12-18 17:07:06,880 - INFO - PoseRunner - Reached B3 start. Dwell 10.0s.
+2025-12-18 17:07:16,889 - INFO - PoseRunner - Going to B3 target: x=0.737 y=0.000 z=0.643 rx=100.0 ry=0.0 rz=90.0
+2025-12-18 17:07:22,329 - INFO - PoseRunner - Received ACTION_END
+2025-12-18 17:07:22,332 - INFO - PoseRunner - Reached B3 target. Dwell 10.0s.
+2025-12-18 17:07:32,342 - INFO - PoseRunner - Completed all poses.

@@ -1,0 +1,405 @@
+2025-12-19 15:52:37,091 - INFO - openpose - OpenPose server started and bound to tcp://*:5555
+2025-12-19 15:52:37,091 - INFO - openpose - OpenPose server started and bound to tcp://*:5556
+2025-12-19 15:52:37,104 - INFO - openpose - Starting OpenPose
+2025-12-19 15:52:37,876 - INFO - openpose - OpenPose initialized - waiting for turn_order
+2025-12-19 15:52:53,943 - INFO - openpose - Message received: ybypbpbpy
+
+2025-12-19 15:52:54,703 - INFO - openpose - Gaze3D frame=0 id=left label=Left person v=[-0.212, 0.134, 0.968] yaw=-12.4 pitch=-7.7 cx=242.05059814453125
+2025-12-19 15:52:54,703 - INFO - openpose - Gaze3D frame=0 id=right label=Right person v=[-0.475, 0.057, 0.878] yaw=-28.4 pitch=-3.3 cx=436.64991760253906
+2025-12-19 15:52:54,703 - INFO - openpose - Gaze PUB: people=2, frame_idx=0
+2025-12-19 15:52:54,704 - INFO - openpose - Robot's turn detected
+2025-12-19 15:52:55,425 - INFO - openpose - Gaze3D frame=8 id=left label=Left person v=[-0.255, 0.123, 0.959] yaw=-14.9 pitch=-7.1 cx=266.89229583740234
+2025-12-19 15:52:55,425 - INFO - openpose - Gaze3D frame=8 id=right label=Right person v=[-0.594, -0.065, 0.802] yaw=-36.5 pitch=3.7 cx=438.9903869628906
+2025-12-19 15:52:55,425 - INFO - openpose - Gaze PUB: people=2, frame_idx=8
+2025-12-19 15:52:56,144 - INFO - openpose - Gaze3D frame=16 id=left label=Left person v=[-0.274, 0.102, 0.956] yaw=-16.0 pitch=-5.8 cx=272.34063720703125
+2025-12-19 15:52:56,144 - INFO - openpose - Gaze3D frame=16 id=right label=Right person v=[-0.467, -0.201, 0.861] yaw=-28.5 pitch=11.6 cx=435.83905029296875
+2025-12-19 15:52:56,144 - INFO - openpose - Gaze PUB: people=2, frame_idx=16
+2025-12-19 15:52:56,834 - INFO - openpose - Gaze3D frame=24 id=left label=Left person v=[-0.217, 0.312, 0.925] yaw=-13.2 pitch=-18.2 cx=256.9390563964844
+2025-12-19 15:52:56,835 - INFO - openpose - Gaze3D frame=24 id=right label=Right person v=[-0.223, -0.137, 0.965] yaw=-13.0 pitch=7.9 cx=436.34912109375
+2025-12-19 15:52:56,835 - INFO - openpose - Gaze PUB: people=2, frame_idx=24
+2025-12-19 15:52:57,528 - INFO - openpose - Gaze3D frame=32 id=left label=Left person v=[-0.313, 0.091, 0.945] yaw=-18.3 pitch=-5.2 cx=263.8258514404297
+2025-12-19 15:52:57,529 - INFO - openpose - Gaze3D frame=32 id=right label=Right person v=[-0.358, -0.321, 0.877] yaw=-22.2 pitch=18.7 cx=439.6769714355469
+2025-12-19 15:52:57,529 - INFO - openpose - Gaze PUB: people=2, frame_idx=32
+2025-12-19 15:52:58,204 - INFO - openpose - Gaze3D frame=40 id=left label=Left person v=[-0.323, 0.134, 0.937] yaw=-19.0 pitch=-7.7 cx=278.1100158691406
+2025-12-19 15:52:58,204 - INFO - openpose - Gaze3D frame=40 id=right label=Right person v=[-0.366, -0.087, 0.927] yaw=-21.5 pitch=5.0 cx=443.14414978027344
+2025-12-19 15:52:58,204 - INFO - openpose - Gaze PUB: people=2, frame_idx=40
+2025-12-19 15:52:58,919 - INFO - openpose - Gaze3D frame=48 id=left label=Left person v=[-0.363, 0.144, 0.921] yaw=-21.5 pitch=-8.3 cx=268.33653259277344
+2025-12-19 15:52:58,919 - INFO - openpose - Gaze3D frame=48 id=right label=Right person v=[-0.359, -0.038, 0.932] yaw=-21.1 pitch=2.2 cx=443.1641387939453
+2025-12-19 15:52:58,919 - INFO - openpose - Gaze PUB: people=2, frame_idx=48
+2025-12-19 15:52:59,625 - INFO - openpose - Gaze3D frame=56 id=left label=Left person v=[-0.269, 0.008, 0.963] yaw=-15.6 pitch=-0.5 cx=264.4869155883789
+2025-12-19 15:52:59,625 - INFO - openpose - Gaze3D frame=56 id=right label=Right person v=[-0.352, -0.083, 0.932] yaw=-20.7 pitch=4.7 cx=444.9745788574219
+2025-12-19 15:52:59,625 - INFO - openpose - Gaze PUB: people=2, frame_idx=56
+2025-12-19 15:53:00,307 - INFO - openpose - Gaze3D frame=64 id=left label=Left person v=[-0.230, 0.119, 0.966] yaw=-13.4 pitch=-6.8 cx=266.75955963134766
+2025-12-19 15:53:00,307 - INFO - openpose - Gaze3D frame=64 id=right label=Right person v=[-0.329, -0.131, 0.935] yaw=-19.4 pitch=7.5 cx=447.27708435058594
+2025-12-19 15:53:00,307 - INFO - openpose - Gaze PUB: people=2, frame_idx=64
+2025-12-19 15:53:00,998 - INFO - openpose - Gaze3D frame=72 id=left label=Left person v=[-0.336, 0.088, 0.938] yaw=-19.7 pitch=-5.1 cx=267.7496337890625
+2025-12-19 15:53:00,998 - INFO - openpose - Gaze3D frame=72 id=right label=Right person v=[-0.440, -0.075, 0.895] yaw=-26.2 pitch=4.3 cx=444.3791198730469
+2025-12-19 15:53:00,998 - INFO - openpose - Gaze PUB: people=2, frame_idx=72
+2025-12-19 15:53:01,667 - INFO - openpose - Gaze3D frame=80 id=left label=Left person v=[-0.260, 0.125, 0.957] yaw=-15.2 pitch=-7.2 cx=268.7466125488281
+2025-12-19 15:53:01,667 - INFO - openpose - Gaze3D frame=80 id=right label=Right person v=[-0.337, -0.101, 0.936] yaw=-19.8 pitch=5.8 cx=436.5744323730469
+2025-12-19 15:53:01,667 - INFO - openpose - Gaze PUB: people=2, frame_idx=80
+2025-12-19 15:53:02,365 - INFO - openpose - Gaze3D frame=88 id=left label=Left person v=[-0.260, 0.120, 0.958] yaw=-15.2 pitch=-6.9 cx=267.4076919555664
+2025-12-19 15:53:02,365 - INFO - openpose - Gaze3D frame=88 id=right label=Right person v=[-0.364, -0.078, 0.928] yaw=-21.4 pitch=4.5 cx=436.43663024902344
+2025-12-19 15:53:02,365 - INFO - openpose - Gaze PUB: people=2, frame_idx=88
+2025-12-19 15:53:03,051 - INFO - openpose - Gaze3D frame=96 id=left label=Left person v=[-0.277, 0.094, 0.956] yaw=-16.2 pitch=-5.4 cx=268.4373245239258
+2025-12-19 15:53:03,051 - INFO - openpose - Gaze3D frame=96 id=right label=Right person v=[-0.348, -0.151, 0.925] yaw=-20.6 pitch=8.7 cx=436.54347229003906
+2025-12-19 15:53:03,051 - INFO - openpose - Gaze PUB: people=2, frame_idx=96
+2025-12-19 15:53:03,746 - INFO - openpose - Gaze3D frame=104 id=left label=Left person v=[-0.259, 0.102, 0.960] yaw=-15.1 pitch=-5.8 cx=268.1949920654297
+2025-12-19 15:53:03,746 - INFO - openpose - Gaze3D frame=104 id=right label=Right person v=[-0.339, -0.143, 0.930] yaw=-20.0 pitch=8.2 cx=436.8096923828125
+2025-12-19 15:53:03,746 - INFO - openpose - Gaze PUB: people=2, frame_idx=104
+2025-12-19 15:53:04,451 - INFO - openpose - Gaze3D frame=112 id=left label=Left person v=[-0.280, 0.081, 0.957] yaw=-16.3 pitch=-4.6 cx=266.87599182128906
+2025-12-19 15:53:04,452 - INFO - openpose - Gaze3D frame=112 id=right label=Right person v=[-0.382, -0.113, 0.917] yaw=-22.6 pitch=6.5 cx=436.91156005859375
+2025-12-19 15:53:04,452 - INFO - openpose - Gaze PUB: people=2, frame_idx=112
+2025-12-19 15:53:05,141 - INFO - openpose - Gaze3D frame=120 id=left label=Left person v=[-0.295, 0.131, 0.946] yaw=-17.3 pitch=-7.5 cx=268.2931594848633
+2025-12-19 15:53:05,141 - INFO - openpose - Gaze3D frame=120 id=right label=Right person v=[-0.396, -0.102, 0.913] yaw=-23.5 pitch=5.8 cx=437.18017578125
+2025-12-19 15:53:05,141 - INFO - openpose - Gaze PUB: people=2, frame_idx=120
+2025-12-19 15:53:05,864 - INFO - openpose - Gaze3D frame=128 id=left label=Left person v=[-0.315, 0.051, 0.948] yaw=-18.4 pitch=-2.9 cx=268.4369583129883
+2025-12-19 15:53:05,864 - INFO - openpose - Gaze3D frame=128 id=right label=Right person v=[-0.371, -0.096, 0.924] yaw=-21.9 pitch=5.5 cx=437.2267303466797
+2025-12-19 15:53:05,864 - INFO - openpose - Gaze PUB: people=2, frame_idx=128
+2025-12-19 15:53:06,578 - INFO - openpose - Gaze3D frame=136 id=left label=Left person v=[-0.319, 0.008, 0.948] yaw=-18.6 pitch=-0.5 cx=268.1854705810547
+2025-12-19 15:53:06,578 - INFO - openpose - Gaze3D frame=136 id=right label=Right person v=[-0.443, -0.212, 0.871] yaw=-26.9 pitch=12.2 cx=437.6094055175781
+2025-12-19 15:53:06,586 - INFO - openpose - Gaze PUB: people=2, frame_idx=136
+2025-12-19 15:53:07,297 - INFO - openpose - Gaze3D frame=144 id=left label=Left person v=[-0.316, 0.022, 0.948] yaw=-18.4 pitch=-1.3 cx=269.79747009277344
+2025-12-19 15:53:07,297 - INFO - openpose - Gaze3D frame=144 id=right label=Right person v=[-0.483, -0.121, 0.867] yaw=-29.1 pitch=6.9 cx=438.11732482910156
+2025-12-19 15:53:07,297 - INFO - openpose - Gaze PUB: people=2, frame_idx=144
+2025-12-19 15:53:08,025 - INFO - openpose - Gaze3D frame=152 id=left label=Left person v=[-0.320, 0.006, 0.947] yaw=-18.7 pitch=-0.4 cx=269.99108123779297
+2025-12-19 15:53:08,025 - INFO - openpose - Gaze3D frame=152 id=right label=Right person v=[-0.538, -0.181, 0.823] yaw=-33.2 pitch=10.5 cx=437.803466796875
+2025-12-19 15:53:08,025 - INFO - openpose - Gaze PUB: people=2, frame_idx=152
+2025-12-19 15:53:08,760 - INFO - openpose - Gaze3D frame=160 id=left label=Left person v=[-0.345, -0.064, 0.937] yaw=-20.2 pitch=3.7 cx=269.62184143066406
+2025-12-19 15:53:08,760 - INFO - openpose - Gaze3D frame=160 id=right label=Right person v=[-0.515, -0.266, 0.815] yaw=-32.3 pitch=15.4 cx=437.99449157714844
+2025-12-19 15:53:08,760 - INFO - openpose - Gaze PUB: people=2, frame_idx=160
+2025-12-19 15:53:09,475 - INFO - openpose - Gaze3D frame=168 id=left label=Left person v=[-0.286, 0.018, 0.958] yaw=-16.6 pitch=-1.0 cx=270.0708694458008
+2025-12-19 15:53:09,475 - INFO - openpose - Gaze3D frame=168 id=right label=Right person v=[-0.521, -0.162, 0.838] yaw=-31.9 pitch=9.3 cx=438.53016662597656
+2025-12-19 15:53:09,475 - INFO - openpose - Gaze PUB: people=2, frame_idx=168
+2025-12-19 15:53:10,194 - INFO - openpose - Gaze3D frame=176 id=left label=Left person v=[-0.357, 0.041, 0.933] yaw=-21.0 pitch=-2.4 cx=270.6018600463867
+2025-12-19 15:53:10,195 - INFO - openpose - Gaze3D frame=176 id=right label=Right person v=[-0.544, -0.209, 0.813] yaw=-33.8 pitch=12.1 cx=437.7577819824219
+2025-12-19 15:53:10,195 - INFO - openpose - Gaze PUB: people=2, frame_idx=176
+2025-12-19 15:53:10,896 - INFO - openpose - Gaze3D frame=184 id=left label=Left person v=[-0.319, 0.047, 0.947] yaw=-18.6 pitch=-2.7 cx=270.5495910644531
+2025-12-19 15:53:10,896 - INFO - openpose - Gaze3D frame=184 id=right label=Right person v=[-0.546, -0.256, 0.798] yaw=-34.4 pitch=14.8 cx=438.12744140625
+2025-12-19 15:53:10,896 - INFO - openpose - Gaze PUB: people=2, frame_idx=184
+2025-12-19 15:53:11,603 - INFO - openpose - Gaze3D frame=192 id=left label=Left person v=[-0.356, 0.040, 0.934] yaw=-20.9 pitch=-2.3 cx=271.10079193115234
+2025-12-19 15:53:11,603 - INFO - openpose - Gaze3D frame=192 id=right label=Right person v=[-0.476, -0.207, 0.855] yaw=-29.1 pitch=12.0 cx=438.00804138183594
+2025-12-19 15:53:11,611 - INFO - openpose - Gaze PUB: people=2, frame_idx=192
+2025-12-19 15:53:12,245 - INFO - openpose - Gaze3D frame=200 id=left label=Left person v=[-0.391, 0.177, 0.903] yaw=-23.4 pitch=-10.2 cx=271.4523620605469
+2025-12-19 15:53:12,245 - INFO - openpose - Gaze3D frame=200 id=right label=Right person v=[-0.564, -0.230, 0.793] yaw=-35.4 pitch=13.3 cx=438.2958526611328
+2025-12-19 15:53:12,246 - INFO - openpose - Gaze PUB: people=2, frame_idx=200
+2025-12-19 15:53:12,897 - INFO - openpose - Gaze3D frame=208 id=left label=Left person v=[-0.392, 0.198, 0.898] yaw=-23.6 pitch=-11.4 cx=271.33245849609375
+2025-12-19 15:53:12,897 - INFO - openpose - Gaze3D frame=208 id=right label=Right person v=[-0.522, -0.338, 0.783] yaw=-33.7 pitch=19.8 cx=438.4376220703125
+2025-12-19 15:53:12,897 - INFO - openpose - Gaze PUB: people=2, frame_idx=208
+2025-12-19 15:53:13,586 - INFO - openpose - Gaze3D frame=216 id=left label=Left person v=[-0.338, 0.108, 0.935] yaw=-19.9 pitch=-6.2 cx=271.05262756347656
+2025-12-19 15:53:13,587 - INFO - openpose - Gaze3D frame=216 id=right label=Right person v=[-0.490, -0.230, 0.841] yaw=-30.2 pitch=13.3 cx=438.31565856933594
+2025-12-19 15:53:13,587 - INFO - openpose - Gaze PUB: people=2, frame_idx=216
+2025-12-19 15:53:14,238 - INFO - openpose - Gaze3D frame=224 id=left label=Left person v=[-0.361, 0.112, 0.926] yaw=-21.3 pitch=-6.4 cx=271.218505859375
+2025-12-19 15:53:14,238 - INFO - openpose - Gaze3D frame=224 id=right label=Right person v=[-0.214, -0.248, 0.945] yaw=-12.7 pitch=14.3 cx=438.5180358886719
+2025-12-19 15:53:14,238 - INFO - openpose - Gaze PUB: people=2, frame_idx=224
+2025-12-19 15:53:14,939 - INFO - openpose - Gaze3D frame=232 id=left label=Left person v=[-0.404, 0.081, 0.911] yaw=-23.9 pitch=-4.6 cx=270.97496032714844
+2025-12-19 15:53:14,939 - INFO - openpose - Gaze3D frame=232 id=right label=Right person v=[-0.457, -0.204, 0.866] yaw=-27.8 pitch=11.8 cx=438.822509765625
+2025-12-19 15:53:14,939 - INFO - openpose - Gaze PUB: people=2, frame_idx=232
+2025-12-19 15:53:15,625 - INFO - openpose - Gaze3D frame=240 id=left label=Left person v=[-0.325, 0.213, 0.921] yaw=-19.4 pitch=-12.3 cx=271.4042663574219
+2025-12-19 15:53:15,625 - INFO - openpose - Gaze3D frame=240 id=right label=Right person v=[-0.496, -0.197, 0.845] yaw=-30.4 pitch=11.4 cx=439.2545928955078
+2025-12-19 15:53:15,625 - INFO - openpose - Gaze PUB: people=2, frame_idx=240
+2025-12-19 15:53:16,327 - INFO - openpose - Gaze3D frame=248 id=left label=Left person v=[-0.329, 0.127, 0.936] yaw=-19.4 pitch=-7.3 cx=271.22010803222656
+2025-12-19 15:53:16,327 - INFO - openpose - Gaze3D frame=248 id=right label=Right person v=[-0.468, -0.137, 0.873] yaw=-28.2 pitch=7.9 cx=438.92889404296875
+2025-12-19 15:53:16,327 - INFO - openpose - Gaze PUB: people=2, frame_idx=248
+2025-12-19 15:53:17,005 - INFO - openpose - Gaze3D frame=256 id=left label=Left person v=[-0.311, 0.002, 0.950] yaw=-18.1 pitch=-0.1 cx=288.1741180419922
+2025-12-19 15:53:17,006 - INFO - openpose - Gaze3D frame=256 id=right label=Right person v=[-0.497, -0.289, 0.818] yaw=-31.3 pitch=16.8 cx=439.31463623046875
+2025-12-19 15:53:17,006 - INFO - openpose - Gaze PUB: people=2, frame_idx=256
+2025-12-19 15:53:17,683 - INFO - openpose - Gaze3D frame=264 id=left label=Left person v=[-0.390, 0.042, 0.920] yaw=-23.0 pitch=-2.4 cx=311.71995544433594
+2025-12-19 15:53:17,683 - INFO - openpose - Gaze3D frame=264 id=right label=Right person v=[-0.447, -0.150, 0.882] yaw=-26.9 pitch=8.6 cx=440.6733093261719
+2025-12-19 15:53:17,683 - INFO - openpose - Gaze PUB: people=2, frame_idx=264
+2025-12-19 15:53:17,684 - INFO - openpose - Left person: Arm EXTENDED (depth-plane)
+2025-12-19 15:53:17,684 - INFO - openpose - ZMQ Message received (non-blocking): PL: Arm Extended Check
+2025-12-19 15:53:17,684 - INFO - openpose - ZMQ Sending: Left: Arm Extended
+2025-12-19 15:53:17,750 - INFO - openpose - Left person: Arm RETRACTED (depth-plane)
+2025-12-19 15:53:17,750 - INFO - openpose - ZMQ Message received (non-blocking): PL: Arm Retracted Check
+2025-12-19 15:53:17,750 - INFO - openpose - ZMQ Sending: Left: Arm Retracted
+2025-12-19 15:53:17,811 - INFO - openpose - Robot's turn detected
+2025-12-19 15:53:18,388 - INFO - openpose - Gaze3D frame=272 id=left label=Left person v=[-0.466, 0.384, 0.797] yaw=-30.3 pitch=-22.6 cx=331.4869384765625
+2025-12-19 15:53:18,388 - INFO - openpose - Gaze3D frame=272 id=right label=Right person v=[-0.559, -0.175, 0.811] yaw=-34.6 pitch=10.1 cx=442.03924560546875
+2025-12-19 15:53:18,388 - INFO - openpose - Gaze PUB: people=2, frame_idx=272
+2025-12-19 15:53:19,104 - INFO - openpose - Gaze3D frame=280 id=left label=Left person v=[-0.533, 0.235, 0.812] yaw=-33.3 pitch=-13.6 cx=329.8741149902344
+2025-12-19 15:53:19,104 - INFO - openpose - Gaze3D frame=280 id=right label=Right person v=[-0.447, -0.064, 0.892] yaw=-26.6 pitch=3.7 cx=441.3150177001953
+2025-12-19 15:53:19,104 - INFO - openpose - Gaze PUB: people=2, frame_idx=280
+2025-12-19 15:53:19,814 - INFO - openpose - Gaze3D frame=288 id=left label=Left person v=[-0.122, 0.085, 0.989] yaw=-7.0 pitch=-4.9 cx=317.4798583984375
+2025-12-19 15:53:19,814 - INFO - openpose - Gaze3D frame=288 id=right label=Right person v=[-0.328, -0.193, 0.925] yaw=-19.5 pitch=11.1 cx=444.1338195800781
+2025-12-19 15:53:19,814 - INFO - openpose - Gaze PUB: people=2, frame_idx=288
+2025-12-19 15:53:20,541 - INFO - openpose - Gaze3D frame=296 id=left label=Left person v=[-0.327, -0.154, 0.933] yaw=-19.3 pitch=8.8 cx=287.9088134765625
+2025-12-19 15:53:20,541 - INFO - openpose - Gaze3D frame=296 id=right label=Right person v=[-0.342, -0.241, 0.908] yaw=-20.6 pitch=13.9 cx=459.0550994873047
+2025-12-19 15:53:20,541 - INFO - openpose - Gaze PUB: people=2, frame_idx=296
+2025-12-19 15:53:21,266 - INFO - openpose - Gaze3D frame=304 id=left label=Left person v=[-0.411, 0.075, 0.909] yaw=-24.3 pitch=-4.3 cx=256.8577117919922
+2025-12-19 15:53:21,266 - INFO - openpose - Gaze3D frame=304 id=right label=Right person v=[-0.364, -0.133, 0.922] yaw=-21.5 pitch=7.6 cx=444.7101287841797
+2025-12-19 15:53:21,266 - INFO - openpose - Gaze PUB: people=2, frame_idx=304
+2025-12-19 15:53:21,995 - INFO - openpose - Gaze3D frame=312 id=left label=Left person v=[-0.345, -0.100, 0.933] yaw=-20.3 pitch=5.8 cx=276.0235595703125
+2025-12-19 15:53:21,995 - INFO - openpose - Gaze3D frame=312 id=right label=Right person v=[-0.340, -0.175, 0.924] yaw=-20.2 pitch=10.1 cx=440.5540466308594
+2025-12-19 15:53:21,995 - INFO - openpose - Gaze PUB: people=2, frame_idx=312
+2025-12-19 15:53:22,712 - INFO - openpose - Gaze3D frame=320 id=left label=Left person v=[-0.371, -0.045, 0.928] yaw=-21.8 pitch=2.6 cx=272.9842071533203
+2025-12-19 15:53:22,712 - INFO - openpose - Gaze3D frame=320 id=right label=Right person v=[-0.316, -0.202, 0.927] yaw=-18.8 pitch=11.7 cx=441.3082275390625
+2025-12-19 15:53:22,712 - INFO - openpose - Gaze PUB: people=2, frame_idx=320
+2025-12-19 15:53:23,395 - INFO - openpose - Gaze3D frame=328 id=left label=Left person v=[-0.314, -0.013, 0.949] yaw=-18.3 pitch=0.8 cx=272.27427673339844
+2025-12-19 15:53:23,395 - INFO - openpose - Gaze3D frame=328 id=right label=Right person v=[-0.311, -0.159, 0.937] yaw=-18.4 pitch=9.1 cx=441.1980438232422
+2025-12-19 15:53:23,395 - INFO - openpose - Gaze PUB: people=2, frame_idx=328
+2025-12-19 15:53:24,108 - INFO - openpose - Gaze3D frame=336 id=left label=Left person v=[-0.265, -0.111, 0.958] yaw=-15.4 pitch=6.4 cx=273.1053695678711
+2025-12-19 15:53:24,108 - INFO - openpose - Gaze3D frame=336 id=right label=Right person v=[-0.330, -0.187, 0.925] yaw=-19.6 pitch=10.8 cx=439.2665100097656
+2025-12-19 15:53:24,108 - INFO - openpose - Gaze PUB: people=2, frame_idx=336
+2025-12-19 15:53:24,821 - INFO - openpose - Gaze3D frame=344 id=left label=Left person v=[-0.320, -0.125, 0.939] yaw=-18.8 pitch=7.2 cx=273.4501419067383
+2025-12-19 15:53:24,821 - INFO - openpose - Gaze3D frame=344 id=right label=Right person v=[-0.294, -0.163, 0.942] yaw=-17.4 pitch=9.4 cx=439.3288269042969
+2025-12-19 15:53:24,821 - INFO - openpose - Gaze PUB: people=2, frame_idx=344
+2025-12-19 15:53:25,532 - INFO - openpose - Gaze3D frame=352 id=left label=Left person v=[-0.301, -0.119, 0.946] yaw=-17.7 pitch=6.8 cx=273.7276306152344
+2025-12-19 15:53:25,533 - INFO - openpose - Gaze3D frame=352 id=right label=Right person v=[-0.311, -0.251, 0.917] yaw=-18.8 pitch=14.5 cx=439.79290771484375
+2025-12-19 15:53:25,533 - INFO - openpose - Gaze PUB: people=2, frame_idx=352
+2025-12-19 15:53:26,241 - INFO - openpose - Gaze3D frame=360 id=left label=Left person v=[-0.365, -0.011, 0.931] yaw=-21.4 pitch=0.7 cx=273.5364990234375
+2025-12-19 15:53:26,241 - INFO - openpose - Gaze3D frame=360 id=right label=Right person v=[-0.305, -0.166, 0.938] yaw=-18.0 pitch=9.6 cx=439.4550323486328
+2025-12-19 15:53:26,241 - INFO - openpose - Gaze PUB: people=2, frame_idx=360
+2025-12-19 15:53:26,936 - INFO - openpose - Gaze3D frame=368 id=left label=Left person v=[-0.284, -0.100, 0.954] yaw=-16.6 pitch=5.8 cx=274.36083221435547
+2025-12-19 15:53:26,936 - INFO - openpose - Gaze3D frame=368 id=right label=Right person v=[-0.390, -0.193, 0.900] yaw=-23.4 pitch=11.1 cx=440.4686584472656
+2025-12-19 15:53:26,936 - INFO - openpose - Gaze PUB: people=2, frame_idx=368
+2025-12-19 15:53:27,612 - INFO - openpose - Gaze3D frame=376 id=left label=Left person v=[-0.289, -0.007, 0.957] yaw=-16.8 pitch=0.4 cx=271.6174774169922
+2025-12-19 15:53:27,613 - INFO - openpose - Gaze3D frame=376 id=right label=Right person v=[-0.332, -0.110, 0.937] yaw=-19.5 pitch=6.3 cx=439.4705505371094
+2025-12-19 15:53:27,620 - INFO - openpose - Gaze PUB: people=2, frame_idx=376
+2025-12-19 15:53:28,276 - INFO - openpose - Gaze3D frame=384 id=left label=Left person v=[-0.321, -0.115, 0.940] yaw=-18.9 pitch=6.6 cx=272.17736053466797
+2025-12-19 15:53:28,276 - INFO - openpose - Gaze3D frame=384 id=right label=Right person v=[-0.501, -0.263, 0.824] yaw=-31.3 pitch=15.2 cx=442.6728210449219
+2025-12-19 15:53:28,276 - INFO - openpose - Gaze PUB: people=2, frame_idx=384
+2025-12-19 15:53:28,970 - INFO - openpose - Gaze3D frame=392 id=left label=Left person v=[-0.268, -0.018, 0.963] yaw=-15.5 pitch=1.1 cx=270.7300720214844
+2025-12-19 15:53:28,970 - INFO - openpose - Gaze3D frame=392 id=right label=Right person v=[-0.465, -0.300, 0.833] yaw=-29.2 pitch=17.5 cx=441.58045959472656
+2025-12-19 15:53:28,970 - INFO - openpose - Gaze PUB: people=2, frame_idx=392
+2025-12-19 15:53:29,637 - INFO - openpose - Gaze3D frame=400 id=left label=Left person v=[-0.332, -0.059, 0.941] yaw=-19.4 pitch=3.4 cx=271.9211883544922
+2025-12-19 15:53:29,638 - INFO - openpose - Gaze3D frame=400 id=right label=Right person v=[-0.285, -0.264, 0.922] yaw=-17.2 pitch=15.3 cx=443.54356384277344
+2025-12-19 15:53:29,638 - INFO - openpose - Gaze PUB: people=2, frame_idx=400
+2025-12-19 15:53:30,344 - INFO - openpose - Gaze3D frame=408 id=left label=Left person v=[-0.277, -0.010, 0.961] yaw=-16.1 pitch=0.6 cx=272.710205078125
+2025-12-19 15:53:30,344 - INFO - openpose - Gaze3D frame=408 id=right label=Right person v=[-0.209, -0.445, 0.871] yaw=-13.5 pitch=26.5 cx=440.51515197753906
+2025-12-19 15:53:30,344 - INFO - openpose - Gaze PUB: people=2, frame_idx=408
+2025-12-19 15:53:31,036 - INFO - openpose - Gaze3D frame=416 id=left label=Left person v=[-0.381, -0.022, 0.924] yaw=-22.4 pitch=1.3 cx=272.56348419189453
+2025-12-19 15:53:31,036 - INFO - openpose - Gaze3D frame=416 id=right label=Right person v=[-0.460, -0.275, 0.844] yaw=-28.6 pitch=15.9 cx=440.316162109375
+2025-12-19 15:53:31,036 - INFO - openpose - Gaze PUB: people=2, frame_idx=416
+2025-12-19 15:53:31,737 - INFO - openpose - Gaze3D frame=424 id=left label=Left person v=[-0.364, -0.069, 0.929] yaw=-21.4 pitch=4.0 cx=271.6502380371094
+2025-12-19 15:53:31,737 - INFO - openpose - Gaze3D frame=424 id=right label=Right person v=[-0.455, -0.250, 0.855] yaw=-28.0 pitch=14.5 cx=440.94781494140625
+2025-12-19 15:53:31,737 - INFO - openpose - Gaze PUB: people=2, frame_idx=424
+2025-12-19 15:53:32,443 - INFO - openpose - Gaze3D frame=432 id=left label=Left person v=[-0.385, 0.060, 0.921] yaw=-22.7 pitch=-3.4 cx=272.14060974121094
+2025-12-19 15:53:32,443 - INFO - openpose - Gaze3D frame=432 id=right label=Right person v=[-0.480, -0.314, 0.819] yaw=-30.4 pitch=18.3 cx=440.4944152832031
+2025-12-19 15:53:32,443 - INFO - openpose - Gaze PUB: people=2, frame_idx=432
+2025-12-19 15:53:33,154 - INFO - openpose - Gaze3D frame=440 id=left label=Left person v=[-0.368, 0.163, 0.916] yaw=-21.9 pitch=-9.4 cx=272.4463882446289
+2025-12-19 15:53:33,154 - INFO - openpose - Gaze3D frame=440 id=right label=Right person v=[-0.566, -0.245, 0.787] yaw=-35.7 pitch=14.2 cx=440.81219482421875
+2025-12-19 15:53:33,154 - INFO - openpose - Gaze PUB: people=2, frame_idx=440
+2025-12-19 15:53:33,876 - INFO - openpose - Gaze3D frame=448 id=left label=Left person v=[-0.277, 0.205, 0.939] yaw=-16.4 pitch=-11.8 cx=273.07057189941406
+2025-12-19 15:53:33,876 - INFO - openpose - Gaze3D frame=448 id=right label=Right person v=[-0.492, -0.324, 0.808] yaw=-31.3 pitch=18.9 cx=440.8988342285156
+2025-12-19 15:53:33,876 - INFO - openpose - Gaze PUB: people=2, frame_idx=448
+2025-12-19 15:53:34,566 - INFO - openpose - Gaze3D frame=456 id=left label=Left person v=[-0.321, 0.136, 0.937] yaw=-18.9 pitch=-7.8 cx=272.66146087646484
+2025-12-19 15:53:34,566 - INFO - openpose - Gaze3D frame=456 id=right label=Right person v=[-0.574, -0.394, 0.717] yaw=-38.7 pitch=23.2 cx=441.4774169921875
+2025-12-19 15:53:34,566 - INFO - openpose - Gaze PUB: people=2, frame_idx=456
+2025-12-19 15:53:35,246 - INFO - openpose - Gaze3D frame=464 id=left label=Left person v=[-0.232, -0.169, 0.958] yaw=-13.6 pitch=9.7 cx=272.03843688964844
+2025-12-19 15:53:35,247 - INFO - openpose - Gaze3D frame=464 id=right label=Right person v=[-0.544, -0.415, 0.730] yaw=-36.7 pitch=24.5 cx=444.8390808105469
+2025-12-19 15:53:35,247 - INFO - openpose - Gaze PUB: people=2, frame_idx=464
+2025-12-19 15:53:35,955 - INFO - openpose - Gaze3D frame=472 id=left label=Left person v=[-0.079, -0.165, 0.983] yaw=-4.6 pitch=9.5 cx=271.2358627319336
+2025-12-19 15:53:35,955 - INFO - openpose - Gaze3D frame=472 id=right label=Right person v=[-0.514, -0.377, 0.770] yaw=-33.7 pitch=22.2 cx=460.486572265625
+2025-12-19 15:53:35,955 - INFO - openpose - Gaze PUB: people=2, frame_idx=472
+2025-12-19 15:53:36,628 - INFO - openpose - Gaze3D frame=480 id=left label=Left person v=[-0.253, 0.219, 0.942] yaw=-15.0 pitch=-12.6 cx=270.73963165283203
+2025-12-19 15:53:36,628 - INFO - openpose - Gaze3D frame=480 id=right label=Right person v=[-0.457, -0.290, 0.841] yaw=-28.5 pitch=16.9 cx=448.9425048828125
+2025-12-19 15:53:36,628 - INFO - openpose - Gaze PUB: people=2, frame_idx=480
+2025-12-19 15:53:37,300 - INFO - openpose - Gaze3D frame=488 id=left label=Left person v=[-0.272, 0.207, 0.940] yaw=-16.1 pitch=-11.9 cx=270.4373016357422
+2025-12-19 15:53:37,300 - INFO - openpose - Gaze3D frame=488 id=right label=Right person v=[-0.437, -0.188, 0.880] yaw=-26.4 pitch=10.8 cx=449.8540802001953
+2025-12-19 15:53:37,300 - INFO - openpose - Gaze PUB: people=2, frame_idx=488
+2025-12-19 15:53:37,968 - INFO - openpose - Gaze3D frame=496 id=left label=Left person v=[-0.344, 0.179, 0.922] yaw=-20.5 pitch=-10.3 cx=271.3530731201172
+2025-12-19 15:53:37,968 - INFO - openpose - Gaze3D frame=496 id=right label=Right person v=[-0.362, -0.100, 0.927] yaw=-21.3 pitch=5.7 cx=452.008056640625
+2025-12-19 15:53:37,968 - INFO - openpose - Gaze PUB: people=2, frame_idx=496
+2025-12-19 15:53:38,636 - INFO - openpose - Gaze3D frame=504 id=left label=Left person v=[-0.263, 0.140, 0.954] yaw=-15.4 pitch=-8.1 cx=272.13478088378906
+2025-12-19 15:53:38,636 - INFO - openpose - Gaze3D frame=504 id=right label=Right person v=[-0.454, -0.231, 0.860] yaw=-27.8 pitch=13.4 cx=453.2020568847656
+2025-12-19 15:53:38,636 - INFO - openpose - Gaze PUB: people=2, frame_idx=504
+2025-12-19 15:53:38,879 - INFO - openpose - Right person: Arm EXTENDED (depth-plane)
+2025-12-19 15:53:38,879 - INFO - openpose - ZMQ Message received (non-blocking): PR: Arm Extended Check
+2025-12-19 15:53:38,879 - INFO - openpose - ZMQ Sending: Right: Arm Extended
+2025-12-19 15:53:38,942 - INFO - openpose - Right person: Arm RETRACTED (depth-plane)
+2025-12-19 15:53:38,942 - INFO - openpose - ZMQ Message received (non-blocking): PR: Arm Retracted Check
+2025-12-19 15:53:38,943 - INFO - openpose - ZMQ Sending: Right: Arm Retracted
+2025-12-19 15:53:39,315 - INFO - openpose - Gaze3D frame=512 id=left label=Left person v=[-0.311, 0.011, 0.950] yaw=-18.1 pitch=-0.7 cx=273.11185455322266
+2025-12-19 15:53:39,316 - INFO - openpose - Gaze3D frame=512 id=right label=Right person v=[-0.477, -0.263, 0.839] yaw=-29.6 pitch=15.2 cx=448.0956726074219
+2025-12-19 15:53:39,316 - INFO - openpose - Gaze PUB: people=2, frame_idx=512
+2025-12-19 15:53:40,013 - INFO - openpose - Gaze3D frame=520 id=left label=Left person v=[-0.347, 0.148, 0.926] yaw=-20.5 pitch=-8.5 cx=271.7077407836914
+2025-12-19 15:53:40,013 - INFO - openpose - Gaze3D frame=520 id=right label=Right person v=[-0.166, -0.840, 0.517] yaw=-17.8 pitch=57.1 cx=447.0073547363281
+2025-12-19 15:53:40,013 - INFO - openpose - Gaze PUB: people=2, frame_idx=520
+2025-12-19 15:53:40,725 - INFO - openpose - Gaze3D frame=528 id=left label=Left person v=[-0.358, 0.114, 0.927] yaw=-21.1 pitch=-6.6 cx=270.3036346435547
+2025-12-19 15:53:40,725 - INFO - openpose - Gaze3D frame=528 id=right label=Right person v=[-0.269, -0.362, 0.892] yaw=-16.8 pitch=21.2 cx=446.8379364013672
+2025-12-19 15:53:40,725 - INFO - openpose - Gaze PUB: people=2, frame_idx=528
+2025-12-19 15:53:41,460 - INFO - openpose - Gaze3D frame=536 id=left label=Left person v=[-0.336, 0.186, 0.923] yaw=-20.0 pitch=-10.7 cx=270.81600189208984
+2025-12-19 15:53:41,460 - INFO - openpose - Gaze3D frame=536 id=right label=Right person v=[-0.284, -0.718, 0.636] yaw=-24.1 pitch=45.9 cx=448.8396301269531
+2025-12-19 15:53:41,460 - INFO - openpose - Gaze PUB: people=2, frame_idx=536
+2025-12-19 15:53:42,174 - INFO - openpose - Gaze3D frame=544 id=left label=Left person v=[-0.355, 0.042, 0.934] yaw=-20.8 pitch=-2.4 cx=271.365478515625
+2025-12-19 15:53:42,174 - INFO - openpose - Gaze3D frame=544 id=right label=Right person v=[-0.248, -0.723, 0.645] yaw=-21.1 pitch=46.3 cx=448.87042236328125
+2025-12-19 15:53:42,174 - INFO - openpose - Gaze PUB: people=2, frame_idx=544
+2025-12-19 15:53:42,881 - INFO - openpose - Gaze3D frame=552 id=left label=Left person v=[-0.455, -0.063, 0.888] yaw=-27.1 pitch=3.6 cx=271.93570709228516
+2025-12-19 15:53:42,881 - INFO - openpose - Gaze3D frame=552 id=right label=Right person v=[-0.326, -0.420, 0.847] yaw=-21.1 pitch=24.8 cx=461.01658630371094
+2025-12-19 15:53:42,881 - INFO - openpose - Gaze PUB: people=2, frame_idx=552
+2025-12-19 15:53:43,574 - INFO - openpose - Gaze3D frame=560 id=left label=Left person v=[-0.272, -0.330, 0.904] yaw=-16.7 pitch=19.2 cx=274.2843704223633
+2025-12-19 15:53:43,574 - INFO - openpose - Gaze3D frame=560 id=right label=Right person v=[-0.330, -0.030, 0.944] yaw=-19.3 pitch=1.7 cx=471.2962646484375
+2025-12-19 15:53:43,581 - INFO - openpose - Gaze PUB: people=2, frame_idx=560
+2025-12-19 15:53:44,293 - INFO - openpose - Gaze3D frame=568 id=left label=Left person v=[-0.362, 0.190, 0.913] yaw=-21.6 pitch=-10.9 cx=302.4782257080078
+2025-12-19 15:53:44,294 - INFO - openpose - Gaze3D frame=568 id=right label=Right person v=[-0.483, -0.260, 0.836] yaw=-30.0 pitch=15.1 cx=444.09251403808594
+2025-12-19 15:53:44,294 - INFO - openpose - Gaze PUB: people=2, frame_idx=568
+2025-12-19 15:53:44,683 - INFO - openpose - Left person: Arm EXTENDED (depth-plane)
+2025-12-19 15:53:44,683 - INFO - openpose - ZMQ Message received (non-blocking): PL: Arm Extended Check
+2025-12-19 15:53:44,683 - INFO - openpose - ZMQ Sending: Left: Arm Extended
+2025-12-19 15:53:44,991 - INFO - openpose - Gaze3D frame=576 id=left label=Left person v=[-0.340, 0.297, 0.892] yaw=-20.8 pitch=-17.3 cx=324.09814453125
+2025-12-19 15:53:44,991 - INFO - openpose - Gaze3D frame=576 id=right label=Right person v=[-0.160, -0.423, 0.892] yaw=-10.1 pitch=25.0 cx=450.0163116455078
+2025-12-19 15:53:44,991 - INFO - openpose - Gaze PUB: people=2, frame_idx=576
+2025-12-19 15:53:45,053 - INFO - openpose - Left person: Arm RETRACTED (depth-plane)
+2025-12-19 15:53:45,053 - INFO - openpose - ZMQ Message received (non-blocking): PL: Arm Retracted Check
+2025-12-19 15:53:45,054 - INFO - openpose - ZMQ Sending: Left: Arm Retracted
+2025-12-19 15:53:45,693 - INFO - openpose - Gaze3D frame=584 id=left label=Left person v=[-0.406, 0.608, 0.683] yaw=-30.7 pitch=-37.4 cx=319.9783935546875
+2025-12-19 15:53:45,693 - INFO - openpose - Gaze3D frame=584 id=right label=Right person v=[-0.361, -0.179, 0.915] yaw=-21.5 pitch=10.3 cx=452.11375427246094
+2025-12-19 15:53:45,693 - INFO - openpose - Gaze PUB: people=2, frame_idx=584
+2025-12-19 15:53:46,389 - INFO - openpose - Gaze3D frame=592 id=left label=Left person v=[-0.294, 0.096, 0.951] yaw=-17.2 pitch=-5.5 cx=313.02545166015625
+2025-12-19 15:53:46,389 - INFO - openpose - Gaze3D frame=592 id=right label=Right person v=[-0.281, -0.053, 0.958] yaw=-16.4 pitch=3.1 cx=450.60890197753906
+2025-12-19 15:53:46,389 - INFO - openpose - Gaze PUB: people=2, frame_idx=592
+2025-12-19 15:53:47,046 - INFO - openpose - Gaze3D frame=600 id=left label=Left person v=[-0.240, 0.134, 0.961] yaw=-14.0 pitch=-7.7 cx=291.9871368408203
+2025-12-19 15:53:47,046 - INFO - openpose - Gaze3D frame=600 id=right label=Right person v=[-0.346, -0.044, 0.937] yaw=-20.3 pitch=2.5 cx=450.1817626953125
+2025-12-19 15:53:47,046 - INFO - openpose - Gaze PUB: people=2, frame_idx=600
+2025-12-19 15:53:47,705 - INFO - openpose - Gaze3D frame=608 id=left label=Left person v=[-0.263, 0.168, 0.950] yaw=-15.5 pitch=-9.7 cx=263.6546936035156
+2025-12-19 15:53:47,705 - INFO - openpose - Gaze3D frame=608 id=right label=Right person v=[-0.298, -0.175, 0.939] yaw=-17.6 pitch=10.1 cx=450.3094177246094
+2025-12-19 15:53:47,705 - INFO - openpose - Gaze PUB: people=2, frame_idx=608
+2025-12-19 15:53:48,364 - INFO - openpose - Gaze3D frame=616 id=left label=Left person v=[-0.225, 0.108, 0.968] yaw=-13.1 pitch=-6.2 cx=271.0415344238281
+2025-12-19 15:53:48,364 - INFO - openpose - Gaze3D frame=616 id=right label=Right person v=[-0.410, -0.089, 0.908] yaw=-24.3 pitch=5.1 cx=451.10353088378906
+2025-12-19 15:53:48,364 - INFO - openpose - Gaze PUB: people=2, frame_idx=616
+2025-12-19 15:53:49,059 - INFO - openpose - Gaze3D frame=624 id=left label=Left person v=[-0.303, 0.169, 0.938] yaw=-17.9 pitch=-9.7 cx=270.21385955810547
+2025-12-19 15:53:49,060 - INFO - openpose - Gaze3D frame=624 id=right label=Right person v=[-0.379, -0.123, 0.917] yaw=-22.5 pitch=7.1 cx=450.6268310546875
+2025-12-19 15:53:49,060 - INFO - openpose - Gaze PUB: people=2, frame_idx=624
+2025-12-19 15:53:49,724 - INFO - openpose - Gaze3D frame=632 id=left label=Left person v=[-0.208, 0.174, 0.963] yaw=-12.2 pitch=-10.0 cx=269.46639251708984
+2025-12-19 15:53:49,724 - INFO - openpose - Gaze3D frame=632 id=right label=Right person v=[-0.517, -0.052, 0.855] yaw=-31.2 pitch=3.0 cx=448.0144348144531
+2025-12-19 15:53:49,724 - INFO - openpose - Gaze PUB: people=2, frame_idx=632
+2025-12-19 15:53:50,416 - INFO - openpose - Gaze3D frame=640 id=left label=Left person v=[-0.291, 0.124, 0.949] yaw=-17.1 pitch=-7.1 cx=269.50418853759766
+2025-12-19 15:53:50,417 - INFO - openpose - Gaze3D frame=640 id=right label=Right person v=[-0.378, -0.231, 0.896] yaw=-22.9 pitch=13.4 cx=444.20001220703125
+2025-12-19 15:53:50,417 - INFO - openpose - Gaze PUB: people=2, frame_idx=640
+2025-12-19 15:53:51,056 - INFO - openpose - Gaze3D frame=648 id=left label=Left person v=[-0.266, 0.124, 0.956] yaw=-15.6 pitch=-7.1 cx=268.8322296142578
+2025-12-19 15:53:51,056 - INFO - openpose - Gaze3D frame=648 id=right label=Right person v=[-0.471, -0.161, 0.867] yaw=-28.5 pitch=9.2 cx=438.7435760498047
+2025-12-19 15:53:51,056 - INFO - openpose - Gaze PUB: people=2, frame_idx=648
+2025-12-19 15:53:51,755 - INFO - openpose - Gaze3D frame=656 id=left label=Left person v=[-0.306, 0.111, 0.945] yaw=-17.9 pitch=-6.4 cx=267.09205627441406
+2025-12-19 15:53:51,755 - INFO - openpose - Gaze3D frame=656 id=right label=Right person v=[-0.491, -0.106, 0.864] yaw=-29.6 pitch=6.1 cx=433.95933532714844
+2025-12-19 15:53:51,755 - INFO - openpose - Gaze PUB: people=2, frame_idx=656
+2025-12-19 15:53:52,457 - INFO - openpose - Gaze3D frame=664 id=left label=Left person v=[-0.285, 0.118, 0.951] yaw=-16.7 pitch=-6.8 cx=267.08519744873047
+2025-12-19 15:53:52,457 - INFO - openpose - Gaze3D frame=664 id=right label=Right person v=[-0.444, -0.381, 0.811] yaw=-28.7 pitch=22.4 cx=431.3396301269531
+2025-12-19 15:53:52,457 - INFO - openpose - Gaze PUB: people=2, frame_idx=664
+2025-12-19 15:53:52,652 - INFO - openpose - Right person: Arm EXTENDED (depth-plane)
+2025-12-19 15:53:52,652 - INFO - openpose - ZMQ Message received (non-blocking): PR: Arm Extended Check
+2025-12-19 15:53:52,652 - INFO - openpose - ZMQ Sending: Right: Arm Extended
+2025-12-19 15:53:52,709 - INFO - openpose - Right person: Arm RETRACTED (depth-plane)
+2025-12-19 15:53:52,710 - INFO - openpose - ZMQ Message received (non-blocking): PR: Arm Retracted Check
+2025-12-19 15:53:52,710 - INFO - openpose - ZMQ Sending: Right: Arm Retracted
+2025-12-19 15:53:53,172 - INFO - openpose - Gaze3D frame=672 id=left label=Left person v=[-0.315, 0.127, 0.940] yaw=-18.5 pitch=-7.3 cx=267.93531799316406
+2025-12-19 15:53:53,172 - INFO - openpose - Gaze3D frame=672 id=right label=Right person v=[-0.488, -0.529, 0.694] yaw=-35.1 pitch=31.9 cx=428.16041564941406
+2025-12-19 15:53:53,172 - INFO - openpose - Gaze PUB: people=2, frame_idx=672
+2025-12-19 15:53:53,841 - INFO - openpose - Gaze3D frame=680 id=left label=Left person v=[-0.267, 0.043, 0.963] yaw=-15.5 pitch=-2.4 cx=264.6651916503906
+2025-12-19 15:53:53,841 - INFO - openpose - Gaze3D frame=680 id=right label=Right person v=[-0.289, -0.862, 0.415] yaw=-34.8 pitch=59.6 cx=422.7179870605469
+2025-12-19 15:53:53,841 - INFO - openpose - Gaze PUB: people=2, frame_idx=680
+2025-12-19 15:53:54,535 - INFO - openpose - Gaze3D frame=688 id=left label=Left person v=[-0.209, 0.040, 0.977] yaw=-12.1 pitch=-2.3 cx=264.1940155029297
+2025-12-19 15:53:54,535 - INFO - openpose - Gaze3D frame=688 id=right label=Right person v=[-0.408, -0.769, 0.492] yaw=-39.6 pitch=50.3 cx=421.06793212890625
+2025-12-19 15:53:54,535 - INFO - openpose - Gaze PUB: people=2, frame_idx=688
+2025-12-19 15:53:55,244 - INFO - openpose - Gaze3D frame=696 id=left label=Left person v=[-0.248, 0.081, 0.965] yaw=-14.4 pitch=-4.7 cx=264.7773742675781
+2025-12-19 15:53:55,244 - INFO - openpose - Gaze3D frame=696 id=right label=Right person v=[-0.491, -0.600, 0.632] yaw=-37.8 pitch=36.8 cx=423.31829833984375
+2025-12-19 15:53:55,244 - INFO - openpose - Gaze PUB: people=2, frame_idx=696
+2025-12-19 15:53:55,965 - INFO - openpose - Gaze3D frame=704 id=left label=Left person v=[-0.284, 0.053, 0.957] yaw=-16.5 pitch=-3.0 cx=265.9069595336914
+2025-12-19 15:53:55,965 - INFO - openpose - Gaze3D frame=704 id=right label=Right person v=[-0.498, 0.236, 0.835] yaw=-30.8 pitch=-13.7 cx=438.50779724121094
+2025-12-19 15:53:55,965 - INFO - openpose - Gaze PUB: people=2, frame_idx=704
+2025-12-19 15:53:56,647 - INFO - openpose - Gaze3D frame=712 id=left label=Left person v=[-0.230, 0.163, 0.959] yaw=-13.5 pitch=-9.4 cx=279.73655700683594
+2025-12-19 15:53:56,647 - INFO - openpose - Gaze3D frame=712 id=right label=Right person v=[-0.268, -0.332, 0.904] yaw=-16.5 pitch=19.4 cx=456.9555206298828
+2025-12-19 15:53:56,647 - INFO - openpose - Gaze PUB: people=2, frame_idx=712
+2025-12-19 15:53:57,329 - INFO - openpose - Gaze3D frame=720 id=left label=Left person v=[-0.306, 0.161, 0.938] yaw=-18.1 pitch=-9.2 cx=295.43531799316406
+2025-12-19 15:53:57,329 - INFO - openpose - Gaze3D frame=720 id=right label=Right person v=[-0.147, -0.337, 0.930] yaw=-9.0 pitch=19.7 cx=457.9434509277344
+2025-12-19 15:53:57,329 - INFO - openpose - Gaze PUB: people=2, frame_idx=720
+2025-12-19 15:53:57,584 - INFO - openpose - Left person: Arm EXTENDED (depth-plane)
+2025-12-19 15:53:57,584 - INFO - openpose - ZMQ Message received (non-blocking): PL: Arm Extended Check
+2025-12-19 15:53:57,584 - INFO - openpose - ZMQ Sending: Left: Arm Extended
+2025-12-19 15:53:57,717 - INFO - openpose - Left person: Arm RETRACTED (depth-plane)
+2025-12-19 15:53:57,717 - INFO - openpose - ZMQ Message received (non-blocking): PL: Arm Retracted Check
+2025-12-19 15:53:57,717 - INFO - openpose - ZMQ Sending: Left: Arm Retracted
+2025-12-19 15:53:58,040 - INFO - openpose - Gaze3D frame=728 id=left label=Left person v=[-0.292, 0.204, 0.934] yaw=-17.4 pitch=-11.8 cx=318.37718200683594
+2025-12-19 15:53:58,040 - INFO - openpose - Gaze3D frame=728 id=right label=Right person v=[-0.279, -0.035, 0.960] yaw=-16.2 pitch=2.0 cx=460.2305603027344
+2025-12-19 15:53:58,040 - INFO - openpose - Gaze PUB: people=2, frame_idx=728
+2025-12-19 15:53:58,729 - INFO - openpose - Gaze3D frame=736 id=left label=Left person v=[-0.374, 0.164, 0.913] yaw=-22.3 pitch=-9.4 cx=319.8758850097656
+2025-12-19 15:53:58,729 - INFO - openpose - Gaze3D frame=736 id=right label=Right person v=[-0.322, -0.181, 0.930] yaw=-19.1 pitch=10.4 cx=460.8050231933594
+2025-12-19 15:53:58,729 - INFO - openpose - Gaze PUB: people=2, frame_idx=736
+2025-12-19 15:53:59,425 - INFO - openpose - Gaze3D frame=744 id=left label=Left person v=[-0.364, 0.161, 0.917] yaw=-21.7 pitch=-9.2 cx=318.5709533691406
+2025-12-19 15:53:59,425 - INFO - openpose - Gaze3D frame=744 id=right label=Right person v=[-0.335, -0.298, 0.894] yaw=-20.6 pitch=17.3 cx=461.19171142578125
+2025-12-19 15:53:59,425 - INFO - openpose - Gaze PUB: people=2, frame_idx=744
+2025-12-19 15:54:00,099 - INFO - openpose - Gaze3D frame=752 id=left label=Left person v=[-0.343, 0.447, 0.826] yaw=-22.5 pitch=-26.6 cx=315.8841552734375
+2025-12-19 15:54:00,099 - INFO - openpose - Gaze3D frame=752 id=right label=Right person v=[-0.282, -0.263, 0.923] yaw=-17.0 pitch=15.3 cx=461.55393981933594
+2025-12-19 15:54:00,099 - INFO - openpose - Gaze PUB: people=2, frame_idx=752
+2025-12-19 15:54:00,828 - INFO - openpose - Gaze3D frame=760 id=left label=Left person v=[-0.181, 0.119, 0.976] yaw=-10.5 pitch=-6.8 cx=293.9497528076172
+2025-12-19 15:54:00,828 - INFO - openpose - Gaze3D frame=760 id=right label=Right person v=[-0.321, -0.243, 0.915] yaw=-19.3 pitch=14.1 cx=461.7530212402344
+2025-12-19 15:54:00,828 - INFO - openpose - Gaze PUB: people=2, frame_idx=760
+2025-12-19 15:54:01,075 - INFO - openpose - Right person: Arm EXTENDED (depth-plane)
+2025-12-19 15:54:01,076 - INFO - openpose - ZMQ Message received (non-blocking): PR: Arm Extended Check
+2025-12-19 15:54:01,076 - INFO - openpose - ZMQ Sending: Right: Arm Extended
+2025-12-19 15:54:01,140 - INFO - openpose - Right person: Arm RETRACTED (depth-plane)
+2025-12-19 15:54:01,140 - INFO - openpose - ZMQ Message received (non-blocking): PR: Arm Retracted Check
+2025-12-19 15:54:01,140 - INFO - openpose - ZMQ Sending: Right: Arm Retracted
+2025-12-19 15:54:01,202 - INFO - openpose - Robot's turn detected
+2025-12-19 15:54:01,512 - INFO - openpose - Gaze3D frame=768 id=left label=Left person v=[-0.278, 0.065, 0.958] yaw=-16.2 pitch=-3.8 cx=261.5953674316406
+2025-12-19 15:54:01,512 - INFO - openpose - Gaze3D frame=768 id=right label=Right person v=[-0.492, -0.515, 0.702] yaw=-35.0 pitch=31.0 cx=409.2536926269531
+2025-12-19 15:54:01,512 - INFO - openpose - Gaze PUB: people=2, frame_idx=768
+2025-12-19 15:54:02,181 - INFO - openpose - Gaze3D frame=776 id=left label=Left person v=[-0.282, 0.076, 0.957] yaw=-16.4 pitch=-4.4 cx=260.010498046875
+2025-12-19 15:54:02,181 - INFO - openpose - Gaze3D frame=776 id=right label=Right person v=[-0.436, -0.762, 0.480] yaw=-42.3 pitch=49.6 cx=387.2599334716797
+2025-12-19 15:54:02,181 - INFO - openpose - Gaze PUB: people=2, frame_idx=776
+2025-12-19 15:54:02,860 - INFO - openpose - Gaze3D frame=784 id=left label=Left person v=[-0.289, 0.121, 0.950] yaw=-16.9 pitch=-7.0 cx=260.5887145996094
+2025-12-19 15:54:02,860 - INFO - openpose - Gaze3D frame=784 id=right label=Right person v=[-0.596, -0.135, 0.791] yaw=-37.0 pitch=7.7 cx=386.2868347167969
+2025-12-19 15:54:02,860 - INFO - openpose - Gaze PUB: people=2, frame_idx=784
+2025-12-19 15:54:03,529 - INFO - openpose - Gaze3D frame=792 id=left label=Left person v=[-0.209, 0.206, 0.956] yaw=-12.3 pitch=-11.9 cx=263.6170120239258
+2025-12-19 15:54:03,529 - INFO - openpose - Gaze3D frame=792 id=right label=Right person v=[-0.638, 0.290, 0.713] yaw=-41.8 pitch=-16.9 cx=407.9754180908203
+2025-12-19 15:54:03,529 - INFO - openpose - Gaze PUB: people=2, frame_idx=792
+2025-12-19 15:54:04,208 - INFO - openpose - Gaze3D frame=800 id=left label=Left person v=[-0.276, 0.288, 0.917] yaw=-16.8 pitch=-16.7 cx=269.1150207519531
+2025-12-19 15:54:04,208 - INFO - openpose - Gaze3D frame=800 id=right label=Right person v=[-0.531, -0.393, 0.751] yaw=-35.2 pitch=23.1 cx=459.4363250732422
+2025-12-19 15:54:04,208 - INFO - openpose - Gaze PUB: people=2, frame_idx=800
+2025-12-19 15:54:04,866 - INFO - openpose - Gaze3D frame=808 id=left label=Left person v=[-0.345, 0.286, 0.894] yaw=-21.1 pitch=-16.6 cx=269.2912292480469
+2025-12-19 15:54:04,866 - INFO - openpose - Gaze3D frame=808 id=right label=Right person v=[-0.378, 0.127, 0.917] yaw=-22.4 pitch=-7.3 cx=429.51475524902344
+2025-12-19 15:54:04,866 - INFO - openpose - Gaze PUB: people=2, frame_idx=808
+2025-12-19 15:54:05,542 - INFO - openpose - Gaze3D frame=816 id=left label=Left person v=[-0.298, 0.255, 0.920] yaw=-18.0 pitch=-14.8 cx=269.1025848388672
+2025-12-19 15:54:05,542 - INFO - openpose - Gaze3D frame=816 id=right label=Right person v=[-0.401, 0.068, 0.914] yaw=-23.7 pitch=-3.9 cx=430.1187744140625
+2025-12-19 15:54:05,542 - INFO - openpose - Gaze PUB: people=2, frame_idx=816
+2025-12-19 15:54:06,243 - INFO - openpose - Gaze3D frame=824 id=left label=Left person v=[-0.250, 0.210, 0.945] yaw=-14.8 pitch=-12.1 cx=269.2185592651367
+2025-12-19 15:54:06,244 - INFO - openpose - Gaze3D frame=824 id=right label=Right person v=[-0.403, 0.289, 0.869] yaw=-24.9 pitch=-16.8 cx=434.14276123046875
+2025-12-19 15:54:06,244 - INFO - openpose - Gaze PUB: people=2, frame_idx=824
+2025-12-19 15:54:06,904 - INFO - openpose - Gaze3D frame=832 id=left label=Left person v=[-0.244, 0.213, 0.946] yaw=-14.4 pitch=-12.3 cx=267.9827575683594
+2025-12-19 15:54:06,905 - INFO - openpose - Gaze3D frame=832 id=right label=Right person v=[-0.415, 0.062, 0.908] yaw=-24.6 pitch=-3.5 cx=434.96043395996094
+2025-12-19 15:54:06,905 - INFO - openpose - Gaze PUB: people=2, frame_idx=832
+2025-12-19 15:54:07,558 - INFO - openpose - Gaze3D frame=840 id=left label=Left person v=[-0.265, 0.161, 0.951] yaw=-15.6 pitch=-9.3 cx=269.0919952392578
+2025-12-19 15:54:07,558 - INFO - openpose - Gaze3D frame=840 id=right label=Right person v=[-0.310, 0.107, 0.945] yaw=-18.1 pitch=-6.1 cx=435.690673828125
+2025-12-19 15:54:07,558 - INFO - openpose - Gaze PUB: people=2, frame_idx=840
+2025-12-19 15:54:08,258 - INFO - openpose - Gaze3D frame=848 id=left label=Left person v=[-0.236, 0.186, 0.954] yaw=-13.9 pitch=-10.7 cx=269.5637664794922
+2025-12-19 15:54:08,258 - INFO - openpose - Gaze3D frame=848 id=right label=Right person v=[-0.327, 0.049, 0.944] yaw=-19.1 pitch=-2.8 cx=434.495849609375
+2025-12-19 15:54:08,258 - INFO - openpose - Gaze PUB: people=2, frame_idx=848
+2025-12-19 15:54:08,958 - INFO - openpose - Gaze3D frame=856 id=left label=Left person v=[-0.240, 0.159, 0.958] yaw=-14.1 pitch=-9.2 cx=269.1046676635742
+2025-12-19 15:54:08,958 - INFO - openpose - Gaze3D frame=856 id=right label=Right person v=[-0.199, 0.011, 0.980] yaw=-11.5 pitch=-0.6 cx=434.4480285644531
+2025-12-19 15:54:08,958 - INFO - openpose - Gaze PUB: people=2, frame_idx=856
+2025-12-19 15:54:09,660 - INFO - openpose - Gaze3D frame=864 id=left label=Left person v=[-0.160, 0.201, 0.966] yaw=-9.4 pitch=-11.6 cx=275.0572509765625
+2025-12-19 15:54:09,660 - INFO - openpose - Gaze3D frame=864 id=right label=Right person v=[-0.259, 0.040, 0.965] yaw=-15.0 pitch=-2.3 cx=433.00938415527344
+2025-12-19 15:54:09,660 - INFO - openpose - Gaze PUB: people=2, frame_idx=864
+2025-12-19 15:54:10,351 - INFO - openpose - Gaze3D frame=872 id=left label=Left person v=[-0.028, 0.115, 0.993] yaw=-1.6 pitch=-6.6 cx=241.91818237304688
+2025-12-19 15:54:10,351 - INFO - openpose - Gaze3D frame=872 id=right label=Right person v=[-0.245, 0.232, 0.941] yaw=-14.6 pitch=-13.4 cx=441.33360290527344
+2025-12-19 15:54:10,351 - INFO - openpose - Gaze PUB: people=2, frame_idx=872
+2025-12-19 15:54:11,047 - INFO - openpose - Gaze3D frame=880 id=left label=Left person v=[-0.024, 0.322, 0.946] yaw=-1.4 pitch=-18.8 cx=218.95647430419922
+2025-12-19 15:54:11,047 - INFO - openpose - Gaze3D frame=880 id=right label=Right person v=[-0.368, 0.045, 0.929] yaw=-21.6 pitch=-2.6 cx=451.4777374267578
+2025-12-19 15:54:11,047 - INFO - openpose - Gaze PUB: people=2, frame_idx=880
+2025-12-19 15:54:11,745 - INFO - openpose - Gaze3D frame=888 id=left label=Left person v=[-0.074, 0.196, 0.978] yaw=-4.3 pitch=-11.3 cx=262.4395217895508
+2025-12-19 15:54:11,745 - INFO - openpose - Gaze3D frame=888 id=right label=Right person v=[-0.441, -0.063, 0.895] yaw=-26.2 pitch=3.6 cx=437.75218200683594
+2025-12-19 15:54:11,745 - INFO - openpose - Gaze PUB: people=2, frame_idx=888
+2025-12-19 15:54:12,454 - INFO - openpose - Gaze3D frame=896 id=left label=Left person v=[0.002, 0.319, 0.948] yaw=0.1 pitch=-18.6 cx=239.89671325683594
+2025-12-19 15:54:12,454 - INFO - openpose - Gaze3D frame=896 id=right label=Right person v=[-0.429, -0.007, 0.903] yaw=-25.4 pitch=0.4 cx=437.586669921875
+2025-12-19 15:54:12,454 - INFO - openpose - Gaze PUB: people=2, frame_idx=896
+2025-12-19 15:54:13,175 - INFO - openpose - Gaze3D frame=904 id=left label=Left person v=[-0.130, 0.240, 0.962] yaw=-7.7 pitch=-13.9 cx=247.16514587402344
+2025-12-19 15:54:13,175 - INFO - openpose - Gaze3D frame=904 id=right label=Right person v=[-0.359, -0.066, 0.931] yaw=-21.1 pitch=3.8 cx=434.81536865234375
+2025-12-19 15:54:13,175 - INFO - openpose - Gaze PUB: people=2, frame_idx=904
+2025-12-19 15:54:13,866 - INFO - openpose - Gaze3D frame=912 id=left label=Left person v=[-0.141, 0.202, 0.969] yaw=-8.3 pitch=-11.7 cx=247.63253784179688
+2025-12-19 15:54:13,866 - INFO - openpose - Gaze3D frame=912 id=right label=Right person v=[-0.388, -0.155, 0.909] yaw=-23.1 pitch=8.9 cx=433.918212890625
+2025-12-19 15:54:13,866 - INFO - openpose - Gaze PUB: people=2, frame_idx=912
+2025-12-19 15:54:14,558 - INFO - openpose - Gaze3D frame=920 id=left label=Left person v=[-0.153, 0.217, 0.964] yaw=-9.0 pitch=-12.5 cx=248.90579986572266
+2025-12-19 15:54:14,558 - INFO - openpose - Gaze3D frame=920 id=right label=Right person v=[-0.420, -0.153, 0.895] yaw=-25.1 pitch=8.8 cx=432.6224822998047
+2025-12-19 15:54:14,558 - INFO - openpose - Gaze PUB: people=2, frame_idx=920
+2025-12-19 15:54:15,266 - INFO - openpose - Gaze3D frame=928 id=left label=Left person v=[-0.149, 0.190, 0.970] yaw=-8.7 pitch=-11.0 cx=248.34612274169922
+2025-12-19 15:54:15,266 - INFO - openpose - Gaze3D frame=928 id=right label=Right person v=[-0.467, -0.214, 0.858] yaw=-28.6 pitch=12.3 cx=432.3426208496094
+2025-12-19 15:54:15,266 - INFO - openpose - Gaze PUB: people=2, frame_idx=928
+2025-12-19 15:54:15,974 - INFO - openpose - Gaze3D frame=936 id=left label=Left person v=[-0.219, 0.240, 0.946] yaw=-13.0 pitch=-13.9 cx=248.26010131835938
+2025-12-19 15:54:15,974 - INFO - openpose - Gaze3D frame=936 id=right label=Right person v=[-0.368, -0.232, 0.900] yaw=-22.3 pitch=13.4 cx=432.93365478515625
+2025-12-19 15:54:15,974 - INFO - openpose - Gaze PUB: people=2, frame_idx=936
+2025-12-19 15:54:16,667 - INFO - openpose - Gaze3D frame=944 id=left label=Left person v=[-0.145, 0.237, 0.961] yaw=-8.6 pitch=-13.7 cx=248.51646423339844
+2025-12-19 15:54:16,667 - INFO - openpose - Gaze3D frame=944 id=right label=Right person v=[-0.395, -0.352, 0.849] yaw=-24.9 pitch=20.6 cx=433.0125732421875
+2025-12-19 15:54:16,667 - INFO - openpose - Gaze PUB: people=2, frame_idx=944
+2025-12-19 15:54:17,129 - INFO - openpose - ZMQ Message received (non-blocking): Configuration finished
+2025-12-19 15:54:17,129 - INFO - openpose - Configuration finished. Waiting for next configuration
+2025-12-19 15:54:17,129 - INFO - openpose - OpenPose initialized - waiting for turn_order

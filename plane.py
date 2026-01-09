@@ -1,356 +1,478 @@
-# Requires: OpenCV, OpenPose Python API
-# If OpenPose not installed to /usr/local/python, adjust sys.path below.
+# -*- coding: utf-8 -*-
+# OpenPose + RealSense depth + L2CS Gaze
+# Shows two separate windows:
+#   - "OpenPose + Depth Plane": skeleton + depth-plane arm states
+#   - "L2CS Gaze": gaze overlay only
+#
+# States: EXTENDED (green) / RETRACTED (red)
 
 import os
 import sys
-import cv2
 import math
-from sys import platform
+import csv
+from datetime import datetime
 import numpy as np
+import cv2
+from sys import platform
+import argparse
 import pathlib
+
+# ---- Gaze (L2CS) ----
+import torch
+import torch.backends.cudnn as cudnn
+from L2CS_Net.l2cs import select_device, Pipeline, render
+from L2CS_Net.l2cs.results import GazeResultContainer
+
+# ---- RealSense ----
+try:
+    import pyrealsense2 as rs
+except ImportError:
+    print("pyrealsense2 not found. Install Intel RealSense SDK (librealsense).")
+    raise
 
 # -------------------
 # Tunables
 # -------------------
-SHOULDER_WIDTH_CM = 36.0   # avg biacromial breadth (for px/cm scaling)
-PLANE_OFFSET_CM   = 30.0   # "plane" distance (cm) from elbow
-PLANE_HYST_CM     = 2.0    # hysteresis (cm) to reduce flicker
-CONF_THR          = 0.70   # keypoint confidence threshold
-CAMERA_DEVICE     = "/dev/video6"  # change if needed
-MODEL_FOLDER      = "/home/ines/Desktop/Harmony/openpose/models"
-OPENPOSE_PYTHON   = "/home/ines/Desktop/Harmony/openpose/build/python"  # adjust if needed
+PLANE_OFFSET_M   = 0.30   # plane 30 cm in front (toward camera => smaller Z)
+PLANE_HYST_M     = 0.02   # 2 cm hysteresis
+CONF_THR         = 0.70   # OpenPose keypoint confidence
+MODEL_FOLDER     = "/home/ines/Desktop/Harmony/openpose/models"
+OPENPOSE_PYTHON  = "/home/ines/Desktop/Harmony/openpose/build/python"
+PLANE_REF_MODE   = "torso"    # 'torso' | 'shoulder' | 'elbow'
+GAZE_EVERY       = 4          # run gaze every N frames
 
 # -------------------
-# OpenPose import
+# Imports (OpenPose)
 # -------------------
 try:
-    dir_path = os.path.dirname(os.path.realpath(__file__))
     if platform == "win32":
+        dir_path = os.path.dirname(os.path.realpath(__file__))
         sys.path.append(dir_path + '/../../python/openpose/Release')
-        os.environ['PATH'] = os.environ['PATH'] + ';' + dir_path + '/../../x64/Release;' + dir_path + '/../../bin;'
+        os.environ['PATH'] += ';' + dir_path + '/../../x64/Release;' + dir_path + '/../../bin;'
         import pyopenpose as op
     else:
-        # Add your built OpenPose python path
         sys.path.append(OPENPOSE_PYTHON)
         from openpose import pyopenpose as op
 except ImportError as e:
-    print("Error: OpenPose library could not be found. "
-          "Check OPENPOSE_PYTHON path and that you enabled BUILD_PYTHON in CMake.")
+    print("OpenPose Python API not found. Check OPENPOSE_PYTHON and BUILD_PYTHON.")
     raise e
 
 # -------------------
-# Helper functions
+# Helpers (OpenPose + depth)
 # -------------------
 def keypoint_ok(kp, conf=CONF_THR):
     return (kp[0] > 0) and (kp[1] > 0) and (kp[2] >= conf)
 
-def get_shoulder_width_px(person, frame_width):
-    """
-    COCO-style indices used here:
-      Right shoulder = 2, Left shoulder = 5
-    Keypoints are normalized [0..1], convert to pixels using frame width.
-    """
-    rs = person[2]
-    ls = person[5]
-    if not (keypoint_ok(rs) and keypoint_ok(ls)):
-        return None
-    return abs((rs[0] - ls[0]) * frame_width)
+def median_depth_m(depth_frame, u, v, win=2):
+    w = depth_frame.get_width()
+    h = depth_frame.get_height()
+    vals = []
+    for dy in range(-win, win+1):
+        yy = min(max(v+dy, 0), h-1)
+        for dx in range(-win, win+1):
+            xx = min(max(u+dx, 0), w-1)
+            d = depth_frame.get_distance(xx, yy)
+            if d > 0:
+                vals.append(d)
+    return float(np.median(vals)) if vals else 0.0
 
-def cm_to_px(cm, person, frame_width, shoulder_width_cm=SHOULDER_WIDTH_CM):
-    sw_px = get_shoulder_width_px(person, frame_width)
-    if sw_px is None or shoulder_width_cm <= 0:
-        return None
-    px_per_cm = sw_px / shoulder_width_cm
-    return cm * px_per_cm
+def elbows_shoulders_wrists_px(person, W, H):
+    out = {"Left": {"S": None, "E": None, "W": None},
+           "Right": {"S": None, "E": None, "W": None}}
+    Ls, Le, Lw = person[5], person[6], person[7]
+    Rs, Re, Rw = person[2], person[3], person[4]
+    if keypoint_ok(Ls): out["Left"]["S"] = (int(Ls[0]*W), int(Ls[1]*H))
+    if keypoint_ok(Le): out["Left"]["E"] = (int(Le[0]*W), int(Le[1]*H))
+    if keypoint_ok(Lw): out["Left"]["W"] = (int(Lw[0]*W), int(Lw[1]*H))
+    if keypoint_ok(Rs): out["Right"]["S"] = (int(Rs[0]*W), int(Rs[1]*H))
+    if keypoint_ok(Re): out["Right"]["E"] = (int(Re[0]*W), int(Re[1]*H))
+    if keypoint_ok(Rw): out["Right"]["W"] = (int(Rw[0]*W), int(Rw[1]*H))
+    return out
 
-def elbows_and_wrists_px(person, frame_width, frame_height):
-    """
-    Return elbow and wrist pixel coords for both arms:
-      {
-        "Left":  ((ex, ey), (wx, wy)) or None,
-        "Right": ((ex, ey), (wx, wy)) or None
-      }
-    COCO-style:
-      Right elbow = 3, Right wrist = 4
-      Left elbow  = 6, Left wrist  = 7
-    """
-    results = {}
-    # Left arm
-    l_el = person[6]; l_wr = person[7]
-    if keypoint_ok(l_el) and keypoint_ok(l_wr):
-        ex = l_el[0] * frame_width;  ey = l_el[1] * frame_height
-        wx = l_wr[0] * frame_width;  wy = l_wr[1] * frame_height
-        results["Left"] = ((ex, ey), (wx, wy))
-    else:
-        results["Left"] = None
-    # Right arm
-    r_el = person[3]; r_wr = person[4]
-    if keypoint_ok(r_el) and keypoint_ok(r_wr):
-        ex = r_el[0] * frame_width;  ey = r_el[1] * frame_height
-        wx = r_wr[0] * frame_width;  wy = r_wr[1] * frame_height
-        results["Right"] = ((ex, ey), (wx, wy))
-    else:
-        results["Right"] = None
-    return results
+def torso_center_px(person, W, H):
+    Rs, Ls = person[2], person[5]
+    if keypoint_ok(Rs) and keypoint_ok(Ls):
+        x = int(((Rs[0] + Ls[0]) * 0.5) * W)
+        y = int(((Rs[1] + Ls[1]) * 0.5) * H)
+        return (x, y)
+    return None
 
-def wrists_vs_plane_elbow(person, frame_width, frame_height,
-                          plane_offset_cm=PLANE_OFFSET_CM,
-                          shoulder_width_cm=SHOULDER_WIDTH_CM):
-    """
-    Elbow-anchored plane rule:
-    delta_px = (elbow->wrist distance in px) - (plane_offset_cm in px)
-      > 0  => wrist is beyond the elbow plane (extended)
-      <= 0 => wrist is behind the elbow plane (retracted)
-    Returns: {"Left": delta_px or None, "Right": delta_px or None}
-    """
-    plane_px = cm_to_px(plane_offset_cm, person, frame_width, shoulder_width_cm)
-    if plane_px is None:
-        return {"Left": None, "Right": None}
-
-    results = {}
-    arms = elbows_and_wrists_px(person, frame_width, frame_height)
-    for side in ("Left", "Right"):
-        if arms[side] is None:
-            results[side] = None
-            continue
-        (ex, ey), (wx, wy) = arms[side]
-        d_px = math.hypot(wx - ex, wy - ey)
-        results[side] = d_px - plane_px
-    return results
-
-def defineIdPos(datums, image_width):
-    """
-    Return indices (left_id, right_id) based on average shoulder x-position.
-    Special cases:
-      - If exactly 1 person: (0, -1)
-      - If >2 people: (0, -2)  (skip frame to avoid ambiguity)
-      - If exactly 2: order by avg shoulder x (smaller x => 'Left')
-    """
-    datum = datums[0]
+def defineIdPos(datum, image_width):
     if datum.poseKeypoints is None:
-        return
+        return None
+    n = len(datum.poseKeypoints)
+    if n == 0: return None
+    if n == 1: return (0, -1)
+    if n > 2:  return (0, -2)
 
-    num_people = len(datum.poseKeypoints)
-    if num_people == 1:
-        return (0, -1)
-    if num_people > 2:
-        return (0, -2)
+    RIGHT_SHOULDER, LEFT_SHOULDER = 2, 5
+    def avg_sh_x(p):
+        rs, ls = p[RIGHT_SHOULDER], p[LEFT_SHOULDER]
+        xs = []
+        if rs[2] >= CONF_THR: xs.append(rs[0]*image_width)
+        if ls[2] >= CONF_THR: xs.append(ls[0]*image_width)
+        return sum(xs)/len(xs) if xs else None
 
-    RIGHT_SHOULDER = 2
-    LEFT_SHOULDER  = 5
+    p0, p1 = datum.poseKeypoints[0], datum.poseKeypoints[1]
+    x0, x1 = avg_sh_x(p0), avg_sh_x(p1)
+    if x0 is None or x1 is None:
+        return None
+    return (0, 1) if x0 < x1 else (1, 0)
 
-    def get_avg_shoulder_x(person):
-        rs = person[RIGHT_SHOULDER]
-        ls = person[LEFT_SHOULDER]
-        rs_valid = rs[2] > CONF_THR
-        ls_valid = ls[2] > CONF_THR
-        coords = []
-        if rs_valid: coords.append(rs[0] * image_width)
-        if ls_valid: coords.append(ls[0] * image_width)
-        if coords:
-            return sum(coords) / len(coords)
-        else:
-            return None
+def arm_status_color(status):
+    return (0, 255, 0) if status == 'EXT' else (0, 0, 255)
 
-    # Your OpenPose often gives person 0/1; compute avg shoulder x for both
-    p0 = datum.poseKeypoints[1]
-    p1 = datum.poseKeypoints[0]
-    p0X = get_avg_shoulder_x(p0)
-    p1X = get_avg_shoulder_x(p1)
+def draw_status_overlay(img, ex, ey, wx, wy, status, plane_z, wrist_z):
+    color = arm_status_color(status)
+    cv2.line(img, (ex, ey), (wx, wy), color, 3)
+    cv2.circle(img, (wx, wy), 5, color, -1)
+    cv2.putText(img, status, (wx+6, wy-6),
+                cv2.FONT_HERSHEY_SIMPLEX, 0.6, color, 2, cv2.LINE_AA)
+    cv2.putText(img, f"w:{wrist_z:.2f} p:{plane_z:.2f}", (wx+6, wy+14),
+                cv2.FONT_HERSHEY_SIMPLEX, 0.45, (230,230,230), 1, cv2.LINE_AA)
 
-    if p0X is None or p1X is None:
-        return
-
-    if p0X < p1X:
-        return (0, 1)
+def plane_reference_z(depth, person, parts, side, W, H):
+    if PLANE_REF_MODE == "torso":
+        tc = torso_center_px(person, W, H)
+        if tc is None: return None
+        tz = median_depth_m(depth, tc[0], tc[1])
+        return tz - PLANE_OFFSET_M if tz > 0 else None
+    elif PLANE_REF_MODE == "shoulder":
+        S = parts[side]["S"]
+        if S is None: return None
+        sz = median_depth_m(depth, S[0], S[1])
+        return sz - PLANE_OFFSET_M if sz > 0 else None
     else:
-        return (1, 0)
-
-def draw_plane_and_vectors_elbow(img, person, frame_width, frame_height, who_label=None):
-    """
-    Visual overlay (elbow-anchored):
-      - Plane: circle of radius plane_px around each elbow (≈30 cm in px)
-      - Hysteresis band: plane ± hyst (thin circles)
-      - Wrist→elbow line, distance, and EXT/RET label per arm
-      - Optional 'who_label' ('Left person'/'Right person') near the torso
-    """
-    plane_px = cm_to_px(PLANE_OFFSET_CM, person, frame_width)
-    if plane_px is None:
-        return
-    hyst_px  = cm_to_px(PLANE_HYST_CM, person, frame_width) or 0.0
-
-    # If a label is requested, try to place near shoulder midpoint
-    if who_label and keypoint_ok(person[2]) and keypoint_ok(person[5]):
-        mx = int(((person[2][0] + person[5][0]) * 0.5) * frame_width)
-        my = int(((person[2][1] + person[5][1]) * 0.5) * frame_height)
-        cv2.putText(img, who_label, (mx + 8, my - 8),
-                    cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255, 255, 0), 2, cv2.LINE_AA)
-
-    # COCO indices: Right elbow=3, Right wrist=4 ; Left elbow=6, Left wrist=7
-    for side, (e_idx, w_idx) in {"Left": (6, 7), "Right": (3, 4)}.items():
-        e = person[e_idx]; w = person[w_idx]
-        if not keypoint_ok(e):
-            continue
-
-        ex = int(e[0] * frame_width);  ey = int(e[1] * frame_height)
-
-        # Plane circle at elbow
-        cv2.circle(img, (ex, ey), int(plane_px), (0, 255, 255), 2)
-        # Hysteresis band
-        if hyst_px > 0:
-            cv2.circle(img, (ex, ey), int(plane_px + hyst_px), (0, 200, 200), 1)
-            inner = max(1, int(plane_px - hyst_px))
-            cv2.circle(img, (ex, ey), inner, (0, 200, 200), 1)
-        # Elbow crosshair
-        cv2.drawMarker(img, (ex, ey), (0, 255, 255), cv2.MARKER_CROSS, 12, 2)
-
-        if keypoint_ok(w):
-            wx = int(w[0] * frame_width);  wy = int(w[1] * frame_height)
-            d_px = math.hypot(wx - ex, wy - ey)
-            state = "EXT" if d_px > plane_px else "RET"
-            color = (0, 255, 0) if state == "EXT" else (0, 0, 255)
-
-            # Vector and wrist marker
-            cv2.line(img, (ex, ey), (wx, wy), color, 2)
-            cv2.circle(img, (wx, wy), 4, color, -1)
-
-            txt = f"{side}: d={d_px:.0f}px thr={plane_px:.0f}px {state}"
-            ty = ey - 10 if side == "Left" else ey + 20
-            cv2.putText(img, txt, (ex + 8, ty), cv2.FONT_HERSHEY_SIMPLEX, 0.5, color, 2, cv2.LINE_AA)
+        E = parts[side]["E"]
+        if E is None: return None
+        ez = median_depth_m(depth, E[0], E[1])
+        return ez - PLANE_OFFSET_M if ez > 0 else None
 
 # -------------------
-# OpenPose setup
+# Helpers for gaze association (same logic as server)
 # -------------------
-params = dict()
-params["model_folder"]   = MODEL_FOLDER
-params["net_resolution"] = "192x144"
-params["keypoint_scale"] = "3"   # scaled to [0..1]
-params["camera"]         = -1
+def head_anchor_px(person, W, H, conf_thr=CONF_THR):
+    nose = person[0] if len(person) > 0 else None
+    neck = person[1] if len(person) > 1 else None
+    rs   = person[2] if len(person) > 2 else None
+    ls   = person[5] if len(person) > 5 else None
 
-print("Starting OpenPose...")
+    def ok(kp): return (kp is not None) and (kp[0] > 0) and (kp[1] > 0) and (kp[2] >= conf_thr)
+    if ok(nose):  return (int(nose[0]*W), int(nose[1]*H))
+    if ok(neck):  return (int(neck[0]*W), int(neck[1]*H))
+    if ok(rs) and ok(ls):
+        x = int(((rs[0]+ls[0])*0.5)*W)
+        y = int(((rs[1]+ls[1])*0.5)*H)
+        return (x, y)
+    return None
+
+def bbox_center_x(b):
+    if b is None:
+        return None
+    if isinstance(b, dict):
+        return 0.5 * (b['x1'] + b['x2'])
+    x1, y1, x2, y2 = b
+    return 0.5 * (x1 + x2)
+
+def normalize_gaze_results(gr):
+    """
+    Convert your GazeResultContainer (Pipeline.step output)
+    into a list of detection dicts with yaw/pitch in *degrees*
+    plus bbox and score.
+
+    Each output element looks like:
+      {
+        "yaw_deg":   float,
+        "pitch_deg": float,
+        "bbox":      [x1, y1, x2, y2] or None,
+        "score":     float or None
+      }
+    """
+    if gr is None:
+        return []
+
+    # --- Case 1: your Pipeline's result container ---
+    # Either check exact type...
+    if isinstance(gr, GazeResultContainer) or (
+        hasattr(gr, "pitch") and hasattr(gr, "yaw") and hasattr(gr, "bboxes")
+    ):
+        # Ensure 1D arrays
+        pitch_arr = np.array(gr.pitch).reshape(-1)   # radians
+        yaw_arr   = np.array(gr.yaw).reshape(-1)     # radians
+
+        # These might be empty if no faces
+        try:
+            bboxes = np.array(gr.bboxes)
+        except Exception:
+            bboxes = np.zeros((0, 4), dtype=float)
+
+        try:
+            scores = np.array(gr.scores)
+        except Exception:
+            scores = None
+
+        N = pitch_arr.shape[0]
+        out = []
+        for i in range(N):
+            yaw_rad   = float(yaw_arr[i])
+            pitch_rad = float(pitch_arr[i])
+
+            # radians → degrees
+            yaw_deg   = math.degrees(yaw_rad)
+            pitch_deg = math.degrees(pitch_rad)
+
+            box = None
+            if bboxes.ndim == 2 and bboxes.shape[0] > i:
+                box = bboxes[i]
+                box = [float(box[0]), float(box[1]), float(box[2]), float(box[3])]
+
+            score = None
+            if scores is not None and scores.ndim >= 1 and scores.shape[0] > i:
+                score = float(scores[i])
+
+            out.append({
+                "yaw_deg":   yaw_deg,
+                "pitch_deg": pitch_deg,
+                "bbox":      box,
+                "score":     score,
+            })
+        return out
+
+    # --- Case 2: already a list/tuple of dicts/objects (fallback) ---
+    if isinstance(gr, (list, tuple)):
+        return list(gr)
+
+    # --- Case 3: dict wrapper (faces/detections etc.) ---
+    if isinstance(gr, dict):
+        for key in ("detections", "faces"):
+            if key in gr and isinstance(gr[key], (list, tuple)):
+                return list(gr[key])
+        return []
+
+    # --- Other unexpected types → empty ---
+    return []
+
+
+def get_det_value(det, keys, default=None):
+    """
+    Reads a field from either a dict or object by trying several key/attr names.
+    """
+    if isinstance(det, dict):
+        for k in keys:
+            if k in det:
+                return det[k]
+        return default
+    for k in keys:
+        if hasattr(det, k):
+            return getattr(det, k)
+    return default
+
+def yawpitch_to_vec(yaw_deg, pitch_deg):
+    """
+    Convert yaw/pitch (deg) to a unit vector in the camera frame.
+    Same convention as in your server code.
+    """
+    y = math.radians(yaw_deg)
+    p = math.radians(pitch_deg)
+    vx =  math.cos(p) * math.sin(y)
+    vy = -math.sin(p)
+    vz =  math.cos(p) * math.cos(y)
+    n = (vx*vx + vy*vy + vz*vz) ** 0.5 or 1.0
+    return (vx/n, vy/n, vz/n)
+
+# -------------------
+# Args + setups
+# -------------------
+parser = argparse.ArgumentParser()
+parser.add_argument("--device", default="cpu", type=str,
+                    help="Device to run model: cpu or gpu:0")
+parser.add_argument("--snapshot",
+    default="/home/ines/Desktop/Harmony/L2CS_Net/models/student_combined_epoch_148.pkl",
+    type=str, help="Path to L2CS weights")
+parser.add_argument("--arch", default="ResNet50", type=str,
+                    help="Network architecture (ResNet18/34/50...)")
+args, unknown = parser.parse_known_args()
+
+# OpenPose
+params = {"model_folder": MODEL_FOLDER, "net_resolution": "192x144", "keypoint_scale": "3"}
+print("Starting OpenPose…")
 opWrapper = op.WrapperPython(op.ThreadManagerMode.Asynchronous)
 opWrapper.configure(params)
 opWrapper.start()
 
-# -------------------
-# Video capture
-# -------------------
-cap = cv2.VideoCapture(CAMERA_DEVICE)
-if not cap.isOpened():
-    print(f"Failed to open camera {CAMERA_DEVICE}")
-    sys.exit(1)
-else:
-    print("Camera opened.")
+# L2CS
+print("Loading L2CS…")
+CWD = pathlib.Path.cwd()
+cudnn.enabled = True
 
-# -------------------
-# Main loop
-# -------------------
-# Separate state machines for Left person and Right person
-checkStatus_left  = 0  # 0 -> waiting for EXTENDED; 1 -> waiting for RETRACTED
-checkStatus_right = 0
+weights_path = pathlib.Path(args.snapshot)
+if not weights_path.exists():
+    # fallback if relative path
+    weights_path = CWD / 'L2CS_Net' / 'models' / 'student_combined_epoch_148.pkl'
 
-while True:
-    ret, frame = cap.read()
-    if not ret or frame is None:
-        continue
+gaze_pipeline = Pipeline(
+    weights=weights_path,
+    arch=args.arch,
+    device=select_device(args.device, batch_size=1)
+)
 
-    frame_height, frame_width = frame.shape[:2]
+# RealSense
+pipe = rs.pipeline()
+cfg  = rs.config()
+cfg.enable_stream(rs.stream.color, 640, 480, rs.format.bgr8, 30)
+cfg.enable_stream(rs.stream.depth, 640, 480, rs.format.z16, 30)
+profile = pipe.start(cfg)
+align_to_color = rs.align(rs.stream.color)
 
-    datum = op.Datum()
-    datum.cvInputData = frame
-    opWrapper.emplaceAndPop(op.VectorDatum([datum]))
+state = {"left": 0, "right": 0}
 
-    # Visuals (OpenPose rendered or raw)
-    vis = datum.cvOutputData.copy() if datum.cvOutputData is not None else frame.copy()
+# CSV logging setup
+logs_dir = os.path.join(os.path.dirname(__file__), "logs")
+os.makedirs(logs_dir, exist_ok=True)
+run_ts = datetime.now().strftime("%Y%m%d_%H%M%S")
+csv_path = os.path.join(logs_dir, f"gaze_log_{run_ts}.csv")
+csv_file = open(csv_path, "w", newline="")
+csv_writer = csv.writer(csv_file)
+csv_writer.writerow([
+    "timestamp", "frame_idx", "person_id", "label",
+    "yaw_deg", "pitch_deg",
+    "vx", "vy", "vz",
+    "cx"
+])
 
-    # Determine left/right participant indices
-    idPos = defineIdPos([datum], frame_width)
+print(f"Gaze CSV logging to: {csv_path}")
+print("Running (ESC to quit)…")
 
-    if idPos is None:
-        # No people found
-        cv2.imshow("OpenPose + Elbow Plane (2-person)", vis)
-        if cv2.waitKey(1) == 27:
+frame_idx = 0
+gaze_frame_cached = None
+
+try:
+    while True:
+        frames = pipe.wait_for_frames()
+        frames = align_to_color.process(frames)
+        depth  = frames.get_depth_frame()
+        color  = frames.get_color_frame()
+        if not depth or not color:
+            continue
+        color_img = np.asanyarray(color.get_data())
+        H, W = color_img.shape[:2]
+
+        # --- OpenPose every frame
+        datum = op.Datum()
+        datum.cvInputData = color_img
+        opWrapper.emplaceAndPop(op.VectorDatum([datum]))
+        vis = datum.cvOutputData.copy() if datum.cvOutputData is not None else color_img.copy()
+
+        # --- identify left/right persons (for both arm and gaze)
+        idpos = defineIdPos(datum, W)
+        persons = []
+        if idpos is not None and datum.poseKeypoints is not None:
+            left_id, right_id = idpos
+            if right_id == -2:
+                cv2.putText(vis, "More than 2 people — skipping", (20, 40),
+                            cv2.FONT_HERSHEY_SIMPLEX, 0.7, (40, 40, 255), 2, cv2.LINE_AA)
+            elif right_id == -1:
+                person = datum.poseKeypoints[left_id]
+                persons = [("left", "Left person", person)]
+            else:
+                persons = [
+                    ("left", "Left person", datum.poseKeypoints[left_id]),
+                    ("right", "Right person", datum.poseKeypoints[right_id])
+                ]
+
+        # --- L2CS every N frames (same logic as demo.py)
+        if (frame_idx % GAZE_EVERY) == 0 or gaze_frame_cached is None:
+            with torch.no_grad():
+                gaze_results = gaze_pipeline.step(color_img)    # <- SAME as demo.py
+            gaze_frame_cached = render(color_img.copy(), gaze_results)
+
+            # --- Build gaze logs for this frame
+            detections = normalize_gaze_results(gaze_results)
+
+            # Build head anchors (for assignment)
+            anchors = []
+            for who_key, who_label, person in persons:
+                ha = head_anchor_px(person, W, H)
+                if ha is not None:
+                    anchors.append((who_key, who_label, ha[0]))
+
+            # Associate detections to nearest head in X
+            for det in detections:
+                yaw   = get_det_value(det, ["yaw", "yaw_deg"], 0.0)
+                pitch = get_det_value(det, ["pitch", "pitch_deg"], 0.0)
+                bbox  = get_det_value(det, ["bbox", "box", "rect"], None)
+                cx    = bbox_center_x(bbox)
+
+                try:
+                    yaw = float(yaw)
+                except Exception:
+                    yaw = 0.0
+                try:
+                    pitch = float(pitch)
+                except Exception:
+                    pitch = 0.0
+
+                vx, vy, vz = yawpitch_to_vec(yaw, pitch)
+
+                person_id = "none"
+                label = "Unassigned"
+                if anchors and (cx is not None):
+                    who_key, who_label, _ = min(anchors, key=lambda a: abs(cx - a[2]))
+                    person_id = who_key
+                    label = who_label
+
+                ts = datetime.utcnow().isoformat() + "Z"
+                csv_writer.writerow([
+                    ts, frame_idx, person_id, label,
+                    yaw, pitch,
+                    vx, vy, vz,
+                    cx if cx is not None else ""
+                ])
+
+        # ---- Depth-plane logic (arm extended/retracted) on vis
+        if idpos is not None and datum.poseKeypoints is not None:
+            left_id, right_id = idpos
+            if right_id != -2:  # only if <=2 people
+                for who_key, who_label, person in persons:
+                    parts = elbows_shoulders_wrists_px(person, W, H)
+                    current_status = 'EXT' if state[who_key] == 1 else 'RET'
+                    for side in ("Left", "Right"):
+                        E = parts[side]["E"]; Wp = parts[side]["W"]
+                        if Wp is None or E is None:
+                            continue
+                        wx, wy = Wp; ex, ey = E
+                        wrist_z = median_depth_m(depth, wx, wy)
+                        if wrist_z <= 0:
+                            draw_status_overlay(vis, ex, ey, wx, wy, current_status, 0.0, 0.0)
+                            continue
+                        plane_z = plane_reference_z(depth, person, parts, side, W, H)
+                        if plane_z is None:
+                            draw_status_overlay(vis, ex, ey, wx, wy, current_status, 0.0, wrist_z)
+                            continue
+                        if state[who_key] == 0:
+                            if wrist_z < (plane_z - PLANE_HYST_M):
+                                state[who_key] = 1
+                                current_status = 'EXT'
+                                print(f"{who_label} - {side} arm EXTENDED (w={wrist_z:.2f}, p={plane_z:.2f})")
+                        else:
+                            if wrist_z > (plane_z + PLANE_HYST_M):
+                                state[who_key] = 0
+                                current_status = 'RET'
+                                print(f"{who_label} - {side} arm RETRACTED (w={wrist_z:.2f}, p={plane_z:.2f})")
+                        draw_status_overlay(vis, ex, ey, wx, wy, current_status, plane_z, wrist_z)
+
+        # --- Display: separate windows
+        cv2.imshow("OpenPose + Depth Plane", vis)
+        cv2.imshow("L2CS Gaze", gaze_frame_cached)
+        key = cv2.waitKey(1)
+        if key == 27:  # ESC
             break
-        continue
 
-    left_id, right_id = idPos
+        frame_idx += 1
 
-    # Handle special cases
-    if right_id == -2:
-        # >2 people — ambiguous; skip this frame (or implement your own selection)
-        cv2.putText(vis, "More than 2 people detected — skipping",
-                    (20, 40), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (50, 50, 255), 2, cv2.LINE_AA)
-    elif right_id == -1:
-        # Exactly 1 person — treat them as 'Left person' and run single-person logic
-        person = datum.poseKeypoints[left_id]
-        draw_plane_and_vectors_elbow(vis, person, frame_width, frame_height, who_label="Left person")
+finally:
+    pipe.stop()
+    cv2.destroyAllWindows()
+    csv_file.close()
+    print(f"Gaze CSV saved at: {csv_path}")
 
-        deltas = wrists_vs_plane_elbow(person, frame_width, frame_height)
-        hyst_px = cm_to_px(PLANE_HYST_CM, person, frame_width) or 0.0
-
-        if checkStatus_left == 0:
-            for arm_side in ("Left", "Right"):
-                d = deltas.get(arm_side)
-                if d is not None and d > +hyst_px:
-                    checkStatus_left = 1
-                    print(f"Left person - {arm_side} Arm Extended (elbow plane)")
-                    break
-        else:
-            for arm_side in ("Left", "Right"):
-                d = deltas.get(arm_side)
-                if d is not None and d < -hyst_px:
-                    checkStatus_left = 0
-                    print(f"Left person - {arm_side} Arm Retracted (elbow plane)")
-                    break
-    else:
-        # Exactly 2 people — process both sides
-        # LEFT PERSON
-        personL = datum.poseKeypoints[left_id]
-        draw_plane_and_vectors_elbow(vis, personL, frame_width, frame_height, who_label="Left person")
-        deltasL = wrists_vs_plane_elbow(personL, frame_width, frame_height)
-        hystL = cm_to_px(PLANE_HYST_CM, personL, frame_width) or 0.0
-
-        if checkStatus_left == 0:
-            for arm_side in ("Left", "Right"):
-                d = deltasL.get(arm_side)
-                if d is not None and d > +hystL:
-                    checkStatus_left = 1
-                    print(f"Left person - {arm_side} Arm Extended (elbow plane)")
-                    break
-        else:
-            for arm_side in ("Left", "Right"):
-                d = deltasL.get(arm_side)
-                if d is not None and d < -hystL:
-                    checkStatus_left = 0
-                    print(f"Left person - {arm_side} Arm Retracted (elbow plane)")
-                    break
-
-        # RIGHT PERSON
-        personR = datum.poseKeypoints[right_id]
-        draw_plane_and_vectors_elbow(vis, personR, frame_width, frame_height, who_label="Right person")
-        deltasR = wrists_vs_plane_elbow(personR, frame_width, frame_height)
-        hystR = cm_to_px(PLANE_HYST_CM, personR, frame_width) or 0.0
-
-        if checkStatus_right == 0:
-            for arm_side in ("Left", "Right"):
-                d = deltasR.get(arm_side)
-                if d is not None and d > +hystR:
-                    checkStatus_right = 1
-                    print(f"Right person - {arm_side} Arm Extended (elbow plane)")
-                    break
-        else:
-            for arm_side in ("Left", "Right"):
-                d = deltasR.get(arm_side)
-                if d is not None and d < -hystR:
-                    checkStatus_right = 0
-                    print(f"Right person - {arm_side} Arm Retracted (elbow plane)")
-                    break
-
-    # Show window
-    cv2.imshow("OpenPose + Elbow Plane (2-person)", vis)
-    key = cv2.waitKey(1)
-    if key == 27:  # ESC
-        break
-
-cap.release()
-cv2.destroyAllWindows()

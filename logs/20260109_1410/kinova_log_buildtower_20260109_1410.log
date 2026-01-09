@@ -1,0 +1,1096 @@
+2026-01-09 14:10:11,787 - INFO - BuildTower - Pinned current thread to core 0
+2026-01-09 14:10:11,787 - INFO - BuildTower - Main BuildTower thread pinned to core 0.
+2026-01-09 14:10:11,944 - INFO - BuildTower - Robot parameters: robot_name=my_gen3, dof=7, gripper_present=True
+2026-01-09 14:10:11,947 - INFO - BuildTower - Service initialized: /my_gen3/base/clear_faults
+2026-01-09 14:10:11,949 - INFO - BuildTower - Service initialized: /my_gen3/base/read_action
+2026-01-09 14:10:11,951 - INFO - BuildTower - Service initialized: /my_gen3/base/execute_action
+2026-01-09 14:10:11,952 - INFO - BuildTower - Service initialized: /my_gen3/control_config/set_cartesian_reference_frame
+2026-01-09 14:10:11,954 - INFO - BuildTower - Service initialized: /my_gen3/base/activate_publishing_of_action_topic
+2026-01-09 14:10:11,955 - INFO - BuildTower - Service initialized: /my_gen3/base/send_gripper_command
+2026-01-09 14:10:11,955 - INFO - BuildTower - OpenPoseThread started (core 1).
+2026-01-09 14:10:11,955 - INFO - BuildTower - BuildTower class initialized successfully.
+2026-01-09 14:10:11,956 - INFO - BuildTower - Pinned current thread to core 1
+2026-01-09 14:10:11,956 - INFO - BuildTower - OpenPoseThread: Connected REQ to tcp://localhost:5555
+2026-01-09 14:10:11,957 - INFO - BuildTower - ROS parameter /kortex_examples_test_results/cartesian_poses_with_notifications_python did not exist or could not be deleted.
+2026-01-09 14:10:11,957 - INFO - BuildTower - OpenPoseThread: Connected SUB to tcp://localhost:5556
+2026-01-09 14:10:11,957 - INFO - BuildTower - Starting main robot control loop.
+2026-01-09 14:10:11,990 - INFO - BuildTower - Robot faults cleared successfully.
+2026-01-09 14:10:14,513 - INFO - BuildTower - Cartesian reference frame set successfully.
+2026-01-09 14:10:14,765 - INFO - BuildTower - Activating action notifications.
+2026-01-09 14:10:14,787 - INFO - BuildTower - Action Notifications successfully activated.
+2026-01-09 14:10:15,816 - INFO - BuildTower - Sending robot to home position.
+2026-01-09 14:10:21,101 - INFO - BuildTower - User pressed Enter. Continuing with configuration 1
+2026-01-09 14:10:21,101 - INFO - BuildTower - Parsing information from file: config2
+2026-01-09 14:10:21,102 - INFO - BuildTower - Parsed turn_order: ybypbpbpy
+
+2026-01-09 14:10:21,102 - INFO - BuildTower - Parsed object_order: 143
+
+2026-01-09 14:10:21,102 - INFO - BuildTower - Sent turn_order and waiting for response from OpenPose server.
+2026-01-09 14:10:21,102 - INFO - BuildTower - Sending turn order to OpenPose server: ybypbpbpy
+
+2026-01-09 14:10:21,112 - INFO - BuildTower - OpenPoseThread: sending cmd: ybypbpbpy
+
+2026-01-09 14:10:21,113 - INFO - BuildTower - OpenPoseThread: received reply: Order Received
+2026-01-09 14:10:21,113 - INFO - BuildTower - Received reply from OpenPose server: Order Received
+2026-01-09 14:10:21,113 - INFO - BuildTower - Starting mutual gaze calibration for 10.0 seconds
+2026-01-09 14:10:21,990 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=0 ts=2026-01-09T14:10:21.951710Z people=3
+2026-01-09 14:10:21,991 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=0 id=None label=None v=[-0.590, -0.280, 0.757] yaw=-37.9 pitch=16.3
+2026-01-09 14:10:21,991 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=0 id=None label=None v=[-0.433, -0.301, 0.849] yaw=-27.0 pitch=17.5
+2026-01-09 14:10:21,991 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=0 id=None label=None v=[-0.218, -0.089, 0.972] yaw=-12.7 pitch=5.1
+2026-01-09 14:10:22,320 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=0 ts=2026-01-09T14:10:22.274437Z people=3
+2026-01-09 14:10:22,320 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=0 id=None label=None v=[-0.651, -0.248, 0.717] yaw=-42.3 pitch=14.4
+2026-01-09 14:10:22,320 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=0 id=None label=None v=[-0.568, -0.051, 0.821] yaw=-34.7 pitch=2.9
+2026-01-09 14:10:22,320 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=0 id=None label=None v=[-0.333, -0.270, 0.903] yaw=-20.2 pitch=15.7
+2026-01-09 14:10:22,645 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=0 ts=2026-01-09T14:10:22.613596Z people=3
+2026-01-09 14:10:22,645 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=0 id=None label=None v=[-0.620, -0.274, 0.735] yaw=-40.2 pitch=15.9
+2026-01-09 14:10:22,645 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=0 id=None label=None v=[-0.193, 0.252, 0.948] yaw=-11.5 pitch=-14.6
+2026-01-09 14:10:22,645 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=0 id=None label=None v=[-0.641, -0.026, 0.767] yaw=-39.9 pitch=1.5
+2026-01-09 14:10:22,971 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=0 ts=2026-01-09T14:10:22.967137Z people=3
+2026-01-09 14:10:22,972 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=0 id=None label=None v=[-0.446, 0.224, 0.866] yaw=-27.2 pitch=-13.0
+2026-01-09 14:10:22,972 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=0 id=None label=None v=[-0.581, -0.234, 0.779] yaw=-36.7 pitch=13.6
+2026-01-09 14:10:22,972 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=0 id=None label=None v=[-0.501, -0.096, 0.860] yaw=-30.2 pitch=5.5
+2026-01-09 14:10:23,301 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=0 ts=2026-01-09T14:10:23.300717Z people=3
+2026-01-09 14:10:23,301 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=0 id=None label=None v=[-0.539, -0.187, 0.821] yaw=-33.3 pitch=10.8
+2026-01-09 14:10:23,301 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=0 id=None label=None v=[-0.543, -0.279, 0.792] yaw=-34.5 pitch=16.2
+2026-01-09 14:10:23,302 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=0 id=None label=None v=[-0.405, -0.271, 0.873] yaw=-24.9 pitch=15.7
+2026-01-09 14:10:23,626 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=0 ts=2026-01-09T14:10:23.550774Z people=2
+2026-01-09 14:10:23,626 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=0 id=None label=None v=[-0.628, -0.251, 0.737] yaw=-40.4 pitch=14.5
+2026-01-09 14:10:23,626 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=0 id=None label=None v=[-0.453, -0.278, 0.847] yaw=-28.1 pitch=16.1
+2026-01-09 14:10:23,842 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=0 ts=2026-01-09T14:10:23.808787Z people=2
+2026-01-09 14:10:23,842 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=0 id=None label=None v=[-0.333, -0.427, 0.841] yaw=-21.6 pitch=25.3
+2026-01-09 14:10:23,842 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=0 id=None label=None v=[-0.464, -0.247, 0.851] yaw=-28.6 pitch=14.3
+2026-01-09 14:10:24,167 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=0 ts=2026-01-09T14:10:24.087221Z people=2
+2026-01-09 14:10:24,168 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=0 id=None label=None v=[-0.363, -0.439, 0.822] yaw=-23.8 pitch=26.1
+2026-01-09 14:10:24,168 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=0 id=None label=None v=[-0.433, -0.178, 0.884] yaw=-26.1 pitch=10.3
+2026-01-09 14:10:24,379 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=0 ts=2026-01-09T14:10:24.360973Z people=2
+2026-01-09 14:10:24,379 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=0 id=None label=None v=[-0.436, -0.221, 0.872] yaw=-26.5 pitch=12.8
+2026-01-09 14:10:24,379 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=0 id=None label=None v=[-0.269, -0.328, 0.906] yaw=-16.5 pitch=19.2
+2026-01-09 14:10:24,702 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=0 ts=2026-01-09T14:10:24.615130Z people=2
+2026-01-09 14:10:24,702 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=0 id=left label=Left person v=[-0.301, -0.434, 0.849] yaw=-19.6 pitch=25.7
+2026-01-09 14:10:24,702 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=0 id=right label=Right person v=[-0.485, -0.271, 0.831] yaw=-30.3 pitch=15.7
+2026-01-09 14:10:26,039 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=8 ts=2026-01-09T14:10:25.960532Z people=2
+2026-01-09 14:10:26,039 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=8 id=None label=None v=[-0.294, -0.355, 0.888] yaw=-18.3 pitch=20.8
+2026-01-09 14:10:26,040 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=8 id=None label=None v=[-0.391, -0.371, 0.842] yaw=-24.9 pitch=21.8
+2026-01-09 14:10:26,250 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=8 ts=2026-01-09T14:10:26.200718Z people=2
+2026-01-09 14:10:26,251 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=8 id=None label=None v=[-0.571, -0.225, 0.790] yaw=-35.9 pitch=13.0
+2026-01-09 14:10:26,251 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=8 id=None label=None v=[-0.563, 0.148, 0.813] yaw=-34.7 pitch=-8.5
+2026-01-09 14:10:26,468 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=8 ts=2026-01-09T14:10:26.467605Z people=2
+2026-01-09 14:10:26,468 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=8 id=left label=Left person v=[-0.606, 0.324, 0.727] yaw=-39.8 pitch=-18.9
+2026-01-09 14:10:26,468 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=8 id=right label=Right person v=[-0.427, -0.264, 0.865] yaw=-26.3 pitch=15.3
+2026-01-09 14:10:27,136 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=16 ts=2026-01-09T14:10:27.133214Z people=2
+2026-01-09 14:10:27,136 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=16 id=left label=Left person v=[-0.577, -0.229, 0.784] yaw=-36.4 pitch=13.3
+2026-01-09 14:10:27,136 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=16 id=right label=Right person v=[-0.373, -0.345, 0.861] yaw=-23.4 pitch=20.2
+2026-01-09 14:10:28,012 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=24 ts=2026-01-09T14:10:27.924059Z people=2
+2026-01-09 14:10:28,012 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=24 id=left label=Left person v=[-0.587, 0.014, 0.809] yaw=-36.0 pitch=-0.8
+2026-01-09 14:10:28,012 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=24 id=right label=Right person v=[-0.349, -0.262, 0.900] yaw=-21.2 pitch=15.2
+2026-01-09 14:10:28,903 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=32 ts=2026-01-09T14:10:28.814555Z people=2
+2026-01-09 14:10:28,903 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=32 id=None label=None v=[-0.113, -0.384, 0.916] yaw=-7.1 pitch=22.6
+2026-01-09 14:10:28,903 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=32 id=None label=None v=[-0.566, 0.209, 0.798] yaw=-35.3 pitch=-12.1
+2026-01-09 14:10:29,114 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=32 ts=2026-01-09T14:10:29.085195Z people=2
+2026-01-09 14:10:29,114 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=32 id=left label=Left person v=[-0.605, 0.093, 0.791] yaw=-37.4 pitch=-5.3
+2026-01-09 14:10:29,114 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=32 id=right label=Right person v=[-0.059, -0.374, 0.926] yaw=-3.7 pitch=22.0
+2026-01-09 14:10:29,987 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=40 ts=2026-01-09T14:10:29.917861Z people=2
+2026-01-09 14:10:29,987 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=40 id=left label=Left person v=[-0.219, -0.723, 0.655] yaw=-18.5 pitch=46.3
+2026-01-09 14:10:29,987 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=40 id=right label=Right person v=[-0.094, -0.621, 0.778] yaw=-6.9 pitch=38.4
+2026-01-09 14:10:30,642 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=48 ts=2026-01-09T14:10:30.605191Z people=2
+2026-01-09 14:10:30,642 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=48 id=left label=Left person v=[-0.524, -0.411, 0.746] yaw=-35.1 pitch=24.3
+2026-01-09 14:10:30,642 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=48 id=right label=Right person v=[-0.117, -0.652, 0.749] yaw=-8.9 pitch=40.7
+2026-01-09 14:10:31,125 - INFO - BuildTower - Calibration done: yaw_bias=-26.397 deg, pitch_bias=14.405 deg
+2026-01-09 14:10:31,125 - INFO - BuildTower - Executing turn 0 out of 9.
+2026-01-09 14:10:31,125 - INFO - BuildTower - Moving block from start 0.28 to target 0.307. Turn: 0, Block Shape: 1
+2026-01-09 14:10:31,128 - INFO - BuildTower - Sending gripper command: value=0
+2026-01-09 14:10:31,406 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=56 ts=2026-01-09T14:10:31.367098Z people=2
+2026-01-09 14:10:31,406 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=56 id=left label=Left person v=[-0.414, -0.373, 0.830] yaw=-26.5 pitch=21.9
+2026-01-09 14:10:31,406 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=56 id=right label=Right person v=[-0.064, -0.606, 0.793] yaw=-4.6 pitch=37.3
+2026-01-09 14:10:31,640 - INFO - BuildTower - Gripper command 0 sent successfully.
+2026-01-09 14:10:31,643 - INFO - BuildTower - Attempting to go to position: x=0.47, y=0.18, z=0.325, theta_x=100.0, theta_y=0.0, theta_z=90.0
+2026-01-09 14:10:31,643 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2026-01-09 14:10:31,664 - INFO - BuildTower - Pose action initiated, waiting for completion.
+2026-01-09 14:10:32,059 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=64 ts=2026-01-09T14:10:32.050248Z people=2
+2026-01-09 14:10:32,059 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=64 id=left label=Left person v=[-0.631, 0.025, 0.775] yaw=-39.2 pitch=-1.5
+2026-01-09 14:10:32,059 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=64 id=right label=Right person v=[-0.512, -0.297, 0.806] yaw=-32.4 pitch=17.3
+2026-01-09 14:10:32,836 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=72 ts=2026-01-09T14:10:32.755016Z people=2
+2026-01-09 14:10:32,837 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=72 id=left label=Left person v=[-0.593, 0.023, 0.805] yaw=-36.4 pitch=-1.3
+2026-01-09 14:10:32,837 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=72 id=right label=Right person v=[-0.454, -0.220, 0.863] yaw=-27.7 pitch=12.7
+2026-01-09 14:10:33,602 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=80 ts=2026-01-09T14:10:33.529053Z people=2
+2026-01-09 14:10:33,602 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=80 id=left label=Left person v=[-0.640, 0.148, 0.754] yaw=-40.3 pitch=-8.5
+2026-01-09 14:10:33,602 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=80 id=right label=Right person v=[-0.474, -0.171, 0.864] yaw=-28.7 pitch=9.8
+2026-01-09 14:10:34,268 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=88 ts=2026-01-09T14:10:34.227633Z people=2
+2026-01-09 14:10:34,268 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=88 id=left label=Left person v=[-0.711, -0.232, 0.664] yaw=-46.9 pitch=13.4
+2026-01-09 14:10:34,268 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=88 id=right label=Right person v=[-0.546, -0.497, 0.675] yaw=-39.0 pitch=29.8
+2026-01-09 14:10:34,300 - INFO - BuildTower - Robot action ended.
+2026-01-09 14:10:34,301 - INFO - BuildTower - Attempting to go to position: x=0.47, y=0.18, z=0.28, theta_x=100.0, theta_y=0.0, theta_z=90.0
+2026-01-09 14:10:34,301 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2026-01-09 14:10:34,314 - INFO - BuildTower - Pose action initiated, waiting for completion.
+2026-01-09 14:10:34,920 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=96 ts=2026-01-09T14:10:34.901647Z people=2
+2026-01-09 14:10:34,921 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=96 id=left label=Left person v=[-0.676, -0.037, 0.736] yaw=-42.6 pitch=2.1
+2026-01-09 14:10:34,921 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=96 id=right label=Right person v=[-0.411, -0.418, 0.810] yaw=-26.9 pitch=24.7
+2026-01-09 14:10:35,051 - INFO - BuildTower - Robot action ended.
+2026-01-09 14:10:35,052 - INFO - BuildTower - Sending gripper command: value=0.075
+2026-01-09 14:10:35,566 - INFO - BuildTower - Gripper command 0.075 sent successfully.
+2026-01-09 14:10:35,569 - INFO - BuildTower - Attempting to go to position: x=0.47, y=0.18, z=0.325, theta_x=100.0, theta_y=0.0, theta_z=90.0
+2026-01-09 14:10:35,569 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2026-01-09 14:10:35,589 - INFO - BuildTower - Pose action initiated, waiting for completion.
+2026-01-09 14:10:36,318 - INFO - BuildTower - Robot action ended.
+2026-01-09 14:10:36,319 - INFO - BuildTower - Attempting to go to position: x=0.735, y=0.0, z=0.352, theta_x=100.0, theta_y=0.0, theta_z=90.0
+2026-01-09 14:10:36,319 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2026-01-09 14:10:36,341 - INFO - BuildTower - Pose action initiated, waiting for completion.
+2026-01-09 14:10:36,352 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=104 ts=2026-01-09T14:10:36.264297Z people=2
+2026-01-09 14:10:36,352 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=104 id=None label=None v=[-0.610, -0.333, 0.719] yaw=-40.3 pitch=19.5
+2026-01-09 14:10:36,352 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=104 id=None label=None v=[-0.369, -0.339, 0.865] yaw=-23.1 pitch=19.8
+2026-01-09 14:10:36,563 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=104 ts=2026-01-09T14:10:36.518297Z people=2
+2026-01-09 14:10:36,563 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=104 id=None label=None v=[-0.583, -0.336, 0.740] yaw=-38.2 pitch=19.6
+2026-01-09 14:10:36,564 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=104 id=None label=None v=[-0.397, -0.282, 0.874] yaw=-24.4 pitch=16.4
+2026-01-09 14:10:36,885 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=104 ts=2026-01-09T14:10:36.785563Z people=2
+2026-01-09 14:10:36,885 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=104 id=None label=None v=[-0.610, -0.395, 0.687] yaw=-41.6 pitch=23.3
+2026-01-09 14:10:36,885 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=104 id=None label=None v=[-0.388, -0.342, 0.856] yaw=-24.4 pitch=20.0
+2026-01-09 14:10:37,097 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=104 ts=2026-01-09T14:10:37.034178Z people=2
+2026-01-09 14:10:37,097 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=104 id=left label=Left person v=[-0.657, 0.225, 0.720] yaw=-42.4 pitch=-13.0
+2026-01-09 14:10:37,097 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=104 id=right label=Right person v=[-0.417, -0.350, 0.839] yaw=-26.4 pitch=20.5
+2026-01-09 14:10:38,300 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=112 ts=2026-01-09T14:10:38.270948Z people=2
+2026-01-09 14:10:38,301 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=112 id=left label=Left person v=[-0.622, -0.180, 0.762] yaw=-39.2 pitch=10.4
+2026-01-09 14:10:38,301 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=112 id=right label=Right person v=[-0.295, -0.346, 0.891] yaw=-18.3 pitch=20.3
+2026-01-09 14:10:39,184 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=120 ts=2026-01-09T14:10:39.104096Z people=2
+2026-01-09 14:10:39,185 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=120 id=left label=Left person v=[-0.693, 0.169, 0.701] yaw=-44.7 pitch=-9.7
+2026-01-09 14:10:39,185 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=120 id=right label=Right person v=[-0.259, -0.408, 0.876] yaw=-16.5 pitch=24.1
+2026-01-09 14:10:39,819 - INFO - BuildTower - Robot action ended.
+2026-01-09 14:10:39,819 - INFO - BuildTower - Attempting to go to position: x=0.735, y=0.0, z=0.307, theta_x=100.0, theta_y=0.0, theta_z=90.0
+2026-01-09 14:10:39,819 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2026-01-09 14:10:39,837 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=128 ts=2026-01-09T14:10:39.782093Z people=2
+2026-01-09 14:10:39,838 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=128 id=None label=None v=[-0.467, -0.237, 0.852] yaw=-28.8 pitch=13.7
+2026-01-09 14:10:39,838 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=128 id=None label=None v=[-0.752, -0.250, 0.610] yaw=-50.9 pitch=14.5
+2026-01-09 14:10:39,844 - INFO - BuildTower - Pose action initiated, waiting for completion.
+2026-01-09 14:10:40,049 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=128 ts=2026-01-09T14:10:40.030608Z people=2
+2026-01-09 14:10:40,050 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=128 id=None label=None v=[-0.513, -0.301, 0.804] yaw=-32.5 pitch=17.5
+2026-01-09 14:10:40,050 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=128 id=None label=None v=[-0.730, -0.105, 0.675] yaw=-47.2 pitch=6.0
+2026-01-09 14:10:40,371 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=128 ts=2026-01-09T14:10:40.284544Z people=2
+2026-01-09 14:10:40,371 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=128 id=None label=None v=[-0.522, -0.266, 0.810] yaw=-32.8 pitch=15.4
+2026-01-09 14:10:40,371 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=128 id=None label=None v=[-0.595, 0.624, 0.506] yaw=-49.6 pitch=-38.6
+2026-01-09 14:10:40,574 - INFO - BuildTower - Robot action ended.
+2026-01-09 14:10:40,576 - INFO - BuildTower - Sending gripper command: value=0
+2026-01-09 14:10:40,582 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=128 ts=2026-01-09T14:10:40.512640Z people=2
+2026-01-09 14:10:40,582 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=128 id=left label=Left person v=[-0.679, 0.207, 0.705] yaw=-43.9 pitch=-11.9
+2026-01-09 14:10:40,583 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=128 id=right label=Right person v=[-0.484, -0.280, 0.829] yaw=-30.3 pitch=16.3
+2026-01-09 14:10:41,092 - INFO - BuildTower - Gripper command 0 sent successfully.
+2026-01-09 14:10:41,094 - INFO - BuildTower - Attempting to go to position: x=0.735, y=0.0, z=0.352, theta_x=100.0, theta_y=0.0, theta_z=90.0
+2026-01-09 14:10:41,094 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2026-01-09 14:10:41,143 - INFO - BuildTower - Pose action initiated, waiting for completion.
+2026-01-09 14:10:41,235 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=136 ts=2026-01-09T14:10:41.175751Z people=2
+2026-01-09 14:10:41,235 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=136 id=left label=Left person v=[-0.589, 0.559, 0.583] yaw=-45.3 pitch=-34.0
+2026-01-09 14:10:41,235 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=136 id=right label=Right person v=[-0.528, -0.299, 0.795] yaw=-33.6 pitch=17.4
+2026-01-09 14:10:41,871 - INFO - BuildTower - Robot action ended.
+2026-01-09 14:10:41,871 - INFO - BuildTower - Robot completed its turn. Robot turn count: 1
+2026-01-09 14:10:41,871 - INFO - BuildTower - Executing turn 1 out of 9.
+2026-01-09 14:10:41,887 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=144 ts=2026-01-09T14:10:41.877139Z people=2
+2026-01-09 14:10:41,887 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=144 id=left label=Left person v=[-0.684, 0.363, 0.633] yaw=-47.2 pitch=-21.3
+2026-01-09 14:10:41,888 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=144 id=right label=Right person v=[-0.473, -0.225, 0.852] yaw=-29.0 pitch=13.0
+2026-01-09 14:10:41,892 - INFO - BuildTower - Sending robot to home position.
+2026-01-09 14:10:42,513 - INFO - BuildTower - Sending to OpenPose (via thread): PL: Arm Extended Check
+2026-01-09 14:10:42,514 - INFO - BuildTower - OpenPoseThread: sending cmd: PL: Arm Extended Check
+2026-01-09 14:10:42,577 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=152 ts=2026-01-09T14:10:42.576577Z people=2
+2026-01-09 14:10:42,577 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=152 id=left label=Left person v=[-0.461, -0.573, 0.678] yaw=-34.2 pitch=35.0
+2026-01-09 14:10:42,577 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=152 id=right label=Right person v=[-0.504, -0.256, 0.825] yaw=-31.4 pitch=14.8
+2026-01-09 14:10:43,246 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=160 ts=2026-01-09T14:10:43.245387Z people=2
+2026-01-09 14:10:43,246 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=160 id=left label=Left person v=[-0.221, -0.381, 0.898] yaw=-13.8 pitch=22.4
+2026-01-09 14:10:43,246 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=160 id=right label=Right person v=[-0.327, -0.201, 0.923] yaw=-19.5 pitch=11.6
+2026-01-09 14:10:43,927 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=168 ts=2026-01-09T14:10:43.926040Z people=2
+2026-01-09 14:10:43,927 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=168 id=left label=Left person v=[-0.677, -0.378, 0.631] yaw=-47.0 pitch=22.2
+2026-01-09 14:10:43,927 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=168 id=right label=Right person v=[-0.429, -0.214, 0.878] yaw=-26.0 pitch=12.4
+2026-01-09 14:10:45,109 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=176 ts=2026-01-09T14:10:45.108585Z people=3
+2026-01-09 14:10:45,109 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=176 id=left label=Left person v=[-0.620, 0.138, 0.773] yaw=-38.7 pitch=-7.9
+2026-01-09 14:10:45,110 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=176 id=left label=Left person v=[-0.370, -0.259, 0.892] yaw=-22.5 pitch=15.0
+2026-01-09 14:10:45,110 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=176 id=right label=Right person v=[-0.493, -0.275, 0.826] yaw=-30.8 pitch=15.9
+2026-01-09 14:10:45,772 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=184 ts=2026-01-09T14:10:45.770960Z people=2
+2026-01-09 14:10:45,772 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=184 id=left label=Left person v=[-0.749, 0.042, 0.661] yaw=-48.6 pitch=-2.4
+2026-01-09 14:10:45,772 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=184 id=right label=Right person v=[-0.514, -0.265, 0.816] yaw=-32.2 pitch=15.4
+2026-01-09 14:10:46,490 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=192 ts=2026-01-09T14:10:46.488990Z people=2
+2026-01-09 14:10:46,490 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=192 id=left label=Left person v=[-0.757, 0.029, 0.653] yaw=-49.2 pitch=-1.7
+2026-01-09 14:10:46,490 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=192 id=right label=Right person v=[-0.538, -0.277, 0.796] yaw=-34.0 pitch=16.1
+2026-01-09 14:10:47,201 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=200 ts=2026-01-09T14:10:47.200655Z people=2
+2026-01-09 14:10:47,201 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=200 id=left label=Left person v=[-0.493, -0.254, 0.832] yaw=-30.7 pitch=14.7
+2026-01-09 14:10:47,201 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=200 id=right label=Right person v=[-0.565, -0.315, 0.763] yaw=-36.5 pitch=18.4
+2026-01-09 14:10:47,929 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=208 ts=2026-01-09T14:10:47.928496Z people=2
+2026-01-09 14:10:47,929 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=208 id=left label=Left person v=[-0.486, -0.450, 0.749] yaw=-32.9 pitch=26.8
+2026-01-09 14:10:47,929 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=208 id=right label=Right person v=[-0.223, -0.387, 0.895] yaw=-14.0 pitch=22.8
+2026-01-09 14:10:48,293 - INFO - BuildTower - OpenPoseThread: received reply: Left: Arm Extended
+2026-01-09 14:10:48,294 - INFO - BuildTower - Sending to OpenPose (via thread): PL: Arm Retracted Check
+2026-01-09 14:10:48,294 - INFO - BuildTower - OpenPoseThread: sending cmd: PL: Arm Retracted Check
+2026-01-09 14:10:48,607 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=216 ts=2026-01-09T14:10:48.606229Z people=2
+2026-01-09 14:10:48,607 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=216 id=left label=Left person v=[-0.717, -0.082, 0.692] yaw=-46.0 pitch=4.7
+2026-01-09 14:10:48,607 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=216 id=right label=Right person v=[-0.213, -0.391, 0.895] yaw=-13.4 pitch=23.0
+2026-01-09 14:10:49,275 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=224 ts=2026-01-09T14:10:49.271280Z people=2
+2026-01-09 14:10:49,275 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=224 id=left label=Left person v=[-0.474, -0.188, 0.860] yaw=-28.9 pitch=10.9
+2026-01-09 14:10:49,275 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=224 id=right label=Right person v=[-0.288, -0.441, 0.850] yaw=-18.7 pitch=26.2
+2026-01-09 14:10:49,959 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=232 ts=2026-01-09T14:10:49.957629Z people=2
+2026-01-09 14:10:49,960 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=232 id=left label=Left person v=[-0.372, -0.277, 0.886] yaw=-22.8 pitch=16.1
+2026-01-09 14:10:49,960 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=232 id=right label=Right person v=[-0.160, -0.397, 0.904] yaw=-10.0 pitch=23.4
+2026-01-09 14:10:50,649 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=240 ts=2026-01-09T14:10:50.648409Z people=2
+2026-01-09 14:10:50,649 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=240 id=left label=Left person v=[-0.309, -0.137, 0.941] yaw=-18.2 pitch=7.9
+2026-01-09 14:10:50,650 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=240 id=right label=Right person v=[-0.363, -0.168, 0.917] yaw=-21.6 pitch=9.7
+2026-01-09 14:10:50,718 - INFO - BuildTower - OpenPoseThread: received reply: Left: Arm Retracted
+2026-01-09 14:10:50,718 - INFO - BuildTower - Executing turn 2 out of 9.
+2026-01-09 14:10:50,719 - INFO - BuildTower - Moving block from start 0.3 to target 0.387. Turn: 2, Block Shape: 4
+2026-01-09 14:10:50,722 - INFO - BuildTower - Sending gripper command: value=0
+2026-01-09 14:10:51,239 - INFO - BuildTower - Gripper command 0 sent successfully.
+2026-01-09 14:10:51,241 - INFO - BuildTower - Attempting to go to position: x=0.3, y=0.3, z=0.345, theta_x=100.0, theta_y=0.0, theta_z=90.0
+2026-01-09 14:10:51,242 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2026-01-09 14:10:51,265 - INFO - BuildTower - Pose action initiated, waiting for completion.
+2026-01-09 14:10:51,374 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=248 ts=2026-01-09T14:10:51.360551Z people=2
+2026-01-09 14:10:51,374 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=248 id=left label=Left person v=[-0.660, 0.081, 0.746] yaw=-41.5 pitch=-4.7
+2026-01-09 14:10:51,374 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=248 id=right label=Right person v=[-0.596, -0.219, 0.772] yaw=-37.7 pitch=12.7
+2026-01-09 14:10:52,146 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=256 ts=2026-01-09T14:10:52.096465Z people=2
+2026-01-09 14:10:52,146 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=256 id=left label=Left person v=[-0.524, -0.075, 0.849] yaw=-31.7 pitch=4.3
+2026-01-09 14:10:52,146 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=256 id=right label=Right person v=[-0.365, -0.285, 0.886] yaw=-22.4 pitch=16.6
+2026-01-09 14:10:52,911 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=264 ts=2026-01-09T14:10:52.828437Z people=2
+2026-01-09 14:10:52,911 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=264 id=left label=Left person v=[-0.582, -0.111, 0.805] yaw=-35.9 pitch=6.4
+2026-01-09 14:10:52,911 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=264 id=right label=Right person v=[-0.353, -0.204, 0.913] yaw=-21.2 pitch=11.8
+2026-01-09 14:10:53,568 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=272 ts=2026-01-09T14:10:53.528291Z people=2
+2026-01-09 14:10:53,568 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=272 id=left label=Left person v=[-0.597, 0.033, 0.802] yaw=-36.7 pitch=-1.9
+2026-01-09 14:10:53,568 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=272 id=right label=Right person v=[-0.401, -0.291, 0.869] yaw=-24.8 pitch=16.9
+2026-01-09 14:10:54,340 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=280 ts=2026-01-09T14:10:54.259312Z people=2
+2026-01-09 14:10:54,340 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=280 id=left label=Left person v=[-0.498, -0.135, 0.857] yaw=-30.2 pitch=7.8
+2026-01-09 14:10:54,340 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=280 id=right label=Right person v=[-0.372, -0.290, 0.882] yaw=-22.9 pitch=16.8
+2026-01-09 14:10:55,004 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=288 ts=2026-01-09T14:10:54.977809Z people=2
+2026-01-09 14:10:55,004 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=288 id=left label=Left person v=[-0.572, -0.198, 0.796] yaw=-35.7 pitch=11.4
+2026-01-09 14:10:55,004 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=288 id=right label=Right person v=[-0.217, -0.433, 0.875] yaw=-13.9 pitch=25.6
+2026-01-09 14:10:55,693 - INFO - BuildTower - Robot action ended.
+2026-01-09 14:10:55,693 - INFO - BuildTower - Attempting to go to position: x=0.3, y=0.3, z=0.3, theta_x=100.0, theta_y=0.0, theta_z=90.0
+2026-01-09 14:10:55,693 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2026-01-09 14:10:55,717 - INFO - BuildTower - Pose action initiated, waiting for completion.
+2026-01-09 14:10:55,768 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=296 ts=2026-01-09T14:10:55.683143Z people=2
+2026-01-09 14:10:55,769 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=296 id=left label=Left person v=[-0.536, -0.380, 0.754] yaw=-35.4 pitch=22.3
+2026-01-09 14:10:55,769 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=296 id=right label=Right person v=[-0.373, -0.244, 0.895] yaw=-22.6 pitch=14.1
+2026-01-09 14:10:56,428 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=304 ts=2026-01-09T14:10:56.398471Z people=2
+2026-01-09 14:10:56,428 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=304 id=left label=Left person v=[-0.464, -0.430, 0.775] yaw=-30.9 pitch=25.5
+2026-01-09 14:10:56,428 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=304 id=right label=Right person v=[-0.384, -0.316, 0.868] yaw=-23.9 pitch=18.4
+2026-01-09 14:10:56,452 - INFO - BuildTower - Robot action ended.
+2026-01-09 14:10:56,454 - INFO - BuildTower - Sending gripper command: value=0.7
+2026-01-09 14:10:56,964 - INFO - BuildTower - Gripper command 0.7 sent successfully.
+2026-01-09 14:10:56,966 - INFO - BuildTower - Attempting to go to position: x=0.3, y=0.3, z=0.435, theta_x=100.0, theta_y=0.0, theta_z=90.0
+2026-01-09 14:10:56,967 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2026-01-09 14:10:56,991 - INFO - BuildTower - Pose action initiated, waiting for completion.
+2026-01-09 14:10:57,082 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=312 ts=2026-01-09T14:10:57.081112Z people=2
+2026-01-09 14:10:57,082 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=312 id=left label=Left person v=[-0.534, -0.182, 0.826] yaw=-32.9 pitch=10.5
+2026-01-09 14:10:57,082 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=312 id=right label=Right person v=[-0.400, -0.281, 0.872] yaw=-24.6 pitch=16.3
+2026-01-09 14:10:57,854 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=320 ts=2026-01-09T14:10:57.777507Z people=2
+2026-01-09 14:10:57,854 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=320 id=left label=Left person v=[-0.249, -0.781, 0.573] yaw=-23.4 pitch=51.3
+2026-01-09 14:10:57,854 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=320 id=right label=Right person v=[-0.077, -0.587, 0.806] yaw=-5.5 pitch=36.0
+2026-01-09 14:10:58,508 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=328 ts=2026-01-09T14:10:58.455140Z people=2
+2026-01-09 14:10:58,508 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=328 id=left label=Left person v=[-0.405, -0.426, 0.809] yaw=-26.6 pitch=25.2
+2026-01-09 14:10:58,508 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=328 id=right label=Right person v=[-0.299, -0.380, 0.876] yaw=-18.9 pitch=22.3
+2026-01-09 14:10:58,626 - INFO - BuildTower - Robot action ended.
+2026-01-09 14:10:58,626 - INFO - BuildTower - Attempting to go to position: x=0.735, y=0.0, z=0.432, theta_x=100.0, theta_y=0.0, theta_z=90.0
+2026-01-09 14:10:58,627 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2026-01-09 14:10:58,640 - INFO - BuildTower - Pose action initiated, waiting for completion.
+2026-01-09 14:10:59,162 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=336 ts=2026-01-09T14:10:59.161070Z people=2
+2026-01-09 14:10:59,162 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=336 id=left label=Left person v=[-0.501, -0.258, 0.826] yaw=-31.3 pitch=14.9
+2026-01-09 14:10:59,162 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=336 id=right label=Right person v=[-0.358, -0.323, 0.876] yaw=-22.2 pitch=18.8
+2026-01-09 14:10:59,928 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=344 ts=2026-01-09T14:10:59.887276Z people=2
+2026-01-09 14:10:59,928 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=344 id=left label=Left person v=[-0.586, -0.116, 0.802] yaw=-36.2 pitch=6.7
+2026-01-09 14:10:59,929 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=344 id=right label=Right person v=[-0.185, -0.366, 0.912] yaw=-11.4 pitch=21.5
+2026-01-09 14:11:00,694 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=352 ts=2026-01-09T14:11:00.610944Z people=2
+2026-01-09 14:11:00,694 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=352 id=left label=Left person v=[-0.164, -0.641, 0.750] yaw=-12.3 pitch=39.9
+2026-01-09 14:11:00,694 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=352 id=right label=Right person v=[-0.285, -0.360, 0.889] yaw=-17.8 pitch=21.1
+2026-01-09 14:11:01,354 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=360 ts=2026-01-09T14:11:01.342049Z people=2
+2026-01-09 14:11:01,354 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=360 id=left label=Left person v=[-0.568, -0.382, 0.729] yaw=-37.9 pitch=22.5
+2026-01-09 14:11:01,354 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=360 id=right label=Right person v=[-0.263, -0.380, 0.887] yaw=-16.5 pitch=22.3
+2026-01-09 14:11:02,130 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=368 ts=2026-01-09T14:11:02.048437Z people=2
+2026-01-09 14:11:02,131 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=368 id=left label=Left person v=[-0.564, 0.208, 0.799] yaw=-35.2 pitch=-12.0
+2026-01-09 14:11:02,131 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=368 id=right label=Right person v=[-0.366, -0.269, 0.891] yaw=-22.3 pitch=15.6
+2026-01-09 14:11:02,783 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=376 ts=2026-01-09T14:11:02.777332Z people=2
+2026-01-09 14:11:02,783 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=376 id=left label=Left person v=[-0.624, 0.453, 0.637] yaw=-44.4 pitch=-26.9
+2026-01-09 14:11:02,783 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=376 id=right label=Right person v=[-0.395, -0.352, 0.849] yaw=-24.9 pitch=20.6
+2026-01-09 14:11:03,546 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=384 ts=2026-01-09T14:11:03.482763Z people=2
+2026-01-09 14:11:03,547 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=384 id=left label=Left person v=[-0.313, -0.371, 0.874] yaw=-19.7 pitch=21.8
+2026-01-09 14:11:03,547 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=384 id=right label=Right person v=[-0.487, -0.292, 0.824] yaw=-30.6 pitch=17.0
+2026-01-09 14:11:04,200 - INFO - BuildTower - Robot action ended.
+2026-01-09 14:11:04,200 - INFO - BuildTower - Attempting to go to position: x=0.735, y=0.0, z=0.387, theta_x=100.0, theta_y=0.0, theta_z=90.0
+2026-01-09 14:11:04,200 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2026-01-09 14:11:04,216 - INFO - BuildTower - Pose action initiated, waiting for completion.
+2026-01-09 14:11:04,316 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=392 ts=2026-01-09T14:11:04.215414Z people=2
+2026-01-09 14:11:04,316 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=392 id=left label=Left person v=[-0.577, 0.264, 0.773] yaw=-36.8 pitch=-15.3
+2026-01-09 14:11:04,316 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=392 id=right label=Right person v=[-0.232, -0.433, 0.871] yaw=-14.9 pitch=25.7
+2026-01-09 14:11:04,949 - INFO - BuildTower - Robot action ended.
+2026-01-09 14:11:04,950 - INFO - BuildTower - Sending gripper command: value=0
+2026-01-09 14:11:04,970 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=400 ts=2026-01-09T14:11:04.958665Z people=2
+2026-01-09 14:11:04,970 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=400 id=left label=Left person v=[-0.424, 0.329, 0.844] yaw=-26.6 pitch=-19.2
+2026-01-09 14:11:04,970 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=400 id=right label=Right person v=[-0.489, -0.301, 0.819] yaw=-30.8 pitch=17.5
+2026-01-09 14:11:05,465 - INFO - BuildTower - Gripper command 0 sent successfully.
+2026-01-09 14:11:05,467 - INFO - BuildTower - Attempting to go to position: x=0.735, y=0.0, z=0.432, theta_x=100.0, theta_y=0.0, theta_z=90.0
+2026-01-09 14:11:05,468 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2026-01-09 14:11:05,491 - INFO - BuildTower - Pose action initiated, waiting for completion.
+2026-01-09 14:11:05,732 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=408 ts=2026-01-09T14:11:05.681304Z people=2
+2026-01-09 14:11:05,733 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=408 id=left label=Left person v=[-0.389, 0.080, 0.918] yaw=-23.0 pitch=-4.6
+2026-01-09 14:11:05,733 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=408 id=right label=Right person v=[-0.265, -0.411, 0.872] yaw=-16.9 pitch=24.3
+2026-01-09 14:11:06,222 - INFO - BuildTower - Robot action ended.
+2026-01-09 14:11:06,222 - INFO - BuildTower - Robot completed its turn. Robot turn count: 2
+2026-01-09 14:11:06,222 - INFO - BuildTower - Executing turn 3 out of 9.
+2026-01-09 14:11:06,244 - INFO - BuildTower - Sending robot to home position.
+2026-01-09 14:11:06,496 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=416 ts=2026-01-09T14:11:06.430077Z people=2
+2026-01-09 14:11:06,497 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=416 id=left label=Left person v=[-0.452, 0.062, 0.890] yaw=-27.0 pitch=-3.6
+2026-01-09 14:11:06,497 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=416 id=right label=Right person v=[-0.331, -0.557, 0.762] yaw=-23.5 pitch=33.9
+2026-01-09 14:11:06,866 - INFO - BuildTower - Sending to OpenPose (via thread): PR: Arm Extended Check
+2026-01-09 14:11:06,866 - INFO - BuildTower - OpenPoseThread: sending cmd: PR: Arm Extended Check
+2026-01-09 14:11:07,165 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=424 ts=2026-01-09T14:11:07.164543Z people=2
+2026-01-09 14:11:07,165 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=424 id=left label=Left person v=[-0.441, -0.472, 0.763] yaw=-30.0 pitch=28.2
+2026-01-09 14:11:07,165 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=424 id=right label=Right person v=[-0.511, -0.302, 0.805] yaw=-32.4 pitch=17.6
+2026-01-09 14:11:07,889 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=432 ts=2026-01-09T14:11:07.888195Z people=2
+2026-01-09 14:11:07,889 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=432 id=left label=Left person v=[-0.424, -0.455, 0.783] yaw=-28.4 pitch=27.1
+2026-01-09 14:11:07,889 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=432 id=right label=Right person v=[-0.307, -0.436, 0.846] yaw=-19.9 pitch=25.9
+2026-01-09 14:11:08,598 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=440 ts=2026-01-09T14:11:08.597370Z people=2
+2026-01-09 14:11:08,598 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=440 id=left label=Left person v=[-0.409, -0.504, 0.761] yaw=-28.3 pitch=30.2
+2026-01-09 14:11:08,598 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=440 id=right label=Right person v=[-0.136, -0.590, 0.796] yaw=-9.7 pitch=36.1
+2026-01-09 14:11:09,290 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=448 ts=2026-01-09T14:11:09.288985Z people=2
+2026-01-09 14:11:09,290 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=448 id=left label=Left person v=[-0.441, -0.422, 0.792] yaw=-29.1 pitch=25.0
+2026-01-09 14:11:09,290 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=448 id=right label=Right person v=[-0.243, -0.284, 0.928] yaw=-14.7 pitch=16.5
+2026-01-09 14:11:10,042 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=456 ts=2026-01-09T14:11:10.040626Z people=2
+2026-01-09 14:11:10,042 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=456 id=left label=Left person v=[-0.542, -0.412, 0.733] yaw=-36.5 pitch=24.3
+2026-01-09 14:11:10,042 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=456 id=right label=Right person v=[-0.100, -0.439, 0.893] yaw=-6.4 pitch=26.0
+2026-01-09 14:11:10,754 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=464 ts=2026-01-09T14:11:10.753505Z people=2
+2026-01-09 14:11:10,754 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=464 id=left label=Left person v=[-0.440, -0.505, 0.742] yaw=-30.7 pitch=30.4
+2026-01-09 14:11:10,754 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=464 id=right label=Right person v=[-0.452, -0.401, 0.797] yaw=-29.6 pitch=23.6
+2026-01-09 14:11:11,435 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=472 ts=2026-01-09T14:11:11.433783Z people=2
+2026-01-09 14:11:11,435 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=472 id=left label=Left person v=[-0.589, -0.414, 0.694] yaw=-40.3 pitch=24.5
+2026-01-09 14:11:11,435 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=472 id=right label=Right person v=[-0.165, -0.595, 0.786] yaw=-11.9 pitch=36.5
+2026-01-09 14:11:12,134 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=480 ts=2026-01-09T14:11:12.133587Z people=2
+2026-01-09 14:11:12,134 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=480 id=left label=Left person v=[-0.651, -0.191, 0.735] yaw=-41.5 pitch=11.0
+2026-01-09 14:11:12,134 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=480 id=right label=Right person v=[-0.163, -0.069, 0.984] yaw=-9.4 pitch=4.0
+2026-01-09 14:11:12,817 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=488 ts=2026-01-09T14:11:12.816172Z people=2
+2026-01-09 14:11:12,817 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=488 id=left label=Left person v=[-0.414, -0.348, 0.841] yaw=-26.2 pitch=20.3
+2026-01-09 14:11:12,817 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=488 id=right label=Right person v=[-0.012, -0.335, 0.942] yaw=-0.8 pitch=19.6
+2026-01-09 14:11:13,528 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=496 ts=2026-01-09T14:11:13.527695Z people=2
+2026-01-09 14:11:13,528 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=496 id=left label=Left person v=[-0.481, -0.404, 0.778] yaw=-31.8 pitch=23.8
+2026-01-09 14:11:13,528 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=496 id=right label=Right person v=[-0.321, -0.423, 0.847] yaw=-20.7 pitch=25.1
+2026-01-09 14:11:14,184 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=504 ts=2026-01-09T14:11:14.183696Z people=2
+2026-01-09 14:11:14,184 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=504 id=left label=Left person v=[-0.366, -0.447, 0.816] yaw=-24.2 pitch=26.6
+2026-01-09 14:11:14,185 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=504 id=right label=Right person v=[-0.583, -0.431, 0.689] yaw=-40.2 pitch=25.5
+2026-01-09 14:11:14,862 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=512 ts=2026-01-09T14:11:14.861341Z people=2
+2026-01-09 14:11:14,862 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=512 id=left label=Left person v=[-0.579, 0.026, 0.815] yaw=-35.4 pitch=-1.5
+2026-01-09 14:11:14,863 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=512 id=right label=Right person v=[-0.233, -0.586, 0.776] yaw=-16.7 pitch=35.9
+2026-01-09 14:11:15,536 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=520 ts=2026-01-09T14:11:15.535054Z people=2
+2026-01-09 14:11:15,536 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=520 id=left label=Left person v=[-0.278, -0.365, 0.888] yaw=-17.4 pitch=21.4
+2026-01-09 14:11:15,536 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=520 id=right label=Right person v=[-0.119, -0.543, 0.831] yaw=-8.1 pitch=32.9
+2026-01-09 14:11:16,200 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=528 ts=2026-01-09T14:11:16.199761Z people=2
+2026-01-09 14:11:16,200 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=528 id=left label=Left person v=[-0.616, -0.009, 0.788] yaw=-38.0 pitch=0.5
+2026-01-09 14:11:16,200 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=528 id=right label=Right person v=[-0.112, -0.502, 0.858] yaw=-7.4 pitch=30.1
+2026-01-09 14:11:16,866 - ERROR - BuildTower - OpenPoseThread: timeout waiting for reply for cmd=PR: Arm Extended Check
+2026-01-09 14:11:16,867 - INFO - BuildTower - Sending to OpenPose (via thread): PR: Arm Retracted Check
+2026-01-09 14:11:16,891 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=536 ts=2026-01-09T14:11:16.890498Z people=2
+2026-01-09 14:11:16,891 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=536 id=left label=Left person v=[-0.329, -0.664, 0.672] yaw=-26.1 pitch=41.6
+2026-01-09 14:11:16,891 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=536 id=right label=Right person v=[-0.237, -0.313, 0.920] yaw=-14.5 pitch=18.2
+2026-01-09 14:11:17,548 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=544 ts=2026-01-09T14:11:17.547850Z people=2
+2026-01-09 14:11:17,548 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=544 id=left label=Left person v=[-0.607, -0.349, 0.714] yaw=-40.4 pitch=20.4
+2026-01-09 14:11:17,549 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=544 id=right label=Right person v=[-0.380, -0.288, 0.879] yaw=-23.4 pitch=16.7
+2026-01-09 14:11:18,224 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=552 ts=2026-01-09T14:11:18.223225Z people=2
+2026-01-09 14:11:18,224 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=552 id=left label=Left person v=[-0.264, 0.052, 0.963] yaw=-15.3 pitch=-3.0
+2026-01-09 14:11:18,224 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=552 id=right label=Right person v=[-0.559, -0.547, 0.623] yaw=-41.9 pitch=33.2
+2026-01-09 14:11:18,894 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=560 ts=2026-01-09T14:11:18.893252Z people=2
+2026-01-09 14:11:18,894 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=560 id=left label=Left person v=[-0.313, -0.263, 0.913] yaw=-18.9 pitch=15.2
+2026-01-09 14:11:18,894 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=560 id=right label=Right person v=[-0.481, -0.568, 0.668] yaw=-35.7 pitch=34.6
+2026-01-09 14:11:19,581 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=568 ts=2026-01-09T14:11:19.580698Z people=2
+2026-01-09 14:11:19,581 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=568 id=left label=Left person v=[-0.709, 0.206, 0.674] yaw=-46.4 pitch=-11.9
+2026-01-09 14:11:19,582 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=568 id=right label=Right person v=[-0.246, -0.063, 0.967] yaw=-14.3 pitch=3.6
+2026-01-09 14:11:20,230 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=576 ts=2026-01-09T14:11:20.228813Z people=2
+2026-01-09 14:11:20,230 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=576 id=left label=Left person v=[-0.452, -0.302, 0.839] yaw=-28.3 pitch=17.6
+2026-01-09 14:11:20,230 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=576 id=right label=Right person v=[-0.374, -0.191, 0.908] yaw=-22.4 pitch=11.0
+2026-01-09 14:11:20,914 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=584 ts=2026-01-09T14:11:20.912830Z people=2
+2026-01-09 14:11:20,914 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=584 id=left label=Left person v=[-0.401, -0.270, 0.875] yaw=-24.6 pitch=15.7
+2026-01-09 14:11:20,914 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=584 id=right label=Right person v=[-0.291, -0.278, 0.916] yaw=-17.6 pitch=16.1
+2026-01-09 14:11:21,607 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=592 ts=2026-01-09T14:11:21.598467Z people=2
+2026-01-09 14:11:21,607 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=592 id=left label=Left person v=[-0.639, 0.255, 0.726] yaw=-41.4 pitch=-14.8
+2026-01-09 14:11:21,607 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=592 id=right label=Right person v=[-0.330, -0.243, 0.912] yaw=-19.9 pitch=14.1
+2026-01-09 14:11:22,325 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=600 ts=2026-01-09T14:11:22.324101Z people=2
+2026-01-09 14:11:22,325 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=600 id=left label=Left person v=[-0.545, 0.053, 0.837] yaw=-33.1 pitch=-3.0
+2026-01-09 14:11:22,325 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=600 id=right label=Right person v=[-0.267, -0.273, 0.924] yaw=-16.1 pitch=15.9
+2026-01-09 14:11:23,023 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=608 ts=2026-01-09T14:11:23.022253Z people=2
+2026-01-09 14:11:23,023 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=608 id=left label=Left person v=[-0.395, -0.360, 0.845] yaw=-25.0 pitch=21.1
+2026-01-09 14:11:23,023 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=608 id=right label=Right person v=[-0.420, -0.315, 0.851] yaw=-26.3 pitch=18.3
+2026-01-09 14:11:23,710 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=616 ts=2026-01-09T14:11:23.709287Z people=2
+2026-01-09 14:11:23,710 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=616 id=left label=Left person v=[-0.638, 0.417, 0.647] yaw=-44.6 pitch=-24.6
+2026-01-09 14:11:23,710 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=616 id=right label=Right person v=[-0.359, -0.435, 0.826] yaw=-23.5 pitch=25.8
+2026-01-09 14:11:25,484 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=624 ts=2026-01-09T14:11:25.483692Z people=2
+2026-01-09 14:11:25,484 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=624 id=left label=Left person v=[-0.252, 0.252, 0.934] yaw=-15.1 pitch=-14.6
+2026-01-09 14:11:25,485 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=624 id=right label=Right person v=[-0.385, -0.431, 0.816] yaw=-25.3 pitch=25.5
+2026-01-09 14:11:26,188 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=632 ts=2026-01-09T14:11:26.186802Z people=2
+2026-01-09 14:11:26,189 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=632 id=left label=Left person v=[-0.243, 0.186, 0.952] yaw=-14.3 pitch=-10.7
+2026-01-09 14:11:26,189 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=632 id=right label=Right person v=[-0.469, -0.502, 0.727] yaw=-32.8 pitch=30.1
+2026-01-09 14:11:26,867 - ERROR - BuildTower - OpenPoseThread: timeout waiting for reply for cmd=PR: Arm Retracted Check
+2026-01-09 14:11:26,875 - INFO - BuildTower - Executing turn 4 out of 9.
+2026-01-09 14:11:26,896 - INFO - BuildTower - Sending robot to home position.
+2026-01-09 14:11:27,517 - INFO - BuildTower - Sending to OpenPose (via thread): PL: Arm Extended Check
+2026-01-09 14:11:27,533 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=640 ts=2026-01-09T14:11:27.531431Z people=2
+2026-01-09 14:11:27,533 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=640 id=left label=Left person v=[-0.295, -0.736, 0.609] yaw=-25.9 pitch=47.4
+2026-01-09 14:11:27,533 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=640 id=right label=Right person v=[-0.233, -0.521, 0.821] yaw=-15.8 pitch=31.4
+2026-01-09 14:11:28,248 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=648 ts=2026-01-09T14:11:28.247713Z people=2
+2026-01-09 14:11:28,249 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=648 id=left label=Left person v=[-0.694, -0.142, 0.706] yaw=-44.5 pitch=8.1
+2026-01-09 14:11:28,249 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=648 id=right label=Right person v=[-0.453, -0.445, 0.772] yaw=-30.4 pitch=26.4
+2026-01-09 14:11:28,980 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=656 ts=2026-01-09T14:11:28.979258Z people=2
+2026-01-09 14:11:28,980 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=656 id=left label=Left person v=[-0.515, -0.349, 0.783] yaw=-33.3 pitch=20.4
+2026-01-09 14:11:28,980 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=656 id=right label=Right person v=[-0.444, -0.317, 0.838] yaw=-27.9 pitch=18.5
+2026-01-09 14:11:29,108 - INFO - BuildTower - OpenPoseThread: received reply: Right: Arm Extended
+2026-01-09 14:11:29,108 - INFO - BuildTower - OpenPoseThread: sending cmd: PR: Arm Retracted Check
+2026-01-09 14:11:29,108 - INFO - BuildTower - Sending to OpenPose (via thread): PL: Arm Retracted Check
+2026-01-09 14:11:29,671 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=664 ts=2026-01-09T14:11:29.670470Z people=2
+2026-01-09 14:11:29,671 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=664 id=left label=Left person v=[-0.653, 0.347, 0.673] yaw=-44.1 pitch=-20.3
+2026-01-09 14:11:29,671 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=664 id=right label=Right person v=[-0.190, -0.242, 0.952] yaw=-11.3 pitch=14.0
+2026-01-09 14:11:30,381 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=672 ts=2026-01-09T14:11:30.380064Z people=2
+2026-01-09 14:11:30,381 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=672 id=left label=Left person v=[-0.420, -0.347, 0.839] yaw=-26.6 pitch=20.3
+2026-01-09 14:11:30,381 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=672 id=right label=Right person v=[-0.388, -0.089, 0.917] yaw=-22.9 pitch=5.1
+2026-01-09 14:11:31,062 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=680 ts=2026-01-09T14:11:31.061250Z people=2
+2026-01-09 14:11:31,062 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=680 id=left label=Left person v=[-0.622, 0.133, 0.772] yaw=-38.9 pitch=-7.6
+2026-01-09 14:11:31,062 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=680 id=right label=Right person v=[-0.398, -0.095, 0.913] yaw=-23.5 pitch=5.5
+2026-01-09 14:11:31,768 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=688 ts=2026-01-09T14:11:31.766948Z people=2
+2026-01-09 14:11:31,768 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=688 id=left label=Left person v=[-0.754, -0.111, 0.648] yaw=-49.3 pitch=6.4
+2026-01-09 14:11:31,768 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=688 id=right label=Right person v=[0.030, -0.039, 0.999] yaw=1.7 pitch=2.2
+2026-01-09 14:11:32,463 - INFO - BuildTower - OpenPoseThread: received reply: Right: Arm Retracted
+2026-01-09 14:11:32,463 - INFO - BuildTower - OpenPoseThread: sending cmd: PL: Arm Extended Check
+2026-01-09 14:11:32,463 - INFO - BuildTower - Executing turn 5 out of 9.
+2026-01-09 14:11:32,464 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=696 ts=2026-01-09T14:11:32.456602Z people=2
+2026-01-09 14:11:32,464 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=696 id=left label=Left person v=[-0.516, 0.662, 0.544] yaw=-43.5 pitch=-41.4
+2026-01-09 14:11:32,464 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=696 id=right label=Right person v=[-0.488, 0.082, 0.869] yaw=-29.3 pitch=-4.7
+2026-01-09 14:11:32,473 - INFO - BuildTower - Sending robot to home position.
+2026-01-09 14:11:33,095 - INFO - BuildTower - Sending to OpenPose (via thread): PR: Arm Extended Check
+2026-01-09 14:11:33,181 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=704 ts=2026-01-09T14:11:33.180365Z people=2
+2026-01-09 14:11:33,181 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=704 id=left label=Left person v=[-0.584, 0.153, 0.797] yaw=-36.3 pitch=-8.8
+2026-01-09 14:11:33,181 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=704 id=right label=Right person v=[-0.195, -0.179, 0.964] yaw=-11.4 pitch=10.3
+2026-01-09 14:11:33,886 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=712 ts=2026-01-09T14:11:33.885245Z people=2
+2026-01-09 14:11:33,886 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=712 id=left label=Left person v=[-0.379, -0.502, 0.777] yaw=-26.0 pitch=30.1
+2026-01-09 14:11:33,887 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=712 id=right label=Right person v=[-0.364, -0.326, 0.872] yaw=-22.6 pitch=19.0
+2026-01-09 14:11:34,602 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=720 ts=2026-01-09T14:11:34.601753Z people=2
+2026-01-09 14:11:34,603 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=720 id=left label=Left person v=[-0.664, 0.240, 0.708] yaw=-43.1 pitch=-13.9
+2026-01-09 14:11:34,603 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=720 id=right label=Right person v=[-0.235, -0.418, 0.878] yaw=-15.0 pitch=24.7
+2026-01-09 14:11:34,840 - INFO - BuildTower - OpenPoseThread: received reply: Left: Arm Extended
+2026-01-09 14:11:34,841 - INFO - BuildTower - OpenPoseThread: sending cmd: PL: Arm Retracted Check
+2026-01-09 14:11:34,841 - INFO - BuildTower - Sending to OpenPose (via thread): PR: Arm Retracted Check
+2026-01-09 14:11:35,264 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=728 ts=2026-01-09T14:11:35.263313Z people=2
+2026-01-09 14:11:35,264 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=728 id=left label=Left person v=[-0.603, -0.267, 0.752] yaw=-38.7 pitch=15.5
+2026-01-09 14:11:35,264 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=728 id=right label=Right person v=[-0.305, -0.511, 0.803] yaw=-20.8 pitch=30.7
+2026-01-09 14:11:35,882 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=736 ts=2026-01-09T14:11:35.881534Z people=2
+2026-01-09 14:11:35,882 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=736 id=left label=Left person v=[-0.417, -0.270, 0.868] yaw=-25.7 pitch=15.6
+2026-01-09 14:11:35,882 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=736 id=right label=Right person v=[-0.322, -0.699, 0.638] yaw=-26.7 pitch=44.4
+2026-01-09 14:11:36,578 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=744 ts=2026-01-09T14:11:36.576996Z people=2
+2026-01-09 14:11:36,578 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=744 id=left label=Left person v=[-0.263, 0.144, 0.954] yaw=-15.4 pitch=-8.3
+2026-01-09 14:11:36,578 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=744 id=right label=Right person v=[-0.385, -0.684, 0.620] yaw=-31.8 pitch=43.1
+2026-01-09 14:11:37,281 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=752 ts=2026-01-09T14:11:37.280020Z people=2
+2026-01-09 14:11:37,281 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=752 id=left label=Left person v=[-0.206, -0.281, 0.937] yaw=-12.4 pitch=16.3
+2026-01-09 14:11:37,281 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=752 id=right label=Right person v=[-0.466, -0.594, 0.657] yaw=-35.3 pitch=36.4
+2026-01-09 14:11:37,999 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=760 ts=2026-01-09T14:11:37.997805Z people=2
+2026-01-09 14:11:37,999 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=760 id=left label=Left person v=[-0.240, 0.216, 0.946] yaw=-14.2 pitch=-12.5
+2026-01-09 14:11:37,999 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=760 id=right label=Right person v=[-0.456, -0.654, 0.604] yaw=-37.1 pitch=40.9
+2026-01-09 14:11:38,712 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=768 ts=2026-01-09T14:11:38.711073Z people=2
+2026-01-09 14:11:38,712 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=768 id=left label=Left person v=[-0.186, -0.204, 0.961] yaw=-10.9 pitch=11.8
+2026-01-09 14:11:38,712 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=768 id=right label=Right person v=[-0.371, -0.499, 0.784] yaw=-25.3 pitch=29.9
+2026-01-09 14:11:39,404 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=776 ts=2026-01-09T14:11:39.403104Z people=2
+2026-01-09 14:11:39,404 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=776 id=left label=Left person v=[-0.194, 0.259, 0.946] yaw=-11.6 pitch=-15.0
+2026-01-09 14:11:39,404 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=776 id=right label=Right person v=[-0.103, -0.747, 0.657] yaw=-8.9 pitch=48.3
+2026-01-09 14:11:39,520 - INFO - BuildTower - OpenPoseThread: received reply: Left: Arm Retracted
+2026-01-09 14:11:39,520 - INFO - BuildTower - OpenPoseThread: sending cmd: PR: Arm Extended Check
+2026-01-09 14:11:39,521 - INFO - BuildTower - Executing turn 6 out of 9.
+2026-01-09 14:11:39,549 - INFO - BuildTower - Sending robot to home position.
+2026-01-09 14:11:40,172 - INFO - BuildTower - Sending to OpenPose (via thread): PL: Arm Extended Check
+2026-01-09 14:11:40,868 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=784 ts=2026-01-09T14:11:40.867697Z people=2
+2026-01-09 14:11:40,869 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=784 id=left label=Left person v=[-0.515, 0.007, 0.857] yaw=-31.0 pitch=-0.4
+2026-01-09 14:11:40,869 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=784 id=right label=Right person v=[-0.272, -0.300, 0.915] yaw=-16.5 pitch=17.4
+2026-01-09 14:11:41,580 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=792 ts=2026-01-09T14:11:41.578499Z people=2
+2026-01-09 14:11:41,580 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=792 id=left label=Left person v=[-0.054, -0.313, 0.948] yaw=-3.3 pitch=18.2
+2026-01-09 14:11:41,580 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=792 id=right label=Right person v=[-0.237, -0.469, 0.851] yaw=-15.6 pitch=28.0
+2026-01-09 14:11:41,888 - INFO - BuildTower - OpenPoseThread: received reply: Right: Arm Extended
+2026-01-09 14:11:41,888 - INFO - BuildTower - OpenPoseThread: sending cmd: PR: Arm Retracted Check
+2026-01-09 14:11:41,889 - INFO - BuildTower - Sending to OpenPose (via thread): PL: Arm Retracted Check
+2026-01-09 14:11:42,676 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=800 ts=2026-01-09T14:11:42.674446Z people=2
+2026-01-09 14:11:42,676 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=800 id=left label=Left person v=[-0.557, -0.396, 0.730] yaw=-37.3 pitch=23.4
+2026-01-09 14:11:42,676 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=800 id=right label=Right person v=[-0.507, 0.021, 0.861] yaw=-30.5 pitch=-1.2
+2026-01-09 14:11:43,651 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=808 ts=2026-01-09T14:11:43.650574Z people=2
+2026-01-09 14:11:43,652 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=808 id=left label=Left person v=[-0.481, 0.051, 0.875] yaw=-28.8 pitch=-2.9
+2026-01-09 14:11:43,652 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=808 id=right label=Right person v=[-0.250, 0.897, 0.363] yaw=-34.6 pitch=-63.8
+2026-01-09 14:11:43,782 - INFO - BuildTower - OpenPoseThread: received reply: Right: Arm Retracted
+2026-01-09 14:11:43,783 - INFO - BuildTower - OpenPoseThread: sending cmd: PL: Arm Extended Check
+2026-01-09 14:11:43,787 - INFO - BuildTower - Executing turn 7 out of 9.
+2026-01-09 14:11:43,822 - INFO - BuildTower - Sending robot to home position.
+2026-01-09 14:11:44,447 - INFO - BuildTower - Sending to OpenPose (via thread): PR: Arm Extended Check
+2026-01-09 14:11:44,474 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=816 ts=2026-01-09T14:11:44.473011Z people=2
+2026-01-09 14:11:44,474 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=816 id=None label=None v=[-0.020, 0.974, 0.225] yaw=-4.9 pitch=-76.9
+2026-01-09 14:11:44,474 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=816 id=None label=None v=[-0.373, -0.511, 0.774] yaw=-25.7 pitch=30.7
+2026-01-09 14:11:44,738 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=816 ts=2026-01-09T14:11:44.737228Z people=2
+2026-01-09 14:11:44,738 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=816 id=None label=None v=[0.047, 0.791, 0.610] yaw=4.4 pitch=-52.3
+2026-01-09 14:11:44,738 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=816 id=None label=None v=[-0.482, 0.008, 0.876] yaw=-28.8 pitch=-0.4
+2026-01-09 14:11:44,990 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=816 ts=2026-01-09T14:11:44.989487Z people=2
+2026-01-09 14:11:44,991 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=816 id=left label=Left person v=[-0.484, -0.173, 0.858] yaw=-29.4 pitch=10.0
+2026-01-09 14:11:44,991 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=816 id=right label=Right person v=[-0.001, 0.977, 0.213] yaw=-0.2 pitch=-77.7
+2026-01-09 14:11:45,654 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=824 ts=2026-01-09T14:11:45.652999Z people=2
+2026-01-09 14:11:45,654 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=824 id=left label=Left person v=[-0.348, -0.399, 0.848] yaw=-22.3 pitch=23.5
+2026-01-09 14:11:45,654 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=824 id=right label=Right person v=[-0.296, -0.261, 0.919] yaw=-17.8 pitch=15.1
+2026-01-09 14:11:46,334 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=832 ts=2026-01-09T14:11:46.332819Z people=2
+2026-01-09 14:11:46,334 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=832 id=left label=Left person v=[-0.473, -0.058, 0.879] yaw=-28.3 pitch=3.3
+2026-01-09 14:11:46,334 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=832 id=right label=Right person v=[-0.388, -0.269, 0.882] yaw=-23.7 pitch=15.6
+2026-01-09 14:11:47,002 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=840 ts=2026-01-09T14:11:47.001098Z people=2
+2026-01-09 14:11:47,002 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=840 id=left label=Left person v=[-0.413, -0.615, 0.672] yaw=-31.6 pitch=38.0
+2026-01-09 14:11:47,002 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=840 id=right label=Right person v=[-0.398, -0.300, 0.867] yaw=-24.6 pitch=17.5
+2026-01-09 14:11:47,676 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=848 ts=2026-01-09T14:11:47.674975Z people=2
+2026-01-09 14:11:47,676 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=848 id=left label=Left person v=[-0.246, -0.855, 0.456] yaw=-28.3 pitch=58.8
+2026-01-09 14:11:47,676 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=848 id=right label=Right person v=[-0.058, -0.606, 0.794] yaw=-4.2 pitch=37.3
+2026-01-09 14:11:48,433 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=856 ts=2026-01-09T14:11:48.432005Z people=2
+2026-01-09 14:11:48,433 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=856 id=left label=Left person v=[-0.569, -0.280, 0.773] yaw=-36.3 pitch=16.2
+2026-01-09 14:11:48,433 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=856 id=right label=Right person v=[-0.096, -0.663, 0.742] yaw=-7.3 pitch=41.6
+2026-01-09 14:11:49,123 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=864 ts=2026-01-09T14:11:49.122647Z people=2
+2026-01-09 14:11:49,123 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=864 id=left label=Left person v=[-0.246, -0.831, 0.499] yaw=-26.2 pitch=56.2
+2026-01-09 14:11:49,123 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=864 id=right label=Right person v=[-0.120, -0.687, 0.717] yaw=-9.5 pitch=43.4
+2026-01-09 14:11:49,948 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=872 ts=2026-01-09T14:11:49.947846Z people=2
+2026-01-09 14:11:49,948 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=872 id=left label=Left person v=[-0.563, 0.328, 0.759] yaw=-36.6 pitch=-19.2
+2026-01-09 14:11:49,949 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=872 id=right label=Right person v=[-0.084, -0.637, 0.767] yaw=-6.3 pitch=39.5
+2026-01-09 14:11:50,658 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=880 ts=2026-01-09T14:11:50.657192Z people=2
+2026-01-09 14:11:50,658 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=880 id=left label=Left person v=[-0.598, 0.295, 0.746] yaw=-38.7 pitch=-17.1
+2026-01-09 14:11:50,658 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=880 id=right label=Right person v=[-0.071, -0.645, 0.761] yaw=-5.4 pitch=40.2
+2026-01-09 14:11:51,379 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=888 ts=2026-01-09T14:11:51.377653Z people=2
+2026-01-09 14:11:51,379 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=888 id=left label=Left person v=[-0.155, -0.268, 0.951] yaw=-9.2 pitch=15.5
+2026-01-09 14:11:51,379 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=888 id=right label=Right person v=[-0.371, -0.227, 0.900] yaw=-22.4 pitch=13.1
+2026-01-09 14:11:52,047 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=896 ts=2026-01-09T14:11:52.045863Z people=2
+2026-01-09 14:11:52,047 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=896 id=left label=Left person v=[-0.474, -0.339, 0.813] yaw=-30.2 pitch=19.8
+2026-01-09 14:11:52,047 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=896 id=right label=Right person v=[-0.125, -0.790, 0.601] yaw=-11.7 pitch=52.1
+2026-01-09 14:11:52,722 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=904 ts=2026-01-09T14:11:52.720849Z people=2
+2026-01-09 14:11:52,722 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=904 id=left label=Left person v=[-0.403, -0.180, 0.897] yaw=-24.2 pitch=10.4
+2026-01-09 14:11:52,722 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=904 id=right label=Right person v=[-0.132, -0.698, 0.704] yaw=-10.6 pitch=44.3
+2026-01-09 14:11:53,425 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=912 ts=2026-01-09T14:11:53.424189Z people=2
+2026-01-09 14:11:53,425 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=912 id=left label=Left person v=[-0.151, -0.427, 0.892] yaw=-9.6 pitch=25.3
+2026-01-09 14:11:53,425 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=912 id=right label=Right person v=[-0.193, -0.740, 0.644] yaw=-16.7 pitch=47.7
+2026-01-09 14:11:53,736 - INFO - BuildTower - OpenPoseThread: received reply: Left: Arm Extended
+2026-01-09 14:11:53,737 - INFO - BuildTower - OpenPoseThread: sending cmd: PL: Arm Retracted Check
+2026-01-09 14:11:53,737 - INFO - BuildTower - Sending to OpenPose (via thread): PR: Arm Retracted Check
+2026-01-09 14:11:54,191 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=920 ts=2026-01-09T14:11:54.182584Z people=2
+2026-01-09 14:11:54,191 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=920 id=left label=Left person v=[-0.375, 0.035, 0.926] yaw=-22.0 pitch=-2.0
+2026-01-09 14:11:54,192 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=920 id=right label=Right person v=[-0.128, -0.681, 0.721] yaw=-10.0 pitch=42.9
+2026-01-09 14:11:54,897 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=928 ts=2026-01-09T14:11:54.896557Z people=2
+2026-01-09 14:11:54,897 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=928 id=left label=Left person v=[-0.392, 0.717, 0.577] yaw=-34.2 pitch=-45.8
+2026-01-09 14:11:54,897 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=928 id=right label=Right person v=[-0.149, -0.745, 0.651] yaw=-12.9 pitch=48.1
+2026-01-09 14:11:55,575 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=936 ts=2026-01-09T14:11:55.574491Z people=2
+2026-01-09 14:11:55,575 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=936 id=left label=Left person v=[-0.357, 0.152, 0.922] yaw=-21.2 pitch=-8.7
+2026-01-09 14:11:55,575 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=936 id=right label=Right person v=[-0.147, -0.563, 0.813] yaw=-10.2 pitch=34.3
+2026-01-09 14:11:55,631 - INFO - BuildTower - OpenPoseThread: received reply: Left: Arm Retracted
+2026-01-09 14:11:55,632 - INFO - BuildTower - OpenPoseThread: sending cmd: PR: Arm Extended Check
+2026-01-09 14:11:55,632 - INFO - BuildTower - Executing turn 8 out of 9.
+2026-01-09 14:11:55,632 - INFO - BuildTower - Moving block from start 0.28 to target 0.643. Turn: 8, Block Shape: 3
+2026-01-09 14:11:55,635 - INFO - BuildTower - Sending gripper command: value=0
+2026-01-09 14:11:56,144 - INFO - BuildTower - Gripper command 0 sent successfully.
+2026-01-09 14:11:56,145 - INFO - BuildTower - Attempting to go to position: x=0.5, y=-0.2, z=0.325, theta_x=100.0, theta_y=0.0, theta_z=90.0
+2026-01-09 14:11:56,146 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2026-01-09 14:11:56,172 - INFO - BuildTower - Pose action initiated, waiting for completion.
+2026-01-09 14:11:56,230 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=944 ts=2026-01-09T14:11:56.229178Z people=2
+2026-01-09 14:11:56,230 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=944 id=left label=Left person v=[-0.316, -0.637, 0.703] yaw=-24.2 pitch=39.6
+2026-01-09 14:11:56,230 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=944 id=right label=Right person v=[-0.057, -0.879, 0.474] yaw=-6.8 pitch=61.5
+2026-01-09 14:11:56,917 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=952 ts=2026-01-09T14:11:56.916602Z people=2
+2026-01-09 14:11:56,917 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=952 id=left label=Left person v=[-0.553, -0.268, 0.789] yaw=-35.0 pitch=15.6
+2026-01-09 14:11:56,917 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=952 id=right label=Right person v=[-0.136, -0.616, 0.776] yaw=-9.9 pitch=38.0
+2026-01-09 14:11:57,612 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=960 ts=2026-01-09T14:11:57.611624Z people=2
+2026-01-09 14:11:57,613 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=960 id=left label=Left person v=[-0.449, 0.535, 0.715] yaw=-32.1 pitch=-32.4
+2026-01-09 14:11:57,613 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=960 id=right label=Right person v=[-0.538, -0.275, 0.797] yaw=-34.0 pitch=16.0
+2026-01-09 14:11:58,370 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=968 ts=2026-01-09T14:11:58.369743Z people=2
+2026-01-09 14:11:58,370 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=968 id=None label=None v=[-0.219, -0.452, 0.865] yaw=-14.2 pitch=26.9
+2026-01-09 14:11:58,370 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=968 id=None label=None v=[-0.630, 0.192, 0.752] yaw=-39.9 pitch=-11.1
+2026-01-09 14:11:58,613 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=968 ts=2026-01-09T14:11:58.612303Z people=2
+2026-01-09 14:11:58,613 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=968 id=None label=None v=[-0.142, -0.445, 0.884] yaw=-9.1 pitch=26.4
+2026-01-09 14:11:58,613 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=968 id=None label=None v=[-0.550, 0.344, 0.761] yaw=-35.9 pitch=-20.1
+2026-01-09 14:11:58,857 - INFO - BuildTower - Robot action ended.
+2026-01-09 14:11:58,858 - INFO - BuildTower - Attempting to go to position: x=0.5, y=-0.2, z=0.28, theta_x=100.0, theta_y=0.0, theta_z=90.0
+2026-01-09 14:11:58,858 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2026-01-09 14:11:58,870 - INFO - BuildTower - Pose action initiated, waiting for completion.
+2026-01-09 14:11:58,876 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=968 ts=2026-01-09T14:11:58.875651Z people=2
+2026-01-09 14:11:58,877 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=968 id=None label=None v=[-0.145, -0.510, 0.848] yaw=-9.7 pitch=30.7
+2026-01-09 14:11:58,877 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=968 id=None label=None v=[-0.601, 0.335, 0.725] yaw=-39.6 pitch=-19.6
+2026-01-09 14:11:59,119 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=968 ts=2026-01-09T14:11:59.117780Z people=2
+2026-01-09 14:11:59,119 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=968 id=None label=None v=[-0.162, -0.521, 0.838] yaw=-10.9 pitch=31.4
+2026-01-09 14:11:59,119 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=968 id=None label=None v=[-0.599, 0.374, 0.708] yaw=-40.2 pitch=-22.0
+2026-01-09 14:11:59,369 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=968 ts=2026-01-09T14:11:59.360502Z people=2
+2026-01-09 14:11:59,369 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=968 id=None label=None v=[-0.233, -0.569, 0.788] yaw=-16.5 pitch=34.7
+2026-01-09 14:11:59,369 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=968 id=None label=None v=[-0.493, -0.625, 0.606] yaw=-39.1 pitch=38.7
+2026-01-09 14:11:59,603 - INFO - BuildTower - Robot action ended.
+2026-01-09 14:11:59,605 - INFO - BuildTower - Sending gripper command: value=0.2
+2026-01-09 14:11:59,631 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=968 ts=2026-01-09T14:11:59.630009Z people=2
+2026-01-09 14:11:59,631 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=968 id=None label=None v=[-0.526, -0.329, 0.784] yaw=-33.9 pitch=19.2
+2026-01-09 14:11:59,631 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=968 id=None label=None v=[-0.250, -0.721, 0.646] yaw=-21.1 pitch=46.1
+2026-01-09 14:11:59,889 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=968 ts=2026-01-09T14:11:59.888593Z people=2
+2026-01-09 14:11:59,889 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=968 id=None label=None v=[-0.536, -0.180, 0.825] yaw=-33.0 pitch=10.3
+2026-01-09 14:11:59,889 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=968 id=None label=None v=[-0.218, -0.798, 0.561] yaw=-21.2 pitch=53.0
+2026-01-09 14:12:00,119 - INFO - BuildTower - Gripper command 0.2 sent successfully.
+2026-01-09 14:12:00,120 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=968 ts=2026-01-09T14:12:00.119654Z people=2
+2026-01-09 14:12:00,120 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=968 id=None label=None v=[-0.617, -0.115, 0.779] yaw=-38.4 pitch=6.6
+2026-01-09 14:12:00,120 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=968 id=None label=None v=[-0.232, -0.746, 0.624] yaw=-20.4 pitch=48.3
+2026-01-09 14:12:00,121 - INFO - BuildTower - Attempting to go to position: x=0.5, y=-0.2, z=0.685, theta_x=100.0, theta_y=0.0, theta_z=90.0
+2026-01-09 14:12:00,121 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2026-01-09 14:12:00,175 - INFO - BuildTower - Pose action initiated, waiting for completion.
+2026-01-09 14:12:00,349 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=968 ts=2026-01-09T14:12:00.348753Z people=2
+2026-01-09 14:12:00,349 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=968 id=None label=None v=[-0.589, -0.191, 0.786] yaw=-36.8 pitch=11.0
+2026-01-09 14:12:00,349 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=968 id=None label=None v=[-0.318, -0.774, 0.548] yaw=-30.1 pitch=50.7
+2026-01-09 14:12:00,609 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=968 ts=2026-01-09T14:12:00.608565Z people=2
+2026-01-09 14:12:00,609 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=968 id=None label=None v=[-0.590, -0.166, 0.790] yaw=-36.8 pitch=9.5
+2026-01-09 14:12:00,609 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=968 id=None label=None v=[-0.211, -0.761, 0.613] yaw=-19.0 pitch=49.6
+2026-01-09 14:12:00,881 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=968 ts=2026-01-09T14:12:00.880053Z people=2
+2026-01-09 14:12:00,881 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=968 id=None label=None v=[-0.635, -0.122, 0.762] yaw=-39.8 pitch=7.0
+2026-01-09 14:12:00,881 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=968 id=None label=None v=[-0.276, -0.732, 0.623] yaw=-23.9 pitch=47.1
+2026-01-09 14:12:01,124 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=968 ts=2026-01-09T14:12:01.123161Z people=2
+2026-01-09 14:12:01,124 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=968 id=None label=None v=[-0.598, -0.140, 0.789] yaw=-37.1 pitch=8.1
+2026-01-09 14:12:01,124 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=968 id=None label=None v=[-0.295, -0.763, 0.575] yaw=-27.1 pitch=49.7
+2026-01-09 14:12:01,365 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=968 ts=2026-01-09T14:12:01.363979Z people=2
+2026-01-09 14:12:01,365 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=968 id=None label=None v=[-0.574, -0.120, 0.810] yaw=-35.3 pitch=6.9
+2026-01-09 14:12:01,365 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=968 id=None label=None v=[-0.595, 0.025, 0.803] yaw=-36.5 pitch=-1.4
+2026-01-09 14:12:01,611 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=968 ts=2026-01-09T14:12:01.609686Z people=2
+2026-01-09 14:12:01,611 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=968 id=None label=None v=[-0.566, -0.274, 0.778] yaw=-36.0 pitch=15.9
+2026-01-09 14:12:01,611 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=968 id=None label=None v=[-0.549, 0.374, 0.747] yaw=-36.3 pitch=-22.0
+2026-01-09 14:12:01,855 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=968 ts=2026-01-09T14:12:01.853505Z people=2
+2026-01-09 14:12:01,855 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=968 id=None label=None v=[-0.513, -0.243, 0.823] yaw=-31.9 pitch=14.1
+2026-01-09 14:12:01,856 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=968 id=None label=None v=[-0.496, 0.313, 0.810] yaw=-31.5 pitch=-18.2
+2026-01-09 14:12:02,116 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=968 ts=2026-01-09T14:12:02.115311Z people=2
+2026-01-09 14:12:02,116 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=968 id=left label=Left person v=[-0.595, 0.224, 0.772] yaw=-37.7 pitch=-13.0
+2026-01-09 14:12:02,116 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=968 id=right label=Right person v=[-0.548, -0.206, 0.810] yaw=-34.1 pitch=11.9
+2026-01-09 14:12:04,513 - INFO - BuildTower - Robot action ended.
+2026-01-09 14:12:04,513 - INFO - BuildTower - Attempting to go to position: x=0.737, y=0.0, z=0.6880000000000001, theta_x=100.0, theta_y=0.0, theta_z=90.0
+2026-01-09 14:12:04,513 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2026-01-09 14:12:04,521 - INFO - BuildTower - Pose action initiated, waiting for completion.
+2026-01-09 14:12:06,379 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=976 ts=2026-01-09T14:12:06.372889Z people=2
+2026-01-09 14:12:06,379 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=976 id=None label=None v=[-0.335, -0.177, 0.925] yaw=-19.9 pitch=10.2
+2026-01-09 14:12:06,380 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=976 id=None label=None v=[-0.420, -0.330, 0.845] yaw=-26.4 pitch=19.3
+2026-01-09 14:12:06,606 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=976 ts=2026-01-09T14:12:06.605279Z people=2
+2026-01-09 14:12:06,606 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=976 id=left label=Left person v=[-0.392, -0.224, 0.892] yaw=-23.7 pitch=13.0
+2026-01-09 14:12:06,606 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=976 id=right label=Right person v=[-0.266, -0.144, 0.953] yaw=-15.6 pitch=8.3
+2026-01-09 14:12:07,903 - INFO - BuildTower - Robot action ended.
+2026-01-09 14:12:07,903 - INFO - BuildTower - Attempting to go to position: x=0.737, y=0.0, z=0.643, theta_x=100.0, theta_y=0.0, theta_z=90.0
+2026-01-09 14:12:07,904 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2026-01-09 14:12:07,926 - INFO - BuildTower - Pose action initiated, waiting for completion.
+2026-01-09 14:12:08,557 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=984 ts=2026-01-09T14:12:08.556368Z people=2
+2026-01-09 14:12:08,557 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=984 id=None label=None v=[-0.468, -0.168, 0.868] yaw=-28.3 pitch=9.7
+2026-01-09 14:12:08,557 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=984 id=None label=None v=[-0.199, -0.204, 0.959] yaw=-11.7 pitch=11.8
+2026-01-09 14:12:08,659 - INFO - BuildTower - Robot action ended.
+2026-01-09 14:12:08,660 - INFO - BuildTower - Sending gripper command: value=0
+2026-01-09 14:12:08,793 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=984 ts=2026-01-09T14:12:08.792279Z people=2
+2026-01-09 14:12:08,793 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=984 id=left label=Left person v=[-0.422, -0.033, 0.906] yaw=-25.0 pitch=1.9
+2026-01-09 14:12:08,793 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=984 id=right label=Right person v=[-0.282, -0.281, 0.917] yaw=-17.1 pitch=16.3
+2026-01-09 14:12:09,171 - INFO - BuildTower - Gripper command 0 sent successfully.
+2026-01-09 14:12:09,174 - INFO - BuildTower - Attempting to go to position: x=0.737, y=0.0, z=0.6880000000000001, theta_x=100.0, theta_y=0.0, theta_z=90.0
+2026-01-09 14:12:09,174 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2026-01-09 14:12:09,196 - INFO - BuildTower - Pose action initiated, waiting for completion.
+2026-01-09 14:12:09,926 - INFO - BuildTower - Robot action ended.
+2026-01-09 14:12:09,927 - INFO - BuildTower - Robot completed its turn. Robot turn count: 3
+2026-01-09 14:12:09,927 - INFO - BuildTower - Configuration number 1 finished.
+2026-01-09 14:12:10,695 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=992 ts=2026-01-09T14:12:10.693695Z people=2
+2026-01-09 14:12:10,696 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=992 id=left label=Left person v=[-0.347, -0.601, 0.719] yaw=-25.8 pitch=37.0
+2026-01-09 14:12:10,696 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=992 id=right label=Right person v=[-0.326, -0.548, 0.770] yaw=-22.9 pitch=33.3
+2026-01-09 14:12:15,517 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1000 ts=2026-01-09T14:12:15.509010Z people=2
+2026-01-09 14:12:15,517 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1000 id=None label=None v=[-0.488, -0.361, 0.794] yaw=-31.6 pitch=21.2
+2026-01-09 14:12:15,517 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1000 id=None label=None v=[-0.522, -0.038, 0.852] yaw=-31.5 pitch=2.2
+2026-01-09 14:12:15,730 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1000 ts=2026-01-09T14:12:15.729821Z people=2
+2026-01-09 14:12:15,731 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1000 id=None label=None v=[-0.547, -0.387, 0.742] yaw=-36.4 pitch=22.8
+2026-01-09 14:12:15,731 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1000 id=None label=None v=[-0.100, -0.207, 0.973] yaw=-5.9 pitch=11.9
+2026-01-09 14:12:15,999 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1000 ts=2026-01-09T14:12:15.995743Z people=2
+2026-01-09 14:12:15,999 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1000 id=None label=None v=[-0.470, -0.377, 0.799] yaw=-30.5 pitch=22.1
+2026-01-09 14:12:15,999 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1000 id=None label=None v=[-0.312, -0.464, 0.829] yaw=-20.6 pitch=27.6
+2026-01-09 14:12:16,264 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1000 ts=2026-01-09T14:12:16.263836Z people=2
+2026-01-09 14:12:16,265 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1000 id=left label=Left person v=[-0.550, -0.091, 0.830] yaw=-33.6 pitch=5.2
+2026-01-09 14:12:16,265 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1000 id=right label=Right person v=[-0.420, -0.374, 0.827] yaw=-26.9 pitch=22.0
+2026-01-09 14:12:18,457 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1008 ts=2026-01-09T14:12:18.455858Z people=2
+2026-01-09 14:12:18,457 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1008 id=None label=None v=[-0.570, -0.342, 0.748] yaw=-37.3 pitch=20.0
+2026-01-09 14:12:18,457 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1008 id=None label=None v=[-0.620, -0.012, 0.784] yaw=-38.3 pitch=0.7
+2026-01-09 14:12:18,719 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1008 ts=2026-01-09T14:12:18.715121Z people=2
+2026-01-09 14:12:18,719 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1008 id=None label=None v=[-0.566, -0.369, 0.737] yaw=-37.5 pitch=21.7
+2026-01-09 14:12:18,720 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1008 id=None label=None v=[-0.619, 0.017, 0.785] yaw=-38.2 pitch=-1.0
+2026-01-09 14:12:18,977 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1008 ts=2026-01-09T14:12:18.976468Z people=2
+2026-01-09 14:12:18,977 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1008 id=None label=None v=[-0.536, -0.436, 0.723] yaw=-36.6 pitch=25.8
+2026-01-09 14:12:18,978 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1008 id=None label=None v=[-0.545, 0.128, 0.829] yaw=-33.3 pitch=-7.4
+2026-01-09 14:12:19,236 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1008 ts=2026-01-09T14:12:19.235093Z people=2
+2026-01-09 14:12:19,236 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1008 id=None label=None v=[-0.377, -0.254, 0.891] yaw=-22.9 pitch=14.7
+2026-01-09 14:12:19,236 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1008 id=None label=None v=[-0.463, -0.525, 0.714] yaw=-33.0 pitch=31.7
+2026-01-09 14:12:19,462 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1008 ts=2026-01-09T14:12:19.461632Z people=2
+2026-01-09 14:12:19,462 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1008 id=left label=Left person v=[-0.367, -0.625, 0.689] yaw=-28.1 pitch=38.7
+2026-01-09 14:12:19,462 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1008 id=right label=Right person v=[-0.364, -0.339, 0.867] yaw=-22.8 pitch=19.8
+2026-01-09 14:12:19,927 - ERROR - BuildTower - OpenPoseThread: timeout waiting for reply for cmd=Configuration finished
+2026-01-09 14:12:19,928 - ERROR - BuildTower - No reply to 'Configuration finished'
+2026-01-09 14:12:20,163 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1016 ts=2026-01-09T14:12:20.162180Z people=2
+2026-01-09 14:12:20,163 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1016 id=left label=Left person v=[-0.319, -0.760, 0.567] yaw=-29.4 pitch=49.4
+2026-01-09 14:12:20,163 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1016 id=right label=Right person v=[-0.192, -0.623, 0.759] yaw=-14.2 pitch=38.5
+2026-01-09 14:12:20,832 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1024 ts=2026-01-09T14:12:20.831474Z people=2
+2026-01-09 14:12:20,832 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1024 id=left label=Left person v=[-0.369, -0.411, 0.834] yaw=-23.9 pitch=24.3
+2026-01-09 14:12:20,832 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1024 id=right label=Right person v=[-0.165, -0.640, 0.751] yaw=-12.4 pitch=39.8
+2026-01-09 14:12:46,199 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1032 ts=2026-01-09T14:12:46.198139Z people=2
+2026-01-09 14:12:46,199 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1032 id=left label=Left person v=[-0.571, 0.349, 0.743] yaw=-37.5 pitch=-20.4
+2026-01-09 14:12:46,199 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1032 id=right label=Right person v=[-0.446, 0.154, 0.882] yaw=-26.8 pitch=-8.8
+2026-01-09 14:12:48,928 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1040 ts=2026-01-09T14:12:48.926894Z people=2
+2026-01-09 14:12:48,928 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1040 id=left label=Left person v=[-0.629, 0.044, 0.776] yaw=-39.0 pitch=-2.5
+2026-01-09 14:12:48,928 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1040 id=right label=Right person v=[-0.199, -0.582, 0.788] yaw=-14.2 pitch=35.6
+2026-01-09 14:12:49,683 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1048 ts=2026-01-09T14:12:49.678951Z people=2
+2026-01-09 14:12:49,684 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1048 id=left label=Left person v=[-0.632, 0.496, 0.596] yaw=-46.7 pitch=-29.8
+2026-01-09 14:12:49,684 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1048 id=right label=Right person v=[-0.239, -0.606, 0.758] yaw=-17.5 pitch=37.3
+2026-01-09 14:12:57,928 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1056 ts=2026-01-09T14:12:57.927496Z people=2
+2026-01-09 14:12:57,928 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1056 id=left label=Left person v=[-0.282, -0.730, 0.623] yaw=-24.4 pitch=46.8
+2026-01-09 14:12:57,929 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1056 id=right label=Right person v=[0.072, -0.643, 0.762] yaw=5.4 pitch=40.0
+2026-01-09 14:12:58,774 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1064 ts=2026-01-09T14:12:58.773145Z people=2
+2026-01-09 14:12:58,774 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1064 id=None label=None v=[0.079, -0.698, 0.711] yaw=6.3 pitch=44.3
+2026-01-09 14:12:58,774 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1064 id=None label=None v=[-0.302, -0.747, 0.592] yaw=-27.0 pitch=48.3
+2026-01-09 14:12:59,016 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1064 ts=2026-01-09T14:12:59.015863Z people=2
+2026-01-09 14:12:59,017 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1064 id=left label=Left person v=[-0.311, -0.580, 0.753] yaw=-22.4 pitch=35.5
+2026-01-09 14:12:59,017 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1064 id=right label=Right person v=[0.161, -0.619, 0.769] yaw=11.8 pitch=38.2
+2026-01-09 14:12:59,666 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1072 ts=2026-01-09T14:12:59.665248Z people=2
+2026-01-09 14:12:59,666 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1072 id=left label=Left person v=[-0.472, -0.424, 0.773] yaw=-31.4 pitch=25.1
+2026-01-09 14:12:59,666 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1072 id=right label=Right person v=[-0.178, -0.617, 0.766] yaw=-13.1 pitch=38.1
+2026-01-09 14:13:00,335 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1080 ts=2026-01-09T14:13:00.329630Z people=2
+2026-01-09 14:13:00,335 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1080 id=left label=Left person v=[-0.619, 0.110, 0.778] yaw=-38.5 pitch=-6.3
+2026-01-09 14:13:00,335 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1080 id=right label=Right person v=[-0.126, -0.492, 0.861] yaw=-8.3 pitch=29.5
+2026-01-09 14:13:01,021 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1088 ts=2026-01-09T14:13:01.019924Z people=2
+2026-01-09 14:13:01,021 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1088 id=left label=Left person v=[-0.476, -0.347, 0.808] yaw=-30.5 pitch=20.3
+2026-01-09 14:13:01,021 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1088 id=right label=Right person v=[-0.114, -0.540, 0.834] yaw=-7.8 pitch=32.7
+2026-01-09 14:13:01,751 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1096 ts=2026-01-09T14:13:01.749826Z people=2
+2026-01-09 14:13:01,751 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1096 id=left label=Left person v=[-0.162, -0.381, 0.910] yaw=-10.1 pitch=22.4
+2026-01-09 14:13:01,751 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1096 id=right label=Right person v=[-0.048, -0.683, 0.729] yaw=-3.7 pitch=43.0
+2026-01-09 14:13:02,445 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1104 ts=2026-01-09T14:13:02.443724Z people=2
+2026-01-09 14:13:02,445 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1104 id=left label=Left person v=[-0.533, -0.401, 0.745] yaw=-35.6 pitch=23.6
+2026-01-09 14:13:02,445 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1104 id=right label=Right person v=[-0.024, -0.605, 0.796] yaw=-1.7 pitch=37.2
+2026-01-09 14:13:03,155 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1112 ts=2026-01-09T14:13:03.151395Z people=2
+2026-01-09 14:13:03,155 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1112 id=left label=Left person v=[-0.442, -0.472, 0.763] yaw=-30.1 pitch=28.2
+2026-01-09 14:13:03,155 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1112 id=right label=Right person v=[0.023, -0.493, 0.870] yaw=1.5 pitch=29.5
+2026-01-09 14:13:04,803 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1120 ts=2026-01-09T14:13:04.801667Z people=2
+2026-01-09 14:13:04,803 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1120 id=left label=Left person v=[-0.168, -0.762, 0.626] yaw=-15.0 pitch=49.6
+2026-01-09 14:13:04,803 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1120 id=right label=Right person v=[0.076, -0.519, 0.851] yaw=5.1 pitch=31.3
+2026-01-09 14:13:09,177 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1128 ts=2026-01-09T14:13:09.176213Z people=2
+2026-01-09 14:13:09,177 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1128 id=None label=None v=[0.032, -0.314, 0.949] yaw=2.0 pitch=18.3
+2026-01-09 14:13:09,177 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1128 id=None label=None v=[-0.467, 0.022, 0.884] yaw=-27.8 pitch=-1.3
+2026-01-09 14:13:09,412 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1128 ts=2026-01-09T14:13:09.411038Z people=2
+2026-01-09 14:13:09,412 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1128 id=left label=Left person v=[-0.457, -0.249, 0.854] yaw=-28.2 pitch=14.4
+2026-01-09 14:13:09,412 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1128 id=right label=Right person v=[-0.042, -0.434, 0.900] yaw=-2.6 pitch=25.7
+2026-01-09 14:13:11,368 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1136 ts=2026-01-09T14:13:11.366805Z people=2
+2026-01-09 14:13:11,368 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1136 id=left label=Left person v=[-0.318, -0.548, 0.774] yaw=-22.3 pitch=33.2
+2026-01-09 14:13:11,368 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1136 id=right label=Right person v=[0.130, -0.624, 0.771] yaw=9.6 pitch=38.6
+2026-01-09 14:13:12,393 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1144 ts=2026-01-09T14:13:12.392353Z people=2
+2026-01-09 14:13:12,393 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1144 id=left label=Left person v=[-0.537, -0.152, 0.830] yaw=-32.9 pitch=8.8
+2026-01-09 14:13:12,393 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1144 id=right label=Right person v=[-0.064, 0.694, 0.717] yaw=-5.1 pitch=-43.9
+2026-01-09 14:13:13,584 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1152 ts=2026-01-09T14:13:13.582741Z people=2
+2026-01-09 14:13:13,584 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1152 id=left label=Left person v=[-0.434, -0.396, 0.809] yaw=-28.2 pitch=23.3
+2026-01-09 14:13:13,584 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1152 id=right label=Right person v=[-0.109, 0.825, 0.555] yaw=-11.2 pitch=-55.6
+2026-01-09 14:13:15,328 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1160 ts=2026-01-09T14:13:15.327639Z people=2
+2026-01-09 14:13:15,328 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1160 id=left label=Left person v=[-0.571, 0.244, 0.784] yaw=-36.1 pitch=-14.1
+2026-01-09 14:13:15,329 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1160 id=right label=Right person v=[-0.115, 0.747, 0.655] yaw=-9.9 pitch=-48.3
+2026-01-09 14:13:18,004 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1168 ts=2026-01-09T14:13:18.003528Z people=2
+2026-01-09 14:13:18,004 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1168 id=None label=None v=[-0.023, -0.643, 0.765] yaw=-1.7 pitch=40.0
+2026-01-09 14:13:18,004 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1168 id=None label=None v=[-0.172, -0.800, 0.574] yaw=-16.7 pitch=53.2
+2026-01-09 14:13:18,247 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1168 ts=2026-01-09T14:13:18.246743Z people=2
+2026-01-09 14:13:18,247 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1168 id=None label=None v=[-0.043, -0.704, 0.709] yaw=-3.5 pitch=44.8
+2026-01-09 14:13:18,247 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1168 id=None label=None v=[-0.200, -0.824, 0.531] yaw=-20.7 pitch=55.4
+2026-01-09 14:13:18,492 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1168 ts=2026-01-09T14:13:18.491829Z people=2
+2026-01-09 14:13:18,493 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1168 id=None label=None v=[0.040, -0.592, 0.805] yaw=2.8 pitch=36.3
+2026-01-09 14:13:18,493 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1168 id=None label=None v=[-0.226, -0.862, 0.454] yaw=-26.4 pitch=59.5
+2026-01-09 14:13:18,758 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1168 ts=2026-01-09T14:13:18.757154Z people=2
+2026-01-09 14:13:18,758 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1168 id=None label=None v=[-0.095, -0.590, 0.802] yaw=-6.8 pitch=36.1
+2026-01-09 14:13:18,758 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1168 id=None label=None v=[-0.097, -0.873, 0.478] yaw=-11.5 pitch=60.8
+2026-01-09 14:13:19,026 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1168 ts=2026-01-09T14:13:19.025776Z people=2
+2026-01-09 14:13:19,027 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1168 id=None label=None v=[0.058, -0.489, 0.870] yaw=3.8 pitch=29.3
+2026-01-09 14:13:19,027 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1168 id=None label=None v=[-0.132, -0.807, 0.575] yaw=-13.0 pitch=53.8
+2026-01-09 14:13:19,287 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1168 ts=2026-01-09T14:13:19.286502Z people=2
+2026-01-09 14:13:19,287 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1168 id=None label=None v=[-0.014, -0.740, 0.672] yaw=-1.2 pitch=47.7
+2026-01-09 14:13:19,287 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1168 id=None label=None v=[-0.141, -0.841, 0.523] yaw=-15.1 pitch=57.2
+2026-01-09 14:13:19,553 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1168 ts=2026-01-09T14:13:19.552031Z people=2
+2026-01-09 14:13:19,553 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1168 id=left label=Left person v=[-0.129, -0.863, 0.489] yaw=-14.8 pitch=59.6
+2026-01-09 14:13:19,553 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1168 id=right label=Right person v=[-0.051, -0.681, 0.731] yaw=-4.0 pitch=42.9
+2026-01-09 14:13:21,753 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1176 ts=2026-01-09T14:13:21.752503Z people=2
+2026-01-09 14:13:21,753 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1176 id=left label=Left person v=[-0.306, -0.694, 0.652] yaw=-25.2 pitch=43.9
+2026-01-09 14:13:21,753 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1176 id=right label=Right person v=[-0.046, -0.493, 0.869] yaw=-3.0 pitch=29.5
+2026-01-09 14:13:24,486 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1184 ts=2026-01-09T14:13:24.485430Z people=2
+2026-01-09 14:13:24,486 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1184 id=left label=Left person v=[-0.685, -0.283, 0.672] yaw=-45.5 pitch=16.4
+2026-01-09 14:13:24,486 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1184 id=right label=Right person v=[-0.031, -0.386, 0.922] yaw=-1.9 pitch=22.7
+2026-01-09 14:13:25,649 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1192 ts=2026-01-09T14:13:25.648280Z people=2
+2026-01-09 14:13:25,649 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1192 id=None label=None v=[0.383, 0.079, 0.921] yaw=22.6 pitch=-4.5
+2026-01-09 14:13:25,650 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1192 id=None label=None v=[-0.603, -0.024, 0.798] yaw=-37.1 pitch=1.4
+2026-01-09 14:13:25,917 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1192 ts=2026-01-09T14:13:25.916255Z people=2
+2026-01-09 14:13:25,917 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1192 id=left label=Left person v=[-0.651, 0.087, 0.754] yaw=-40.8 pitch=-5.0
+2026-01-09 14:13:25,918 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1192 id=right label=Right person v=[0.392, 0.014, 0.920] yaw=23.1 pitch=-0.8
+2026-01-09 14:13:26,735 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1200 ts=2026-01-09T14:13:26.733785Z people=2
+2026-01-09 14:13:26,735 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1200 id=left label=Left person v=[-0.602, -0.140, 0.786] yaw=-37.4 pitch=8.1
+2026-01-09 14:13:26,735 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1200 id=right label=Right person v=[0.146, 0.525, 0.839] yaw=9.8 pitch=-31.6
+2026-01-09 14:13:27,407 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1208 ts=2026-01-09T14:13:27.406589Z people=2
+2026-01-09 14:13:27,407 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1208 id=left label=Left person v=[-0.266, -0.766, 0.585] yaw=-24.5 pitch=50.0
+2026-01-09 14:13:27,407 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1208 id=right label=Right person v=[0.197, 0.639, 0.744] yaw=14.8 pitch=-39.7
+2026-01-09 14:13:57,448 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1216 ts=2026-01-09T14:13:57.447856Z people=2
+2026-01-09 14:13:57,448 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1216 id=None label=None v=[-0.443, 0.109, 0.890] yaw=-26.5 pitch=-6.3
+2026-01-09 14:13:57,449 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1216 id=None label=None v=[0.171, 0.799, -0.577] yaw=-16.5 pitch=-127.0
+2026-01-09 14:13:57,703 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1216 ts=2026-01-09T14:13:57.698990Z people=2
+2026-01-09 14:13:57,704 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1216 id=None label=None v=[-0.418, 0.255, 0.872] yaw=-25.6 pitch=-14.8
+2026-01-09 14:13:57,704 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1216 id=None label=None v=[0.001, 1.000, -0.010] yaw=-8.2 pitch=-90.6
+2026-01-09 14:13:57,979 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1216 ts=2026-01-09T14:13:57.973614Z people=2
+2026-01-09 14:13:57,979 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1216 id=None label=None v=[-0.317, 0.458, 0.831] yaw=-20.9 pitch=-27.3
+2026-01-09 14:13:57,979 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1216 id=None label=None v=[-0.342, -0.201, 0.918] yaw=-20.4 pitch=11.6
+2026-01-09 14:13:58,217 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1216 ts=2026-01-09T14:13:58.216409Z people=2
+2026-01-09 14:13:58,217 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1216 id=None label=None v=[-0.349, 0.538, 0.767] yaw=-24.4 pitch=-32.6
+2026-01-09 14:13:58,217 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1216 id=None label=None v=[-0.240, 0.024, 0.970] yaw=-13.9 pitch=-1.4
+2026-01-09 14:13:58,469 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1216 ts=2026-01-09T14:13:58.468587Z people=2
+2026-01-09 14:13:58,469 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1216 id=None label=None v=[-0.381, 0.388, 0.839] yaw=-24.4 pitch=-22.9
+2026-01-09 14:13:58,469 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1216 id=None label=None v=[-0.200, 0.275, 0.940] yaw=-12.0 pitch=-15.9
+2026-01-09 14:13:58,725 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1216 ts=2026-01-09T14:13:58.724204Z people=2
+2026-01-09 14:13:58,725 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1216 id=None label=None v=[-0.279, 0.267, 0.923] yaw=-16.8 pitch=-15.5
+2026-01-09 14:13:58,725 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1216 id=None label=None v=[-0.500, 0.397, 0.770] yaw=-33.0 pitch=-23.4
+2026-01-09 14:13:58,965 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1216 ts=2026-01-09T14:13:58.965008Z people=2
+2026-01-09 14:13:58,966 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1216 id=None label=None v=[-0.500, 0.564, 0.658] yaw=-37.2 pitch=-34.3
+2026-01-09 14:13:58,966 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1216 id=None label=None v=[-0.197, 0.465, 0.863] yaw=-12.9 pitch=-27.7
+2026-01-09 14:13:59,222 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1216 ts=2026-01-09T14:13:59.221291Z people=2
+2026-01-09 14:13:59,222 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1216 id=None label=None v=[-0.533, -0.494, 0.688] yaw=-37.8 pitch=29.6
+2026-01-09 14:13:59,222 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1216 id=None label=None v=[-0.223, 0.260, 0.939] yaw=-13.4 pitch=-15.1
+2026-01-09 14:13:59,461 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1216 ts=2026-01-09T14:13:59.460269Z people=2
+2026-01-09 14:13:59,461 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1216 id=None label=None v=[-0.103, 0.828, 0.551] yaw=-10.6 pitch=-55.9
+2026-01-09 14:13:59,461 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1216 id=None label=None v=[-0.485, -0.453, 0.748] yaw=-32.9 pitch=27.0
+2026-01-09 14:13:59,719 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1216 ts=2026-01-09T14:13:59.718381Z people=2
+2026-01-09 14:13:59,720 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1216 id=None label=None v=[-0.254, 0.270, 0.929] yaw=-15.3 pitch=-15.7
+2026-01-09 14:13:59,720 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1216 id=None label=None v=[-0.437, -0.275, 0.857] yaw=-27.0 pitch=15.9
+2026-01-09 14:13:59,979 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1216 ts=2026-01-09T14:13:59.978082Z people=2
+2026-01-09 14:13:59,979 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1216 id=None label=None v=[-0.167, 0.590, 0.790] yaw=-11.9 pitch=-36.1
+2026-01-09 14:13:59,979 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1216 id=None label=None v=[-0.321, 0.531, 0.784] yaw=-22.3 pitch=-32.1
+2026-01-09 14:14:00,162 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1216 ts=2026-01-09T14:14:00.161692Z people=1
+2026-01-09 14:14:00,162 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1216 id=None label=None v=[-0.106, 0.617, 0.780] yaw=-7.7 pitch=-38.1
+2026-01-09 14:14:00,337 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1216 ts=2026-01-09T14:14:00.336308Z people=1
+2026-01-09 14:14:00,337 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1216 id=right label=Right person v=[-0.121, 0.739, 0.663] yaw=-10.3 pitch=-47.6
+2026-01-09 14:14:01,679 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1224 ts=2026-01-09T14:14:01.675043Z people=2
+2026-01-09 14:14:01,679 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1224 id=None label=None v=[-0.244, 0.173, 0.954] yaw=-14.3 pitch=-10.0
+2026-01-09 14:14:01,679 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1224 id=None label=None v=[-0.440, 0.483, 0.757] yaw=-30.2 pitch=-28.9
+2026-01-09 14:14:01,915 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1224 ts=2026-01-09T14:14:01.914596Z people=2
+2026-01-09 14:14:01,915 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1224 id=None label=None v=[-0.483, -0.098, 0.870] yaw=-29.0 pitch=5.6
+2026-01-09 14:14:01,915 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1224 id=None label=None v=[-0.205, 0.440, 0.874] yaw=-13.2 pitch=-26.1
+2026-01-09 14:14:02,177 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1224 ts=2026-01-09T14:14:02.176048Z people=2
+2026-01-09 14:14:02,177 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1224 id=None label=None v=[-0.508, -0.039, 0.861] yaw=-30.5 pitch=2.3
+2026-01-09 14:14:02,177 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1224 id=None label=None v=[-0.205, 0.711, 0.672] yaw=-17.0 pitch=-45.3
+2026-01-09 14:14:02,430 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1224 ts=2026-01-09T14:14:02.429153Z people=2
+2026-01-09 14:14:02,430 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1224 id=None label=None v=[-0.478, -0.463, 0.746] yaw=-32.6 pitch=27.6
+2026-01-09 14:14:02,430 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1224 id=None label=None v=[-0.151, 0.740, 0.655] yaw=-13.0 pitch=-47.8
+2026-01-09 14:14:02,700 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1224 ts=2026-01-09T14:14:02.698898Z people=2
+2026-01-09 14:14:02,700 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1224 id=left label=Left person v=[-0.478, -0.639, 0.603] yaw=-38.4 pitch=39.7
+2026-01-09 14:14:02,700 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1224 id=right label=Right person v=[0.007, 1.000, -0.026] yaw=-15.5 pitch=-91.6
+2026-01-09 14:14:05,603 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1232 ts=2026-01-09T14:14:05.601222Z people=2
+2026-01-09 14:14:05,604 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1232 id=None label=None v=[-0.208, -0.708, 0.675] yaw=-17.1 pitch=45.1
+2026-01-09 14:14:05,604 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1232 id=None label=None v=[-0.289, -0.106, 0.951] yaw=-16.9 pitch=6.1
+2026-01-09 14:14:05,835 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1232 ts=2026-01-09T14:14:05.833960Z people=2
+2026-01-09 14:14:05,835 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1232 id=left label=Left person v=[-0.272, -0.763, 0.586] yaw=-24.9 pitch=49.7
+2026-01-09 14:14:05,835 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1232 id=right label=Right person v=[-0.285, 0.090, 0.954] yaw=-16.6 pitch=-5.2
+2026-01-09 14:14:06,530 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1240 ts=2026-01-09T14:14:06.529191Z people=2
+2026-01-09 14:14:06,530 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1240 id=left label=Left person v=[-0.484, -0.546, 0.684] yaw=-35.2 pitch=33.1
+2026-01-09 14:14:06,530 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1240 id=right label=Right person v=[-0.323, 0.646, 0.692] yaw=-25.0 pitch=-40.2
+2026-01-09 14:14:07,250 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1248 ts=2026-01-09T14:14:07.249409Z people=2
+2026-01-09 14:14:07,250 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1248 id=left label=Left person v=[-0.181, -0.812, 0.554] yaw=-18.1 pitch=54.3
+2026-01-09 14:14:07,251 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1248 id=right label=Right person v=[-0.173, -0.206, 0.963] yaw=-10.2 pitch=11.9
+2026-01-09 14:14:10,071 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1256 ts=2026-01-09T14:14:10.070607Z people=2
+2026-01-09 14:14:10,071 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1256 id=None label=None v=[-0.260, -0.763, 0.592] yaw=-23.7 pitch=49.7
+2026-01-09 14:14:10,072 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1256 id=None label=None v=[-0.056, 0.084, 0.995] yaw=-3.2 pitch=-4.8
+2026-01-09 14:14:10,328 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1256 ts=2026-01-09T14:14:10.326800Z people=2
+2026-01-09 14:14:10,328 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1256 id=left label=Left person v=[-0.150, -0.743, 0.652] yaw=-13.0 pitch=48.0
+2026-01-09 14:14:10,328 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1256 id=right label=Right person v=[-0.090, -0.346, 0.934] yaw=-5.5 pitch=20.3
+2026-01-09 14:14:11,312 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1264 ts=2026-01-09T14:14:11.311679Z people=2
+2026-01-09 14:14:11,312 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1264 id=None label=None v=[-0.394, -0.539, 0.745] yaw=-27.9 pitch=32.6
+2026-01-09 14:14:11,312 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1264 id=None label=None v=[-0.255, 0.236, 0.938] yaw=-15.2 pitch=-13.7
+2026-01-09 14:14:11,536 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1264 ts=2026-01-09T14:14:11.535530Z people=2
+2026-01-09 14:14:11,536 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1264 id=None label=None v=[-0.442, -0.341, 0.830] yaw=-28.1 pitch=19.9
+2026-01-09 14:14:11,537 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1264 id=None label=None v=[-0.243, 0.079, 0.967] yaw=-14.1 pitch=-4.5
+2026-01-09 14:14:11,775 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1264 ts=2026-01-09T14:14:11.771496Z people=2
+2026-01-09 14:14:11,775 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1264 id=left label=Left person v=[-0.556, 0.316, 0.769] yaw=-35.9 pitch=-18.4
+2026-01-09 14:14:11,775 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1264 id=right label=Right person v=[-0.116, 0.196, 0.974] yaw=-6.8 pitch=-11.3
+2026-01-09 14:14:13,810 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1272 ts=2026-01-09T14:14:13.808830Z people=2
+2026-01-09 14:14:13,810 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1272 id=None label=None v=[-0.559, -0.320, 0.765] yaw=-36.2 pitch=18.7
+2026-01-09 14:14:13,810 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1272 id=None label=None v=[-0.232, 0.369, 0.900] yaw=-14.5 pitch=-21.6
+2026-01-09 14:14:14,055 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1272 ts=2026-01-09T14:14:14.054149Z people=2
+2026-01-09 14:14:14,055 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1272 id=left label=Left person v=[-0.542, -0.188, 0.819] yaw=-33.5 pitch=10.8
+2026-01-09 14:14:14,055 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1272 id=right label=Right person v=[-0.158, 0.315, 0.936] yaw=-9.6 pitch=-18.3
+2026-01-09 14:14:15,913 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1280 ts=2026-01-09T14:14:15.912165Z people=2
+2026-01-09 14:14:15,913 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1280 id=None label=None v=[-0.523, -0.476, 0.707] yaw=-36.5 pitch=28.4
+2026-01-09 14:14:15,913 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1280 id=None label=None v=[-0.238, 0.267, 0.934] yaw=-14.3 pitch=-15.5
+2026-01-09 14:14:16,177 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1280 ts=2026-01-09T14:14:16.176369Z people=2
+2026-01-09 14:14:16,177 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1280 id=None label=None v=[-0.515, -0.401, 0.758] yaw=-34.2 pitch=23.6
+2026-01-09 14:14:16,177 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1280 id=None label=None v=[-0.267, 0.158, 0.951] yaw=-15.7 pitch=-9.1
+2026-01-09 14:14:16,432 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1280 ts=2026-01-09T14:14:16.431773Z people=2
+2026-01-09 14:14:16,433 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1280 id=None label=None v=[-0.566, -0.262, 0.782] yaw=-35.9 pitch=15.2
+2026-01-09 14:14:16,433 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1280 id=None label=None v=[-0.281, 0.409, 0.868] yaw=-17.9 pitch=-24.1
+2026-01-09 14:14:16,691 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1280 ts=2026-01-09T14:14:16.685185Z people=2
+2026-01-09 14:14:16,691 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1280 id=None label=None v=[-0.619, -0.199, 0.760] yaw=-39.1 pitch=11.5
+2026-01-09 14:14:16,691 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1280 id=None label=None v=[-0.173, 0.169, 0.970] yaw=-10.1 pitch=-9.7
+2026-01-09 14:14:16,938 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1280 ts=2026-01-09T14:14:16.937389Z people=2
+2026-01-09 14:14:16,938 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1280 id=None label=None v=[-0.543, -0.279, 0.792] yaw=-34.5 pitch=16.2
+2026-01-09 14:14:16,939 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1280 id=None label=None v=[-0.233, 0.402, 0.886] yaw=-14.8 pitch=-23.7
+2026-01-09 14:14:17,171 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1280 ts=2026-01-09T14:14:17.170576Z people=2
+2026-01-09 14:14:17,171 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1280 id=None label=None v=[-0.591, -0.193, 0.783] yaw=-37.1 pitch=11.1
+2026-01-09 14:14:17,172 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1280 id=None label=None v=[-0.227, 0.317, 0.921] yaw=-13.8 pitch=-18.5
+2026-01-09 14:14:17,410 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1280 ts=2026-01-09T14:14:17.409147Z people=2
+2026-01-09 14:14:17,410 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1280 id=left label=Left person v=[-0.559, -0.200, 0.804] yaw=-34.8 pitch=11.5
+2026-01-09 14:14:17,410 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1280 id=right label=Right person v=[-0.296, 0.075, 0.952] yaw=-17.2 pitch=-4.3
+2026-01-09 14:14:18,109 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1288 ts=2026-01-09T14:14:18.108532Z people=2
+2026-01-09 14:14:18,109 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1288 id=left label=Left person v=[-0.502, -0.027, 0.864] yaw=-30.1 pitch=1.5
+2026-01-09 14:14:18,110 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1288 id=right label=Right person v=[0.022, 0.646, -0.763] yaw=-1.6 pitch=-139.8
+2026-01-09 14:14:19,010 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1296 ts=2026-01-09T14:14:19.009450Z people=2
+2026-01-09 14:14:19,010 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1296 id=left label=Left person v=[-0.718, 0.215, 0.662] yaw=-47.3 pitch=-12.4
+2026-01-09 14:14:19,010 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1296 id=right label=Right person v=[-0.240, 0.066, 0.969] yaw=-13.9 pitch=-3.8
+2026-01-09 14:14:19,663 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1304 ts=2026-01-09T14:14:19.662015Z people=2
+2026-01-09 14:14:19,663 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1304 id=left label=Left person v=[-0.695, 0.061, 0.716] yaw=-44.2 pitch=-3.5
+2026-01-09 14:14:19,663 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1304 id=right label=Right person v=[-0.120, -0.066, 0.991] yaw=-6.9 pitch=3.8
+2026-01-09 14:14:20,300 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1312 ts=2026-01-09T14:14:20.299825Z people=2
+2026-01-09 14:14:20,300 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1312 id=left label=Left person v=[-0.724, -0.034, 0.689] yaw=-46.4 pitch=1.9
+2026-01-09 14:14:20,301 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1312 id=right label=Right person v=[-0.134, 0.251, 0.959] yaw=-7.9 pitch=-14.5
+2026-01-09 14:14:20,965 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1320 ts=2026-01-09T14:14:20.964436Z people=2
+2026-01-09 14:14:20,965 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1320 id=left label=Left person v=[-0.713, 0.035, 0.701] yaw=-45.5 pitch=-2.0
+2026-01-09 14:14:20,965 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1320 id=right label=Right person v=[-0.254, 0.039, 0.966] yaw=-14.7 pitch=-2.2
+2026-01-09 14:14:21,665 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1328 ts=2026-01-09T14:14:21.664201Z people=2
+2026-01-09 14:14:21,665 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1328 id=left label=Left person v=[-0.734, -0.220, 0.643] yaw=-48.8 pitch=12.7
+2026-01-09 14:14:21,666 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1328 id=right label=Right person v=[-0.278, 0.009, 0.960] yaw=-16.2 pitch=-0.5
+2026-01-09 14:14:22,307 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1336 ts=2026-01-09T14:14:22.306475Z people=2
+2026-01-09 14:14:22,307 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1336 id=left label=Left person v=[-0.706, 0.068, 0.705] yaw=-45.1 pitch=-3.9
+2026-01-09 14:14:22,308 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1336 id=right label=Right person v=[-0.321, 0.045, 0.946] yaw=-18.7 pitch=-2.6
+2026-01-09 14:14:23,010 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1344 ts=2026-01-09T14:14:23.009762Z people=2
+2026-01-09 14:14:23,010 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1344 id=left label=Left person v=[-0.725, 0.036, 0.688] yaw=-46.5 pitch=-2.1
+2026-01-09 14:14:23,011 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1344 id=right label=Right person v=[-0.271, -0.067, 0.960] yaw=-15.8 pitch=3.8
+2026-01-09 14:14:23,698 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1352 ts=2026-01-09T14:14:23.697321Z people=2
+2026-01-09 14:14:23,698 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1352 id=left label=Left person v=[-0.681, 0.126, 0.721] yaw=-43.4 pitch=-7.2
+2026-01-09 14:14:23,698 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1352 id=right label=Right person v=[-0.213, -0.162, 0.964] yaw=-12.4 pitch=9.3
+2026-01-09 14:14:24,475 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1360 ts=2026-01-09T14:14:24.473429Z people=3
+2026-01-09 14:14:24,475 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1360 id=left label=Left person v=[-0.631, 0.313, 0.710] yaw=-41.6 pitch=-18.3
+2026-01-09 14:14:24,475 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1360 id=right label=Right person v=[-0.479, -0.276, 0.833] yaw=-29.9 pitch=16.0
+2026-01-09 14:14:24,475 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1360 id=right label=Right person v=[-0.417, 0.122, 0.901] yaw=-24.9 pitch=-7.0
+2026-01-09 14:14:25,179 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1368 ts=2026-01-09T14:14:25.177862Z people=2
+2026-01-09 14:14:25,179 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1368 id=left label=Left person v=[-0.679, -0.193, 0.708] yaw=-43.8 pitch=11.1
+2026-01-09 14:14:25,179 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1368 id=right label=Right person v=[-0.103, 0.414, 0.904] yaw=-6.5 pitch=-24.4
+2026-01-09 14:14:25,890 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1376 ts=2026-01-09T14:14:25.881714Z people=2
+2026-01-09 14:14:25,890 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1376 id=left label=Left person v=[-0.672, 0.301, 0.677] yaw=-44.8 pitch=-17.5
+2026-01-09 14:14:25,890 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1376 id=right label=Right person v=[-0.309, 0.327, 0.893] yaw=-19.1 pitch=-19.1
+2026-01-09 14:14:26,708 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1384 ts=2026-01-09T14:14:26.707244Z people=2
+2026-01-09 14:14:26,708 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1384 id=left label=Left person v=[-0.642, 0.260, 0.722] yaw=-41.6 pitch=-15.1
+2026-01-09 14:14:26,708 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1384 id=right label=Right person v=[-0.265, 0.468, 0.843] yaw=-17.4 pitch=-27.9
+2026-01-09 14:14:27,528 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1392 ts=2026-01-09T14:14:27.527766Z people=2
+2026-01-09 14:14:27,528 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1392 id=None label=None v=[-0.735, -0.055, 0.676] yaw=-47.4 pitch=3.1
+2026-01-09 14:14:27,529 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1392 id=None label=None v=[-0.072, 0.670, 0.738] yaw=-5.6 pitch=-42.1
+2026-01-09 14:14:27,756 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1392 ts=2026-01-09T14:14:27.754909Z people=2
+2026-01-09 14:14:27,756 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1392 id=None label=None v=[-0.709, -0.173, 0.684] yaw=-46.0 pitch=10.0
+2026-01-09 14:14:27,756 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1392 id=None label=None v=[-0.003, 0.926, 0.378] yaw=-0.5 pitch=-67.8
+2026-01-09 14:14:27,995 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1392 ts=2026-01-09T14:14:27.994043Z people=2
+2026-01-09 14:14:27,995 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1392 id=None label=None v=[-0.727, 0.177, 0.663] yaw=-47.6 pitch=-10.2
+2026-01-09 14:14:27,995 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1392 id=None label=None v=[-0.087, 0.168, 0.982] yaw=-5.1 pitch=-9.7
+2026-01-09 14:14:28,231 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1392 ts=2026-01-09T14:14:28.225028Z people=2
+2026-01-09 14:14:28,231 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1392 id=None label=None v=[0.039, 0.645, -0.763] yaw=-2.9 pitch=-139.8
+2026-01-09 14:14:28,231 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1392 id=None label=None v=[-0.629, -0.335, 0.701] yaw=-41.9 pitch=19.6
+2026-01-09 14:14:28,464 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1392 ts=2026-01-09T14:14:28.462626Z people=2
+2026-01-09 14:14:28,464 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1392 id=left label=Left person v=[-0.463, -0.369, 0.806] yaw=-29.9 pitch=21.7
+2026-01-09 14:14:28,464 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1392 id=right label=Right person v=[-0.259, 0.262, 0.930] yaw=-15.5 pitch=-15.2
+2026-01-09 14:14:31,144 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1400 ts=2026-01-09T14:14:31.136326Z people=4
+2026-01-09 14:14:31,145 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1400 id=None label=None v=[-0.017, -0.633, 0.774] yaw=-1.2 pitch=39.3
+2026-01-09 14:14:31,145 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1400 id=None label=None v=[-0.241, -0.735, 0.633] yaw=-20.8 pitch=47.3
+2026-01-09 14:14:31,145 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1400 id=None label=None v=[-0.362, 0.077, 0.929] yaw=-21.3 pitch=-4.4
+2026-01-09 14:14:31,145 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1400 id=None label=None v=[-0.029, 0.788, -0.615] yaw=2.7 pitch=-128.0
+2026-01-09 14:14:31,543 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1400 ts=2026-01-09T14:14:31.541598Z people=4
+2026-01-09 14:14:31,543 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1400 id=None label=None v=[-0.450, -0.582, 0.677] yaw=-33.7 pitch=35.6
+2026-01-09 14:14:31,543 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1400 id=None label=None v=[-0.487, -0.227, 0.843] yaw=-30.0 pitch=13.1
+2026-01-09 14:14:31,543 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1400 id=None label=None v=[-0.023, -0.786, 0.618] yaw=-2.2 pitch=51.8
+2026-01-09 14:14:31,543 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1400 id=None label=None v=[-0.051, -0.083, 0.995] yaw=-2.9 pitch=4.8
+2026-01-09 14:14:31,880 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1400 ts=2026-01-09T14:14:31.879336Z people=3
+2026-01-09 14:14:31,880 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1400 id=None label=None v=[-0.148, 0.364, 0.920] yaw=-9.2 pitch=-21.3
+2026-01-09 14:14:31,880 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1400 id=None label=None v=[-0.553, -0.148, 0.820] yaw=-34.0 pitch=8.5
+2026-01-09 14:14:31,880 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1400 id=None label=None v=[-0.455, -0.592, 0.665] yaw=-34.4 pitch=36.3
+2026-01-09 14:14:32,187 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1400 ts=2026-01-09T14:14:32.186755Z people=3
+2026-01-09 14:14:32,187 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1400 id=None label=None v=[-0.169, 0.368, 0.914] yaw=-10.5 pitch=-21.6
+2026-01-09 14:14:32,188 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1400 id=None label=None v=[-0.340, -0.600, 0.724] yaw=-25.2 pitch=36.9
+2026-01-09 14:14:32,188 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1400 id=None label=None v=[-0.694, 0.241, 0.678] yaw=-45.7 pitch=-14.0
+2026-01-09 14:14:32,501 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1400 ts=2026-01-09T14:14:32.500758Z people=3
+2026-01-09 14:14:32,501 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1400 id=None label=None v=[-0.025, 0.368, 0.930] yaw=-1.6 pitch=-21.6
+2026-01-09 14:14:32,502 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1400 id=None label=None v=[-0.382, 0.262, 0.886] yaw=-23.3 pitch=-15.2
+2026-01-09 14:14:32,502 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1400 id=None label=None v=[-0.665, 0.302, 0.683] yaw=-44.2 pitch=-17.6
+2026-01-09 14:14:32,857 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1400 ts=2026-01-09T14:14:32.856083Z people=3
+2026-01-09 14:14:32,857 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1400 id=None label=None v=[-0.407, -0.297, 0.864] yaw=-25.2 pitch=17.3
+2026-01-09 14:14:32,857 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1400 id=None label=None v=[-0.638, 0.172, 0.751] yaw=-40.3 pitch=-9.9
+2026-01-09 14:14:32,857 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1400 id=None label=None v=[-0.137, 0.205, 0.969] yaw=-8.1 pitch=-11.8
+2026-01-09 14:14:33,112 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1400 ts=2026-01-09T14:14:33.111712Z people=2
+2026-01-09 14:14:33,112 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1400 id=None label=None v=[-0.414, 0.023, 0.910] yaw=-24.5 pitch=-1.3
+2026-01-09 14:14:33,113 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1400 id=None label=None v=[-0.587, -0.366, 0.722] yaw=-39.1 pitch=21.4
+2026-01-09 14:14:33,383 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1400 ts=2026-01-09T14:14:33.379620Z people=2
+2026-01-09 14:14:33,383 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1400 id=None label=None v=[-0.411, -0.160, 0.897] yaw=-24.6 pitch=9.2
+2026-01-09 14:14:33,383 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1400 id=None label=None v=[-0.466, -0.610, 0.641] yaw=-36.0 pitch=37.6
+2026-01-09 14:14:33,647 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1400 ts=2026-01-09T14:14:33.645298Z people=2
+2026-01-09 14:14:33,647 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1400 id=None label=None v=[-0.273, 0.355, 0.894] yaw=-17.0 pitch=-20.8
+2026-01-09 14:14:33,647 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1400 id=None label=None v=[-0.562, -0.403, 0.722] yaw=-37.9 pitch=23.8
+2026-01-09 14:14:33,899 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1400 ts=2026-01-09T14:14:33.898413Z people=2
+2026-01-09 14:14:33,900 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1400 id=None label=None v=[-0.091, 0.970, 0.227] yaw=-21.7 pitch=-75.8
+2026-01-09 14:14:33,900 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1400 id=None label=None v=[-0.633, -0.322, 0.704] yaw=-41.9 pitch=18.8
+2026-01-09 14:14:34,155 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1400 ts=2026-01-09T14:14:34.154418Z people=2
+2026-01-09 14:14:34,155 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1400 id=None label=None v=[-0.657, 0.141, 0.740] yaw=-41.6 pitch=-8.1
+2026-01-09 14:14:34,155 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1400 id=None label=None v=[-0.272, 0.630, 0.727] yaw=-20.5 pitch=-39.1
+2026-01-09 14:14:34,426 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1400 ts=2026-01-09T14:14:34.425674Z people=2
+2026-01-09 14:14:34,426 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1400 id=None label=None v=[-0.641, -0.358, 0.679] yaw=-43.4 pitch=21.0
+2026-01-09 14:14:34,426 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1400 id=None label=None v=[-0.043, 0.992, 0.117] yaw=-20.1 pitch=-82.8
+2026-01-09 14:14:34,681 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1400 ts=2026-01-09T14:14:34.679964Z people=2
+2026-01-09 14:14:34,681 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1400 id=None label=None v=[-0.692, -0.072, 0.719] yaw=-43.9 pitch=4.1
+2026-01-09 14:14:34,681 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1400 id=None label=None v=[-0.409, 0.373, 0.833] yaw=-26.2 pitch=-21.9
+2026-01-09 14:14:34,946 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1400 ts=2026-01-09T14:14:34.945279Z people=2
+2026-01-09 14:14:34,947 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1400 id=None label=None v=[-0.654, -0.301, 0.694] yaw=-43.3 pitch=17.5
+2026-01-09 14:14:34,947 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1400 id=None label=None v=[0.060, 0.981, -0.186] yaw=-18.0 pitch=-101.3
+2026-01-09 14:14:35,186 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1400 ts=2026-01-09T14:14:35.185322Z people=2
+2026-01-09 14:14:35,186 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1400 id=None label=None v=[-0.542, -0.352, 0.763] yaw=-35.4 pitch=20.6
+2026-01-09 14:14:35,186 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1400 id=None label=None v=[-0.008, 1.000, 0.029] yaw=-15.9 pitch=-88.3
+2026-01-09 14:14:35,437 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1400 ts=2026-01-09T14:14:35.436179Z people=2
+2026-01-09 14:14:35,437 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1400 id=None label=None v=[-0.632, -0.212, 0.746] yaw=-40.3 pitch=12.2
+2026-01-09 14:14:35,437 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1400 id=None label=None v=[0.029, 0.996, -0.080] yaw=-20.2 pitch=-94.9
+2026-01-09 14:14:35,680 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1400 ts=2026-01-09T14:14:35.679788Z people=2
+2026-01-09 14:14:35,680 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1400 id=None label=None v=[-0.618, -0.254, 0.744] yaw=-39.7 pitch=14.7
+2026-01-09 14:14:35,680 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1400 id=None label=None v=[-0.024, 0.998, 0.062] yaw=-21.2 pitch=-86.2
+2026-01-09 14:14:35,927 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1400 ts=2026-01-09T14:14:35.924628Z people=2
+2026-01-09 14:14:35,927 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1400 id=None label=None v=[-0.546, -0.205, 0.812] yaw=-33.9 pitch=11.8
+2026-01-09 14:14:35,927 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1400 id=None label=None v=[-0.144, 0.921, 0.361] yaw=-21.8 pitch=-67.1
+2026-01-09 14:14:36,181 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1400 ts=2026-01-09T14:14:36.172615Z people=2
+2026-01-09 14:14:36,181 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1400 id=None label=None v=[-0.654, -0.293, 0.697] yaw=-43.2 pitch=17.0
+2026-01-09 14:14:36,181 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1400 id=None label=None v=[-0.325, 0.536, 0.779] yaw=-22.6 pitch=-32.4
+2026-01-09 14:14:36,437 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1400 ts=2026-01-09T14:14:36.436317Z people=2
+2026-01-09 14:14:36,437 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1400 id=None label=None v=[-0.601, -0.118, 0.790] yaw=-37.3 pitch=6.8
+2026-01-09 14:14:36,437 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1400 id=None label=None v=[-0.293, 0.708, 0.642] yaw=-24.5 pitch=-45.1
+2026-01-09 14:14:36,687 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1400 ts=2026-01-09T14:14:36.685979Z people=2
+2026-01-09 14:14:36,687 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1400 id=None label=None v=[-0.588, -0.419, 0.692] yaw=-40.4 pitch=24.7
+2026-01-09 14:14:36,687 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1400 id=None label=None v=[-0.072, 0.980, 0.184] yaw=-21.4 pitch=-78.6
+2026-01-09 14:14:36,931 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1400 ts=2026-01-09T14:14:36.929946Z people=2
+2026-01-09 14:14:36,931 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1400 id=None label=None v=[-0.588, -0.247, 0.771] yaw=-37.3 pitch=14.3
+2026-01-09 14:14:36,931 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1400 id=None label=None v=[-0.280, 0.737, 0.615] yaw=-24.5 pitch=-47.4
+2026-01-09 14:14:37,180 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1400 ts=2026-01-09T14:14:37.179473Z people=2
+2026-01-09 14:14:37,180 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1400 id=None label=None v=[-0.589, -0.398, 0.704] yaw=-39.9 pitch=23.5
+2026-01-09 14:14:37,180 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1400 id=None label=None v=[-0.254, 0.742, 0.620] yaw=-22.3 pitch=-47.9
+2026-01-09 14:14:37,418 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1400 ts=2026-01-09T14:14:37.417123Z people=2
+2026-01-09 14:14:37,418 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1400 id=None label=None v=[-0.344, 0.047, 0.938] yaw=-20.1 pitch=-2.7
+2026-01-09 14:14:37,418 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1400 id=None label=None v=[-0.599, -0.132, 0.790] yaw=-37.2 pitch=7.6
+2026-01-09 14:14:37,646 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1400 ts=2026-01-09T14:14:37.645610Z people=2
+2026-01-09 14:14:37,646 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1400 id=None label=None v=[-0.547, -0.502, 0.670] yaw=-39.2 pitch=30.1
+2026-01-09 14:14:37,646 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1400 id=None label=None v=[-0.396, -0.058, 0.917] yaw=-23.4 pitch=3.3
+2026-01-09 14:14:37,887 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1400 ts=2026-01-09T14:14:37.885685Z people=2
+2026-01-09 14:14:37,887 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1400 id=None label=None v=[-0.481, -0.218, 0.849] yaw=-29.5 pitch=12.6
+2026-01-09 14:14:37,888 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1400 id=None label=None v=[-0.697, -0.094, 0.711] yaw=-44.4 pitch=5.4
+2026-01-09 14:14:38,149 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1400 ts=2026-01-09T14:14:38.148180Z people=2
+2026-01-09 14:14:38,149 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1400 id=None label=None v=[-0.725, 0.217, 0.654] yaw=-47.9 pitch=-12.5
+2026-01-09 14:14:38,149 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1400 id=None label=None v=[-0.258, -0.503, 0.825] yaw=-17.4 pitch=30.2
+2026-01-09 14:14:38,393 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1400 ts=2026-01-09T14:14:38.392178Z people=2
+2026-01-09 14:14:38,393 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1400 id=None label=None v=[-0.325, -0.783, 0.530] yaw=-31.5 pitch=51.5
+2026-01-09 14:14:38,393 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1400 id=None label=None v=[-0.714, 0.171, 0.680] yaw=-46.4 pitch=-9.8
+2026-01-09 14:14:38,617 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1400 ts=2026-01-09T14:14:38.616072Z people=2
+2026-01-09 14:14:38,617 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1400 id=left label=Left person v=[-0.397, 0.813, 0.427] yaw=-42.9 pitch=-54.4
+2026-01-09 14:14:38,617 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1400 id=right label=Right person v=[-0.345, -0.774, 0.532] yaw=-32.9 pitch=50.7
+2026-01-09 14:14:48,693 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1408 ts=2026-01-09T14:14:48.691975Z people=2
+2026-01-09 14:14:48,693 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1408 id=None label=None v=[-0.220, -0.731, 0.646] yaw=-18.8 pitch=47.0
+2026-01-09 14:14:48,693 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1408 id=None label=None v=[-0.624, -0.490, 0.609] yaw=-45.7 pitch=29.4
+2026-01-09 14:14:48,956 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1408 ts=2026-01-09T14:14:48.954775Z people=2
+2026-01-09 14:14:48,956 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1408 id=left label=Left person v=[-0.575, -0.541, 0.614] yaw=-43.1 pitch=32.7
+2026-01-09 14:14:48,956 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1408 id=right label=Right person v=[-0.319, -0.713, 0.624] yaw=-27.1 pitch=45.5
+2026-01-09 14:14:53,068 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1416 ts=2026-01-09T14:14:53.067497Z people=2
+2026-01-09 14:14:53,068 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1416 id=None label=None v=[0.018, 0.999, -0.051] yaw=-19.5 pitch=-93.1
+2026-01-09 14:14:53,068 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1416 id=None label=None v=[-0.651, -0.111, 0.751] yaw=-40.9 pitch=6.4
+2026-01-09 14:14:53,319 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1416 ts=2026-01-09T14:14:53.317662Z people=2
+2026-01-09 14:14:53,319 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1416 id=None label=None v=[-0.414, 0.089, 0.906] yaw=-24.6 pitch=-5.1
+2026-01-09 14:14:53,319 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1416 id=None label=None v=[-0.582, -0.262, 0.770] yaw=-37.1 pitch=15.2
+2026-01-09 14:14:53,557 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1416 ts=2026-01-09T14:14:53.556669Z people=2
+2026-01-09 14:14:53,557 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1416 id=None label=None v=[-0.260, 0.118, 0.958] yaw=-15.2 pitch=-6.8
+2026-01-09 14:14:53,557 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1416 id=None label=None v=[-0.374, -0.435, 0.819] yaw=-24.6 pitch=25.8
+2026-01-09 14:14:53,814 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1416 ts=2026-01-09T14:14:53.813196Z people=2
+2026-01-09 14:14:53,814 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1416 id=None label=None v=[-0.343, -0.193, 0.919] yaw=-20.5 pitch=11.1
+2026-01-09 14:14:53,814 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1416 id=None label=None v=[-0.391, 0.205, 0.897] yaw=-23.6 pitch=-11.8
+2026-01-09 14:14:54,070 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1416 ts=2026-01-09T14:14:54.068525Z people=2
+2026-01-09 14:14:54,070 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1416 id=None label=None v=[-0.433, -0.308, 0.847] yaw=-27.1 pitch=18.0
+2026-01-09 14:14:54,071 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1416 id=None label=None v=[-0.328, -0.485, 0.811] yaw=-22.0 pitch=29.0
+2026-01-09 14:14:54,338 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1416 ts=2026-01-09T14:14:54.337105Z people=2
+2026-01-09 14:14:54,339 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1416 id=None label=None v=[-0.338, -0.451, 0.826] yaw=-22.3 pitch=26.8
+2026-01-09 14:14:54,339 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1416 id=None label=None v=[-0.531, -0.260, 0.807] yaw=-33.4 pitch=15.0
+2026-01-09 14:14:54,584 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1416 ts=2026-01-09T14:14:54.583103Z people=2
+2026-01-09 14:14:54,584 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1416 id=left label=Left person v=[-0.623, -0.171, 0.763] yaw=-39.3 pitch=9.8
+2026-01-09 14:14:54,584 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1416 id=right label=Right person v=[-0.320, -0.072, 0.945] yaw=-18.7 pitch=4.1
+2026-01-09 14:14:55,391 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1424 ts=2026-01-09T14:14:55.390576Z people=2
+2026-01-09 14:14:55,391 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1424 id=left label=Left person v=[-0.475, -0.278, 0.835] yaw=-29.7 pitch=16.2
+2026-01-09 14:14:55,392 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1424 id=right label=Right person v=[-0.236, -0.251, 0.939] yaw=-14.1 pitch=14.6
+2026-01-09 14:14:56,159 - INFO - BuildTower - OpenPoseThread: gaze frame_idx=1432 ts=2026-01-09T14:14:56.158232Z people=2
+2026-01-09 14:14:56,159 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1432 id=left label=Left person v=[-0.518, -0.247, 0.819] yaw=-32.3 pitch=14.3
+2026-01-09 14:14:56,160 - INFO - BuildTower - OpenPoseThread: Gaze3D frame=1432 id=right label=Right person v=[-0.265, 0.442, 0.857] yaw=-17.2 pitch=-26.2
+2026-01-09 14:14:56,507 - INFO - BuildTower - User pressed Enter. Continuing with configuration 2

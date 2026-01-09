@@ -1,0 +1,3 @@
+2025-11-14 10:21:47,540 - INFO - BuildTower - Connected to OpenPose server
+2025-11-14 10:21:47,540 - INFO - BuildTower - Connected to Gaze server
+2025-11-14 10:21:47,689 - INFO - BuildTower - Robot parameters: robot_name=my_gen3, dof=7, gripper_present=False

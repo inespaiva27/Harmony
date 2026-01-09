@@ -1,0 +1,31 @@
+2025-11-25 15:46:18,034 - INFO - BuildTower - Connected to OpenPose server
+2025-11-25 15:46:18,035 - INFO - BuildTower - Connected to Gaze server
+2025-11-25 15:46:18,184 - INFO - BuildTower - Robot parameters: robot_name=my_gen3, dof=7, gripper_present=True
+2025-11-25 15:46:18,190 - INFO - BuildTower - Service initialized: /my_gen3/base/clear_faults
+2025-11-25 15:46:18,193 - INFO - BuildTower - Service initialized: /my_gen3/base/read_action
+2025-11-25 15:46:18,195 - INFO - BuildTower - Service initialized: /my_gen3/base/execute_action
+2025-11-25 15:46:18,196 - INFO - BuildTower - Service initialized: /my_gen3/control_config/set_cartesian_reference_frame
+2025-11-25 15:46:18,198 - INFO - BuildTower - Service initialized: /my_gen3/base/activate_publishing_of_action_topic
+2025-11-25 15:46:18,201 - INFO - BuildTower - Service initialized: /my_gen3/base/send_gripper_command
+2025-11-25 15:46:18,201 - INFO - BuildTower - BuildTower class initialized successfully.
+2025-11-25 15:46:18,203 - INFO - BuildTower - ROS parameter /kortex_examples_test_results/cartesian_poses_with_notifications_python did not exist or could not be deleted.
+2025-11-25 15:46:18,203 - INFO - BuildTower - Starting main robot control loop.
+2025-11-25 15:46:18,221 - INFO - BuildTower - Robot faults cleared successfully.
+2025-11-25 15:46:20,746 - INFO - BuildTower - Cartesian reference frame set successfully.
+2025-11-25 15:46:20,749 - INFO - BuildTower - Activating action notifications.
+2025-11-25 15:46:20,754 - INFO - BuildTower - Action Notifications successfully activated.
+2025-11-25 15:46:21,775 - INFO - BuildTower - Sending robot to home position.
+2025-11-25 15:46:22,398 - INFO - BuildTower - Starting mutual gaze calibration for 5.0 seconds
+2025-11-25 15:46:27,411 - WARNING - BuildTower - Calibration collected only 0 samples (< 30). Bias may be noisy.
+2025-11-25 15:46:27,412 - ERROR - BuildTower - Calibration failed: no valid gaze samples collected.
+2025-11-25 15:46:27,412 - INFO - BuildTower - Robot moving to look at person in the right.
+2025-11-25 15:46:27,412 - INFO - BuildTower - Attempting to go to position: x=0.5, y=0.1, z=0.5, theta_x=80, theta_y=0, theta_z=105
+2025-11-25 15:46:27,413 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2025-11-25 15:46:27,422 - INFO - BuildTower - Pose action initiated, waiting for completion.
+2025-11-25 15:46:30,830 - INFO - BuildTower - Robot action ended.
+2025-11-25 15:46:34,834 - INFO - BuildTower - Robot moving to look at person in the left.
+2025-11-25 15:46:34,834 - INFO - BuildTower - Attempting to go to position: x=0.5, y=-0.1, z=0.5, theta_x=80, theta_y=0, theta_z=75
+2025-11-25 15:46:34,834 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2025-11-25 15:46:34,847 - INFO - BuildTower - Pose action initiated, waiting for completion.
+2025-11-25 15:46:40,350 - INFO - BuildTower - Robot action ended.
+2025-11-25 15:46:44,377 - INFO - BuildTower - Sending robot to home position.

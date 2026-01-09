@@ -1,0 +1,334 @@
+2025-11-28 14:52:05,502 - INFO - BuildTower - Connected to OpenPose server
+2025-11-28 14:52:05,502 - INFO - BuildTower - Connected to Gaze server
+2025-11-28 14:52:05,652 - INFO - BuildTower - Robot parameters: robot_name=my_gen3, dof=7, gripper_present=True
+2025-11-28 14:52:05,658 - INFO - BuildTower - Service initialized: /my_gen3/base/clear_faults
+2025-11-28 14:52:05,660 - INFO - BuildTower - Service initialized: /my_gen3/base/read_action
+2025-11-28 14:52:05,661 - INFO - BuildTower - Service initialized: /my_gen3/base/execute_action
+2025-11-28 14:52:05,663 - INFO - BuildTower - Service initialized: /my_gen3/control_config/set_cartesian_reference_frame
+2025-11-28 14:52:05,664 - INFO - BuildTower - Service initialized: /my_gen3/base/activate_publishing_of_action_topic
+2025-11-28 14:52:05,666 - INFO - BuildTower - Service initialized: /my_gen3/base/send_gripper_command
+2025-11-28 14:52:05,666 - INFO - BuildTower - BuildTower class initialized successfully.
+2025-11-28 14:52:05,666 - INFO - BuildTower - ROS parameter /kortex_examples_test_results/cartesian_poses_with_notifications_python did not exist or could not be deleted.
+2025-11-28 14:52:05,667 - INFO - BuildTower - Starting main robot control loop.
+2025-11-28 14:52:05,673 - INFO - BuildTower - Robot faults cleared successfully.
+2025-11-28 14:52:08,198 - INFO - BuildTower - Cartesian reference frame set successfully.
+2025-11-28 14:52:08,201 - INFO - BuildTower - Activating action notifications.
+2025-11-28 14:52:08,226 - INFO - BuildTower - Action Notifications successfully activated.
+2025-11-28 14:52:09,256 - INFO - BuildTower - Sending robot to home position.
+2025-11-28 14:52:11,137 - INFO - BuildTower - User pressed Enter. Continuing with configuration 1
+2025-11-28 14:52:11,137 - INFO - BuildTower - Parsing information from file: config2
+2025-11-28 14:52:11,138 - INFO - BuildTower - Parsed turn_order: ybypbpbpy
+
+2025-11-28 14:52:11,138 - INFO - BuildTower - Parsed object_order: 143
+
+2025-11-28 14:52:11,138 - INFO - BuildTower - Sent turn_order and waiting for response from OpenPose server.
+2025-11-28 14:52:11,138 - INFO - BuildTower - Sending turn order to OpenPose server: ybypbpbpy
+
+2025-11-28 14:52:11,139 - DEBUG - BuildTower - Gaze rx: (none available)
+2025-11-28 14:52:11,139 - DEBUG - BuildTower - Gaze rx: (none available)
+2025-11-28 14:52:11,140 - DEBUG - BuildTower - Gaze rx: (none available)
+2025-11-28 14:52:11,140 - INFO - BuildTower - Received reply from OpenPose server: Order Received
+2025-11-28 14:52:11,140 - INFO - BuildTower - Starting mutual gaze calibration for 10.0 seconds
+2025-11-28 14:52:21,142 - INFO - BuildTower - Calibration done: yaw_bias=-22.145 deg, pitch_bias=4.422 deg
+2025-11-28 14:52:21,143 - INFO - BuildTower - Robot moving to look at person in the right.
+2025-11-28 14:52:21,143 - INFO - BuildTower - Attempting to go to position: x=0.5, y=0.08, z=0.5, theta_x=80, theta_y=0, theta_z=105
+2025-11-28 14:52:21,143 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2025-11-28 14:52:21,175 - INFO - BuildTower - Pose action initiated, waiting for completion.
+2025-11-28 14:52:24,583 - INFO - BuildTower - Robot action ended.
+2025-11-28 14:52:28,587 - INFO - BuildTower - Robot moving to look at person in the left.
+2025-11-28 14:52:28,587 - INFO - BuildTower - Attempting to go to position: x=0.5, y=-0.08, z=0.5, theta_x=80, theta_y=0, theta_z=75
+2025-11-28 14:52:28,587 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2025-11-28 14:52:28,603 - INFO - BuildTower - Pose action initiated, waiting for completion.
+2025-11-28 14:52:34,107 - INFO - BuildTower - Robot action ended.
+2025-11-28 14:52:38,136 - INFO - BuildTower - Sending robot to home position.
+2025-11-28 14:52:38,750 - INFO - BuildTower - Executing turn 0 out of 9.
+2025-11-28 14:52:38,780 - INFO - BuildTower - Sending robot to home position.
+2025-11-28 14:52:39,400 - INFO - BuildTower - Moving block from start 0.28 to target 0.307. Turn: 0, Block Shape: 1
+2025-11-28 14:52:39,402 - INFO - BuildTower - Sending gripper command: value=0
+2025-11-28 14:52:39,925 - INFO - BuildTower - Gripper command 0 sent successfully.
+2025-11-28 14:52:39,927 - INFO - BuildTower - Attempting to go to position: x=0.47, y=0.18, z=0.325, theta_x=100.0, theta_y=0.0, theta_z=90.0
+2025-11-28 14:52:39,927 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2025-11-28 14:52:39,951 - INFO - BuildTower - Pose action initiated, waiting for completion.
+2025-11-28 14:52:42,785 - INFO - BuildTower - Robot action ended.
+2025-11-28 14:52:42,786 - INFO - BuildTower - Attempting to go to position: x=0.47, y=0.18, z=0.28, theta_x=100.0, theta_y=0.0, theta_z=90.0
+2025-11-28 14:52:42,786 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2025-11-28 14:52:42,801 - INFO - BuildTower - Pose action initiated, waiting for completion.
+2025-11-28 14:52:43,540 - INFO - BuildTower - Robot action ended.
+2025-11-28 14:52:43,541 - INFO - BuildTower - Sending gripper command: value=0.075
+2025-11-28 14:52:44,049 - INFO - BuildTower - Gripper command 0.075 sent successfully.
+2025-11-28 14:52:44,051 - INFO - BuildTower - Attempting to go to position: x=0.47, y=0.18, z=0.325, theta_x=100.0, theta_y=0.0, theta_z=90.0
+2025-11-28 14:52:44,051 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2025-11-28 14:52:44,081 - INFO - BuildTower - Pose action initiated, waiting for completion.
+2025-11-28 14:52:44,788 - INFO - BuildTower - Robot action ended.
+2025-11-28 14:52:44,788 - INFO - BuildTower - Attempting to go to position: x=0.735, y=0.0, z=0.352, theta_x=100.0, theta_y=0.0, theta_z=90.0
+2025-11-28 14:52:44,788 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2025-11-28 14:52:44,801 - INFO - BuildTower - Pose action initiated, waiting for completion.
+2025-11-28 14:52:48,281 - INFO - BuildTower - Robot action ended.
+2025-11-28 14:52:48,282 - INFO - BuildTower - Attempting to go to position: x=0.735, y=0.0, z=0.307, theta_x=100.0, theta_y=0.0, theta_z=90.0
+2025-11-28 14:52:48,282 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2025-11-28 14:52:48,302 - INFO - BuildTower - Pose action initiated, waiting for completion.
+2025-11-28 14:52:49,030 - INFO - BuildTower - Robot action ended.
+2025-11-28 14:52:49,033 - INFO - BuildTower - Sending gripper command: value=0
+2025-11-28 14:52:49,550 - INFO - BuildTower - Gripper command 0 sent successfully.
+2025-11-28 14:52:49,552 - INFO - BuildTower - Attempting to go to position: x=0.735, y=0.0, z=0.352, theta_x=100.0, theta_y=0.0, theta_z=90.0
+2025-11-28 14:52:49,552 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2025-11-28 14:52:49,577 - INFO - BuildTower - Pose action initiated, waiting for completion.
+2025-11-28 14:52:50,284 - INFO - BuildTower - Robot action ended.
+2025-11-28 14:52:50,284 - INFO - BuildTower - Robot completed its turn. Robot turn count: 1
+2025-11-28 14:52:50,284 - INFO - BuildTower - Executing turn 1 out of 9.
+2025-11-28 14:52:50,285 - INFO - BuildTower - Gaze rx: frame_idx=344 ts=2025-11-28T14:52:50.130803Z people=2
+2025-11-28 14:52:50,285 - INFO - BuildTower - Gaze3D rx frame=344 id=left label=Left person v=[-0.535, 0.102, 0.838] yaw=-32.6 pitch=-5.9
+2025-11-28 14:52:50,285 - INFO - BuildTower - Gaze3D rx frame=344 id=right label=Right person v=[-0.349, -0.365, 0.863] yaw=-22.0 pitch=21.4
+2025-11-28 14:52:50,285 - INFO - BuildTower - Mutual gaze detected with LEFT person -> looking at person 2.
+2025-11-28 14:52:50,285 - INFO - BuildTower - Robot moving to look at person in the left.
+2025-11-28 14:52:50,286 - INFO - BuildTower - Attempting to go to position: x=0.5, y=-0.08, z=0.5, theta_x=80, theta_y=0, theta_z=75
+2025-11-28 14:52:50,286 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2025-11-28 14:52:50,302 - INFO - BuildTower - Pose action initiated, waiting for completion.
+2025-11-28 14:52:54,941 - INFO - BuildTower - Robot action ended.
+2025-11-28 14:52:54,941 - INFO - BuildTower - Gaze rx: frame_idx=384 ts=2025-11-28T14:52:54.612761Z people=2
+2025-11-28 14:52:54,942 - INFO - BuildTower - Gaze3D rx frame=384 id=left label=Left person v=[-0.448, 0.071, 0.891] yaw=-26.7 pitch=-4.1
+2025-11-28 14:52:54,942 - INFO - BuildTower - Gaze3D rx frame=384 id=right label=Right person v=[-0.385, -0.283, 0.878] yaw=-23.7 pitch=16.4
+2025-11-28 14:52:54,942 - INFO - BuildTower - Sent 'PL: Arm Extended Check' to OpenPose server.
+2025-11-28 14:52:54,942 - DEBUG - BuildTower - Gaze rx: (none available)
+2025-11-28 14:53:01,222 - INFO - BuildTower - Gaze rx: frame_idx=444 ts=2025-11-28T14:53:01.220016Z people=2
+2025-11-28 14:53:01,222 - INFO - BuildTower - Gaze3D rx frame=444 id=left label=Left person v=[-0.367, 0.212, 0.906] yaw=-22.0 pitch=-12.3
+2025-11-28 14:53:01,222 - INFO - BuildTower - Gaze3D rx frame=444 id=right label=Right person v=[-0.288, -0.230, 0.930] yaw=-17.2 pitch=13.3
+2025-11-28 14:53:01,222 - INFO - BuildTower - Received reply from OpenPose: Left: Arm Extended
+2025-11-28 14:53:01,229 - INFO - BuildTower - Sending robot to home position.
+2025-11-28 14:53:01,852 - INFO - BuildTower - Gaze rx: frame_idx=448 ts=2025-11-28T14:53:01.673500Z people=2
+2025-11-28 14:53:01,853 - INFO - BuildTower - Gaze3D rx frame=448 id=left label=Left person v=[-0.132, 0.833, 0.538] yaw=-13.8 pitch=-56.4
+2025-11-28 14:53:01,853 - INFO - BuildTower - Gaze3D rx frame=448 id=right label=Right person v=[-0.375, -0.305, 0.875] yaw=-23.2 pitch=17.8
+2025-11-28 14:53:01,853 - INFO - BuildTower - Sent 'PL: Arm Retracted Check' to OpenPose server.
+2025-11-28 14:53:01,853 - DEBUG - BuildTower - Gaze rx: (none available)
+2025-11-28 14:53:01,861 - DEBUG - BuildTower - Gaze rx: (none available)
+2025-11-28 14:53:01,861 - INFO - BuildTower - Received reply from OpenPose: Left: Arm Retracted
+2025-11-28 14:53:01,880 - INFO - BuildTower - Sending robot to home position.
+2025-11-28 14:53:02,502 - INFO - BuildTower - Executing turn 2 out of 9.
+2025-11-28 14:53:02,530 - INFO - BuildTower - Sending robot to home position.
+2025-11-28 14:53:03,156 - INFO - BuildTower - Moving block from start 0.3 to target 0.387. Turn: 2, Block Shape: 4
+2025-11-28 14:53:03,158 - INFO - BuildTower - Sending gripper command: value=0
+2025-11-28 14:53:03,676 - INFO - BuildTower - Gripper command 0 sent successfully.
+2025-11-28 14:53:03,679 - INFO - BuildTower - Attempting to go to position: x=0.3, y=0.3, z=0.345, theta_x=100.0, theta_y=0.0, theta_z=90.0
+2025-11-28 14:53:03,679 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2025-11-28 14:53:03,703 - INFO - BuildTower - Pose action initiated, waiting for completion.
+2025-11-28 14:53:08,132 - INFO - BuildTower - Robot action ended.
+2025-11-28 14:53:08,132 - INFO - BuildTower - Attempting to go to position: x=0.3, y=0.3, z=0.3, theta_x=100.0, theta_y=0.0, theta_z=90.0
+2025-11-28 14:53:08,132 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2025-11-28 14:53:08,153 - INFO - BuildTower - Pose action initiated, waiting for completion.
+2025-11-28 14:53:08,881 - INFO - BuildTower - Robot action ended.
+2025-11-28 14:53:08,883 - INFO - BuildTower - Sending gripper command: value=0.7
+2025-11-28 14:53:09,404 - INFO - BuildTower - Gripper command 0.7 sent successfully.
+2025-11-28 14:53:09,406 - INFO - BuildTower - Attempting to go to position: x=0.3, y=0.3, z=0.435, theta_x=100.0, theta_y=0.0, theta_z=90.0
+2025-11-28 14:53:09,406 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2025-11-28 14:53:09,430 - INFO - BuildTower - Pose action initiated, waiting for completion.
+2025-11-28 14:53:11,035 - INFO - BuildTower - Robot action ended.
+2025-11-28 14:53:11,035 - INFO - BuildTower - Attempting to go to position: x=0.735, y=0.0, z=0.432, theta_x=100.0, theta_y=0.0, theta_z=90.0
+2025-11-28 14:53:11,035 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2025-11-28 14:53:11,054 - INFO - BuildTower - Pose action initiated, waiting for completion.
+2025-11-28 14:53:16,612 - INFO - BuildTower - Robot action ended.
+2025-11-28 14:53:16,612 - INFO - BuildTower - Attempting to go to position: x=0.735, y=0.0, z=0.387, theta_x=100.0, theta_y=0.0, theta_z=90.0
+2025-11-28 14:53:16,612 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2025-11-28 14:53:16,628 - INFO - BuildTower - Pose action initiated, waiting for completion.
+2025-11-28 14:53:17,366 - INFO - BuildTower - Robot action ended.
+2025-11-28 14:53:17,368 - INFO - BuildTower - Sending gripper command: value=0
+2025-11-28 14:53:17,881 - INFO - BuildTower - Gripper command 0 sent successfully.
+2025-11-28 14:53:17,884 - INFO - BuildTower - Attempting to go to position: x=0.735, y=0.0, z=0.432, theta_x=100.0, theta_y=0.0, theta_z=90.0
+2025-11-28 14:53:17,884 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2025-11-28 14:53:17,904 - INFO - BuildTower - Pose action initiated, waiting for completion.
+2025-11-28 14:53:18,632 - INFO - BuildTower - Robot action ended.
+2025-11-28 14:53:18,632 - INFO - BuildTower - Robot completed its turn. Robot turn count: 2
+2025-11-28 14:53:18,632 - INFO - BuildTower - Executing turn 3 out of 9.
+2025-11-28 14:53:18,633 - INFO - BuildTower - Gaze rx: frame_idx=596 ts=2025-11-28T14:53:18.260044Z people=2
+2025-11-28 14:53:18,633 - INFO - BuildTower - Gaze3D rx frame=596 id=left label=Left person v=[-0.622, 0.116, 0.774] yaw=-38.8 pitch=-6.7
+2025-11-28 14:53:18,633 - INFO - BuildTower - Gaze3D rx frame=596 id=right label=Right person v=[-0.387, -0.419, 0.821] yaw=-25.2 pitch=24.7
+2025-11-28 14:53:18,633 - INFO - BuildTower - No mutual gaze detected -> looking at tower as fallback.
+2025-11-28 14:53:18,634 - INFO - BuildTower - Robot moving to look at tower.
+2025-11-28 14:53:18,634 - INFO - BuildTower - Attempting to go to position: x=0.5, y=0, z=0.3, theta_x=110, theta_y=0, theta_z=90
+2025-11-28 14:53:18,634 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2025-11-28 14:53:18,656 - INFO - BuildTower - Pose action initiated, waiting for completion.
+2025-11-28 14:53:21,633 - INFO - BuildTower - Robot action ended.
+2025-11-28 14:53:21,633 - INFO - BuildTower - Gaze rx: frame_idx=624 ts=2025-11-28T14:53:21.435289Z people=2
+2025-11-28 14:53:21,633 - INFO - BuildTower - Gaze3D rx frame=624 id=left label=Left person v=[-0.513, 0.170, 0.841] yaw=-31.4 pitch=-9.8
+2025-11-28 14:53:21,634 - INFO - BuildTower - Gaze3D rx frame=624 id=right label=Right person v=[-0.387, -0.373, 0.843] yaw=-24.6 pitch=21.9
+2025-11-28 14:53:21,634 - INFO - BuildTower - Sent 'PR: Arm Extended Check' to OpenPose server.
+2025-11-28 14:53:21,634 - DEBUG - BuildTower - Gaze rx: (none available)
+2025-11-28 14:53:23,815 - INFO - BuildTower - Gaze rx: frame_idx=644 ts=2025-11-28T14:53:23.688867Z people=2
+2025-11-28 14:53:23,815 - INFO - BuildTower - Gaze3D rx frame=644 id=left label=Left person v=[-0.486, 0.109, 0.867] yaw=-29.3 pitch=-6.2
+2025-11-28 14:53:23,815 - INFO - BuildTower - Gaze3D rx frame=644 id=right label=Right person v=[-0.455, -0.187, 0.871] yaw=-27.6 pitch=10.8
+2025-11-28 14:53:23,815 - INFO - BuildTower - Received reply from OpenPose: Right: Arm Extended
+2025-11-28 14:53:23,835 - INFO - BuildTower - Sending robot to home position.
+2025-11-28 14:53:24,453 - INFO - BuildTower - Gaze rx: frame_idx=648 ts=2025-11-28T14:53:24.136130Z people=2
+2025-11-28 14:53:24,453 - INFO - BuildTower - Gaze3D rx frame=648 id=left label=Left person v=[-0.521, 0.130, 0.843] yaw=-31.7 pitch=-7.5
+2025-11-28 14:53:24,454 - INFO - BuildTower - Gaze3D rx frame=648 id=right label=Right person v=[-0.474, 0.066, 0.878] yaw=-28.3 pitch=-3.8
+2025-11-28 14:53:24,454 - INFO - BuildTower - Sent 'PR: Arm Retracted Check' to OpenPose server.
+2025-11-28 14:53:24,454 - DEBUG - BuildTower - Gaze rx: (none available)
+2025-11-28 14:53:24,569 - INFO - BuildTower - Gaze rx: frame_idx=652 ts=2025-11-28T14:53:24.567161Z people=2
+2025-11-28 14:53:24,569 - INFO - BuildTower - Gaze3D rx frame=652 id=left label=Left person v=[-0.459, 0.139, 0.877] yaw=-27.6 pitch=-8.0
+2025-11-28 14:53:24,569 - INFO - BuildTower - Gaze3D rx frame=652 id=right label=Right person v=[-0.484, 0.015, 0.875] yaw=-28.9 pitch=-0.9
+2025-11-28 14:53:24,569 - INFO - BuildTower - Received reply from OpenPose: Right: Arm Retracted
+2025-11-28 14:53:24,584 - INFO - BuildTower - Sending robot to home position.
+2025-11-28 14:53:25,204 - INFO - BuildTower - Executing turn 4 out of 9.
+2025-11-28 14:53:25,204 - INFO - BuildTower - Gaze rx: frame_idx=656 ts=2025-11-28T14:53:25.018946Z people=2
+2025-11-28 14:53:25,205 - INFO - BuildTower - Gaze3D rx frame=656 id=left label=Left person v=[-0.477, 0.105, 0.873] yaw=-28.7 pitch=-6.0
+2025-11-28 14:53:25,205 - INFO - BuildTower - Gaze3D rx frame=656 id=right label=Right person v=[-0.515, -0.122, 0.848] yaw=-31.3 pitch=7.0
+2025-11-28 14:53:25,205 - INFO - BuildTower - Mutual gaze detected with LEFT person -> looking at person 2.
+2025-11-28 14:53:25,205 - INFO - BuildTower - Robot moving to look at person in the left.
+2025-11-28 14:53:25,205 - INFO - BuildTower - Attempting to go to position: x=0.5, y=-0.08, z=0.5, theta_x=80, theta_y=0, theta_z=75
+2025-11-28 14:53:25,205 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2025-11-28 14:53:25,230 - INFO - BuildTower - Pose action initiated, waiting for completion.
+2025-11-28 14:53:28,759 - INFO - BuildTower - Robot action ended.
+2025-11-28 14:53:28,759 - INFO - BuildTower - Gaze rx: frame_idx=688 ts=2025-11-28T14:53:28.488576Z people=2
+2025-11-28 14:53:28,759 - INFO - BuildTower - Gaze3D rx frame=688 id=left label=Left person v=[-0.486, 0.163, 0.859] yaw=-29.5 pitch=-9.4
+2025-11-28 14:53:28,759 - INFO - BuildTower - Gaze3D rx frame=688 id=right label=Right person v=[-0.418, -0.149, 0.896] yaw=-25.0 pitch=8.6
+2025-11-28 14:53:28,759 - INFO - BuildTower - Sent 'PL: Arm Extended Check' to OpenPose server.
+2025-11-28 14:53:28,759 - DEBUG - BuildTower - Gaze rx: (none available)
+2025-11-28 14:53:35,119 - INFO - BuildTower - Gaze rx: frame_idx=748 ts=2025-11-28T14:53:34.933241Z people=2
+2025-11-28 14:53:35,119 - INFO - BuildTower - Gaze3D rx frame=748 id=left label=Left person v=[-0.447, 0.034, 0.894] yaw=-26.6 pitch=-1.9
+2025-11-28 14:53:35,119 - INFO - BuildTower - Gaze3D rx frame=748 id=right label=Right person v=[-0.450, -0.120, 0.885] yaw=-27.0 pitch=6.9
+2025-11-28 14:53:35,119 - INFO - BuildTower - Received reply from OpenPose: Left: Arm Extended
+2025-11-28 14:53:35,135 - INFO - BuildTower - Sending robot to home position.
+2025-11-28 14:53:35,754 - INFO - BuildTower - Gaze rx: frame_idx=752 ts=2025-11-28T14:53:35.388090Z people=2
+2025-11-28 14:53:35,755 - INFO - BuildTower - Gaze3D rx frame=752 id=left label=Left person v=[-0.355, 0.377, 0.856] yaw=-22.5 pitch=-22.2
+2025-11-28 14:53:35,755 - INFO - BuildTower - Gaze3D rx frame=752 id=right label=Right person v=[-0.376, -0.204, 0.904] yaw=-22.6 pitch=11.7
+2025-11-28 14:53:35,755 - INFO - BuildTower - Sent 'PL: Arm Retracted Check' to OpenPose server.
+2025-11-28 14:53:35,755 - DEBUG - BuildTower - Gaze rx: (none available)
+2025-11-28 14:53:35,815 - INFO - BuildTower - Gaze rx: frame_idx=756 ts=2025-11-28T14:53:35.812689Z people=2
+2025-11-28 14:53:35,815 - INFO - BuildTower - Gaze3D rx frame=756 id=left label=Left person v=[-0.433, 0.049, 0.900] yaw=-25.7 pitch=-2.8
+2025-11-28 14:53:35,815 - INFO - BuildTower - Gaze3D rx frame=756 id=right label=Right person v=[-0.417, -0.163, 0.894] yaw=-25.0 pitch=9.4
+2025-11-28 14:53:35,815 - INFO - BuildTower - Received reply from OpenPose: Left: Arm Retracted
+2025-11-28 14:53:35,835 - INFO - BuildTower - Sending robot to home position.
+2025-11-28 14:53:36,454 - INFO - BuildTower - Executing turn 5 out of 9.
+2025-11-28 14:53:36,455 - INFO - BuildTower - Gaze rx: frame_idx=760 ts=2025-11-28T14:53:36.265007Z people=2
+2025-11-28 14:53:36,455 - INFO - BuildTower - Gaze3D rx frame=760 id=left label=Left person v=[-0.421, 0.064, 0.905] yaw=-25.0 pitch=-3.7
+2025-11-28 14:53:36,455 - INFO - BuildTower - Gaze3D rx frame=760 id=right label=Right person v=[-0.427, -0.204, 0.881] yaw=-25.9 pitch=11.8
+2025-11-28 14:53:36,455 - INFO - BuildTower - Mutual gaze detected with LEFT person -> looking at person 2.
+2025-11-28 14:53:36,455 - INFO - BuildTower - Robot moving to look at person in the left.
+2025-11-28 14:53:36,456 - INFO - BuildTower - Attempting to go to position: x=0.5, y=-0.08, z=0.5, theta_x=80, theta_y=0, theta_z=75
+2025-11-28 14:53:36,456 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2025-11-28 14:53:36,482 - INFO - BuildTower - Pose action initiated, waiting for completion.
+2025-11-28 14:53:39,335 - INFO - BuildTower - Robot action ended.
+2025-11-28 14:53:39,335 - INFO - BuildTower - Gaze rx: frame_idx=784 ts=2025-11-28T14:53:38.916371Z people=2
+2025-11-28 14:53:39,336 - INFO - BuildTower - Gaze3D rx frame=784 id=left label=Left person v=[-0.592, -0.041, 0.805] yaw=-36.3 pitch=2.4
+2025-11-28 14:53:39,336 - INFO - BuildTower - Gaze3D rx frame=784 id=right label=Right person v=[-0.440, -0.156, 0.884] yaw=-26.5 pitch=9.0
+2025-11-28 14:53:39,336 - INFO - BuildTower - Sent 'PR: Arm Extended Check' to OpenPose server.
+2025-11-28 14:53:39,336 - DEBUG - BuildTower - Gaze rx: (none available)
+2025-11-28 14:53:40,337 - INFO - BuildTower - Gaze rx: frame_idx=796 ts=2025-11-28T14:53:40.275598Z people=2
+2025-11-28 14:53:40,337 - INFO - BuildTower - Gaze3D rx frame=796 id=left label=Left person v=[-0.498, 0.268, 0.825] yaw=-31.1 pitch=-15.6
+2025-11-28 14:53:40,338 - INFO - BuildTower - Gaze3D rx frame=796 id=right label=Right person v=[-0.364, -0.141, 0.921] yaw=-21.6 pitch=8.1
+2025-11-28 14:53:40,338 - INFO - BuildTower - Received reply from OpenPose: Right: Arm Extended
+2025-11-28 14:53:40,359 - INFO - BuildTower - Sending robot to home position.
+2025-11-28 14:53:40,979 - INFO - BuildTower - Gaze rx: frame_idx=800 ts=2025-11-28T14:53:40.724679Z people=2
+2025-11-28 14:53:40,980 - INFO - BuildTower - Gaze3D rx frame=800 id=left label=Left person v=[-0.512, 0.024, 0.858] yaw=-30.8 pitch=-1.4
+2025-11-28 14:53:40,980 - INFO - BuildTower - Gaze3D rx frame=800 id=right label=Right person v=[-0.353, -0.161, 0.922] yaw=-21.0 pitch=9.3
+2025-11-28 14:53:40,980 - INFO - BuildTower - Sent 'PR: Arm Retracted Check' to OpenPose server.
+2025-11-28 14:53:40,980 - DEBUG - BuildTower - Gaze rx: (none available)
+2025-11-28 14:53:41,208 - INFO - BuildTower - Gaze rx: frame_idx=804 ts=2025-11-28T14:53:41.206051Z people=2
+2025-11-28 14:53:41,209 - INFO - BuildTower - Gaze3D rx frame=804 id=left label=Left person v=[-0.487, 0.162, 0.858] yaw=-29.6 pitch=-9.3
+2025-11-28 14:53:41,209 - INFO - BuildTower - Gaze3D rx frame=804 id=right label=Right person v=[-0.424, -0.145, 0.894] yaw=-25.4 pitch=8.4
+2025-11-28 14:53:41,209 - INFO - BuildTower - Received reply from OpenPose: Right: Arm Retracted
+2025-11-28 14:53:41,233 - INFO - BuildTower - Sending robot to home position.
+2025-11-28 14:53:41,854 - INFO - BuildTower - Executing turn 6 out of 9.
+2025-11-28 14:53:41,854 - INFO - BuildTower - Gaze rx: frame_idx=808 ts=2025-11-28T14:53:41.629409Z people=2
+2025-11-28 14:53:41,862 - INFO - BuildTower - Gaze3D rx frame=808 id=left label=Left person v=[-0.476, 0.036, 0.879] yaw=-28.5 pitch=-2.1
+2025-11-28 14:53:41,862 - INFO - BuildTower - Gaze3D rx frame=808 id=right label=Right person v=[-0.461, -0.277, 0.843] yaw=-28.7 pitch=16.1
+2025-11-28 14:53:41,862 - INFO - BuildTower - Mutual gaze detected with LEFT person -> looking at person 2.
+2025-11-28 14:53:41,862 - INFO - BuildTower - Robot moving to look at person in the left.
+2025-11-28 14:53:41,862 - INFO - BuildTower - Attempting to go to position: x=0.5, y=-0.08, z=0.5, theta_x=80, theta_y=0, theta_z=75
+2025-11-28 14:53:41,862 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2025-11-28 14:53:41,880 - INFO - BuildTower - Pose action initiated, waiting for completion.
+2025-11-28 14:53:45,288 - INFO - BuildTower - Robot action ended.
+2025-11-28 14:53:45,288 - INFO - BuildTower - Gaze rx: frame_idx=840 ts=2025-11-28T14:53:45.123612Z people=2
+2025-11-28 14:53:45,288 - INFO - BuildTower - Gaze3D rx frame=840 id=left label=Left person v=[-0.495, 0.220, 0.840] yaw=-30.5 pitch=-12.7
+2025-11-28 14:53:45,288 - INFO - BuildTower - Gaze3D rx frame=840 id=right label=Right person v=[-0.409, -0.135, 0.903] yaw=-24.4 pitch=7.8
+2025-11-28 14:53:45,289 - INFO - BuildTower - Sent 'PL: Arm Extended Check' to OpenPose server.
+2025-11-28 14:53:45,289 - DEBUG - BuildTower - Gaze rx: (none available)
+2025-11-28 14:53:46,517 - INFO - BuildTower - Gaze rx: frame_idx=852 ts=2025-11-28T14:53:46.458984Z people=2
+2025-11-28 14:53:46,517 - INFO - BuildTower - Gaze3D rx frame=852 id=left label=Left person v=[-0.430, -0.123, 0.894] yaw=-25.7 pitch=7.0
+2025-11-28 14:53:46,518 - INFO - BuildTower - Gaze3D rx frame=852 id=right label=Right person v=[-0.398, -0.132, 0.908] yaw=-23.7 pitch=7.6
+2025-11-28 14:53:46,518 - INFO - BuildTower - Received reply from OpenPose: Left: Arm Extended
+2025-11-28 14:53:46,534 - INFO - BuildTower - Sending robot to home position.
+2025-11-28 14:53:47,155 - INFO - BuildTower - Gaze rx: frame_idx=856 ts=2025-11-28T14:53:46.901315Z people=2
+2025-11-28 14:53:47,156 - INFO - BuildTower - Gaze3D rx frame=856 id=left label=Left person v=[-0.406, 0.048, 0.913] yaw=-24.0 pitch=-2.8
+2025-11-28 14:53:47,156 - INFO - BuildTower - Gaze3D rx frame=856 id=right label=Right person v=[-0.378, -0.094, 0.921] yaw=-22.3 pitch=5.4
+2025-11-28 14:53:47,156 - INFO - BuildTower - Sent 'PL: Arm Retracted Check' to OpenPose server.
+2025-11-28 14:53:47,156 - DEBUG - BuildTower - Gaze rx: (none available)
+2025-11-28 14:53:47,359 - INFO - BuildTower - Gaze rx: frame_idx=860 ts=2025-11-28T14:53:47.357429Z people=2
+2025-11-28 14:53:47,359 - INFO - BuildTower - Gaze3D rx frame=860 id=left label=Left person v=[-0.388, 0.174, 0.905] yaw=-23.2 pitch=-10.0
+2025-11-28 14:53:47,359 - INFO - BuildTower - Gaze3D rx frame=860 id=right label=Right person v=[-0.458, 0.069, 0.886] yaw=-27.4 pitch=-3.9
+2025-11-28 14:53:47,359 - INFO - BuildTower - Received reply from OpenPose: Left: Arm Retracted
+2025-11-28 14:53:47,385 - INFO - BuildTower - Sending robot to home position.
+2025-11-28 14:53:48,005 - INFO - BuildTower - Executing turn 7 out of 9.
+2025-11-28 14:53:48,006 - INFO - BuildTower - Gaze rx: frame_idx=864 ts=2025-11-28T14:53:47.812723Z people=2
+2025-11-28 14:53:48,006 - INFO - BuildTower - Gaze3D rx frame=864 id=left label=Left person v=[-0.494, 0.042, 0.868] yaw=-29.6 pitch=-2.4
+2025-11-28 14:53:48,006 - INFO - BuildTower - Gaze3D rx frame=864 id=right label=Right person v=[-0.448, -0.160, 0.880] yaw=-27.0 pitch=9.2
+2025-11-28 14:53:48,006 - INFO - BuildTower - Mutual gaze detected with RIGHT person -> looking at person 1.
+2025-11-28 14:53:48,006 - INFO - BuildTower - Robot moving to look at person in the right.
+2025-11-28 14:53:48,007 - INFO - BuildTower - Attempting to go to position: x=0.5, y=0.08, z=0.5, theta_x=80, theta_y=0, theta_z=105
+2025-11-28 14:53:48,007 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2025-11-28 14:53:48,032 - INFO - BuildTower - Pose action initiated, waiting for completion.
+2025-11-28 14:53:51,441 - INFO - BuildTower - Robot action ended.
+2025-11-28 14:53:51,442 - INFO - BuildTower - Gaze rx: frame_idx=896 ts=2025-11-28T14:53:51.250968Z people=2
+2025-11-28 14:53:51,442 - INFO - BuildTower - Gaze3D rx frame=896 id=left label=Left person v=[-0.344, -0.040, 0.938] yaw=-20.1 pitch=2.3
+2025-11-28 14:53:51,442 - INFO - BuildTower - Gaze3D rx frame=896 id=right label=Right person v=[-0.397, -0.176, 0.901] yaw=-23.8 pitch=10.1
+2025-11-28 14:53:51,443 - INFO - BuildTower - Sent 'PR: Arm Extended Check' to OpenPose server.
+2025-11-28 14:53:51,443 - DEBUG - BuildTower - Gaze rx: (none available)
+2025-11-28 14:53:56,579 - INFO - BuildTower - Gaze rx: frame_idx=944 ts=2025-11-28T14:53:56.517403Z people=2
+2025-11-28 14:53:56,579 - INFO - BuildTower - Gaze3D rx frame=944 id=left label=Left person v=[-0.444, -0.016, 0.896] yaw=-26.4 pitch=0.9
+2025-11-28 14:53:56,579 - INFO - BuildTower - Gaze3D rx frame=944 id=right label=Right person v=[-0.366, -0.102, 0.925] yaw=-21.6 pitch=5.8
+2025-11-28 14:53:56,579 - INFO - BuildTower - Received reply from OpenPose: Right: Arm Extended
+2025-11-28 14:53:56,611 - INFO - BuildTower - Sending robot to home position.
+2025-11-28 14:53:57,231 - INFO - BuildTower - Gaze rx: frame_idx=948 ts=2025-11-28T14:53:56.960868Z people=2
+2025-11-28 14:53:57,231 - INFO - BuildTower - Gaze3D rx frame=948 id=left label=Left person v=[-0.417, -0.004, 0.909] yaw=-24.6 pitch=0.2
+2025-11-28 14:53:57,239 - INFO - BuildTower - Gaze3D rx frame=948 id=right label=Right person v=[-0.283, -0.014, 0.959] yaw=-16.4 pitch=0.8
+2025-11-28 14:53:57,239 - INFO - BuildTower - Sent 'PR: Arm Retracted Check' to OpenPose server.
+2025-11-28 14:53:57,239 - DEBUG - BuildTower - Gaze rx: (none available)
+2025-11-28 14:53:57,402 - INFO - BuildTower - Gaze rx: frame_idx=952 ts=2025-11-28T14:53:57.400880Z people=2
+2025-11-28 14:53:57,402 - INFO - BuildTower - Gaze3D rx frame=952 id=left label=Left person v=[-0.126, -0.190, 0.974] yaw=-7.4 pitch=11.0
+2025-11-28 14:53:57,402 - INFO - BuildTower - Gaze3D rx frame=952 id=right label=Right person v=[-0.352, -0.103, 0.930] yaw=-20.7 pitch=5.9
+2025-11-28 14:53:57,402 - INFO - BuildTower - Received reply from OpenPose: Right: Arm Retracted
+2025-11-28 14:53:57,411 - INFO - BuildTower - Sending robot to home position.
+2025-11-28 14:53:58,031 - INFO - BuildTower - Executing turn 8 out of 9.
+2025-11-28 14:53:58,060 - INFO - BuildTower - Sending robot to home position.
+2025-11-28 14:53:58,682 - INFO - BuildTower - Moving block from start 0.28 to target 0.643. Turn: 8, Block Shape: 3
+2025-11-28 14:53:58,684 - INFO - BuildTower - Sending gripper command: value=0
+2025-11-28 14:53:59,206 - INFO - BuildTower - Gripper command 0 sent successfully.
+2025-11-28 14:53:59,208 - INFO - BuildTower - Attempting to go to position: x=0.5, y=-0.2, z=0.325, theta_x=100.0, theta_y=0.0, theta_z=90.0
+2025-11-28 14:53:59,209 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2025-11-28 14:53:59,232 - INFO - BuildTower - Pose action initiated, waiting for completion.
+2025-11-28 14:54:01,917 - INFO - BuildTower - Robot action ended.
+2025-11-28 14:54:01,917 - INFO - BuildTower - Attempting to go to position: x=0.5, y=-0.2, z=0.28, theta_x=100.0, theta_y=0.0, theta_z=90.0
+2025-11-28 14:54:01,917 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2025-11-28 14:54:01,958 - INFO - BuildTower - Pose action initiated, waiting for completion.
+2025-11-28 14:54:02,686 - INFO - BuildTower - Robot action ended.
+2025-11-28 14:54:02,687 - INFO - BuildTower - Sending gripper command: value=0.2
+2025-11-28 14:54:03,206 - INFO - BuildTower - Gripper command 0.2 sent successfully.
+2025-11-28 14:54:03,209 - INFO - BuildTower - Attempting to go to position: x=0.5, y=-0.2, z=0.685, theta_x=100.0, theta_y=0.0, theta_z=90.0
+2025-11-28 14:54:03,209 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2025-11-28 14:54:03,233 - INFO - BuildTower - Pose action initiated, waiting for completion.
+2025-11-28 14:54:07,576 - INFO - BuildTower - Robot action ended.
+2025-11-28 14:54:07,576 - INFO - BuildTower - Attempting to go to position: x=0.737, y=0.0, z=0.6880000000000001, theta_x=100.0, theta_y=0.0, theta_z=90.0
+2025-11-28 14:54:07,577 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2025-11-28 14:54:07,608 - INFO - BuildTower - Pose action initiated, waiting for completion.
+2025-11-28 14:54:10,988 - INFO - BuildTower - Robot action ended.
+2025-11-28 14:54:10,988 - INFO - BuildTower - Attempting to go to position: x=0.737, y=0.0, z=0.643, theta_x=100.0, theta_y=0.0, theta_z=90.0
+2025-11-28 14:54:10,988 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2025-11-28 14:54:11,008 - INFO - BuildTower - Pose action initiated, waiting for completion.
+2025-11-28 14:54:11,746 - INFO - BuildTower - Robot action ended.
+2025-11-28 14:54:11,747 - INFO - BuildTower - Sending gripper command: value=0
+2025-11-28 14:54:12,257 - INFO - BuildTower - Gripper command 0 sent successfully.
+2025-11-28 14:54:12,259 - INFO - BuildTower - Attempting to go to position: x=0.737, y=0.0, z=0.6880000000000001, theta_x=100.0, theta_y=0.0, theta_z=90.0
+2025-11-28 14:54:12,259 - DEBUG - BuildTower - Set speed for pose: translation=1, orientation=100
+2025-11-28 14:54:12,285 - INFO - BuildTower - Pose action initiated, waiting for completion.
+2025-11-28 14:54:13,013 - INFO - BuildTower - Robot action ended.
+2025-11-28 14:54:13,013 - INFO - BuildTower - Robot completed its turn. Robot turn count: 3
+2025-11-28 14:54:13,013 - INFO - BuildTower - Configuration number 1 finished.
+2025-11-28 14:54:13,013 - INFO - BuildTower - Gaze rx: frame_idx=1088 ts=2025-11-28T14:54:12.613186Z people=2
+2025-11-28 14:54:13,014 - INFO - BuildTower - Gaze3D rx frame=1088 id=left label=Left person v=[0.055, -0.320, 0.946] yaw=3.3 pitch=18.7
+2025-11-28 14:54:13,014 - INFO - BuildTower - Gaze3D rx frame=1088 id=right label=Right person v=[0.060, -0.293, 0.954] yaw=3.6 pitch=17.0
+2025-11-28 14:54:13,014 - INFO - BuildTower - Sent 'Configuration finished' to OpenPose server.
+2025-11-28 14:54:13,014 - DEBUG - BuildTower - Gaze rx: (none available)
+2025-11-28 14:54:13,079 - INFO - BuildTower - Gaze rx: frame_idx=1092 ts=2025-11-28T14:54:13.078462Z people=2
+2025-11-28 14:54:13,080 - INFO - BuildTower - Gaze3D rx frame=1092 id=left label=Left person v=[-0.011, -0.431, 0.902] yaw=-0.7 pitch=25.5
+2025-11-28 14:54:13,080 - INFO - BuildTower - Gaze3D rx frame=1092 id=right label=Right person v=[0.149, -0.357, 0.922] yaw=9.2 pitch=20.9
+2025-11-28 14:54:13,080 - INFO - BuildTower - Received reply from OpenPose server: Received
+2025-12-02 15:38:24,372 - INFO - BuildTower - User pressed Enter. Continuing with configuration 2

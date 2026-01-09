@@ -1,0 +1,3 @@
+2025-11-14 10:21:45,091 - INFO - openpose - OpenPose server started and bound to tcp://*:5555
+2025-11-14 10:21:45,091 - INFO - openpose - OpenPose server started and bound to tcp://*:5556
+2025-11-14 10:21:45,131 - INFO - openpose - Starting OpenPose

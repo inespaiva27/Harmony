@@ -1,0 +1,31 @@
+2025-11-27 17:29:45,548 - INFO - BuildTower - Connected to OpenPose server
+2025-11-27 17:29:45,549 - INFO - BuildTower - Connected to Gaze server
+2025-11-27 17:29:45,695 - INFO - BuildTower - Robot parameters: robot_name=my_gen3, dof=7, gripper_present=True
+2025-11-27 17:29:45,700 - INFO - BuildTower - Service initialized: /my_gen3/base/clear_faults
+2025-11-27 17:29:45,702 - INFO - BuildTower - Service initialized: /my_gen3/base/read_action
+2025-11-27 17:29:45,703 - INFO - BuildTower - Service initialized: /my_gen3/base/execute_action
+2025-11-27 17:29:45,705 - INFO - BuildTower - Service initialized: /my_gen3/control_config/set_cartesian_reference_frame
+2025-11-27 17:29:45,706 - INFO - BuildTower - Service initialized: /my_gen3/base/activate_publishing_of_action_topic
+2025-11-27 17:29:45,707 - INFO - BuildTower - Service initialized: /my_gen3/base/send_gripper_command
+2025-11-27 17:29:45,708 - INFO - BuildTower - BuildTower class initialized successfully.
+2025-11-27 17:29:45,709 - INFO - BuildTower - ROS parameter /kortex_examples_test_results/cartesian_poses_with_notifications_python did not exist or could not be deleted.
+2025-11-27 17:29:45,709 - INFO - BuildTower - Starting main robot control loop.
+2025-11-27 17:29:45,715 - INFO - BuildTower - Robot faults cleared successfully.
+2025-11-27 17:29:48,240 - INFO - BuildTower - Cartesian reference frame set successfully.
+2025-11-27 17:29:48,242 - INFO - BuildTower - Activating action notifications.
+2025-11-27 17:29:48,249 - INFO - BuildTower - Action Notifications successfully activated.
+2025-11-27 17:29:49,269 - INFO - BuildTower - Sending robot to home position.
+2025-11-27 17:30:17,280 - INFO - BuildTower - User pressed Enter. Continuing with configuration 1
+2025-11-27 17:30:17,280 - INFO - BuildTower - Parsing information from file: config2
+2025-11-27 17:30:17,280 - INFO - BuildTower - Parsed turn_order: ybypbpbpy
+
+2025-11-27 17:30:17,281 - INFO - BuildTower - Parsed object_order: 143
+
+2025-11-27 17:30:17,281 - INFO - BuildTower - Sent turn_order and waiting for response from OpenPose server.
+2025-11-27 17:30:17,281 - INFO - BuildTower - Sending turn order to OpenPose server: ybypbpbpy
+
+2025-11-27 17:30:17,281 - DEBUG - BuildTower - Gaze rx: (none available)
+2025-11-27 17:30:17,282 - DEBUG - BuildTower - Gaze rx: (none available)
+2025-11-27 17:30:17,282 - DEBUG - BuildTower - Gaze rx: (none available)
+2025-11-27 17:30:17,282 - INFO - BuildTower - Received reply from OpenPose server: Order Received
+2025-11-27 17:30:17,283 - INFO - BuildTower - Starting mutual gaze calibration for 5.0 seconds

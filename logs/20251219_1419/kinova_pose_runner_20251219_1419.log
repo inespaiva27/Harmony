@@ -1,0 +1,7 @@
+2025-12-19 14:19:51,965 - INFO - PoseRunner - Pinned current thread to core 0
+2025-12-19 14:19:52,110 - INFO - PoseRunner - Robot parameters: robot_name=my_gen3, dof=7, gripper=True
+2025-12-19 14:19:52,120 - INFO - PoseRunner - All Kortex services initialized.
+2025-12-19 14:19:52,120 - INFO - PoseRunner - Running pose sequence from config: 2
+2025-12-19 14:19:54,635 - INFO - PoseRunner - Faults cleared.
+2025-12-19 14:19:54,906 - INFO - PoseRunner - Cartesian reference frame set.
+2025-12-19 14:19:55,910 - INFO - PoseRunner - Action notifications activated.
