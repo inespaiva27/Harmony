@@ -1,4 +1,0 @@
-2025-11-25 15:42:36,790 - INFO - openpose - OpenPose server started and bound to tcp://*:5555
-2025-11-25 15:42:36,790 - INFO - openpose - OpenPose server started and bound to tcp://*:5556
-2025-11-25 15:42:36,803 - INFO - openpose - Starting OpenPose
-2025-11-25 15:42:37,583 - INFO - openpose - OpenPose initialized - waiting for turn_order
