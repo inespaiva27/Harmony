@@ -1,4 +1,4 @@
-# ITI-ISR-Summer-Internship-2023
+# Harmony
 
 Controls the robotic arm Kinova Gen3 to perform a collaborative task with two other people. Uses an external camera to communicate the human actions to the robot.
 
